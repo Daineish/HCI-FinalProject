@@ -1,0 +1,883 @@
+﻿<UserControl x:Class="CPSC481Project.DayViewControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CPSC481Project"
+             mc:Ignorable="d" 
+             d:DesignHeight="900" d:DesignWidth="1120">
+    <Grid x:Name="dayview" Margin="0,0,-505,-435">
+        <Rectangle x:Name="DayViewBackground" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="900" Stroke="Black" VerticalAlignment="Top" Width="1120"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="78.203" Stroke="Black" VerticalAlignment="Top" Width="1120" Margin="0,1.797,0,0"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="105" Margin="0,78.203,0,0" Stroke="Black" VerticalAlignment="Top" Width="875"/>
+        <Label x:Name="currentDate" Content="December 10th, 2018" HorizontalAlignment="Left" Height="80" Margin="178.5,0,0,0" VerticalAlignment="Top" Width="554" FontSize="48" HorizontalContentAlignment="Center"/>
+        <Button x:Name="BackButton" Content="Back" HorizontalAlignment="Left" Height="40.203" Margin="41.5,24.5,0,0" VerticalAlignment="Top" Width="50.5" Click="OnBackButton"/>
+        <ScrollViewer HorizontalAlignment="Left" Height="686.797" Margin="-102,183.203,0,0" VerticalAlignment="Top" Width="898.083">
+            <StackPanel HorizontalAlignment="Left" Height="2069.5" VerticalAlignment="Top" Width="1071.5">
+                <Grid x:Name="hour8" Height="206">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="109*"/>
+                        <ColumnDefinition Width="159*"/>
+                    </Grid.ColumnDefinitions>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="206.166" Stroke="Black" VerticalAlignment="Top" Width="91" Margin="102.667,0,0,-0.166"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="201" Stroke="Black" VerticalAlignment="Top" Width="269" Margin="264,0,0,0" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="206.166" Stroke="Black" VerticalAlignment="Top" Width="269" Margin="97.5,0,0,0" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="206.166" Stroke="Black" VerticalAlignment="Top" Width="269" Margin="367,0,0,0" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,34.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,69,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,102,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,136.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,171,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.203,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="268.998" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.164,34.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="269.037" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.203,69,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.203,102,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.203,136.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.203,171,0,-0.166" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.286,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.201,69,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.286,102,0,0" Stroke="Black" VerticalAlignment="Top" Width="268.75" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.286,136.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="268.75" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.286,171,0,-0.166" Stroke="Black" VerticalAlignment="Top" Width="268.583" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2                                " Margin="230,34.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2                                " Margin="230,69,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2                                " Margin="230,102,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2                                " Margin="230,136.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2                                " Margin="230,171,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Label x:Name="min00" Content="00" HorizontalAlignment="Left" Height="32.917" Margin="225.159,1.666,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center" RenderTransformOrigin="0.504,0.071">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="0.385"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="0.023"/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                    <Label x:Name="min10" Content="10" HorizontalAlignment="Left" Height="32.917" Margin="225.659,36.166,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="0.385"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="0.118"/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                    <Label x:Name="min20" Content="20" HorizontalAlignment="Left" Height="32.917" Margin="225.659,70.666,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="0.385"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="0.118"/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                    <Label x:Name="min30" Content="30" HorizontalAlignment="Left" Height="32.917" Margin="225.659,103.666,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="0.385"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="0.118"/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                    <Label x:Name="min40" Content="40" HorizontalAlignment="Left" Height="33.667" Margin="225.667,139.333,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center"/>
+                    <Label x:Name="min50" Content="50" HorizontalAlignment="Left" Height="32" Margin="225.667,173,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.201,34.334,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Label x:Name="hourLbl" Content="8" HorizontalAlignment="Left" Margin="102.667,56.636,0,0" VerticalAlignment="Top" Height="95.666" Width="67" FontSize="72" HorizontalContentAlignment="Center" RenderTransformOrigin="0.504,0.143" VerticalContentAlignment="Center"/>
+                </Grid>
+                <Grid x:Name="hour9" Height="206">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="109*"/>
+                        <ColumnDefinition Width="159*"/>
+                    </Grid.ColumnDefinitions>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="206.166" Stroke="Black" VerticalAlignment="Top" Width="123" Margin="0,0,0,-0.166"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="201" Stroke="Black" VerticalAlignment="Top" Width="269" Margin="264,0,0,0" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="206.166" Stroke="Black" VerticalAlignment="Top" Width="269" Margin="97.5,0,0,0" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="206.166" Stroke="Black" VerticalAlignment="Top" Width="269" Margin="367,0,0,0" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,34.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,69,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,102,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,136.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,171,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.203,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="268.998" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.164,34.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="269.037" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.203,69,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.203,102,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.203,136.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.203,171,0,-0.166" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.286,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.201,69,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.286,102,0,0" Stroke="Black" VerticalAlignment="Top" Width="268.75" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.286,136.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="268.75" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.286,171,0,-0.166" Stroke="Black" VerticalAlignment="Top" Width="268.583" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2                                " Margin="230,34.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2                                " Margin="230,69,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2                                " Margin="230,102,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2                                " Margin="230,136.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2                                " Margin="230,171,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Label x:Name="min1" Content="00" HorizontalAlignment="Left" Height="32.917" Margin="225.159,1.666,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center" RenderTransformOrigin="0.504,0.071">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="0.385"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="0.023"/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                    <Label x:Name="min2" Content="10" HorizontalAlignment="Left" Height="32.917" Margin="225.659,36.166,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="0.385"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="0.118"/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                    <Label x:Name="min3" Content="20" HorizontalAlignment="Left" Height="32.917" Margin="225.659,70.666,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="0.385"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="0.118"/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                    <Label x:Name="min4" Content="30" HorizontalAlignment="Left" Height="32.917" Margin="225.659,103.666,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="0.385"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="0.118"/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                    <Label x:Name="min5" Content="40" HorizontalAlignment="Left" Height="33.667" Margin="225.667,139.333,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center"/>
+                    <Label x:Name="min6" Content="50" HorizontalAlignment="Left" Height="32" Margin="225.667,173,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.201,34.334,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Label x:Name="hourLbl1" Content="9" HorizontalAlignment="Left" Margin="0,42.834,0,0" VerticalAlignment="Top" Height="95.666" Width="123" FontSize="72" HorizontalContentAlignment="Center" RenderTransformOrigin="0.504,0.143" VerticalContentAlignment="Center"/>
+                </Grid>
+                <Grid x:Name="hour10" Height="206">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="109*"/>
+                        <ColumnDefinition Width="159*"/>
+                    </Grid.ColumnDefinitions>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="206.166" Stroke="Black" VerticalAlignment="Top" Width="123" Margin="0,0,0,-0.166"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="201" Stroke="Black" VerticalAlignment="Top" Width="269" Margin="264,0,0,0" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="206.166" Stroke="Black" VerticalAlignment="Top" Width="269" Margin="97.5,0,0,0" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="206.166" Stroke="Black" VerticalAlignment="Top" Width="269" Margin="367,0,0,0" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,34.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,69,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,102,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,136.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,171,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.203,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="268.998" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.164,34.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="269.037" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.203,69,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.203,102,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.203,136.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.203,171,0,-0.166" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.286,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.201,69,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.286,102,0,0" Stroke="Black" VerticalAlignment="Top" Width="268.75" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.286,136.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="268.75" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.286,171,0,-0.166" Stroke="Black" VerticalAlignment="Top" Width="268.583" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2                                " Margin="230,34.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2                                " Margin="230,69,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2                                " Margin="230,102,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2                                " Margin="230,136.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2                                " Margin="230,171,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Label x:Name="min7" Content="00" HorizontalAlignment="Left" Height="32.917" Margin="225.159,1.666,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center" RenderTransformOrigin="0.504,0.071">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="0.385"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="0.023"/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                    <Label x:Name="min8" Content="10" HorizontalAlignment="Left" Height="32.917" Margin="225.659,36.166,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="0.385"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="0.118"/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                    <Label x:Name="min9" Content="20" HorizontalAlignment="Left" Height="32.917" Margin="225.659,70.666,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="0.385"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="0.118"/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                    <Label x:Name="min11" Content="30" HorizontalAlignment="Left" Height="32.917" Margin="225.659,103.666,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="0.385"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="0.118"/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                    <Label x:Name="min12" Content="40" HorizontalAlignment="Left" Height="33.667" Margin="225.667,139.333,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center"/>
+                    <Label x:Name="min13" Content="50" HorizontalAlignment="Left" Height="32" Margin="225.667,173,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.201,34.334,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Label x:Name="hourLbl2" Content="10" HorizontalAlignment="Left" Margin="0,53.803,0,0" VerticalAlignment="Top" Height="95.666" Width="123" FontSize="72" HorizontalContentAlignment="Center" RenderTransformOrigin="0.504,0.143" VerticalContentAlignment="Center"/>
+                </Grid>
+                <Grid x:Name="hour11" Height="206">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="109*"/>
+                        <ColumnDefinition Width="159*"/>
+                    </Grid.ColumnDefinitions>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="206.166" Stroke="Black" VerticalAlignment="Top" Width="125" Margin="0,0,0,-0.166"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="201" Stroke="Black" VerticalAlignment="Top" Width="269" Margin="264,0,0,0" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="206.166" Stroke="Black" VerticalAlignment="Top" Width="269" Margin="97.5,0,0,0" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="206.166" Stroke="Black" VerticalAlignment="Top" Width="269" Margin="367,0,0,0" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,34.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,69,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,102,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,136.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,171,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.203,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="268.998" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.164,34.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="269.037" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.203,69,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.203,102,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.203,136.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.203,171,0,-0.166" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.286,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.201,69,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.286,102,0,0" Stroke="Black" VerticalAlignment="Top" Width="268.75" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.286,136.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="268.75" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.286,171,0,-0.166" Stroke="Black" VerticalAlignment="Top" Width="268.583" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2                                " Margin="230,34.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2                                " Margin="230,69,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2                                " Margin="230,102,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2                                " Margin="230,136.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2                                " Margin="230,171,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Label x:Name="min14" Content="00" HorizontalAlignment="Left" Height="32.917" Margin="225.159,1.666,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center" RenderTransformOrigin="0.504,0.071">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="0.385"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="0.023"/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                    <Label x:Name="min15" Content="10" HorizontalAlignment="Left" Height="32.917" Margin="225.659,36.166,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="0.385"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="0.118"/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                    <Label x:Name="min16" Content="20" HorizontalAlignment="Left" Height="32.917" Margin="225.659,70.666,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="0.385"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="0.118"/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                    <Label x:Name="min17" Content="30" HorizontalAlignment="Left" Height="32.917" Margin="225.659,103.666,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="0.385"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="0.118"/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                    <Label x:Name="min18" Content="40" HorizontalAlignment="Left" Height="33.667" Margin="225.667,139.333,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center"/>
+                    <Label x:Name="min19" Content="50" HorizontalAlignment="Left" Height="32" Margin="225.667,173,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.201,34.334,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Label x:Name="hourLbl3" Content="11" HorizontalAlignment="Left" Margin="61.5,42.834,0,0" VerticalAlignment="Top" Height="95.666" Width="123" FontSize="72" HorizontalContentAlignment="Center" RenderTransformOrigin="0.504,0.143" VerticalContentAlignment="Center"/>
+                </Grid>
+                <Grid x:Name="hour12" Height="206">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="109*"/>
+                        <ColumnDefinition Width="159*"/>
+                    </Grid.ColumnDefinitions>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="206.166" Stroke="Black" VerticalAlignment="Top" Width="265" Margin="0,0,0,-0.166"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="201" Stroke="Black" VerticalAlignment="Top" Width="269" Margin="264,0,0,0" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="206.166" Stroke="Black" VerticalAlignment="Top" Width="269" Margin="97.5,0,0,0" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="206.166" Stroke="Black" VerticalAlignment="Top" Width="269" Margin="367,0,0,0" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,34.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,69,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,102,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,136.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,171,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.203,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="268.998" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.164,34.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="269.037" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.203,69,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.203,102,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.203,136.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.203,171,0,-0.166" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.286,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.201,69,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.286,102,0,0" Stroke="Black" VerticalAlignment="Top" Width="268.75" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.286,136.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="268.75" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.286,171,0,-0.166" Stroke="Black" VerticalAlignment="Top" Width="268.583" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2                                " Margin="230,34.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2                                " Margin="230,69,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2                                " Margin="230,102,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2                                " Margin="230,136.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2                                " Margin="230,171,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Label x:Name="min21" Content="00" HorizontalAlignment="Left" Height="32.917" Margin="225.159,1.666,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center" RenderTransformOrigin="0.504,0.071">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="0.385"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="0.023"/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                    <Label x:Name="min22" Content="10" HorizontalAlignment="Left" Height="32.917" Margin="225.659,36.166,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="0.385"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="0.118"/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                    <Label x:Name="min23" Content="20" HorizontalAlignment="Left" Height="32.917" Margin="225.659,70.666,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="0.385"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="0.118"/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                    <Label x:Name="min24" Content="30" HorizontalAlignment="Left" Height="32.917" Margin="225.659,103.666,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="0.385"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="0.118"/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                    <Label x:Name="min25" Content="40" HorizontalAlignment="Left" Height="33.667" Margin="225.667,139.333,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center"/>
+                    <Label x:Name="min26" Content="50" HorizontalAlignment="Left" Height="32" Margin="225.667,173,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.201,34.334,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Label x:Name="hourLbl4" Content="12" HorizontalAlignment="Left" Margin="61.5,42.834,0,0" VerticalAlignment="Top" Height="95.666" Width="123" FontSize="72" HorizontalContentAlignment="Center" RenderTransformOrigin="0.504,0.143" VerticalContentAlignment="Center"/>
+                </Grid>
+                <Grid x:Name="hour1" Height="206">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="109*"/>
+                        <ColumnDefinition Width="159*"/>
+                    </Grid.ColumnDefinitions>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="206.166" Stroke="Black" VerticalAlignment="Top" Width="265" Margin="0,0,0,-0.166"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="201" Stroke="Black" VerticalAlignment="Top" Width="269" Margin="264,0,0,0" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="206.166" Stroke="Black" VerticalAlignment="Top" Width="269" Margin="97.5,0,0,0" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="206.166" Stroke="Black" VerticalAlignment="Top" Width="269" Margin="367,0,0,0" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,34.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,69,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,102,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,136.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,171,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.203,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="268.998" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.164,34.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="269.037" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.203,69,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.203,102,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.203,136.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.203,171,0,-0.166" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.286,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.201,69,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.286,102,0,0" Stroke="Black" VerticalAlignment="Top" Width="268.75" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.286,136.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="268.75" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.286,171,0,-0.166" Stroke="Black" VerticalAlignment="Top" Width="268.583" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2                                " Margin="230,34.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2                                " Margin="230,69,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2                                " Margin="230,102,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2                                " Margin="230,136.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2                                " Margin="230,171,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Label x:Name="min27" Content="00" HorizontalAlignment="Left" Height="32.917" Margin="225.159,1.666,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center" RenderTransformOrigin="0.504,0.071">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="0.385"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="0.023"/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                    <Label x:Name="min28" Content="10" HorizontalAlignment="Left" Height="32.917" Margin="225.659,36.166,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="0.385"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="0.118"/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                    <Label x:Name="min29" Content="20" HorizontalAlignment="Left" Height="32.917" Margin="225.659,70.666,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="0.385"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="0.118"/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                    <Label x:Name="min31" Content="30" HorizontalAlignment="Left" Height="32.917" Margin="225.659,103.666,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="0.385"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="0.118"/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                    <Label x:Name="min32" Content="40" HorizontalAlignment="Left" Height="33.667" Margin="225.667,139.333,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center"/>
+                    <Label x:Name="min33" Content="50" HorizontalAlignment="Left" Height="32" Margin="225.667,173,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.201,34.334,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Label x:Name="hourLbl5" Content="1" HorizontalAlignment="Left" Margin="61.5,42.834,0,0" VerticalAlignment="Top" Height="95.666" Width="123" FontSize="72" HorizontalContentAlignment="Center" RenderTransformOrigin="0.504,0.143" VerticalContentAlignment="Center"/>
+                </Grid>
+                <Grid x:Name="hour2" Height="206">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="109*"/>
+                        <ColumnDefinition Width="159*"/>
+                    </Grid.ColumnDefinitions>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="206.166" Stroke="Black" VerticalAlignment="Top" Width="265" Margin="0,0,0,-0.166"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="201" Stroke="Black" VerticalAlignment="Top" Width="269" Margin="264,0,0,0" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="206.166" Stroke="Black" VerticalAlignment="Top" Width="269" Margin="97.5,0,0,0" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="206.166" Stroke="Black" VerticalAlignment="Top" Width="269" Margin="367,0,0,0" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,34.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,69,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,102,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,136.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,171,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.203,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="268.998" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.164,34.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="269.037" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.203,69,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.203,102,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.203,136.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.203,171,0,-0.166" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.286,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.201,69,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.286,102,0,0" Stroke="Black" VerticalAlignment="Top" Width="268.75" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.286,136.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="268.75" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.286,171,0,-0.166" Stroke="Black" VerticalAlignment="Top" Width="268.583" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2                                " Margin="230,34.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2                                " Margin="230,69,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2                                " Margin="230,102,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2                                " Margin="230,136.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2                                " Margin="230,171,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Label x:Name="min34" Content="00" HorizontalAlignment="Left" Height="32.917" Margin="225.159,1.666,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center" RenderTransformOrigin="0.504,0.071">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="0.385"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="0.023"/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                    <Label x:Name="min35" Content="10" HorizontalAlignment="Left" Height="32.917" Margin="225.659,36.166,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="0.385"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="0.118"/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                    <Label x:Name="min36" Content="20" HorizontalAlignment="Left" Height="32.917" Margin="225.659,70.666,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="0.385"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="0.118"/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                    <Label x:Name="min37" Content="30" HorizontalAlignment="Left" Height="32.917" Margin="225.659,103.666,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="0.385"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="0.118"/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                    <Label x:Name="min38" Content="40" HorizontalAlignment="Left" Height="33.667" Margin="225.667,139.333,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center"/>
+                    <Label x:Name="min39" Content="50" HorizontalAlignment="Left" Height="32" Margin="225.667,173,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.201,34.334,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Label x:Name="hourLbl6" Content="2" HorizontalAlignment="Left" Margin="61.5,42.834,0,0" VerticalAlignment="Top" Height="95.666" Width="123" FontSize="72" HorizontalContentAlignment="Center" RenderTransformOrigin="0.504,0.143" VerticalContentAlignment="Center"/>
+                </Grid>
+                <Grid x:Name="hour3" Height="206">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="109*"/>
+                        <ColumnDefinition Width="159*"/>
+                    </Grid.ColumnDefinitions>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="206.166" Stroke="Black" VerticalAlignment="Top" Width="265" Margin="0,0,0,-0.166"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="201" Stroke="Black" VerticalAlignment="Top" Width="269" Margin="264,0,0,0" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="206.166" Stroke="Black" VerticalAlignment="Top" Width="269" Margin="97.5,0,0,0" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="206.166" Stroke="Black" VerticalAlignment="Top" Width="269" Margin="367,0,0,0" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,34.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,69,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,102,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,136.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,171,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.203,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="268.998" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.164,34.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="269.037" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.203,69,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.203,102,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.203,136.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.203,171,0,-0.166" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.286,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.201,69,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.286,102,0,0" Stroke="Black" VerticalAlignment="Top" Width="268.75" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.286,136.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="268.75" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.286,171,0,-0.166" Stroke="Black" VerticalAlignment="Top" Width="268.583" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2                                " Margin="230,34.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2                                " Margin="230,69,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2                                " Margin="230,102,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2                                " Margin="230,136.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2                                " Margin="230,171,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Label x:Name="min41" Content="00" HorizontalAlignment="Left" Height="32.917" Margin="225.159,1.666,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center" RenderTransformOrigin="0.504,0.071">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="0.385"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="0.023"/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                    <Label x:Name="min42" Content="10" HorizontalAlignment="Left" Height="32.917" Margin="225.659,36.166,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="0.385"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="0.118"/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                    <Label x:Name="min43" Content="20" HorizontalAlignment="Left" Height="32.917" Margin="225.659,70.666,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="0.385"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="0.118"/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                    <Label x:Name="min44" Content="30" HorizontalAlignment="Left" Height="32.917" Margin="225.659,103.666,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="0.385"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="0.118"/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                    <Label x:Name="min45" Content="40" HorizontalAlignment="Left" Height="33.667" Margin="225.667,139.333,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center"/>
+                    <Label x:Name="min46" Content="50" HorizontalAlignment="Left" Height="32" Margin="225.667,173,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.201,34.334,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Label x:Name="hourLbl7" Content="3" HorizontalAlignment="Left" Margin="61.5,42.834,0,0" VerticalAlignment="Top" Height="95.666" Width="123" FontSize="72" HorizontalContentAlignment="Center" RenderTransformOrigin="0.504,0.143" VerticalContentAlignment="Center"/>
+                </Grid>
+                <Grid x:Name="hour4" Height="206">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="109*"/>
+                        <ColumnDefinition Width="159*"/>
+                    </Grid.ColumnDefinitions>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="206.166" Stroke="Black" VerticalAlignment="Top" Width="265" Margin="0,0,0,-0.166"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="201" Stroke="Black" VerticalAlignment="Top" Width="269" Margin="264,0,0,0" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="206.166" Stroke="Black" VerticalAlignment="Top" Width="269" Margin="97.5,0,0,0" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="206.166" Stroke="Black" VerticalAlignment="Top" Width="269" Margin="367,0,0,0" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,34.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,69,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,102,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,136.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,171,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.203,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="268.998" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.164,34.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="269.037" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.203,69,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.203,102,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.203,136.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.203,171,0,-0.166" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.286,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.201,69,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.286,102,0,0" Stroke="Black" VerticalAlignment="Top" Width="268.75" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.286,136.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="268.75" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.286,171,0,-0.166" Stroke="Black" VerticalAlignment="Top" Width="268.583" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2                                " Margin="230,34.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2                                " Margin="230,69,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2                                " Margin="230,102,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2                                " Margin="230,136.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2                                " Margin="230,171,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Label x:Name="min47" Content="00" HorizontalAlignment="Left" Height="32.917" Margin="225.159,1.666,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center" RenderTransformOrigin="0.504,0.071">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="0.385"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="0.023"/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                    <Label x:Name="min48" Content="10" HorizontalAlignment="Left" Height="32.917" Margin="225.659,36.166,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="0.385"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="0.118"/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                    <Label x:Name="min49" Content="20" HorizontalAlignment="Left" Height="32.917" Margin="225.659,70.666,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="0.385"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="0.118"/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                    <Label x:Name="min51" Content="30" HorizontalAlignment="Left" Height="32.917" Margin="225.659,103.666,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="0.385"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="0.118"/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                    <Label x:Name="min52" Content="40" HorizontalAlignment="Left" Height="33.667" Margin="225.667,139.333,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center"/>
+                    <Label x:Name="min53" Content="50" HorizontalAlignment="Left" Height="32" Margin="225.667,173,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.201,34.334,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Label x:Name="hourLbl8" Content="4" HorizontalAlignment="Left" Margin="61.5,42.834,0,0" VerticalAlignment="Top" Height="95.666" Width="123" FontSize="72" HorizontalContentAlignment="Center" RenderTransformOrigin="0.504,0.143" VerticalContentAlignment="Center"/>
+                </Grid>
+                <Grid x:Name="hour5" Height="206">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="109*"/>
+                        <ColumnDefinition Width="159*"/>
+                    </Grid.ColumnDefinitions>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="206.166" Stroke="Black" VerticalAlignment="Top" Width="265" Margin="0,0,0,-0.166"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="201" Stroke="Black" VerticalAlignment="Top" Width="269" Margin="264,0,0,0" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="206.166" Stroke="Black" VerticalAlignment="Top" Width="269" Margin="97.5,0,0,0" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="206.166" Stroke="Black" VerticalAlignment="Top" Width="269" Margin="367,0,0,0" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,34.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,69,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,102,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,136.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="264,171,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.ColumnSpan="2"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.203,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="268.998" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.164,34.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="269.037" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.203,69,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.203,102,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.203,136.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="97.203,171,0,-0.166" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.286,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.201,69,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.286,102,0,0" Stroke="Black" VerticalAlignment="Top" Width="268.75" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.286,136.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="268.75" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.286,171,0,-0.166" Stroke="Black" VerticalAlignment="Top" Width="268.583" Grid.Column="1"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2                                " Margin="230,34.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2                                " Margin="230,69,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2                                " Margin="230,102,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2                                " Margin="230,136.5,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2                                " Margin="230,171,0,0" Stroke="Black" VerticalAlignment="Top" Width="35"/>
+                    <Label x:Name="min54" Content="00" HorizontalAlignment="Left" Height="32.917" Margin="225.159,1.666,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center" RenderTransformOrigin="0.504,0.071">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="0.385"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="0.023"/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                    <Label x:Name="min55" Content="10" HorizontalAlignment="Left" Height="32.917" Margin="225.659,36.166,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="0.385"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="0.118"/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                    <Label x:Name="min56" Content="20" HorizontalAlignment="Left" Height="32.917" Margin="225.659,70.666,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="0.385"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="0.118"/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                    <Label x:Name="min57" Content="30" HorizontalAlignment="Left" Height="32.917" Margin="225.659,103.666,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="0.385"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="0.118"/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                    <Label x:Name="min58" Content="40" HorizontalAlignment="Left" Height="33.667" Margin="225.667,139.333,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center"/>
+                    <Label x:Name="min59" Content="50" HorizontalAlignment="Left" Height="32" Margin="225.667,173,0,0" VerticalAlignment="Top" Width="39.333" FontSize="18" HorizontalContentAlignment="Center"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.166" Margin="366.201,34.334,0,0" Stroke="Black" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
+                    <Label x:Name="hourLbl9" Content="5" HorizontalAlignment="Left" Margin="61.5,42.834,0,0" VerticalAlignment="Top" Height="95.666" Width="123" FontSize="72" HorizontalContentAlignment="Center" RenderTransformOrigin="0.504,0.143" VerticalContentAlignment="Center"/>
+                </Grid>
+            </StackPanel>
+        </ScrollViewer>
+        <TextBlock HorizontalAlignment="Left" Height="53.5" Margin="116,102,0,0" TextWrapping="Wrap" Text="Dr. Payne" VerticalAlignment="Top" Width="204" FontSize="36"/>
+        <TextBlock HorizontalAlignment="Left" Height="53.5" Margin="297,105,0,0" TextWrapping="Wrap" Text="Dr. Lee" VerticalAlignment="Top" Width="204" FontSize="36"/>
+        <TextBlock HorizontalAlignment="Left" Height="53.5" Margin="528.5,105,0,0" TextWrapping="Wrap" Text="Dr.Walter" VerticalAlignment="Top" Width="204" FontSize="36"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="105" Margin="498.999,85,0,0" Stroke="Black" VerticalAlignment="Top" Width="2.001" RenderTransformOrigin="-1.227,0.495"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="105" Margin="290,85,0,0" Stroke="Black" VerticalAlignment="Top" Width="2"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="105" Margin="90.5,78.203,0,0" Stroke="Black" VerticalAlignment="Top" Width="1.5"/>
+        <Grid x:Name="Mini_Calendar" Margin="1081,105,0,551.333">
+            <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="389.667" Margin="0,0,0,-11.667" Stroke="Black" VerticalAlignment="Top" Width="409"/>
+            <Button Content="Prev" HorizontalAlignment="Left" Margin="42.5,31,0,0" VerticalAlignment="Top" Width="42"/>
+            <Button Content="Next" HorizontalAlignment="Left" Margin="330.5,30.833,0,0" VerticalAlignment="Top" Width="42"/>
+            <Label Content="December, 2018" HorizontalAlignment="Left" Height="37" Margin="115,19,0,0" VerticalAlignment="Top" Width="203" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label Content="Sun" HorizontalAlignment="Left" Height="37" Margin="0,68,0,0" VerticalAlignment="Top" Width="60" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="-0.458,0.378"/>
+            <Label Content="Mon" HorizontalAlignment="Left" Height="37" Margin="61,68,0,0" VerticalAlignment="Top" Width="60" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="-0.458,0.378"/>
+            <Label Content="Tue" HorizontalAlignment="Left" Height="37" Margin="119,68,0,0" VerticalAlignment="Top" Width="60" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="-0.458,0.378"/>
+            <Label Content="Wed" HorizontalAlignment="Left" Height="37" Margin="176,68,0,0" VerticalAlignment="Top" Width="58" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="-0.458,0.378"/>
+            <Label Content="Thu" HorizontalAlignment="Left" Height="37" Margin="234,68,0,0" VerticalAlignment="Top" Width="58" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="-0.458,0.378"/>
+            <Label Content="Fri" HorizontalAlignment="Left" Height="37" Margin="293,68,0,0" VerticalAlignment="Top" Width="58" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="-0.458,0.378"/>
+            <Label Content="Sat" HorizontalAlignment="Left" Height="37" Margin="351,68,0,0" VerticalAlignment="Top" Width="58" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="-0.458,0.378"/>
+            <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="553.334" Margin="0,389.667,-5.666,-550.334" Stroke="Black" VerticalAlignment="Top" Width="414.666"/>
+            <StackPanel x:Name="calendarWeekStack" HorizontalAlignment="Left" Height="288.334" Margin="-347,96.333,-61,-171" VerticalAlignment="Top" Width="408">
+                <Grid x:Name="week1" Margin="0,0,0.334,0" Height="57">
+                    <Rectangle x:Name="calendarDate" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="57" Stroke="Black" VerticalAlignment="Top" Width="59" RenderTransformOrigin="2.11,4.105"/>
+                    <Rectangle x:Name="calendarDate_Copy" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="57" Margin="58.166,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="59" RenderTransformOrigin="2.11,4.105"/>
+                    <Rectangle x:Name="calendarDate_Copy1" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="57" Margin="116,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="59" RenderTransformOrigin="2.11,4.105"/>
+                    <Rectangle x:Name="calendarDate_Copy2" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="57" Margin="174.166,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="59" RenderTransformOrigin="2.11,4.105"/>
+                    <Rectangle x:Name="calendarDate_Copy3" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="57" Margin="232.166,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="59" RenderTransformOrigin="2.11,4.105"/>
+                    <Rectangle x:Name="calendarDate_Copy4" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="57" Margin="290.5,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="59" RenderTransformOrigin="2.11,4.105"/>
+                    <Rectangle x:Name="calendarDate_Copy5" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="57" Margin="348.666,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="59" RenderTransformOrigin="2.11,4.105"/>
+                    <Label x:Name="date1" Content="" HorizontalAlignment="Left" Height="24" Margin="17.333,16.5,0,0" VerticalAlignment="Top" Width="24.667" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label x:Name="date2" Content="1" HorizontalAlignment="Left" Height="24" Margin="75.833,16.5,0,0" VerticalAlignment="Top" Width="24.667" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label x:Name="date3" Content="2" HorizontalAlignment="Left" Height="24" Margin="131.833,16.5,0,0" VerticalAlignment="Top" Width="24.667" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label x:Name="date4" Content="3" HorizontalAlignment="Left" Height="24" Margin="190.833,16.5,0,0" VerticalAlignment="Top" Width="24.667" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label x:Name="date5" Content="4" HorizontalAlignment="Left" Height="24" Margin="250.833,16.5,0,0" VerticalAlignment="Top" Width="24.667" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label x:Name="date6" Content="5" HorizontalAlignment="Left" Height="24" Margin="307.333,16.5,0,0" VerticalAlignment="Top" Width="24.667" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label x:Name="date7" Content="6" HorizontalAlignment="Left" Height="24" Margin="365.833,16.5,0,0" VerticalAlignment="Top" Width="24.667" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                </Grid>
+                <Grid x:Name="week2" Margin="0,0,0.334,0" Height="57">
+                    <Rectangle x:Name="calendarDate1" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="57" Stroke="Black" VerticalAlignment="Top" Width="59" RenderTransformOrigin="2.11,4.105"/>
+                    <Rectangle x:Name="calendarDate_Copy6" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="57" Margin="58.166,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="59" RenderTransformOrigin="2.11,4.105"/>
+                    <Rectangle x:Name="calendarDate_Copy7" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="57" Margin="116,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="59" RenderTransformOrigin="2.11,4.105"/>
+                    <Rectangle x:Name="calendarDate_Copy8" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="57" Margin="174.166,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="59" RenderTransformOrigin="2.11,4.105"/>
+                    <Rectangle x:Name="calendarDate_Copy9" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="57" Margin="232.166,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="59" RenderTransformOrigin="2.11,4.105"/>
+                    <Rectangle x:Name="calendarDate_Copy10" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="57" Margin="290.5,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="59" RenderTransformOrigin="2.11,4.105"/>
+                    <Rectangle x:Name="calendarDate_Copy11" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="57" Margin="348.666,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="59" RenderTransformOrigin="2.11,4.105"/>
+                    <Label x:Name="date8" Content="7" HorizontalAlignment="Left" Height="24" Margin="17.333,16.5,0,0" VerticalAlignment="Top" Width="24.667" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label x:Name="date9" Content="8" HorizontalAlignment="Left" Height="24" Margin="75.833,16.5,0,0" VerticalAlignment="Top" Width="24.667" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label x:Name="date10" Content="9" HorizontalAlignment="Left" Height="24" Margin="131.833,16.5,0,0" VerticalAlignment="Top" Width="24.667" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label x:Name="date11" Content="10" HorizontalAlignment="Left" Height="24" Margin="190.833,16.5,0,0" VerticalAlignment="Top" Width="24.667" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label x:Name="date12" Content="11" HorizontalAlignment="Left" Height="24" Margin="250.833,16.5,0,0" VerticalAlignment="Top" Width="24.667" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label x:Name="date13" Content="12" HorizontalAlignment="Left" Height="24" Margin="307.333,16.5,0,0" VerticalAlignment="Top" Width="24.667" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label x:Name="date14" Content="13" HorizontalAlignment="Left" Height="24" Margin="365.833,16.5,0,0" VerticalAlignment="Top" Width="24.667" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                </Grid>
+                <Grid x:Name="week3" Margin="0,0,0.334,0" Height="57">
+                    <Rectangle x:Name="calendarDate2" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="57" Stroke="Black" VerticalAlignment="Top" Width="59" RenderTransformOrigin="2.11,4.105"/>
+                    <Rectangle x:Name="calendarDate_Copy12" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="57" Margin="58.166,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="59" RenderTransformOrigin="2.11,4.105"/>
+                    <Rectangle x:Name="calendarDate_Copy13" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="57" Margin="116,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="59" RenderTransformOrigin="2.11,4.105"/>
+                    <Rectangle x:Name="calendarDate_Copy14" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="57" Margin="174.166,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="59" RenderTransformOrigin="2.11,4.105"/>
+                    <Rectangle x:Name="calendarDate_Copy15" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="57" Margin="232.166,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="59" RenderTransformOrigin="2.11,4.105"/>
+                    <Rectangle x:Name="calendarDate_Copy16" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="57" Margin="290.5,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="59" RenderTransformOrigin="2.11,4.105"/>
+                    <Rectangle x:Name="calendarDate_Copy17" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="57" Margin="348.666,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="59" RenderTransformOrigin="2.11,4.105"/>
+                    <Label x:Name="date15" Content="14" HorizontalAlignment="Left" Height="24" Margin="17.333,16.5,0,0" VerticalAlignment="Top" Width="24.667" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label x:Name="date16" Content="15" HorizontalAlignment="Left" Height="24" Margin="75.833,16.5,0,0" VerticalAlignment="Top" Width="24.667" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label x:Name="date17" Content="16" HorizontalAlignment="Left" Height="24" Margin="131.833,16.5,0,0" VerticalAlignment="Top" Width="24.667" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label x:Name="date18" Content="17" HorizontalAlignment="Left" Height="24" Margin="190.833,16.5,0,0" VerticalAlignment="Top" Width="24.667" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label x:Name="date19" Content="18" HorizontalAlignment="Left" Height="24" Margin="250.833,16.5,0,0" VerticalAlignment="Top" Width="24.667" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label x:Name="date20" Content="19" HorizontalAlignment="Left" Height="24" Margin="307.333,16.5,0,0" VerticalAlignment="Top" Width="24.667" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label x:Name="date21" Content="20" HorizontalAlignment="Left" Height="24" Margin="365.833,16.5,0,0" VerticalAlignment="Top" Width="24.667" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                </Grid>
+                <Grid x:Name="week4" Margin="0,0,0.334,0" Height="57">
+                    <Rectangle x:Name="calendarDate3" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="57" Stroke="Black" VerticalAlignment="Top" Width="59" RenderTransformOrigin="2.11,4.105"/>
+                    <Rectangle x:Name="calendarDate_Copy18" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="57" Margin="58.166,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="59" RenderTransformOrigin="2.11,4.105"/>
+                    <Rectangle x:Name="calendarDate_Copy19" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="57" Margin="116,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="59" RenderTransformOrigin="2.11,4.105"/>
+                    <Rectangle x:Name="calendarDate_Copy20" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="57" Margin="174.166,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="59" RenderTransformOrigin="2.11,4.105"/>
+                    <Rectangle x:Name="calendarDate_Copy21" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="57" Margin="232.166,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="59" RenderTransformOrigin="2.11,4.105"/>
+                    <Rectangle x:Name="calendarDate_Copy22" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="57" Margin="290.5,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="59" RenderTransformOrigin="2.11,4.105"/>
+                    <Rectangle x:Name="calendarDate_Copy23" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="57" Margin="348.666,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="59" RenderTransformOrigin="2.11,4.105"/>
+                    <Label x:Name="date22" Content="21" HorizontalAlignment="Left" Height="24" Margin="17.333,16.5,0,0" VerticalAlignment="Top" Width="24.667" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label x:Name="date23" Content="22" HorizontalAlignment="Left" Height="24" Margin="75.833,16.5,0,0" VerticalAlignment="Top" Width="24.667" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label x:Name="date24" Content="23" HorizontalAlignment="Left" Height="24" Margin="131.833,16.5,0,0" VerticalAlignment="Top" Width="24.667" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label x:Name="date25" Content="24" HorizontalAlignment="Left" Height="24" Margin="190.833,16.5,0,0" VerticalAlignment="Top" Width="24.667" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label x:Name="date26" Content="25" HorizontalAlignment="Left" Height="24" Margin="250.833,16.5,0,0" VerticalAlignment="Top" Width="24.667" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label x:Name="date27" Content="26" HorizontalAlignment="Left" Height="24" Margin="307.333,16.5,0,0" VerticalAlignment="Top" Width="24.667" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label x:Name="date28" Content="27" HorizontalAlignment="Left" Height="24" Margin="365.833,16.5,0,0" VerticalAlignment="Top" Width="24.667" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                </Grid>
+                <Grid x:Name="week5" Margin="0,0,0.334,0" Height="57">
+                    <Rectangle x:Name="calendarDate4" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="57" Stroke="Black" VerticalAlignment="Top" Width="59" RenderTransformOrigin="2.11,4.105"/>
+                    <Rectangle x:Name="calendarDate_Copy24" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="57" Margin="58.166,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="59" RenderTransformOrigin="2.11,4.105"/>
+                    <Rectangle x:Name="calendarDate_Copy25" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="57" Margin="116,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="59" RenderTransformOrigin="2.11,4.105"/>
+                    <Rectangle x:Name="calendarDate_Copy26" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="57" Margin="174.166,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="59" RenderTransformOrigin="2.11,4.105"/>
+                    <Rectangle x:Name="calendarDate_Copy27" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="57" Margin="232.166,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="59" RenderTransformOrigin="2.11,4.105"/>
+                    <Rectangle x:Name="calendarDate_Copy28" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="57" Margin="290.5,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="59" RenderTransformOrigin="2.11,4.105"/>
+                    <Rectangle x:Name="calendarDate_Copy29" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="57" Margin="348.666,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="59" RenderTransformOrigin="2.11,4.105"/>
+                    <Label x:Name="date29" Content="28" HorizontalAlignment="Left" Height="24" Margin="17.333,16.5,0,0" VerticalAlignment="Top" Width="24.667" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label x:Name="date30" Content="29" HorizontalAlignment="Left" Height="24" Margin="75.833,16.5,0,0" VerticalAlignment="Top" Width="24.667" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label x:Name="date31" Content="30" HorizontalAlignment="Left" Height="24" Margin="131.833,16.5,0,0" VerticalAlignment="Top" Width="24.667" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label x:Name="date32" Content="31" HorizontalAlignment="Left" Height="24" Margin="190.833,16.5,0,0" VerticalAlignment="Top" Width="24.667" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label x:Name="date33" Content="" HorizontalAlignment="Left" Height="24" Margin="250.833,16.5,0,0" VerticalAlignment="Top" Width="24.667" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label x:Name="date34" Content="" HorizontalAlignment="Left" Height="24" Margin="307.333,16.5,0,0" VerticalAlignment="Top" Width="24.667" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label x:Name="date35" Content="" HorizontalAlignment="Left" Height="24" Margin="365.833,16.5,0,0" VerticalAlignment="Top" Width="24.667" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                </Grid>
+            </StackPanel>
+        </Grid>
+        <Grid Margin="0,0,1010,870"/>
+    </Grid>
+</UserControl>
