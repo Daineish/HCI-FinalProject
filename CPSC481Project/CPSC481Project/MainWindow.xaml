@@ -3,10 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:CPSC481Project;assembly=CPSC481Project"
+        xmlns:local="clr-namespace:CPSC481Project"
         mc:Ignorable="d"
         Title="Medical Appointment System" Height="900" Width="1440">
-    <Grid x:Name="MainGrid" Margin="-6.5,0,2,0">
+    <Grid x:Name="MainGrid" Margin="-4,0,2,-4">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="0*"/>
@@ -19,7 +19,7 @@
             </LinearGradientBrush>
         </Grid.Background>
 
-        <Rectangle  HorizontalAlignment="Left" Height="870" Stroke="Black" VerticalAlignment="Top" Width="320" Fill="#FFF4F5F5"/>
+        <Rectangle  HorizontalAlignment="Left" Height="873" Stroke="Black" VerticalAlignment="Top" Width="354" Fill="#FFF4F5F5"/>
 
         <Label x:Name="patientLabel" Content="Patient Search" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="166" Margin="10,10,0,0" FontSize="24"/>
         <TextBox x:Name="searchField" HorizontalAlignment="Left" Height="34" TextWrapping="Wrap" VerticalAlignment="Top" Width="236" Margin="14,73,0,0" FontSize="18" MouseDoubleClick="searchClicked" Opacity="0.5" TextChanged="searchField_TextChanged"/>
@@ -40,8 +40,8 @@
                 <ImageBrush ImageSource="Images/searchButton.png"/>
             </Button.Background>
         </Button>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="44" Margin="0,412,0,0" Stroke="Black" VerticalAlignment="Top" Width="320"/>
-        <Label x:Name="recentLabel" Content="Recent Patients:" HorizontalAlignment="Left" Margin="10,412,0,0" VerticalAlignment="Top" Height="44" Width="178" FontSize="24"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="44" Margin="0,113,0,0" Stroke="Black" VerticalAlignment="Top" Width="354"/>
+        <Label x:Name="recentLabel" Content="Recent Patients:" HorizontalAlignment="Left" Margin="10,113,0,0" VerticalAlignment="Top" Height="44" Width="178" FontSize="24"/>
         <Button x:Name="addPatientButton" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40.43" Margin="269.07,10,0,0" Height="40.43" Click="addContact" RenderTransformOrigin="-1.879,0.207" BorderBrush="{x:Null}" Foreground="{x:Null}">
             <Button.Background>
                 <ImageBrush ImageSource="Images/addButton.png" Stretch="UniformToFill"/>
@@ -72,7 +72,7 @@
                     <ImageBrush ImageSource="images/clinicLogo.png"/>
                 </Image.OpacityMask>
             </Image>
-            <ListBox x:Name="walkinQueueList" HorizontalAlignment="Left" Height="177" Margin="-82.073,465.462,-72.427,-54" VerticalAlignment="Top" Width="1070.5" Grid.Row="1" Grid.ColumnSpan="2" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+            <ListBox x:Name="walkinQueueList" HorizontalAlignment="Left" Height="177" Margin="-42,467,0,-56" VerticalAlignment="Top" Width="962" Grid.Row="1" Grid.ColumnSpan="2" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Disabled">
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel IsItemsHost="True" />
@@ -89,17 +89,17 @@
                     <ImageBrush ImageSource="Images/addButton.png"/>
                 </Button.Background>
             </Button>
-            <Label Content="Walk-In Queue" HorizontalAlignment="Left" Height="60" Margin="-80.573,398.599,0,0" VerticalAlignment="Top" Width="254" FontSize="36" Grid.Row="1"/>
+            <Label Content="Walk-In Queue" HorizontalAlignment="Left" Height="60" Margin="-28,402,0,0" VerticalAlignment="Top" Width="254" FontSize="36" Grid.Row="1" Grid.ColumnSpan="2"/>
         </Grid>
-        <ScrollViewer x:Name="PatientListScrollViewer" HorizontalAlignment="Left" Height="414" Margin="0,456,0,0" VerticalAlignment="Top" Width="320" HorizontalScrollBarVisibility="Auto">
-            <StackPanel x:Name="PatientListStackPanel" Height="1227.025" Width="412">
-                <Grid x:Name="recentPgrid" MouseEnter="rpatientEnter" MouseLeave="rpatientExit" Margin="0,0,-20,0" Height="245" AllowDrop="True">
+        <ScrollViewer x:Name="PatientListScrollViewer" HorizontalAlignment="Left" Height="711" Margin="0,162,0,0" VerticalAlignment="Top" Width="354" HorizontalScrollBarVisibility="Auto">
+            <StackPanel x:Name="PatientListStackPanel" Height="1227" Width="326">
+                <Grid x:Name="recentPgrid" MouseEnter="rpatientEnter" MouseLeave="rpatientExit" Margin="-8,0,-20,0" Height="245" AllowDrop="True">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="399*"/>
                         <ColumnDefinition Width="8*"/>
                         <ColumnDefinition Width="14*"/>
                     </Grid.ColumnDefinitions>
-                    <Rectangle x:Name="rpatientBox" Fill="#FFF5F5F4" HorizontalAlignment="Left" Height="245" Stroke="Black" VerticalAlignment="Top" Width="422" Grid.ColumnSpan="3" Margin="0,0,-2,0"/>
+                    <Rectangle x:Name="rpatientBox" Fill="#FFF5F5F4" HorizontalAlignment="Left" Height="245" Stroke="Black" VerticalAlignment="Top" Width="358"/>
                     <Label x:Name="nameLbl" Content="Name:" HorizontalAlignment="Left" Height="40" Margin="16,5,0,0" VerticalAlignment="Top" Width="101" FontSize="18"/>
                     <Label x:Name="hcLbl" Content="HC#" HorizontalAlignment="Left" Height="40" Margin="16,45,0,0" VerticalAlignment="Top" Width="101" FontSize="18"/>
                     <Label x:Name="addrLbl" Content="Address:" HorizontalAlignment="Left" Height="40" Margin="16,85,0,0" VerticalAlignment="Top" Width="101" FontSize="18"/>
@@ -114,8 +114,8 @@
                     <Label x:Name="pprevLbl" Content="Dr.Lee" HorizontalAlignment="Left" Height="40" Margin="165,205,0,0" VerticalAlignment="Top" Width="129" FontSize="18" RenderTransformOrigin="0.567,-0.238" FontWeight="Bold"/>
 
                 </Grid>
-                <Grid x:Name="recentPgrid2" Height="245" Margin="0,0,-8,0" MouseEnter="rpatientEnter" MouseLeave="rpatientExit">
-                    <Rectangle x:Name="rpatientBox2" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="245" Stroke="Black" VerticalAlignment="Top" Width="422"/>
+                <Grid x:Name="recentPgrid2" Height="245" Margin="0,0,58,0" MouseEnter="rpatientEnter" MouseLeave="rpatientExit">
+                    <Rectangle x:Name="rpatientBox2" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="245" Stroke="Black" VerticalAlignment="Top" Width="428" Margin="-6,0,-154,0"/>
                     <Label x:Name="nameLbl1" Content="Name:" HorizontalAlignment="Left" Height="40" Margin="16,5,0,0" VerticalAlignment="Top" Width="101" FontSize="18"/>
                     <Label x:Name="hcLbl1" Content="HC#" HorizontalAlignment="Left" Height="40" Margin="16,45,0,0" VerticalAlignment="Top" Width="101" FontSize="18"/>
                     <Label x:Name="addrLbl1" Content="Address:" HorizontalAlignment="Left" Height="40" Margin="16,85,0,0" VerticalAlignment="Top" Width="101" FontSize="18"/>
@@ -131,7 +131,7 @@
 
                 </Grid>
                 <Grid x:Name="recentPgrid3" Margin="0,0,-330,0" Height="245" MouseEnter="rpatientEnter" MouseLeave="rpatientExit">
-                    <Rectangle x:Name="rpatientBox3" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="245" Stroke="Black" VerticalAlignment="Top" Width="422"/>
+                    <Rectangle x:Name="rpatientBox3" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="221" Stroke="Black" VerticalAlignment="Top" Width="444" Margin="-22,0,0,0"/>
                     <Label x:Name="nameLbl2" Content="Name:" HorizontalAlignment="Left" Height="40" Margin="16,5,0,0" VerticalAlignment="Top" Width="101" FontSize="18"/>
                     <Label x:Name="hcLbl2" Content="HC#" HorizontalAlignment="Left" Height="40" Margin="16,45,0,0" VerticalAlignment="Top" Width="101" FontSize="18"/>
                     <Label x:Name="addrLbl2" Content="Address:" HorizontalAlignment="Left" Height="40" Margin="16,85,0,0" VerticalAlignment="Top" Width="101" FontSize="18"/>
