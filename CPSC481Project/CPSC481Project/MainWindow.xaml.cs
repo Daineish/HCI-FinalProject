@@ -25,7 +25,7 @@ namespace CPSC481Project
     public partial class MainWindow : Window
     {
         Random rnd = new Random();
-        String[] names = { "Jason","Marge", "Eddie", "Nicky", "Alex", "Jason", "Jessy", "Sally", "Misty", "Sam", "Ron", "Ted", "Jenny", "Nancy", "Sophia", "Steve", "Adam", "Kyle", "Kevin", "Ricky", "Eunice", "Jane", "Mike", "Noah", "William", "David", "Mary", "Patricia", "Linda", "Barbara", "Susan", "Elizabeth" };
+        String[] names = { "Jason", "Marge", "Eddie", "Nicky", "Alex", "Jason", "Jessy", "Sally", "Misty", "Sam", "Ron", "Ted", "Jenny", "Nancy", "Sophia", "Steve", "Adam", "Kyle", "Kevin", "Ricky", "Eunice", "Jane", "Mike", "Noah", "William", "David", "Mary", "Patricia", "Linda", "Barbara", "Susan", "Elizabeth" };
         String[] lastnames = { "Adam", "Johnson", "Williamson", "Smith", "Wong", "Nguyen", "Tran", "Lee", "Isaac", "Liamson", "Ronald", "Donald", "McDonald", "Davidson", "Larson" };
         String[] doctors = { "Dr.Lee", "Dr.Walter", "Dr.Payne" };
         String[] domain = { "@hotmail.com", "@gmail.com", "@gmail.ca", "@yahoo.ca", "@yahoo.com", "@shaw.ca", "@gmail.ca", "@live.ca", "@live.com" };
@@ -38,13 +38,15 @@ namespace CPSC481Project
         Patient m_currentPatient;
         Boolean selectedMode;
         PatientDatabase m_patientDatabase;
-		AppointmentDatabase m_appointmentDatabase;
+        AppointmentDatabase m_appointmentDatabase;
+        DayViewControl m_dayViewControl;
+
         public MainWindow()
         {
             setTimer();
             InitializeComponent();
             m_patientDatabase = new PatientDatabase();
-			m_appointmentDatabase = new AppointmentDatabase();
+            m_appointmentDatabase = new AppointmentDatabase();
 
             //get current date for dashboard
             DashDate.Content = month.ElementAt(_DisplayStartDate.Month - 1) + " " + _DisplayStartDate.Day + ", " + _DisplayStartDate.Year;
@@ -78,7 +80,7 @@ namespace CPSC481Project
 
             PopulateDefaultInfo();
 
-            
+
         }
 
         /**
@@ -173,7 +175,7 @@ namespace CPSC481Project
                 this.DashTime.Content = hour + ":" + DateTime.Now.Minute + ":" + DateTime.Now.Second + apm;
                 this.DashDate.Content = month.ElementAt(DateTime.Now.Month - 1) + " " + DateTime.Now.Day + ", " + DateTime.Now.Year;
             });
-            
+
         }
 
         private void searchClicked(object sender, MouseButtonEventArgs e)
@@ -191,7 +193,7 @@ namespace CPSC481Project
             PatientListStackPanel.Children.Clear();
             recentLabel.Content = "Patient Search";
             //This checks to see if our searchField isnt empty and if information is inputted correctly.
-            if(searchField.Text != "Search (Healthcare #, Name)" & searchField.Text != "")
+            if (searchField.Text != "Search (Healthcare #, Name)" & searchField.Text != "")
             {
                 //Test example
                 //patientLabel.Content = "Hi";
@@ -271,11 +273,11 @@ namespace CPSC481Project
 
         private void rpatientExit(object sender, MouseEventArgs e)
         {
-            if(sender == recentPgrid)
+            if (sender == recentPgrid)
             {
                 rpatientBox.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 255));
             }
-            if(sender == recentPgrid2)
+            if (sender == recentPgrid2)
             {
                 rpatientBox2.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 255));
             }
@@ -305,29 +307,29 @@ namespace CPSC481Project
         private Grid CreateGrid(Patient p, Boolean isSearch = true)
         {
             Grid g = new Grid();
-            Label nameL  = new Label();
-            Label hcL    = new Label();
-            Label addyL  = new Label();
+            Label nameL = new Label();
+            Label hcL = new Label();
+            Label addyL = new Label();
             Label emailL = new Label();
             Label phoneL = new Label();
 
-            nameL.Content =  "Name:";    nameL.Height  = 40; nameL.Margin  = new Thickness(16,  5,0,0); nameL.Width  = 101; nameL.FontSize  = 18; nameL.HorizontalAlignment  = HorizontalAlignment.Left; nameL.VerticalAlignment  = VerticalAlignment.Top;
-            hcL.Content =    "HC#:";     hcL.Height    = 40; hcL.Margin    = new Thickness(16, 45,0,0); hcL.Width    = 101; hcL.FontSize    = 18; hcL.HorizontalAlignment    = HorizontalAlignment.Left; hcL.VerticalAlignment    = VerticalAlignment.Top;
-            addyL.Content =  "Address:"; addyL.Height  = 40; addyL.Margin  = new Thickness(16, 85,0,0); addyL.Width  = 101; addyL.FontSize  = 18; addyL.HorizontalAlignment  = HorizontalAlignment.Left; addyL.VerticalAlignment  = VerticalAlignment.Top;
-            emailL.Content = "Email:";   emailL.Height = 40; emailL.Margin = new Thickness(16,125,0,0); emailL.Width = 101; emailL.FontSize = 18; emailL.HorizontalAlignment = HorizontalAlignment.Left; emailL.VerticalAlignment = VerticalAlignment.Top;
-            phoneL.Content = "Phone:";   phoneL.Height = 40; phoneL.Margin = new Thickness(16,165,0,0); phoneL.Width = 101; phoneL.FontSize = 18; phoneL.HorizontalAlignment = HorizontalAlignment.Left; phoneL.VerticalAlignment = VerticalAlignment.Top;
+            nameL.Content = "Name:"; nameL.Height = 40; nameL.Margin = new Thickness(16, 5, 0, 0); nameL.Width = 101; nameL.FontSize = 18; nameL.HorizontalAlignment = HorizontalAlignment.Left; nameL.VerticalAlignment = VerticalAlignment.Top;
+            hcL.Content = "HC#:"; hcL.Height = 40; hcL.Margin = new Thickness(16, 45, 0, 0); hcL.Width = 101; hcL.FontSize = 18; hcL.HorizontalAlignment = HorizontalAlignment.Left; hcL.VerticalAlignment = VerticalAlignment.Top;
+            addyL.Content = "Address:"; addyL.Height = 40; addyL.Margin = new Thickness(16, 85, 0, 0); addyL.Width = 101; addyL.FontSize = 18; addyL.HorizontalAlignment = HorizontalAlignment.Left; addyL.VerticalAlignment = VerticalAlignment.Top;
+            emailL.Content = "Email:"; emailL.Height = 40; emailL.Margin = new Thickness(16, 125, 0, 0); emailL.Width = 101; emailL.FontSize = 18; emailL.HorizontalAlignment = HorizontalAlignment.Left; emailL.VerticalAlignment = VerticalAlignment.Top;
+            phoneL.Content = "Phone:"; phoneL.Height = 40; phoneL.Margin = new Thickness(16, 165, 0, 0); phoneL.Width = 101; phoneL.FontSize = 18; phoneL.HorizontalAlignment = HorizontalAlignment.Left; phoneL.VerticalAlignment = VerticalAlignment.Top;
 
-            Label nameC  = new Label();
-            Label hcC    = new Label();
-            Label addyC  = new Label();
+            Label nameC = new Label();
+            Label hcC = new Label();
+            Label addyC = new Label();
             Label emailC = new Label();
             Label phoneC = new Label();
-           
-            nameC.Content  = p.GetLastName() + ", " + p.GetFirstName(); nameC.Height  = 40; nameC.Margin  = new Thickness(122,  5,0,0); nameC.Width  = 300; nameC.FontSize  = 18; nameC.FontWeight  = FontWeights.Bold; nameC.HorizontalAlignment  = HorizontalAlignment.Left; nameC.VerticalAlignment  = VerticalAlignment.Top;
-            hcC.Content    = p.GetHCNumber();  hcC.Height    = 40; hcC.Margin    = new Thickness(122, 45,0,0); hcC.Width    = 300; hcC.FontSize    = 18; hcC.FontWeight    = FontWeights.Bold; hcC.HorizontalAlignment    = HorizontalAlignment.Left; hcC.VerticalAlignment    = VerticalAlignment.Top;
-            addyC.Content  = p.GetAddress();   addyC.Height  = 40; addyC.Margin  = new Thickness(122, 85,0,0); addyC.Width  = 300; addyC.FontSize  = 18; addyC.FontWeight  = FontWeights.Bold; addyC.HorizontalAlignment  = HorizontalAlignment.Left; addyC.VerticalAlignment  = VerticalAlignment.Top;
-            emailC.Content = p.GetEmail();     emailC.Height = 40; emailC.Margin = new Thickness(122,125,0,0); emailC.Width = 300; emailC.FontSize = 18; emailC.FontWeight = FontWeights.Bold; emailC.HorizontalAlignment = HorizontalAlignment.Left; emailC.VerticalAlignment = VerticalAlignment.Top;
-            phoneC.Content = p.GetPhone();     phoneC.Height = 40; phoneC.Margin = new Thickness(122,165,0,0); phoneC.Width = 300; phoneC.FontSize = 18; phoneC.FontWeight = FontWeights.Bold; phoneC.HorizontalAlignment = HorizontalAlignment.Left; phoneC.VerticalAlignment = VerticalAlignment.Top;
+
+            nameC.Content = p.GetLastName() + ", " + p.GetFirstName(); nameC.Height = 40; nameC.Margin = new Thickness(122, 5, 0, 0); nameC.Width = 300; nameC.FontSize = 18; nameC.FontWeight = FontWeights.Bold; nameC.HorizontalAlignment = HorizontalAlignment.Left; nameC.VerticalAlignment = VerticalAlignment.Top;
+            hcC.Content = p.GetHCNumber(); hcC.Height = 40; hcC.Margin = new Thickness(122, 45, 0, 0); hcC.Width = 300; hcC.FontSize = 18; hcC.FontWeight = FontWeights.Bold; hcC.HorizontalAlignment = HorizontalAlignment.Left; hcC.VerticalAlignment = VerticalAlignment.Top;
+            addyC.Content = p.GetAddress(); addyC.Height = 40; addyC.Margin = new Thickness(122, 85, 0, 0); addyC.Width = 300; addyC.FontSize = 18; addyC.FontWeight = FontWeights.Bold; addyC.HorizontalAlignment = HorizontalAlignment.Left; addyC.VerticalAlignment = VerticalAlignment.Top;
+            emailC.Content = p.GetEmail(); emailC.Height = 40; emailC.Margin = new Thickness(122, 125, 0, 0); emailC.Width = 300; emailC.FontSize = 18; emailC.FontWeight = FontWeights.Bold; emailC.HorizontalAlignment = HorizontalAlignment.Left; emailC.VerticalAlignment = VerticalAlignment.Top;
+            phoneC.Content = p.GetPhone(); phoneC.Height = 40; phoneC.Margin = new Thickness(122, 165, 0, 0); phoneC.Width = 300; phoneC.FontSize = 18; phoneC.FontWeight = FontWeights.Bold; phoneC.HorizontalAlignment = HorizontalAlignment.Left; phoneC.VerticalAlignment = VerticalAlignment.Top;
 
             Rectangle r = new Rectangle();
             r.Stroke = System.Windows.Media.Brushes.Black;
@@ -336,7 +338,7 @@ namespace CPSC481Project
             r.Width = 422;
             r.Height = 245;
 
-            if(isSearch)
+            if (isSearch)
             {
                 Button b = new Button();
                 b.Content = "Select";
@@ -349,7 +351,7 @@ namespace CPSC481Project
             }
             else
                 r.Fill = new SolidColorBrush(Color.FromRgb(249, 209, 26));
-            
+
             g.Children.Add(r);
             g.Children.Add(nameL); g.Children.Add(hcL); g.Children.Add(addyL); g.Children.Add(emailL); g.Children.Add(phoneL);
             g.Children.Add(nameC); g.Children.Add(hcC); g.Children.Add(addyC); g.Children.Add(emailC); g.Children.Add(phoneC);
@@ -375,7 +377,10 @@ namespace CPSC481Project
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             //dashboard.Visibility = Visibility.Hidden;
-            dayview.Visibility = Visibility.Visible;
+
+            m_dayViewControl = new DayViewControl(DateTime.Today);
+            MainGrid.Children.Add(m_dayViewControl);
+            m_dayViewControl.Visibility = Visibility.Visible;
         }
         /*private void Back_Click(object sender, RoutedEventArgs e)
         {
@@ -397,7 +402,10 @@ namespace CPSC481Project
         private void ToDayView_MouseLeftButtonUp(object sender, RoutedEventArgs e)
         {
             //dashboard.Visibility = Visibility.Hidden;
-            dayview.Visibility = Visibility.Visible;
+
+            m_dayViewControl = new DayViewControl(DateTime.Today);
+            MainGrid.Children.Add(m_dayViewControl);
+            m_dayViewControl.Visibility = Visibility.Visible;
         }
 
         //Popup
@@ -425,11 +433,11 @@ namespace CPSC481Project
 
             if (newName != "" && newLname != "" && newHC != "" && newPhone != "" && email != "" && addr != "")
             {
-            PatientListScrollViewer.Visibility = Visibility.Hidden;
-            confirmBtn.Visibility = Visibility.Hidden;
-            Yes.Visibility = Visibility.Visible;
-            warning.Visibility = Visibility.Visible;
-            warning.Text = "Are you sure?";
+                PatientListScrollViewer.Visibility = Visibility.Hidden;
+                confirmBtn.Visibility = Visibility.Hidden;
+                Yes.Visibility = Visibility.Visible;
+                warning.Visibility = Visibility.Visible;
+                warning.Text = "Are you sure?";
 
             }
             //Add error check for names (letters only)
@@ -477,12 +485,12 @@ namespace CPSC481Project
             //Now add the patient
 
 
-                Patient p = new Patient(newName, newLname, newHC, addr, email, newPhone);
-                warning.Visibility = Visibility.Hidden;
-                addPatient.Visibility = Visibility.Hidden;
-                PatientListScrollViewer.Visibility = Visibility.Visible;
-                m_patientDatabase.AddPatient(p);
-                clearAddtext();
+            Patient p = new Patient(newName, newLname, newHC, addr, email, newPhone);
+            warning.Visibility = Visibility.Hidden;
+            addPatient.Visibility = Visibility.Hidden;
+            PatientListScrollViewer.Visibility = Visibility.Visible;
+            m_patientDatabase.AddPatient(p);
+            clearAddtext();
 
             //Patient p = new Patient(lastName, firstName, hcNum, address, email, phone);
         }
@@ -511,6 +519,15 @@ namespace CPSC481Project
             }
         }
 
+        public void MonthViewToDayView(DateTime d)
+        {
+            m_dayViewControl = new DayViewControl(d);
+            m_dayViewControl.Visibility = Visibility.Visible;
+            MainGrid.Children.Add(m_dayViewControl);
+            calendarview.Visibility = Visibility.Hidden;
+
+
+        }
 
     }
 }

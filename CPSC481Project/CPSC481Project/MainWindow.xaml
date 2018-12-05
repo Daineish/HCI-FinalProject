@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:CPSC481Project"
         mc:Ignorable="d"
         Title="Medical Appointment System" Height="900" Width="1440">
-    <Grid Margin="-6.5,0,2,0">
+    <Grid x:Name="MainGrid" Margin="-6.5,0,2,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="0*"/>

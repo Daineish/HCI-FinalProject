@@ -108,7 +108,7 @@ namespace CPSC481Project
                 }
 
                 // -- load each weekrow with a DayBoxControl whose label is set to day number
-                DayBoxControl dayBox = new DayBoxControl();
+                DayBoxControl dayBox = new DayBoxControl(i);
                 dayBox.DayNumberLabel.Content = i.ToString();
                 dayBox.Tag = i;
                 dayBox.MouseDoubleClick += DayBox_DoubleClick;
@@ -230,12 +230,21 @@ namespace CPSC481Project
                 NewAppointmentEventArgs ev = new NewAppointmentEventArgs();
                 if ((DayBoxControl)e.Source != null) //Tag
                 {
-                    ev.StartDate = new DateTime(_DisplayYear, _DisplayMonth, System.Convert.ToInt32((DayBoxControl)e.Source), 10, 0, 0); //Tag
+                    ev.StartDate = new DateTime(_DisplayYear, _DisplayMonth, System.Convert.ToInt32(((DayBoxControl)e.Source).m_day), 10, 0, 0); //Tag
                     ev.EndDate = (DateTime)ev.StartDate.Value.AddHours(2);
                 }
+
+                // open day view (lol someone fix this)
+                Grid g1 = (Grid)(Parent);
+                MonthlyViewControl mvc = (MonthlyViewControl)(g1.Parent);
+                Grid g2 = (Grid)(mvc.Parent);
+                MainWindow w = (MainWindow)(g2.Parent);
+                w.MonthViewToDayView(ev.StartDate.GetValueOrDefault());
+
                 DayBoxDoubleClicked?.Invoke(ev);
                 e.Handled = true;
             }
+            
         }
     }
 }

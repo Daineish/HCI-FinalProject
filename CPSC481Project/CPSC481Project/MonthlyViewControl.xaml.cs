@@ -84,6 +84,5 @@ namespace CPSC481Project
         {
             this.Visibility = Visibility.Hidden;
         }
-
     }
 }

@@ -18,11 +18,23 @@ namespace CPSC481Project
     /// <summary>
     /// Interaction logic for DayBoxControl.xaml
     /// </summary>
+    /// 
+
+    
     public partial class DayBoxControl : UserControl
     {
+        public int m_day { get; set; }
+
         public DayBoxControl()
         {
             InitializeComponent();
+            // error
+        }
+
+        public DayBoxControl(int i)
+        {
+            InitializeComponent();
+            m_day = i;
         }
     }
 }

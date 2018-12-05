@@ -7,12 +7,16 @@
              mc:Ignorable="d" 
              d:DesignHeight="900" d:DesignWidth="1120">
     <Grid x:Name="dayview" Margin="0,0,-505,-435">
-        <Rectangle x:Name="DayViewBackground" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="900" Stroke="Black" VerticalAlignment="Top" Width="1120"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="78.203" Stroke="Black" VerticalAlignment="Top" Width="1120" Margin="0,1.797,0,0"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="105" Margin="0,78.203,0,0" Stroke="Black" VerticalAlignment="Top" Width="875"/>
-        <Label x:Name="currentDate" Content="December 10th, 2018" HorizontalAlignment="Left" Height="80" Margin="178.5,0,0,0" VerticalAlignment="Top" Width="554" FontSize="48" HorizontalContentAlignment="Center"/>
-        <Button x:Name="BackButton" Content="Back" HorizontalAlignment="Left" Height="40.203" Margin="41.5,24.5,0,0" VerticalAlignment="Top" Width="50.5" Click="OnBackButton"/>
-        <ScrollViewer HorizontalAlignment="Left" Height="686.797" Margin="-102,183.203,0,0" VerticalAlignment="Top" Width="898.083">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="503*"/>
+            <RowDefinition Height="832*"/>
+        </Grid.RowDefinitions>
+        <Rectangle x:Name="DayViewBackground" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="900" Stroke="Black" VerticalAlignment="Top" Width="1120" Grid.RowSpan="2"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="78" Stroke="Black" VerticalAlignment="Top" Width="1120" Margin="0,2,0,0"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="105" Margin="0,78,0,0" Stroke="Black" VerticalAlignment="Top" Width="875"/>
+        <Label x:Name="currentDate" Content="December 10th, 2018" HorizontalAlignment="Left" Height="80" Margin="178,0,0,0" VerticalAlignment="Top" Width="927" FontSize="48" HorizontalContentAlignment="Center"/>
+        <Button x:Name="BackButton" Content="Back" HorizontalAlignment="Left" Height="41" Margin="42,24,0,0" VerticalAlignment="Top" Width="50" Click="OnBackButton"/>
+        <ScrollViewer HorizontalAlignment="Left" Height="687" Margin="-102,183,0,0" VerticalAlignment="Top" Width="898" Grid.RowSpan="2">
             <StackPanel HorizontalAlignment="Left" Height="2069.5" VerticalAlignment="Top" Width="1071.5">
                 <Grid x:Name="hour8" Height="206">
                     <Grid.ColumnDefinitions>
@@ -776,13 +780,13 @@
                 </Grid>
             </StackPanel>
         </ScrollViewer>
-        <TextBlock HorizontalAlignment="Left" Height="53.5" Margin="116,102,0,0" TextWrapping="Wrap" Text="Dr. Payne" VerticalAlignment="Top" Width="204" FontSize="36"/>
-        <TextBlock HorizontalAlignment="Left" Height="53.5" Margin="297,105,0,0" TextWrapping="Wrap" Text="Dr. Lee" VerticalAlignment="Top" Width="204" FontSize="36"/>
-        <TextBlock HorizontalAlignment="Left" Height="53.5" Margin="528.5,105,0,0" TextWrapping="Wrap" Text="Dr.Walter" VerticalAlignment="Top" Width="204" FontSize="36"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="105" Margin="498.999,85,0,0" Stroke="Black" VerticalAlignment="Top" Width="2.001" RenderTransformOrigin="-1.227,0.495"/>
+        <TextBlock HorizontalAlignment="Left" Height="54" Margin="116,102,0,0" TextWrapping="Wrap" Text="Dr. Payne" VerticalAlignment="Top" Width="204" FontSize="36"/>
+        <TextBlock HorizontalAlignment="Left" Height="54" Margin="297,105,0,0" TextWrapping="Wrap" Text="Dr. Lee" VerticalAlignment="Top" Width="204" FontSize="36"/>
+        <TextBlock HorizontalAlignment="Left" Height="54" Margin="528,105,0,0" TextWrapping="Wrap" Text="Dr.Walter" VerticalAlignment="Top" Width="204" FontSize="36"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="105" Margin="499,85,0,0" Stroke="Black" VerticalAlignment="Top" Width="2" RenderTransformOrigin="-1.227,0.495"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="105" Margin="290,85,0,0" Stroke="Black" VerticalAlignment="Top" Width="2"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="105" Margin="90.5,78.203,0,0" Stroke="Black" VerticalAlignment="Top" Width="1.5"/>
-        <Grid x:Name="Mini_Calendar" Margin="1081,105,0,551.333">
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="105" Margin="90,78,0,0" Stroke="Black" VerticalAlignment="Top" Width="2"/>
+        <Grid x:Name="Mini_Calendar" Margin="1081,105,0,551" Grid.RowSpan="2">
             <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="389.667" Margin="0,0,0,-11.667" Stroke="Black" VerticalAlignment="Top" Width="409"/>
             <Button Content="Prev" HorizontalAlignment="Left" Margin="42.5,31,0,0" VerticalAlignment="Top" Width="42"/>
             <Button Content="Next" HorizontalAlignment="Left" Margin="330.5,30.833,0,0" VerticalAlignment="Top" Width="42"/>
@@ -878,6 +882,6 @@
                 </Grid>
             </StackPanel>
         </Grid>
-        <Grid Margin="0,0,1010,870"/>
+        <Grid Margin="0,0,1010,38"/>
     </Grid>
 </UserControl>

@@ -21,11 +21,22 @@ namespace CPSC481Project
     /// </summary>
     public partial class DayViewControl : UserControl
     {
+        public DateTime m_day { get; set; }
         public DayViewControl()
         {
             InitializeComponent();
             DataTable dt = new DataTable();
             dt.Columns.Add();
+        }
+
+        public DayViewControl(DateTime day)
+        {
+            InitializeComponent();
+            DataTable dt = new DataTable();
+            dt.Columns.Add();
+
+            m_day = day;
+            currentDate.Content = m_day.ToString("f");
         }
 
         private void OnBackButton(object sender, RoutedEventArgs e)
