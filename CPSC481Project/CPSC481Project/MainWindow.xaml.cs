@@ -49,85 +49,55 @@ namespace CPSC481Project
             //get current date for dashboard
             DashDate.Content = month.ElementAt(_DisplayStartDate.Month - 1) + " " + _DisplayStartDate.Day + ", " + _DisplayStartDate.Year;
 
-if (m_patientDatabase.NumPatients() < 10)
+            if (m_patientDatabase.NumPatients() < 5)
             {
-                for (int i = 0; i < 90; i++)
-                {
-                    String firstName = names[rnd.Next(0, names.Length)];
-                    String lastName = lastnames[rnd.Next(0, lastnames.Length)];
-                    String hcNum = "0000" + i;
-                    String email = firstName.ToLower() + "." + lastName.ToLower() + domain[rnd.Next(0, domain.Length)];
-                    String address = rnd.Next(100, 999) + " " + addr[rnd.Next(0, addr.Length)] + " " + addr2[rnd.Next(0, addr2.Length)];
-                    String phone = "(" + rnd.Next(100, 999) + ") - " + rnd.Next(100, 999) + " - " + rnd.Next(1000, 9999);
-                    Patient p1 = new Patient(lastName, firstName, hcNum, address, email, phone);
-
-                    m_patientDatabase.AddPatient(p1);
-                }
+                m_patientDatabase.AddPatient(new Patient("Smith", "John", "00001", "769 1st St. NW", "john.smith@yahoo.ca", "(403) 819-0193"));
+                m_patientDatabase.AddPatient(new Patient("Johnson", "Phillip", "15432", "12 3rd Ave. SW", "pjohnson@company.com", "(403) 543-4189"));
+                m_patientDatabase.AddPatient(new Patient("Bobson", "Bob", "15795", "Unknown", "bob@bob.ca", "(555) 555-7777"));
+                m_patientDatabase.AddPatient(new Patient("Albertson", "Albert", "11325", "1600 Pennsylvania Ave", "al@hotmail.com", "(444) 645-1234 ext. 4"));
+                m_patientDatabase.AddPatient(new Patient("Trump", "Don", "12345", "1600 Pennsylvania Ave", "YoloDonny420@whitehouse.gov", "(555) 867-5309"));
+                m_patientDatabase.AddPatient(new Patient("Twain", "Mark", "44444", "5 Mississippi River", "huck.finn@live.com", "Unknown"));
+                m_patientDatabase.AddPatient(new Patient("Smith", "Mark", "00002", "2500 University Ave", "president@ucalgary.ca", "(403) 999-9999"));
+                m_patientDatabase.AddPatient(new Patient("Adultman", "Vincent", "99999", "412 Adult St.", "adultman_v@bigcompany.com", "(555) 555-5555"));
+                m_patientDatabase.AddPatient(new Patient("Griffin", "Peter", "83409", "31 Spooner St.", "pgriffin@drunkenclam.com", "(123) 456-7890"));
             }
 
             if (m_appointmentDatabase.NumAppointments() < 5)
             {
-                Patient p = new Patient("Appointments", "Mister", "99876", "Not Available", "unknown", "unknown");
-                m_patientDatabase.AddPatient(p);
-                for (int i = 0; i < 10; i++)
-                {
-                    Appointment a = new Appointment(p, "Dr. Walter", DateTime.Today, DateTime.Today, "Appointment #" + i);
-                    m_appointmentDatabase.AddAppointment(a);
-                }
+                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("00001"), "Dr. Walter", DateTime.Today, DateTime.Today, "Appointment #1"));
+                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("12345"), "Dr. Payne", DateTime.Today, DateTime.Today, "Appointment #1"));
+                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("00002"), "Dr. Lee", DateTime.Today, DateTime.Today, "Appointment #1"));
+                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("44444"), "Dr. Walter", DateTime.Today, DateTime.Today, "Appointment #1"));
+                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("00001"), "Dr. Walter", DateTime.Today, DateTime.Today, "Appointment #1"));
             }
 
             // Debug - show all patients and appointments in console.
             m_appointmentDatabase.PrintAllAppointments();
             m_patientDatabase.PrintAllPatients();
-            randomPatientGenerator();
+            //randomPatientGenerator();
+
+            PopulateDefaultInfo();
 
             
         }
 
-        private void setTimer()
+        /**
+         * Used to populate the main screen with expected data for the demo.
+         */
+        private void PopulateDefaultInfo()
         {
-            Timer tmr = new Timer(1000);
-            //count = times;
-            tmr.Enabled = true;
-            tmr.Elapsed += tmr_Elapsed;
-            tmr.AutoReset = true;
-            //tmr.Start();
-        }
-
-        //change the label text inside the tick event
-        private void tmr_Elapsed(object sender, ElapsedEventArgs e)
-        {
-            int hour = DateTime.Now.Hour;
-            String apm = "AM";
-            if (hour > 12)
-            {
-                hour = hour - 12;
-                apm = "PM";
-            }
-
-            this.Dispatcher.Invoke(() =>
-            {
-                this.DashTime.Content = hour + ":" + DateTime.Now.Minute + ":" + DateTime.Now.Second + apm;
-                this.DashDate.Content = month.ElementAt(DateTime.Now.Month - 1) + " " + DateTime.Now.Day + ", " + DateTime.Now.Year;
-            });
-            
-        }
-
-        public void randomPatientGenerator()
-        {
-            
             //Populating Past Patients and Randomly Selecting next  Patients
-            Patient m = m_patientDatabase.findPatient("0000"+rnd.Next(10,20).ToString());
-            Patient j = m_patientDatabase.findPatient("0000" + rnd.Next(20, 30).ToString());
-            Patient d = m_patientDatabase.findPatient("0000" + rnd.Next(30, 40).ToString());
-            Patient l = m_patientDatabase.findPatient("0000" + rnd.Next(70, 80).ToString());
-            Patient k = m_patientDatabase.findPatient("0000" + rnd.Next(80, 90).ToString());
+            Patient m = m_patientDatabase.findPatient("15432");
+            Patient j = m_patientDatabase.findPatient("15795");
+            Patient d = m_patientDatabase.findPatient("11325");
+            Patient l = m_patientDatabase.findPatient("99999");
+            Patient k = m_patientDatabase.findPatient("83409");
 
 
             //Patient LastName First Name
             pnameLbl.Content = m.GetLastName() + ", " + m.GetFirstName();
-            pnameLbl1.Content = j.GetLastName() + ", " +  j.GetFirstName();
-            pnameLbl2.Content = d.GetLastName() + ", " +  d.GetFirstName();
+            pnameLbl1.Content = j.GetLastName() + ", " + j.GetFirstName();
+            pnameLbl2.Content = d.GetLastName() + ", " + d.GetFirstName();
             pnameLbl3.Content = l.GetLastName() + ", " + l.GetFirstName();
             pnameLbl4.Content = k.GetLastName() + ", " + k.GetFirstName();
             //Patient HC#
@@ -161,24 +131,50 @@ if (m_patientDatabase.NumPatients() < 10)
             pemailLbl3.Content = l.GetEmail();
             pemailLbl4.Content = k.GetEmail();
 
-            Patient a = m_patientDatabase.findPatient("0000" + rnd.Next(10, 20).ToString());
-            Patient b = m_patientDatabase.findPatient("0000" + rnd.Next(20, 30).ToString());
-            Patient c = m_patientDatabase.findPatient("0000" + rnd.Next(30, 40).ToString());
+            Patient a = m_patientDatabase.findPatient("00001");
+            Patient b = m_patientDatabase.findPatient("00002");
+            Patient c = m_patientDatabase.findPatient("12345");
 
-
-            Patient z = m_patientDatabase.findPatient("0000" + rnd.Next(40, 50).ToString());
-            Patient x = m_patientDatabase.findPatient("0000" + rnd.Next(50, 60).ToString());
-            Patient y = m_patientDatabase.findPatient("0000" + rnd.Next(60, 70).ToString());
+            Patient z = m_patientDatabase.findPatient("00001");
+            Patient x = m_patientDatabase.findPatient("15432");
+            Patient y = m_patientDatabase.findPatient("99999");
 
             this.DoctorWalterTile.npfullName2.Content = c.GetLastName() + ", " + c.GetFirstName() + " HC: " + c.GetHCNumber();
             this.DoctorLeeTile.npfullName2.Content = b.GetLastName() + ", " + b.GetFirstName() + " HC: " + b.GetHCNumber();
             this.DoctorPayneTile.npfullName2.Content = a.GetLastName() + ", " + a.GetFirstName() + " HC: " + a.GetHCNumber();
             this.DoctorWalterTile.npfullName.Content = z.GetLastName() + ", " + z.GetFirstName() + " HC: " + z.GetHCNumber();
-            this.DoctorLeeTile.npfullName.Content = x.GetLastName() + ", " +x.GetFirstName() + " HC: " + x.GetHCNumber();
+            this.DoctorLeeTile.npfullName.Content = x.GetLastName() + ", " + x.GetFirstName() + " HC: " + x.GetHCNumber();
             this.DoctorPayneTile.npfullName.Content = y.GetLastName() + ", " + y.GetFirstName() + " HC: " + y.GetHCNumber();
-
         }
 
+        private void setTimer()
+        {
+            Timer tmr = new Timer(1000);
+            //count = times;
+            tmr.Enabled = true;
+            tmr.Elapsed += tmr_Elapsed;
+            tmr.AutoReset = true;
+            //tmr.Start();
+        }
+
+        //change the label text inside the tick event
+        private void tmr_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            int hour = DateTime.Now.Hour;
+            String apm = "AM";
+            if (hour > 12)
+            {
+                hour = hour - 12;
+                apm = "PM";
+            }
+
+            this.Dispatcher.Invoke(() =>
+            {
+                this.DashTime.Content = hour + ":" + DateTime.Now.Minute + ":" + DateTime.Now.Second + apm;
+                this.DashDate.Content = month.ElementAt(DateTime.Now.Month - 1) + " " + DateTime.Now.Day + ", " + DateTime.Now.Year;
+            });
+            
+        }
 
         private void searchClicked(object sender, MouseButtonEventArgs e)
         {
@@ -489,10 +485,8 @@ if (m_patientDatabase.NumPatients() < 10)
                 clearAddtext();
 
             //Patient p = new Patient(lastName, firstName, hcNum, address, email, phone);
-
-
-            
         }
+
         public void clearAddtext()
         {
             apnameField.Text = "";
@@ -502,6 +496,19 @@ if (m_patientDatabase.NumPatients() < 10)
             apemailField.Text = "";
             apaddrField.Text = "";
             recentLabel.Content = "Recent Patients:";
+        }
+
+        private void WalkInClicked(object sender, RoutedEventArgs e)
+        {
+            if (m_currentPatient == null)
+            {
+                MessageBox.Show("Please select a patient first.", "No Patient Selected", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
+                WalkinTile t = new WalkinTile(m_currentPatient.m_firstName + " " + m_currentPatient.m_lastName, m_currentPatient.m_hcNumber);
+                walkinQueueList.Items.Add(t);
+            }
         }
 
 

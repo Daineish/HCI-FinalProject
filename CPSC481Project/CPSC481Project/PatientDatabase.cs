@@ -135,9 +135,10 @@ namespace CPSC481Project
         public List<Patient> FindPatientName(String name)
         {
             List<Patient> rv = new List<Patient>();
+            name = name.ToLower();
             foreach (Patient p in m_patientList)
             {
-                if (p.m_lastName.Contains(name) || p.m_firstName.Contains(name))
+                if (p.m_lastName.ToLower().Contains(name) || p.m_firstName.ToLower().Contains(name))
                     rv.Add(p);
             }
             return rv;

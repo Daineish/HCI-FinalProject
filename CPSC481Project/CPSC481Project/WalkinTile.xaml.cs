@@ -20,14 +20,31 @@ namespace CPSC481Project
     /// </summary>
     public partial class WalkinTile : UserControl
     {
+
         public WalkinTile()
         {
             InitializeComponent();
+            Height = 162.5;
+            Width = 177;
+            VerticalAlignment = VerticalAlignment.Center;
+            HorizontalAlignment = HorizontalAlignment.Center;
+        }
+
+        public WalkinTile(String name, String HC)
+        {
+            InitializeComponent();
+            Height = 162.5;
+            Width = 177;
+            VerticalAlignment = VerticalAlignment.Center;
+            HorizontalAlignment = HorizontalAlignment.Center;
+            NameLabel.Content = name;
+            HCLabel.Content = HC;
         }
 
         private void OnDeleteButton(object sender, RoutedEventArgs e)
         {
-            this.Visibility = Visibility.Collapsed;
+            ListBox a = (ListBox)(this.Parent);
+            a.Items.Remove(this);
         }
     }
 }

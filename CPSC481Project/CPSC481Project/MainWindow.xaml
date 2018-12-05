@@ -78,29 +78,13 @@
                         <WrapPanel IsItemsHost="True" />
                     </ItemsPanelTemplate>
                 </ListBox.ItemsPanel>
-                <ListBoxItem x:Name="walkin1" Height="177" Width="177" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <local:WalkinTile x:Name="wtile1" Height="162.5" Width="177"/>
-                </ListBoxItem>
-                <ListBoxItem x:Name="walkin2" Height="177" Width="177" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <local:WalkinTile x:Name="wtile2" Height="162.5" Width="177"/>
-                </ListBoxItem>
-                <ListBoxItem x:Name="walkin3" Height="177" Width="177" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <local:WalkinTile x:Name="wtile3" Height="162.5" Width="177"/>
-                </ListBoxItem>
-                <ListBoxItem x:Name="walkin4" Height="177" Width="177" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <local:WalkinTile x:Name="wtile4" Height="162.5" Width="177"/>
-                </ListBoxItem>
-                <ListBoxItem x:Name="walkin5" Height="177" Width="177" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <local:WalkinTile x:Name="wtile5" Height="162.5" Width="177"/>
-                </ListBoxItem>
-                <ListBoxItem x:Name="walkin6" Height="177" Width="177" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed">
-                    <local:WalkinTile x:Name="wtile6" Height="162.5" Width="177"/>
-                </ListBoxItem>
-                <ListBoxItem x:Name="walkin7" Height="177" Width="177" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed">
-                    <local:WalkinTile x:Name="wtile7" Height="162.5" Width="177"/>
-                </ListBoxItem>
+                <local:WalkinTile x:Name="wtile1" Height="162.5" Width="177" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <local:WalkinTile x:Name="wtile2" Height="162.5" Width="177" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <local:WalkinTile x:Name="wtile3" Height="162.5" Width="177" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <local:WalkinTile x:Name="wtile4" Height="162.5" Width="177" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <local:WalkinTile x:Name="wtile5" Height="162.5" Width="177" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             </ListBox>
-            <Button x:Name="addWalkInButton" HorizontalAlignment="Left" VerticalAlignment="Top" Width="54.927" Margin="742.573,410.561,-54.927,0" Height="51.401" Grid.Column="1" Grid.Row="1" BorderBrush="{x:Null}" Foreground="{x:Null}">
+            <Button x:Name="addWalkInButton" Click="WalkInClicked" HorizontalAlignment="Left" VerticalAlignment="Top" Width="54.927" Margin="742.573,410.561,-54.927,0" Height="51.401" Grid.Column="1" Grid.Row="1" BorderBrush="{x:Null}" Foreground="{x:Null}">
                 <Button.Background>
                     <ImageBrush ImageSource="Images/addButton.png"/>
                 </Button.Background>
