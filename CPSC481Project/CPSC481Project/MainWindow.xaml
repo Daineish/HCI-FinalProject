@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:CPSC481Project"
+        xmlns:local="clr-namespace:CPSC481Project;assembly=CPSC481Project"
         mc:Ignorable="d"
         Title="Medical Appointment System" Height="900" Width="1440">
     <Grid x:Name="MainGrid" Margin="-6.5,0,2,0">
