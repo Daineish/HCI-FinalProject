@@ -40,6 +40,7 @@ namespace CPSC481Project
         PatientDatabase m_patientDatabase;
         AppointmentDatabase m_appointmentDatabase;
         DayViewControl m_dayViewControl;
+        MonthlyViewControl m_monthlyViewControl;
 
         public MainWindow()
         {
@@ -391,12 +392,16 @@ namespace CPSC481Project
         private void calendarBack(object sender, RoutedEventArgs e)
         {
             dashboard.Visibility = Visibility.Visible;
-            calendarview.Visibility = Visibility.Hidden;
+            if (m_monthlyViewControl != null)
+                MainGrid.Children.Remove(m_monthlyViewControl);
+            // error checking?
         }
         private void ToCalendar_MouseLeftButtonUp(object sender, RoutedEventArgs e)
         {
             //dashboard.Visibility = Visibility.Hidden;
-            calendarview.Visibility = Visibility.Visible;
+            m_monthlyViewControl = new MonthlyViewControl();
+            m_monthlyViewControl.Visibility = Visibility.Visible;
+            MainGrid.Children.Add(m_monthlyViewControl);
         }
 
         private void ToDayView_MouseLeftButtonUp(object sender, RoutedEventArgs e)
@@ -524,9 +529,9 @@ namespace CPSC481Project
             m_dayViewControl = new DayViewControl(d);
             m_dayViewControl.Visibility = Visibility.Visible;
             MainGrid.Children.Add(m_dayViewControl);
-            calendarview.Visibility = Visibility.Hidden;
-
-
+            if (m_monthlyViewControl != null)
+                MainGrid.Children.Remove(m_monthlyViewControl);
+            // error handling?
         }
 
     }

@@ -83,6 +83,9 @@ namespace CPSC481Project
         private void ToDayView_MouseLeftButtonUp(System.Object sender, MouseButtonEventArgs e)
         {
             this.Visibility = Visibility.Hidden;
+            Grid g2 = (Grid)(this.Parent);
+            MainWindow w = (MainWindow)(g2.Parent);
+            w.MonthViewToDayView(DateTime.Today);
         }
     }
 }

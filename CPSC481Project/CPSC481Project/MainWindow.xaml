@@ -91,8 +91,6 @@
             </Button>
             <Label Content="Walk-In Queue" HorizontalAlignment="Left" Height="60" Margin="-80.573,398.599,0,0" VerticalAlignment="Top" Width="254" FontSize="36" Grid.Row="1"/>
         </Grid>
-        <local:DayViewControl x:Name="dayview" Margin="320,0,102,0" Visibility="Hidden"/>
-        <local:MonthlyViewControl x:Name="calendarview" Margin="320,0,0,0" Visibility="Hidden"/>
         <ScrollViewer x:Name="PatientListScrollViewer" HorizontalAlignment="Left" Height="414" Margin="0,456,0,0" VerticalAlignment="Top" Width="320" HorizontalScrollBarVisibility="Auto">
             <StackPanel x:Name="PatientListStackPanel" Height="1227.025" Width="412">
                 <Grid x:Name="recentPgrid" MouseEnter="rpatientEnter" MouseLeave="rpatientExit" Margin="0,0,-20,0" Height="245" AllowDrop="True">
