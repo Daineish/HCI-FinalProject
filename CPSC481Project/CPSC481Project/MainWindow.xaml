@@ -91,97 +91,9 @@
             </Button>
             <Label Content="Walk-In Queue" HorizontalAlignment="Left" Height="60" Margin="-28,402,0,0" VerticalAlignment="Top" Width="254" FontSize="36" Grid.Row="1" Grid.ColumnSpan="2"/>
         </Grid>
-        <ScrollViewer x:Name="PatientListScrollViewer" HorizontalAlignment="Left" Height="711" Margin="0,162,0,0" VerticalAlignment="Top" Width="354" HorizontalScrollBarVisibility="Auto">
-            <StackPanel x:Name="PatientListStackPanel" Height="1227" Width="326">
-                <Grid x:Name="recentPgrid" MouseEnter="rpatientEnter" MouseLeave="rpatientExit" Margin="-8,0,-20,0" Height="245" AllowDrop="True">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="399*"/>
-                        <ColumnDefinition Width="8*"/>
-                        <ColumnDefinition Width="14*"/>
-                    </Grid.ColumnDefinitions>
-                    <Rectangle x:Name="rpatientBox" Fill="#FFF5F5F4" HorizontalAlignment="Left" Height="245" Stroke="Black" VerticalAlignment="Top" Width="358"/>
-                    <Label x:Name="nameLbl" Content="Name:" HorizontalAlignment="Left" Height="40" Margin="16,5,0,0" VerticalAlignment="Top" Width="101" FontSize="18"/>
-                    <Label x:Name="hcLbl" Content="HC#" HorizontalAlignment="Left" Height="40" Margin="16,45,0,0" VerticalAlignment="Top" Width="101" FontSize="18"/>
-                    <Label x:Name="addrLbl" Content="Address:" HorizontalAlignment="Left" Height="40" Margin="16,85,0,0" VerticalAlignment="Top" Width="101" FontSize="18"/>
-                    <Label x:Name="emailLbl" Content="Email:" HorizontalAlignment="Left" Height="40" Margin="16,125,0,0" VerticalAlignment="Top" Width="101" FontSize="18"/>
-                    <Label x:Name="numLbl" Content="Phone:" HorizontalAlignment="Left" Height="40" Margin="16,165,0,0" VerticalAlignment="Top" Width="101" FontSize="18"/>
-                    <Label x:Name="prevLbl" Content="Previous Doctor:" HorizontalAlignment="Left" Height="40" Margin="16,205,0,0" VerticalAlignment="Top" Width="144" FontSize="18"/>
-                    <Label x:Name="pnameLbl" Content="John, Smith" HorizontalAlignment="Left" Height="40" Margin="108,5,0,0" VerticalAlignment="Top" Width="250" FontSize="18" FontWeight="Bold"/>
-                    <Label x:Name="phcLbl" Content="13129124124" HorizontalAlignment="Left" Height="40" Margin="108,45,0,0" VerticalAlignment="Top" Width="250" FontSize="18" FontWeight="Bold"/>
-                    <Label x:Name="paddrLbl" Content="University Drive+" HorizontalAlignment="Left" Height="40" Margin="108,85,0,0" VerticalAlignment="Top" Width="250" FontSize="18" FontWeight="Bold"/>
-                    <Label x:Name="pemailLbl" Content="jsmith@ucalgary.ca" HorizontalAlignment="Left" Height="40" Margin="108,125,0,0" VerticalAlignment="Top" Width="250" FontSize="18" FontWeight="Bold"/>
-                    <Label x:Name="pnumLbl" Content="(403)-123-4567" Height="40" Margin="108,165,115.425,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="250"/>
-                    <Label x:Name="pprevLbl" Content="Dr.Lee" HorizontalAlignment="Left" Height="40" Margin="165,205,0,0" VerticalAlignment="Top" Width="129" FontSize="18" RenderTransformOrigin="0.567,-0.238" FontWeight="Bold"/>
+        <ScrollViewer x:Name="PatientListScrollViewer" HorizontalAlignment="Left" Height="716" Margin="0,157,0,0" VerticalAlignment="Top" Width="354" HorizontalScrollBarVisibility="Auto">
+            <StackPanel x:Name="PatientListStackPanel" Height="993" Width="337" HorizontalAlignment="Left" VerticalAlignment="Top">
 
-                </Grid>
-                <Grid x:Name="recentPgrid2" Height="245" Margin="0,0,58,0" MouseEnter="rpatientEnter" MouseLeave="rpatientExit">
-                    <Rectangle x:Name="rpatientBox2" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="245" Stroke="Black" VerticalAlignment="Top" Width="428" Margin="-6,0,-154,0"/>
-                    <Label x:Name="nameLbl1" Content="Name:" HorizontalAlignment="Left" Height="40" Margin="16,5,0,0" VerticalAlignment="Top" Width="101" FontSize="18"/>
-                    <Label x:Name="hcLbl1" Content="HC#" HorizontalAlignment="Left" Height="40" Margin="16,45,0,0" VerticalAlignment="Top" Width="101" FontSize="18"/>
-                    <Label x:Name="addrLbl1" Content="Address:" HorizontalAlignment="Left" Height="40" Margin="16,85,0,0" VerticalAlignment="Top" Width="101" FontSize="18"/>
-                    <Label x:Name="emailLbl1" Content="Email:" HorizontalAlignment="Left" Height="40" Margin="16,125,0,0" VerticalAlignment="Top" Width="101" FontSize="18"/>
-                    <Label x:Name="numLbl1" Content="Phone:" HorizontalAlignment="Left" Height="40" Margin="16,165,0,0" VerticalAlignment="Top" Width="101" FontSize="18"/>
-                    <Label x:Name="prevLbl1" Content="Previous Doctor:" HorizontalAlignment="Left" Height="40" Margin="16,205,0,0" VerticalAlignment="Top" Width="144" FontSize="18"/>
-                    <Label x:Name="pnameLbl1" Content="John, Smith" HorizontalAlignment="Left" Height="40" Margin="108,5,0,0" VerticalAlignment="Top" Width="250" FontSize="18" FontWeight="Bold"/>
-                    <Label x:Name="phcLbl1" Content="13129124124" HorizontalAlignment="Left" Height="40" Margin="108,45,0,0" VerticalAlignment="Top" Width="250" FontSize="18" FontWeight="Bold"/>
-                    <Label x:Name="paddrLbl1" Content="University Drive" HorizontalAlignment="Left" Height="40" Margin="108,85,0,0" VerticalAlignment="Top" Width="250" FontSize="18" FontWeight="Bold"/>
-                    <Label x:Name="pemailLbl1" Content="jsmith@ucalgary.ca" HorizontalAlignment="Left" Height="40" Margin="108,125,0,0" VerticalAlignment="Top" Width="250" FontSize="18" FontWeight="Bold"/>
-                    <Label x:Name="pnumLbl1" Content="(403)-123-4567" HorizontalAlignment="Left" Height="40" Margin="108,165,0,0" VerticalAlignment="Top" Width="250" FontSize="18" FontWeight="Bold"/>
-                    <Label x:Name="pprevLbl1" Content="Dr.Lee" HorizontalAlignment="Left" Height="40" Margin="165,205,0,0" VerticalAlignment="Top" Width="186" FontSize="18" RenderTransformOrigin="0.567,-0.238" FontWeight="Bold"/>
-
-                </Grid>
-                <Grid x:Name="recentPgrid3" Margin="0,0,-330,0" Height="245" MouseEnter="rpatientEnter" MouseLeave="rpatientExit">
-                    <Rectangle x:Name="rpatientBox3" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="221" Stroke="Black" VerticalAlignment="Top" Width="444" Margin="-22,0,0,0"/>
-                    <Label x:Name="nameLbl2" Content="Name:" HorizontalAlignment="Left" Height="40" Margin="16,5,0,0" VerticalAlignment="Top" Width="101" FontSize="18"/>
-                    <Label x:Name="hcLbl2" Content="HC#" HorizontalAlignment="Left" Height="40" Margin="16,45,0,0" VerticalAlignment="Top" Width="101" FontSize="18"/>
-                    <Label x:Name="addrLbl2" Content="Address:" HorizontalAlignment="Left" Height="40" Margin="16,85,0,0" VerticalAlignment="Top" Width="101" FontSize="18"/>
-                    <Label x:Name="emailLbl2" Content="Email:" HorizontalAlignment="Left" Height="40" Margin="16,125,0,0" VerticalAlignment="Top" Width="101" FontSize="18"/>
-                    <Label x:Name="numLbl2" Content="Phone:" HorizontalAlignment="Left" Height="40" Margin="16,165,0,0" VerticalAlignment="Top" Width="101" FontSize="18"/>
-                    <Label x:Name="prevLbl2" Content="Previous Doctor:" HorizontalAlignment="Left" Height="40" Margin="16,205,0,0" VerticalAlignment="Top" Width="144" FontSize="18"/>
-                    <Label x:Name="pnameLbl2" Content="John, Smith" HorizontalAlignment="Left" Height="40" Margin="108,5,0,0" VerticalAlignment="Top" Width="250" FontSize="18" FontWeight="Bold"/>
-                    <Label x:Name="phcLbl2" Content="13129124124" HorizontalAlignment="Left" Height="40" Margin="108,45,0,0" VerticalAlignment="Top" Width="250" FontSize="18" FontWeight="Bold"/>
-                    <Label x:Name="paddrLbl2" Content="University Drive" HorizontalAlignment="Left" Height="40" Margin="108,85,0,0" VerticalAlignment="Top" Width="250" FontSize="18" FontWeight="Bold"/>
-                    <Label x:Name="pemailLbl2" Content="jsmith@ucalgary.ca" HorizontalAlignment="Left" Height="40" Margin="108,125,0,0" VerticalAlignment="Top" Width="250" FontSize="18" FontWeight="Bold"/>
-                    <Label x:Name="pnumLbl2" Content="(403)-123-4567" HorizontalAlignment="Left" Height="40" Margin="108,165,0,0" VerticalAlignment="Top" Width="250" FontSize="18" FontWeight="Bold"/>
-                    <Label x:Name="pprevLbl2" Content="Dr.Lee" HorizontalAlignment="Left" Height="40" Margin="165,205,0,0" VerticalAlignment="Top" Width="250" FontSize="18" RenderTransformOrigin="0.567,-0.238" FontWeight="Bold"/>
-
-                </Grid>
-                <Grid x:Name="recentPgrid4" Margin="0,0,-330,0" Height="245" MouseEnter="rpatientEnter" MouseLeave="rpatientExit">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="4*"/>
-                        <ColumnDefinition Width="3*"/>
-                    </Grid.ColumnDefinitions>
-                    <Rectangle x:Name="rpatientBox4" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="245" Stroke="Black" VerticalAlignment="Top" Width="422"/>
-                    <Label x:Name="nameLbl3" Content="Name:" HorizontalAlignment="Left" Height="40" Margin="16,5,0,0" VerticalAlignment="Top" Width="101" FontSize="18"/>
-                    <Label x:Name="hcLbl3" Content="HC#" HorizontalAlignment="Left" Height="40" Margin="16,45,0,0" VerticalAlignment="Top" Width="101" FontSize="18"/>
-                    <Label x:Name="addrLbl3" Content="Address:" HorizontalAlignment="Left" Height="40" Margin="16,85,0,0" VerticalAlignment="Top" Width="101" FontSize="18"/>
-                    <Label x:Name="emailLbl3" Content="Email:" HorizontalAlignment="Left" Height="40" Margin="16,125,0,0" VerticalAlignment="Top" Width="101" FontSize="18"/>
-                    <Label x:Name="numLbl3" Content="Phone:" HorizontalAlignment="Left" Height="40" Margin="16,165,0,0" VerticalAlignment="Top" Width="101" FontSize="18"/>
-                    <Label x:Name="prevLbl3" Content="Previous Doctor:" HorizontalAlignment="Left" Height="40" Margin="16,205,0,0" VerticalAlignment="Top" Width="144" FontSize="18"/>
-                    <Label x:Name="pnameLbl3" Content="John, Smith" HorizontalAlignment="Left" Height="40" Margin="108,5,0,0" VerticalAlignment="Top" Width="250" FontSize="18" FontWeight="Bold"/>
-                    <Label x:Name="phcLbl3" Content="13129124124" HorizontalAlignment="Left" Height="40" Margin="108,45,0,0" VerticalAlignment="Top" Width="250" FontSize="18" FontWeight="Bold"/>
-                    <Label x:Name="paddrLbl3" Content="University Drive" HorizontalAlignment="Left" Height="40" Margin="108,85,0,0" VerticalAlignment="Top" Width="250" FontSize="18" FontWeight="Bold"/>
-                    <Label x:Name="pemailLbl3" Content="jsmith@ucalgary.ca" HorizontalAlignment="Left" Height="40" Margin="108,125,0,0" VerticalAlignment="Top" Width="250" FontSize="18" FontWeight="Bold"/>
-                    <Label x:Name="pnumLbl3" Content="(403)-123-4567" HorizontalAlignment="Left" Height="40" Margin="108,165,0,0" VerticalAlignment="Top" Width="250" FontSize="18" FontWeight="Bold"/>
-                    <Label x:Name="pprevLbl3" Content="Dr.Lee" HorizontalAlignment="Left" Height="40" Margin="165,205,0,0" VerticalAlignment="Top" Width="186" FontSize="18" RenderTransformOrigin="0.567,-0.238" FontWeight="Bold"/>
-
-                </Grid>
-                <Grid x:Name="recentPgrid5" Margin="0,0,-330,0" Height="245" MouseEnter="rpatientEnter" MouseLeave="rpatientExit">
-                    <Rectangle x:Name="rpatientBox5" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="245" Stroke="Black" VerticalAlignment="Top" Width="422"/>
-                    <Label x:Name="nameLbl4" Content="Name:" HorizontalAlignment="Left" Height="40" Margin="16,5,0,0" VerticalAlignment="Top" Width="101" FontSize="18"/>
-                    <Label x:Name="hcLbl4" Content="HC#" HorizontalAlignment="Left" Height="40" Margin="16,45,0,0" VerticalAlignment="Top" Width="101" FontSize="18"/>
-                    <Label x:Name="addrLbl4" Content="Address:" HorizontalAlignment="Left" Height="40" Margin="16,85,0,0" VerticalAlignment="Top" Width="101" FontSize="18"/>
-                    <Label x:Name="emailLbl4" Content="Email:" HorizontalAlignment="Left" Height="40" Margin="16,125,0,0" VerticalAlignment="Top" Width="101" FontSize="18"/>
-                    <Label x:Name="numLbl4" Content="Phone:" HorizontalAlignment="Left" Height="40" Margin="16,165,0,0" VerticalAlignment="Top" Width="101" FontSize="18"/>
-                    <Label x:Name="prevLbl4" Content="Previous Doctor:" HorizontalAlignment="Left" Height="40" Margin="16,205,0,0" VerticalAlignment="Top" Width="144" FontSize="18"/>
-                    <Label x:Name="pnameLbl4" Content="John, Smith" HorizontalAlignment="Left" Height="40" Margin="108,5,0,0" VerticalAlignment="Top" Width="250" FontSize="18" FontWeight="Bold"/>
-                    <Label x:Name="phcLbl4" Content="13129124124" HorizontalAlignment="Left" Height="40" Margin="108,45,0,0" VerticalAlignment="Top" Width="250" FontSize="18" FontWeight="Bold"/>
-                    <Label x:Name="paddrLbl4" Content="University Drive" HorizontalAlignment="Left" Height="40" Margin="108,85,0,0" VerticalAlignment="Top" Width="250" FontSize="18" FontWeight="Bold"/>
-                    <Label x:Name="pemailLbl4" Content="jsmith@ucalgary.ca" HorizontalAlignment="Left" Height="40" Margin="108,125,0,0" VerticalAlignment="Top" Width="250" FontSize="18" FontWeight="Bold"/>
-                    <Label x:Name="pnumLbl4" Content="(403)-123-4567" HorizontalAlignment="Left" Height="40" Margin="108,165,0,0" VerticalAlignment="Top" Width="250" FontSize="18" FontWeight="Bold"/>
-                    <Label x:Name="pprevLbl4" Content="Dr.Lee" HorizontalAlignment="Left" Height="40" Margin="165,205,0,0" VerticalAlignment="Top" Width="186" FontSize="18" RenderTransformOrigin="0.567,-0.238" FontWeight="Bold"/>
-
-                </Grid>
             </StackPanel>
         </ScrollViewer>
         <Grid x:Name="addPatient" Margin="0,251,1110,0" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Hidden">

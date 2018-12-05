@@ -96,43 +96,11 @@ namespace CPSC481Project
             Patient l = m_patientDatabase.findPatient("99999");
             Patient k = m_patientDatabase.findPatient("83409");
 
-
-            //Patient LastName First Name
-            pnameLbl.Content = m.GetLastName() + ", " + m.GetFirstName();
-            pnameLbl1.Content = j.GetLastName() + ", " + j.GetFirstName();
-            pnameLbl2.Content = d.GetLastName() + ", " + d.GetFirstName();
-            pnameLbl3.Content = l.GetLastName() + ", " + l.GetFirstName();
-            pnameLbl4.Content = k.GetLastName() + ", " + k.GetFirstName();
-            //Patient HC#
-            phcLbl.Content = m.GetHCNumber();
-            phcLbl1.Content = j.GetHCNumber();
-            phcLbl2.Content = d.GetHCNumber();
-            phcLbl3.Content = l.GetHCNumber();
-            phcLbl4.Content = k.GetHCNumber();
-            //PatientPhone
-            pnumLbl.Content = m.GetPhone();
-            pnumLbl1.Content = j.GetPhone();
-            pnumLbl2.Content = d.GetPhone();
-            pnumLbl3.Content = l.GetPhone();
-            pnumLbl4.Content = k.GetPhone();
-            //Patient Previous Doctor
-            pprevLbl.Content = doctors[rnd.Next(0, 3)];
-            pprevLbl1.Content = doctors[rnd.Next(0, 3)];
-            pprevLbl2.Content = doctors[rnd.Next(0, 3)];
-            pprevLbl3.Content = doctors[rnd.Next(0, 3)];
-            pprevLbl4.Content = doctors[rnd.Next(0, 3)];
-            //Patient Address
-            paddrLbl.Content = m.GetAddress();
-            paddrLbl1.Content = j.GetAddress();
-            paddrLbl2.Content = d.GetAddress();
-            paddrLbl3.Content = l.GetAddress();
-            paddrLbl4.Content = k.GetAddress();
-            //Patient Email
-            pemailLbl.Content = m.GetEmail();
-            pemailLbl1.Content = j.GetEmail();
-            pemailLbl2.Content = d.GetEmail();
-            pemailLbl3.Content = l.GetEmail();
-            pemailLbl4.Content = k.GetEmail();
+            PatientListStackPanel.Children.Add(CreateGrid(m));
+            PatientListStackPanel.Children.Add(CreateGrid(j));
+            PatientListStackPanel.Children.Add(CreateGrid(d));
+            PatientListStackPanel.Children.Add(CreateGrid(l));
+            PatientListStackPanel.Children.Add(CreateGrid(k));
 
             Patient a = m_patientDatabase.findPatient("00001");
             Patient b = m_patientDatabase.findPatient("00002");
@@ -205,7 +173,7 @@ namespace CPSC481Project
                     double size = 0;
                     foreach (Patient pat in patients)
                     {
-                        Grid g = CreateGrid(pat);
+                        Grid g = CreateGrid(pat, true, false);
                         size += g.Height;
                         PatientListStackPanel.Children.Add(g);
                     }
@@ -217,7 +185,7 @@ namespace CPSC481Project
                     List<Patient> patients = m_patientDatabase.FindPatientName(searchField.Text);
                     foreach (Patient pat in patients)
                     {
-                        PatientListStackPanel.Children.Add(CreateGrid(pat));
+                        PatientListStackPanel.Children.Add(CreateGrid(pat, true, false));
                     }
 
                 }
@@ -249,51 +217,11 @@ namespace CPSC481Project
 
         private void rpatientEnter(object sender, MouseEventArgs e)
         {
-            //rpatientBox.Fill = new SolidColorBrush(Color.FromRgb(249, 209, 26));
-            if (sender == recentPgrid)
-            {
-                rpatientBox.Fill = new SolidColorBrush(Color.FromRgb(249, 209, 26));
-            }
-            if (sender == recentPgrid2)
-            {
-                rpatientBox2.Fill = new SolidColorBrush(Color.FromRgb(249, 209, 26));
-            }
-            if (sender == recentPgrid3)
-            {
-                rpatientBox3.Fill = new SolidColorBrush(Color.FromRgb(249, 209, 26));
-            }
-            if (sender == recentPgrid4)
-            {
-                rpatientBox4.Fill = new SolidColorBrush(Color.FromRgb(249, 209, 26));
-            }
-            if (sender == recentPgrid5)
-            {
-                rpatientBox5.Fill = new SolidColorBrush(Color.FromRgb(249, 209, 26));
-            }
+
         }
 
         private void rpatientExit(object sender, MouseEventArgs e)
         {
-            if (sender == recentPgrid)
-            {
-                rpatientBox.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 255));
-            }
-            if (sender == recentPgrid2)
-            {
-                rpatientBox2.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 255));
-            }
-            if (sender == recentPgrid3)
-            {
-                rpatientBox3.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 255));
-            }
-            if (sender == recentPgrid4)
-            {
-                rpatientBox4.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 255));
-            }
-            if (sender == recentPgrid5)
-            {
-                rpatientBox5.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 255));
-            }
 
         }
 
@@ -305,7 +233,7 @@ namespace CPSC481Project
         /**
          * When searching for a patient, this method can be called to create a grid showing a patient's information.
          */
-        private Grid CreateGrid(Patient p, Boolean isSearch = true)
+        private Grid CreateGrid(Patient p, Boolean withButton = false, Boolean highlighted = false)
         {
             Grid g = new Grid();
             Label nameL = new Label();
@@ -320,17 +248,17 @@ namespace CPSC481Project
             emailL.Content = "Email:"; emailL.Height = 40; emailL.Margin = new Thickness(16, 125, 0, 0); emailL.Width = 101; emailL.FontSize = 18; emailL.HorizontalAlignment = HorizontalAlignment.Left; emailL.VerticalAlignment = VerticalAlignment.Top;
             phoneL.Content = "Phone:"; phoneL.Height = 40; phoneL.Margin = new Thickness(16, 165, 0, 0); phoneL.Width = 101; phoneL.FontSize = 18; phoneL.HorizontalAlignment = HorizontalAlignment.Left; phoneL.VerticalAlignment = VerticalAlignment.Top;
 
-            Label nameC = new Label();
-            Label hcC = new Label();
-            Label addyC = new Label();
-            Label emailC = new Label();
-            Label phoneC = new Label();
+            TextBlock nameC = new TextBlock();
+            TextBlock hcC = new TextBlock();
+            TextBlock addyC = new TextBlock();
+            TextBlock emailC = new TextBlock();
+            TextBlock phoneC = new TextBlock();
 
-            nameC.Content = p.GetLastName() + ", " + p.GetFirstName(); nameC.Height = 40; nameC.Margin = new Thickness(122, 5, 0, 0); nameC.Width = 300; nameC.FontSize = 18; nameC.FontWeight = FontWeights.Bold; nameC.HorizontalAlignment = HorizontalAlignment.Left; nameC.VerticalAlignment = VerticalAlignment.Top;
-            hcC.Content = p.GetHCNumber(); hcC.Height = 40; hcC.Margin = new Thickness(122, 45, 0, 0); hcC.Width = 300; hcC.FontSize = 18; hcC.FontWeight = FontWeights.Bold; hcC.HorizontalAlignment = HorizontalAlignment.Left; hcC.VerticalAlignment = VerticalAlignment.Top;
-            addyC.Content = p.GetAddress(); addyC.Height = 40; addyC.Margin = new Thickness(122, 85, 0, 0); addyC.Width = 300; addyC.FontSize = 18; addyC.FontWeight = FontWeights.Bold; addyC.HorizontalAlignment = HorizontalAlignment.Left; addyC.VerticalAlignment = VerticalAlignment.Top;
-            emailC.Content = p.GetEmail(); emailC.Height = 40; emailC.Margin = new Thickness(122, 125, 0, 0); emailC.Width = 300; emailC.FontSize = 18; emailC.FontWeight = FontWeights.Bold; emailC.HorizontalAlignment = HorizontalAlignment.Left; emailC.VerticalAlignment = VerticalAlignment.Top;
-            phoneC.Content = p.GetPhone(); phoneC.Height = 40; phoneC.Margin = new Thickness(122, 165, 0, 0); phoneC.Width = 300; phoneC.FontSize = 18; phoneC.FontWeight = FontWeights.Bold; phoneC.HorizontalAlignment = HorizontalAlignment.Left; phoneC.VerticalAlignment = VerticalAlignment.Top;
+            nameC.Text = p.GetLastName() + ", " + p.GetFirstName(); nameC.Height = 40; nameC.Margin = new Thickness(100, 5, 0, 0); nameC.Width = 230; nameC.FontSize = 18; nameC.FontWeight = FontWeights.Bold; nameC.HorizontalAlignment = HorizontalAlignment.Left; nameC.VerticalAlignment = VerticalAlignment.Top; nameC.TextTrimming = TextTrimming.CharacterEllipsis;
+            hcC.Text = p.GetHCNumber(); hcC.Height = 40; hcC.Margin = new Thickness(100, 45, 0, 0); hcC.Width = 230; hcC.FontSize = 18; hcC.FontWeight = FontWeights.Bold; hcC.HorizontalAlignment = HorizontalAlignment.Left; hcC.VerticalAlignment = VerticalAlignment.Top; hcC.TextTrimming = TextTrimming.CharacterEllipsis;
+            addyC.Text = p.GetAddress(); addyC.Height = 40; addyC.Margin = new Thickness(100, 85, 0, 0); addyC.Width = 230; addyC.FontSize = 18; addyC.FontWeight = FontWeights.Bold; addyC.HorizontalAlignment = HorizontalAlignment.Left; addyC.VerticalAlignment = VerticalAlignment.Top; addyC.TextTrimming = TextTrimming.CharacterEllipsis;
+            emailC.Text = p.GetEmail(); emailC.Height = 40; emailC.Margin = new Thickness(100, 125, 0, 0); emailC.Width = 230; emailC.FontSize = 18; emailC.FontWeight = FontWeights.Bold; emailC.HorizontalAlignment = HorizontalAlignment.Left; emailC.VerticalAlignment = VerticalAlignment.Top; emailC.TextTrimming = TextTrimming.CharacterEllipsis;
+            phoneC.Text = p.GetPhone(); phoneC.Height = 40; phoneC.Margin = new Thickness(100, 165, 0, 0); phoneC.Width = 230; phoneC.FontSize = 18; phoneC.FontWeight = FontWeights.Bold; phoneC.HorizontalAlignment = HorizontalAlignment.Left; phoneC.VerticalAlignment = VerticalAlignment.Top; phoneC.TextTrimming = TextTrimming.CharacterEllipsis;
 
             Rectangle r = new Rectangle();
             r.Stroke = System.Windows.Media.Brushes.Black;
@@ -339,7 +267,7 @@ namespace CPSC481Project
             r.Width = 422;
             r.Height = 245;
 
-            if (isSearch)
+            if (withButton)
             {
                 Button b = new Button();
                 b.Content = "Select";
@@ -350,7 +278,7 @@ namespace CPSC481Project
                 b.Click += SelectPatientClicked;
                 g.Children.Add(b);
             }
-            else
+            else if(highlighted)
                 r.Fill = new SolidColorBrush(Color.FromRgb(249, 209, 26));
 
             g.Children.Add(r);
@@ -369,7 +297,7 @@ namespace CPSC481Project
             // Remove all boxes, then add back the selected patient box.
             PatientListStackPanel.Children.Clear();
             m_currentPatient = (Patient)b.Tag;
-            PatientListStackPanel.Children.Add(CreateGrid(m_currentPatient, false));
+            PatientListStackPanel.Children.Add(CreateGrid(m_currentPatient, false, true));
 
             selectedMode = true;
 
