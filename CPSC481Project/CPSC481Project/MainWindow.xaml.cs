@@ -162,6 +162,9 @@ namespace CPSC481Project
             PatientListStackPanel.Children.Clear();
             recentLabel.Content = "Patient Search";
 
+            // Add a button to remove search results
+            RemoveSearchButton.Visibility = Visibility.Visible;
+
             if (IsDigitsOnly(searchField.Text))
             {
                 List<Patient> patients = m_patientDatabase.FindPatientHC(searchField.Text);
@@ -468,12 +471,12 @@ namespace CPSC481Project
 		        //Initialize fields when opening the add patient window so users get an example
         private void InitAddPatientTextfields()
         {
-            apnameField.Text = "Ex: Jane";
-            aplnameField.Text = "Ex: Smith";
-            aphcField.Text = "Ex: 12345";
-            apaddrField.Text = "Ex: 12 University Dr";
-            apphoneField.Text = "Ex: (403) 123-4567";
-            apemailField.Text = "Ex: abc@abc.com";
+            apnameField.Text = "Jane";
+            aplnameField.Text = "Smith";
+            aphcField.Text = "00000";
+            apaddrField.Text = "12 University Dr";
+            apphoneField.Text = "(403) 123-4567";
+            apemailField.Text = "abc@abc.com";
         }
 
         //Remove the example when user clicks into field
@@ -512,5 +515,11 @@ namespace CPSC481Project
             apemailField.Text = "";
         }
 
+        private void OnRemoveSearchButton(object sender, RoutedEventArgs e)
+        {
+            PatientListStackPanel.Children.Clear();
+            PopulateDefaultInfo();
+            RemoveSearchButton.Visibility = Visibility.Hidden;
+        }
     }
 }

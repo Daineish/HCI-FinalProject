@@ -31,7 +31,7 @@
     <Grid>
         <Rectangle x:Name="tile" Fill="#FFEFDCF3" Stroke="#FFAC99B0" Margin="0,10,5.167,10" RadiusY="16.5" RadiusX="16.5" StrokeThickness="3"/>
         <Label x:Name="name" Height="57" Width="83" HorizontalAlignment="Center" VerticalAlignment="Center" Background="{x:Null}" BorderBrush="#FFAC99B0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,46,94,59" Content="Name:&#xD;&#xA;HC:" FontSize="18" FontWeight="Bold"/>
-        <Button x:Name="deleteButton" Content="Button" Margin="121,21,37.5,123" Style="{DynamicResource ButtonStyle1}" Click="OnDeleteButton"/>
+        <Button x:Name="deleteButton" Content="Button" Margin="121,21,37.5,123" Style="{DynamicResource ButtonStyle1}" Click="OnDeleteButton" Cursor="Hand"/>
         <Label x:Name="NameLabel" Content="..." HorizontalAlignment="Left" Margin="77,52,0,0" VerticalAlignment="Top" Width="86"/>
         <Label x:Name = "HCLabel" Content="..." HorizontalAlignment="Left" Margin="77,72,0,0" VerticalAlignment="Top" Width="86"/>
 
