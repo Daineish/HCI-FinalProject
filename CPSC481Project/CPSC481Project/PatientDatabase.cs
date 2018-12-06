@@ -120,6 +120,7 @@ namespace CPSC481Project
          */
         public List<Patient> FindPatientHC(String num)
         {
+            if (num.Length == 0) return m_patientList;
             List<Patient> rv = new List<Patient>();
             foreach(Patient p in m_patientList)
             {
@@ -134,6 +135,7 @@ namespace CPSC481Project
          */
         public List<Patient> FindPatientName(String name)
         {
+            if (name.Length == 0) return m_patientList;
             List<Patient> rv = new List<Patient>();
             name = name.ToLower();
             foreach (Patient p in m_patientList)

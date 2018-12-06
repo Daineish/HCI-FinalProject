@@ -5,11 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CPSC481Project"
         mc:Ignorable="d"
-        Title="Medical Appointment System" Height="900" Width="1440">
-    <Grid x:Name="MainGrid" Margin="-4,0,2,-4">
+        Title="Medical Appointment System" Height="900" Width="1440"
+        MinHeight="812.5"
+        MinWidth="1300">
+    <Grid x:Name="MainGrid" Margin="0,0,0,0">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="345"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -19,11 +21,11 @@
             </LinearGradientBrush>
         </Grid.Background>
 
-        <Rectangle  HorizontalAlignment="Left" Height="873" Stroke="Black" VerticalAlignment="Top" Width="354" Fill="#FFF4F5F5"/>
+        <Rectangle Grid.Column="0" HorizontalAlignment="Left" Height="auto" VerticalAlignment="Stretch" Width="345" Fill="#FFF4F5F5"/>
 
-        <Label x:Name="patientLabel" Content="Patient Search" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="166" Margin="10,10,0,0" FontSize="24"/>
-        <TextBox x:Name="searchField" HorizontalAlignment="Left" Height="34" TextWrapping="Wrap" VerticalAlignment="Top" Width="236" Margin="14,73,0,0" FontSize="18" MouseDoubleClick="searchClicked" Opacity="0.5" TextChanged="searchField_TextChanged"/>
-        <TextBlock IsHitTestVisible="False" Text="Search (Healthcare #, Name)" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="24,78.03,0,0" FontSize ="18" Foreground="DarkGray" Height="24" Width="226">
+        <Label Grid.Column="0" x:Name="patientLabel" Content="Patient Search" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="166" Margin="10,10,0,0" FontSize="24"/>
+        <TextBox Grid.Column="0" x:Name="searchField" HorizontalAlignment="Left" Height="34" TextWrapping="Wrap" VerticalAlignment="Top" Width="236" Margin="14,73,0,0" FontSize="18" MouseDoubleClick="searchClicked" Opacity="0.5" TextChanged="searchField_TextChanged"/>
+        <TextBlock Grid.Column="0" IsHitTestVisible="False" Text="Search (Healthcare #, Name)" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="24,78.03,0,0" FontSize ="18" Foreground="DarkGray" Height="24" Width="226">
             <TextBlock.Style>
                 <Style TargetType="{x:Type TextBlock}">
                     <Setter Property="Visibility" Value="Collapsed"/>
@@ -35,44 +37,46 @@
                 </Style>
             </TextBlock.Style>
         </TextBlock>
-        <Button x:Name="searchBtn" HorizontalAlignment="Left" Margin="253.063,69.665,0,0" VerticalAlignment="Top" Width="40.43" RenderTransformOrigin="0.68,1.65" Height="38.608" FontSize="18" Click="SearchBtn_Click" BorderBrush="{x:Null}" Foreground="{x:Null}">
+        <Button Grid.Column="0" x:Name="searchBtn" HorizontalAlignment="Left" Margin="253.063,69.665,0,0" VerticalAlignment="Top" Width="40.43" RenderTransformOrigin="0.68,1.65" Height="38.608" FontSize="18" Click="SearchBtn_Click" BorderBrush="{x:Null}" Foreground="{x:Null}">
             <Button.Background>
                 <ImageBrush ImageSource="Images/searchButton.png"/>
             </Button.Background>
         </Button>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="44" Margin="0,113,0,0" Stroke="Black" VerticalAlignment="Top" Width="354"/>
-        <Label x:Name="recentLabel" Content="Recent Patients:" HorizontalAlignment="Left" Margin="10,113,0,0" VerticalAlignment="Top" Height="44" Width="178" FontSize="24"/>
-        <Button x:Name="addPatientButton" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40.43" Margin="269.07,10,0,0" Height="40.43" Click="addContact" RenderTransformOrigin="-1.879,0.207" BorderBrush="{x:Null}" Foreground="{x:Null}">
+        <Rectangle Grid.Column="0" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="44" Margin="0,113,0,0" Stroke="Black" VerticalAlignment="Top" Width="354"/>
+        <Label Grid.Column="0" x:Name="recentLabel" Content="Recent Patients:" HorizontalAlignment="Left" Margin="10,113,0,0" VerticalAlignment="Top" Height="44" Width="178" FontSize="24"/>
+        <Button Grid.Column="0" x:Name="addPatientButton" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40.43" Margin="269.07,10,0,0" Height="40.43" Click="addContact" RenderTransformOrigin="-1.879,0.207" BorderBrush="{x:Null}" Foreground="{x:Null}">
             <Button.Background>
                 <ImageBrush ImageSource="Images/addButton.png" Stretch="UniformToFill"/>
             </Button.Background>
         </Button>
-        <Grid x:Name="dashboard" Margin="414,10,102,110">
+        <Grid Grid.Column="1" x:Name="dashboard" Margin="0,0,0,0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="14*"/>
-                <RowDefinition Height="51*"/>
+                <RowDefinition Height="6*"/>
+                <RowDefinition Height="20*"/>
+                <RowDefinition Height="12*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="252*"/>
-                <ColumnDefinition Width="1079*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Width="Auto" Margin="-93.073,-10,0,0">
+            <StackPanel Grid.Column="0" Grid.Row="0"  Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Width="Auto" Margin="0,-10,0,0">
                 <Image x:Name="ToCalendar"  Source="/images/calMonView.png" Height="61" RenderTransformOrigin="0.5,0.5" Margin="25,32,0,18"
                    MouseLeftButtonUp="ToCalendar_MouseLeftButtonUp" HorizontalAlignment="Center" VerticalAlignment="Center" Width="87"/>
                 <Image x:Name="ToDayView" Source="/images/calDayView.png" Height="61" RenderTransformOrigin="0.5,0.5" Margin="0,32,6,18"
                    MouseLeftButtonUp="ToDayView_MouseLeftButtonUp" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75"/>
             </StackPanel>
-            <Label x:Name="DashDate" Content="December 10th, 2018&#xA; " HorizontalAlignment="Left" Height="63" VerticalAlignment="Top" Width="538" FontSize="48" Grid.Column="1"/>
-            <Label x:Name="DashTime" Content="" HorizontalAlignment="Left" Height="74" VerticalAlignment="Top" Width="263.5" FontSize="48" Margin="117,63,0,0" Grid.Column="1"/>
-            <local:DrWalterTileControl x:Name="DoctorWalterTile" Grid.ColumnSpan="2" Margin="-33.81,2.75,642.31,248.863" Grid.Row="1"/>
-            <local:DrLeeTileControl x:Name="DoctorLeeTile" Margin="132,2,310.544,249.615" Grid.Column="1" Grid.Row="1"/>
-            <local:DrPayneTileControl x:Name="DoctorPayneTile" Margin="466.814,2.751,-29.927,249.615" Grid.Column="1" Grid.Row="1"/>
-            <Image x:Name="clinicLogo" Source="images/clinicLogo.png" Height="138" Margin="686.073,5.5,-89,0" VerticalAlignment="Top" Grid.Column="1">
+            <Label x:Name="DashDate" Content="December 10th, 2018&#xA; " Margin="200,0,0,0" HorizontalAlignment="Center" Height="63" VerticalAlignment="Top" Width="671" FontSize="48" Grid.Row="0" Grid.ColumnSpan="3"/>
+            <Label x:Name="DashTime" Content="" HorizontalAlignment="Center" Height="74" VerticalAlignment="Top" Width="630" FontSize="48" Margin="300,63,0,0" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3"/>
+            <local:DrWalterTileControl x:Name="DoctorWalterTile" Margin="0,0,0,0" Grid.Row="1" Grid.Column="0"/>
+            <local:DrLeeTileControl x:Name="DoctorLeeTile" Margin="0,0,0,0" Grid.Column="1" Grid.Row="1"/>
+            <local:DrPayneTileControl x:Name="DoctorPayneTile" Margin="0,0,0,0" Grid.Column="2" Grid.Row="1"/>
+            <Image x:Name="clinicLogo" Source="images/clinicLogo.png" Height="138" Margin="150,0,0,0" VerticalAlignment="Center" Grid.Column="2" Grid.Row="0">
                 <Image.OpacityMask>
                     <ImageBrush ImageSource="images/clinicLogo.png"/>
                 </Image.OpacityMask>
             </Image>
-            <ListBox x:Name="walkinQueueList" HorizontalAlignment="Left" Height="177" Margin="-42,467,0,-56" VerticalAlignment="Top" Width="962" Grid.Row="1" Grid.ColumnSpan="2" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+            <ListBox Grid.Column ="0" Grid.ColumnSpan="3" x:Name="walkinQueueList" HorizontalAlignment="Center" Height="177" Margin="0,0,0,20" VerticalAlignment="Bottom" Width="962" Grid.Row="2" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Disabled">
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel IsItemsHost="True" />
@@ -84,19 +88,18 @@
                 <local:WalkinTile x:Name="wtile4" Height="162.5" Width="177" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <local:WalkinTile x:Name="wtile5" Height="162.5" Width="177" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             </ListBox>
-            <Button x:Name="addWalkInButton" Click="WalkInClicked" HorizontalAlignment="Left" VerticalAlignment="Top" Width="54.927" Margin="742.573,410.561,-54.927,0" Height="51.401" Grid.Column="1" Grid.Row="1" BorderBrush="{x:Null}" Foreground="{x:Null}">
+            <Button x:Name="addWalkInButton" Click="WalkInClicked" HorizontalAlignment="Right" VerticalAlignment="Top" Width="54.927" Margin="0,0,60,0" Height="51.401" Grid.Column="2" Grid.Row="2" BorderBrush="{x:Null}" Foreground="{x:Null}">
                 <Button.Background>
                     <ImageBrush ImageSource="Images/addButton.png"/>
                 </Button.Background>
             </Button>
-            <Label Content="Walk-In Queue" HorizontalAlignment="Left" Height="60" Margin="-28,402,0,0" VerticalAlignment="Top" Width="254" FontSize="36" Grid.Row="1" Grid.ColumnSpan="2"/>
+            <Label Grid.Column="0" Content="Walk-In Queue" HorizontalAlignment="Left" Height="60" Margin="62,0,0,0" VerticalAlignment="Top" Width="300" FontSize="36" Grid.Row="2"/>
         </Grid>
-        <ScrollViewer x:Name="PatientListScrollViewer" HorizontalAlignment="Left" Height="716" Margin="0,157,0,0" VerticalAlignment="Top" Width="354" HorizontalScrollBarVisibility="Auto">
-            <StackPanel x:Name="PatientListStackPanel" Height="993" Width="337" HorizontalAlignment="Left" VerticalAlignment="Top">
-
+        <ScrollViewer Grid.Column="0" x:Name="PatientListScrollViewer" HorizontalAlignment="Stretch" Height="Auto" Margin="0,157,0,0" VerticalAlignment="Top" Width="auto" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto">
+            <StackPanel x:Name="PatientListStackPanel" Height="Auto" Width="Auto" HorizontalAlignment="Left" VerticalAlignment="Top">
             </StackPanel>
         </ScrollViewer>
-        <Grid x:Name="addPatient" Margin="0,251,1110,0" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Hidden">
+        <Grid  Grid.Column="0" x:Name="addPatient" Margin="0,251,1110,0" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Hidden">
             <Rectangle Fill="#FFF4F5F5" HorizontalAlignment="Left" Height="619" Stroke="Black" VerticalAlignment="Top" Width="320"/>
             <TextBlock x:Name="apnameLbl" HorizontalAlignment="Left" Height="31" Margin="16,62,0,0" TextWrapping="Wrap" Text="First Name:" VerticalAlignment="Top" Width="102.5" FontSize="18"/>
             <TextBlock x:Name="apnameLbl_Copy" HorizontalAlignment="Left" Height="31" Margin="16,98,0,0" TextWrapping="Wrap" Text="Last Name:" VerticalAlignment="Top" Width="102.5" FontSize="18"/>
@@ -119,7 +122,7 @@
             <TextBlock x:Name="warning" Height="103.666" Margin="16,454.334,21.667,0" TextWrapping="Wrap" Text="Are you sure?" FontSize="24" Foreground="Red" VerticalAlignment="Top" Visibility="Hidden"/>
 
         </Grid>
-        <Grid x:Name="viewPatient" Margin="0,251,1110,0" Visibility="Hidden">
+        <Grid  Grid.Column="0" x:Name="viewPatient" Margin="0,251,1110,0" Visibility="Hidden">
             <Rectangle Fill="#FFF4F5F5" HorizontalAlignment="Left" Height="798" Stroke="Black" VerticalAlignment="Top" Width="422"/>
             <TextBlock x:Name="apnameLbl1" HorizontalAlignment="Left" Height="31" Margin="16,62,0,0" TextWrapping="Wrap" Text="First Name:" VerticalAlignment="Top" Width="102.5" FontSize="18"/>
             <TextBlock x:Name="apnameLbl_Copy7" HorizontalAlignment="Left" Height="31" Margin="16,98,0,0" TextWrapping="Wrap" Text="Last Name:" VerticalAlignment="Top" Width="102.5" FontSize="18"/>

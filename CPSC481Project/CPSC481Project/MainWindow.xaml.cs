@@ -161,37 +161,27 @@ namespace CPSC481Project
             // first clear StackPanel contents
             PatientListStackPanel.Children.Clear();
             recentLabel.Content = "Patient Search";
-            //This checks to see if our searchField isnt empty and if information is inputted correctly.
-            if (searchField.Text != "Search (Healthcare #, Name)" & searchField.Text != "")
+
+            if (IsDigitsOnly(searchField.Text))
             {
-                //Test example
-                //patientLabel.Content = "Hi";
-
-                if (IsDigitsOnly(searchField.Text))
+                List<Patient> patients = m_patientDatabase.FindPatientHC(searchField.Text);
+                double size = 0;
+                foreach (Patient pat in patients)
                 {
-                    List<Patient> patients = m_patientDatabase.FindPatientHC(searchField.Text);
-                    double size = 0;
-                    foreach (Patient pat in patients)
-                    {
-                        Grid g = CreateGrid(pat, true, false);
-                        size += g.Height;
-                        PatientListStackPanel.Children.Add(g);
-                    }
-                    PatientListStackPanel.Height = size + 10;
-
+                    Grid g = CreateGrid(pat, true, false);
+                    size += g.Height;
+                    PatientListStackPanel.Children.Add(g);
                 }
-                else// if(Regex.IsMatch(searchField.Text, @"^[a-zA-Z]+$")) //Search by Lastname
+                PatientListStackPanel.Height = size + 10;
+
+            }
+            else// if(Regex.IsMatch(searchField.Text, @"^[a-zA-Z]+$")) //Search by Lastname
+            {
+                List<Patient> patients = m_patientDatabase.FindPatientName(searchField.Text);
+                foreach (Patient pat in patients)
                 {
-                    List<Patient> patients = m_patientDatabase.FindPatientName(searchField.Text);
-                    foreach (Patient pat in patients)
-                    {
-                        PatientListStackPanel.Children.Add(CreateGrid(pat, true, false));
-                    }
-
+                    PatientListStackPanel.Children.Add(CreateGrid(pat, true, false));
                 }
-
-
-
             }
         }
         bool IsDigitsOnly(string str)
@@ -309,6 +299,9 @@ namespace CPSC481Project
 
             m_dayViewControl = new DayViewControl(DateTime.Today);
             MainGrid.Children.Add(m_dayViewControl);
+            Grid.SetRow(m_dayViewControl, 0);
+            Grid.SetColumn(m_dayViewControl, 1);
+            Grid.SetRowSpan(m_dayViewControl, 3);
             m_dayViewControl.Visibility = Visibility.Visible;
         }
         /*private void Back_Click(object sender, RoutedEventArgs e)
@@ -330,6 +323,9 @@ namespace CPSC481Project
             m_monthlyViewControl = new MonthlyViewControl();
             m_monthlyViewControl.Visibility = Visibility.Visible;
             MainGrid.Children.Add(m_monthlyViewControl);
+            Grid.SetRow(m_monthlyViewControl, 0);
+            Grid.SetColumn(m_monthlyViewControl, 1);
+            Grid.SetRowSpan(m_monthlyViewControl, 3);
         }
 
         private void ToDayView_MouseLeftButtonUp(object sender, RoutedEventArgs e)
@@ -338,6 +334,9 @@ namespace CPSC481Project
 
             m_dayViewControl = new DayViewControl(DateTime.Today);
             MainGrid.Children.Add(m_dayViewControl);
+            Grid.SetRow(m_dayViewControl, 0);
+            Grid.SetColumn(m_dayViewControl, 1);
+            Grid.SetRowSpan(m_dayViewControl, 3);
             m_dayViewControl.Visibility = Visibility.Visible;
         }
 
@@ -457,6 +456,9 @@ namespace CPSC481Project
             m_dayViewControl = new DayViewControl(d);
             m_dayViewControl.Visibility = Visibility.Visible;
             MainGrid.Children.Add(m_dayViewControl);
+            Grid.SetRow(m_dayViewControl, 0);
+            Grid.SetColumn(m_dayViewControl, 1);
+            Grid.SetRowSpan(m_dayViewControl, 3);
             if (m_monthlyViewControl != null)
                 MainGrid.Children.Remove(m_monthlyViewControl);
             // error handling?
