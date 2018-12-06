@@ -109,12 +109,12 @@
             <TextBlock x:Name="apnameLbl_Copy4" HorizontalAlignment="Left" Height="31" Margin="18,242,0,0" TextWrapping="Wrap" Text="Email:" VerticalAlignment="Top" Width="70.5" FontSize="18"/>
             <TextBlock x:Name="apnameLbl_Copy5" HorizontalAlignment="Left" Height="31" Margin="18,10,0,0" TextWrapping="Wrap" Text="Patient Information:" VerticalAlignment="Top" Width="255.5" FontSize="18"/>
             <TextBlock x:Name="apnameLbl_Copy6" HorizontalAlignment="Left" Height="31" Margin="18,278,0,0" TextWrapping="Wrap" Text="Additional Notes:" VerticalAlignment="Top" Width="149.5" FontSize="18"/>
-            <TextBox x:Name="apnameField" HorizontalAlignment="Left" Height="31" Margin="146.833,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" FontSize="18"/>
-            <TextBox x:Name="aplnameField" HorizontalAlignment="Left" Height="31" Margin="146.833,98,-52.833,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" FontSize="18"/>
-            <TextBox x:Name="aphcField" HorizontalAlignment="Left" Height="31" Margin="146.833,134,-52.833,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" FontSize="18"/>
-            <TextBox x:Name="apaddrField" HorizontalAlignment="Left" Height="31" Margin="146.833,170,-52.833,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" FontSize="18"/>
-            <TextBox x:Name="apphoneField" HorizontalAlignment="Left" Height="31" Margin="146.833,206,-52.833,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" FontSize="18"/>
-            <TextBox x:Name="apemailField" HorizontalAlignment="Left" Height="31" Margin="146.833,242,-52.833,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" FontSize="18"/>
+            <TextBox x:Name="apnameField" HorizontalAlignment="Left" Height="31" Margin="146.833,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" FontSize="18" GotFocus="ApnameField_GotFocus"/>
+            <TextBox x:Name="aplnameField" HorizontalAlignment="Left" Height="31" Margin="146.833,98,-52.833,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" FontSize="18" GotFocus="AplnameField_GotFocus"/>
+            <TextBox x:Name="aphcField" HorizontalAlignment="Left" Height="31" Margin="146.833,134,-52.833,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" FontSize="18" GotFocus="AphcField_GotFocus"/>
+            <TextBox x:Name="apaddrField" HorizontalAlignment="Left" Height="31" Margin="146.833,170,-52.833,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" FontSize="18" GotFocus="ApaddrField_GotFocus"/>
+            <TextBox x:Name="apphoneField" HorizontalAlignment="Left" Height="31" Margin="146.833,206,-52.833,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" FontSize="18" GotFocus="ApphoneField_GotFocus"/>
+            <TextBox x:Name="apemailField" HorizontalAlignment="Left" Height="31" Margin="146.833,242,-52.833,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" FontSize="18" GotFocus="ApemailField_GotFocus"/>
             <TextBox x:Name="apaddField" Height="117.667" Margin="18,314,19.667,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18"/>
             <Button x:Name="confirmBtn" Content="Confirm" HorizontalAlignment="Left" Height="46" Margin="184.833,563,0,0" VerticalAlignment="Top" Width="122" Click="patientaddConfirm"/>
             <Button x:Name="cancelBtn" Content="Cancel" HorizontalAlignment="Left" Height="46" Margin="16,563,0,0" VerticalAlignment="Top" Width="122" Click="cancelClicked"/>

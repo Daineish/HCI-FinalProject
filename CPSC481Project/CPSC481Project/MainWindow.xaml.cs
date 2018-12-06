@@ -347,6 +347,7 @@ namespace CPSC481Project
             recentLabel.Content = "Add Patient:";
             PatientListScrollViewer.Visibility = Visibility.Hidden;
             addPatient.Visibility = Visibility.Visible;
+            InitAddPatientTextfields();
         }
 
         private void patientaddConfirm(object sender, RoutedEventArgs e)
@@ -462,6 +463,53 @@ namespace CPSC481Project
             if (m_monthlyViewControl != null)
                 MainGrid.Children.Remove(m_monthlyViewControl);
             // error handling?
+        }
+		
+		        //Initialize fields when opening the add patient window so users get an example
+        private void InitAddPatientTextfields()
+        {
+            apnameField.Text = "Ex: Jane";
+            aplnameField.Text = "Ex: Smith";
+            aphcField.Text = "Ex: 12345";
+            apaddrField.Text = "Ex: 12 University Dr";
+            apphoneField.Text = "Ex: (403) 123-4567";
+            apemailField.Text = "Ex: abc@abc.com";
+        }
+
+        //Remove the example when user clicks into field
+        private void ApnameField_GotFocus(object sender, RoutedEventArgs e)
+        {
+            apnameField.Text = "";
+        }
+
+        //Remove the example when user clicks into field
+        private void AplnameField_GotFocus(object sender, RoutedEventArgs e)
+        {
+            aplnameField.Text = "";
+        }
+
+        //Remove the example when user clicks into field
+        private void AphcField_GotFocus(object sender, RoutedEventArgs e)
+        {
+            aphcField.Text = "";
+        }
+
+        //Remove the example when user clicks into field
+        private void ApaddrField_GotFocus(object sender, RoutedEventArgs e)
+        {
+            apaddrField.Text = "";
+        }
+
+        //Remove the example when user clicks into field
+        private void ApphoneField_GotFocus(object sender, RoutedEventArgs e)
+        {
+            apphoneField.Text = "";
+        }
+
+        //Remove the example when user clicks into field
+        private void ApemailField_GotFocus(object sender, RoutedEventArgs e)
+        {
+            apemailField.Text = "";
         }
 
     }
