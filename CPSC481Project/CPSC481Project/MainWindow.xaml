@@ -81,7 +81,7 @@
                 <local:WalkinTile x:Name="wtile4" Height="162.5" Width="177" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <local:WalkinTile x:Name="wtile5" Height="162.5" Width="177" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             </ListBox>
-            <Image x:Name="addWalkInButton" Source="/Images/addButton.png" MouseLeftButtonUp="WalkInClicked" HorizontalAlignment="Right" VerticalAlignment="Top" Width="54.927" Margin="0,0,60,0" Height="51.401" Grid.Column="2" Grid.Row="2" Cursor="Hand" ToolTip="Add walk-in appointment" MouseEnter="addWalkInButton_MouseEnter_1"/>
+            <Image x:Name="addWalkInButton" Source="/Images/addButton.png" MouseLeftButtonUp="WalkInClicked" HorizontalAlignment="Right" VerticalAlignment="Top" Width="54.927" Margin="0,0,60,0" Height="51.401" Grid.Column="2" Grid.Row="2" Cursor="Hand" ToolTip="Add walk-in appointment"/>
             <Label Grid.Column="0" Content="Walk-In Queue" HorizontalAlignment="Left" Height="60" Margin="62,0,0,0" VerticalAlignment="Top" Width="300" FontSize="36" Grid.Row="2"/>
         </Grid>
         <ScrollViewer Grid.Column="0" x:Name="PatientListScrollViewer" HorizontalAlignment="Stretch" Height="Auto" Margin="0,157,0,0" VerticalAlignment="Top" Width="auto" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto">
