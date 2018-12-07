@@ -42,7 +42,7 @@
         <Label Grid.Column="0" x:Name="recentLabel" Content="Recent Patients:" HorizontalAlignment="Left" Margin="10,113,0,0" VerticalAlignment="Top" Height="44" Width="178" FontSize="24"/>
         <Image x:Name="addPatientButton" Source="/Images/addButton.png" MouseLeftButtonUp="addContact" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40.43" Margin="269.07,10,0,0" Height="40.43" RenderTransformOrigin="-1.879,0.207" Cursor="Hand" ToolTip="Add patient"/>
         <Button x:Name="RemoveSearchButton" Content="X" Margin="296.5,118,10,718" Click="OnRemoveSearchButton" FontSize="14" FontWeight="Bold" Cursor="Hand" Visibility="Hidden"/>
-        <Grid Grid.Column="1" x:Name="dashboard" Margin="0,0,0,0">
+        <Grid Grid.Column="1" x:Name="dashboard" Margin="0,0,0,0" Width="1086">
             <Grid.RowDefinitions>
                 <RowDefinition Height="6*"/>
                 <RowDefinition Height="20*"/>
