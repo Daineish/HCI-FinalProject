@@ -112,6 +112,7 @@ namespace CPSC481Project
                 dayBox.DayNumberLabel.Content = i.ToString();
                 dayBox.Tag = i;
                 dayBox.MouseDoubleClick += DayBox_DoubleClick;
+                dayBox.DragEnter += DayBox_DragEnter;
 
                 // -- customize daybox for today:
                 if ((new DateTime(_DisplayYear, _DisplayMonth, i)) == DateTime.Today)
@@ -228,6 +229,17 @@ namespace CPSC481Project
                 e.Handled = true;
             }
             
+        }
+
+        private void DayBox_DragEnter(object sender, DragEventArgs e)
+        {
+            Console.WriteLine("Hello");
+            if(e.Source.GetType() == typeof(DayBoxControl) && Utilities.FindVisualAncestor(typeof(DayBoxAppointmentControl), e.OriginalSource as Visual) == null)
+            {
+                Console.WriteLine("Ok");
+                DayBoxControl dbc = (DayBoxControl)e.Source;
+                dbc.Highlight();
+            }
         }
     }
 }

@@ -36,5 +36,10 @@ namespace CPSC481Project
             InitializeComponent();
             m_day = i;
         }
+
+        public void Highlight()
+        {
+            DayAppointmentsStack.Background = new SolidColorBrush(Color.FromRgb(50, 0, 0));
+        }
     }
 }
