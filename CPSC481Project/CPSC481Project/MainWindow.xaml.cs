@@ -549,5 +549,6 @@ namespace CPSC481Project
             recentLabel.Content = "Recent Patients: ";
             RemoveSearchButton.Visibility = Visibility.Hidden;
         }
+
     }
 }
