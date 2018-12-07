@@ -13,6 +13,11 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using System.IO;
+using Newtonsoft.Json;
+using Microsoft.Win32;
+
+
 namespace CPSC481Project
 {
     /// <summary>
@@ -20,27 +25,52 @@ namespace CPSC481Project
     /// </summary>
     public partial class MonthlyViewControl : UserControl
     {
-        private List<Appointment> _myAppointmentsList = new List<Appointment>();
+        private List<Vacation> _myAppointmentsList = new List<Vacation>();
+        private static String m_vacationFile = "./Vacations.txt";
         //public MonthViewHeader aptCalendar = new MonthViewHeader();
 
 
         public MonthlyViewControl()
         {
             InitializeComponent();
+            aptCalendar.DisplayMonthChanged += DisplayMonthChanged;
             //this.MonthlyViewGrid.Children.Add(aptCalendar);
             Random rand = new Random(DateTime.Now.Second);
 
-            for (int i = 1; i <= 50; i++)
+            if (!File.Exists(m_vacationFile))
             {
-                Appointment apt = new Appointment();
-                apt.AppointmentID = i;
-                apt.StartTime = new DateTime(DateTime.Now.Year, rand.Next(1, 12), rand.Next(1, 28));
-                apt.EndTime = apt.StartTime;
-                apt.Subject = "Random apt, blah blah";
-                _myAppointmentsList.Add(apt);
+                // idk if this is necessary because idk how files work in C#.
+                File.Create(m_vacationFile).Close();
+            }
+
+            StreamReader vacationFile = File.OpenText(m_vacationFile);
+
+            JsonSerializer serializer = new JsonSerializer();
+            List<Vacation> temp = (List<Vacation>)(serializer.Deserialize(vacationFile, typeof(List<Vacation>)));
+            if (temp == null)
+            {
+                temp = new List<Vacation>();
+            }
+            else
+            {
+                foreach(Vacation v in temp)
+                {
+                    DateTime dt = v.m_startDate;
+                    while(DateTime.Compare(dt, v.m_endDate) < 0)
+                    {
+                        _myAppointmentsList.Add(new Vacation(v.m_doctor, dt, dt));
+                        dt = dt.AddDays(1);
+                    }
+                }
             }
 
             SetAppointments();
+        }
+
+        ~MonthlyViewControl()
+        {
+            String json = JsonConvert.SerializeObject(_myAppointmentsList, Formatting.Indented);
+            File.WriteAllText(m_vacationFile, json);
         }
 
         private void DayBoxDoubleClicked_event(NewAppointmentEventArgs e)
@@ -55,6 +85,7 @@ namespace CPSC481Project
 
         private void DisplayMonthChanged(MonthChangedEventArgs e)
         {
+            Console.WriteLine("Display month changed (YAY)");
             SetAppointments();
         }
 
@@ -64,14 +95,14 @@ namespace CPSC481Project
             // -- Use whatever function you want to load the MonthAppointments list, I happen to have a list filled by linq that has
             // many (possibly the past several years) of them loaded, so i filter to only pass the ones showing up in the displayed
             // month.  Note that the "setter" for MonthAppointments also triggers a redraw of the display.
-            Predicate<Appointment> aptFind = delegate(Appointment apt)
+            Predicate<Vacation> aptFind = delegate(Vacation apt)
             {
                 //int temp = aptCal.DisplayStartDate.Month;
-                return apt.StartTime.Value != null
-                && (int)apt.StartTime.Value.Month == this.aptCalendar.DisplayStartDate.Month 
-                && (int)apt.StartTime.Value.Year == this.aptCalendar.DisplayStartDate.Year;
+                return apt.m_startDate != null
+                && (int)apt.m_startDate.Month == this.aptCalendar.DisplayStartDate.Month 
+                && (int)apt.m_startDate.Year == this.aptCalendar.DisplayStartDate.Year;
             } ;
-            List<Appointment> aptInDay = _myAppointmentsList.FindAll(aptFind);
+            List<Vacation> aptInDay = _myAppointmentsList.FindAll(aptFind);
             this.aptCalendar.MonthAppointments = aptInDay;
         }
 

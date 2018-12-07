@@ -101,8 +101,6 @@ namespace CPSC481Project
             //randomPatientGenerator();
 
             PopulateDefaultInfo();
-
-
         }
 
         /**

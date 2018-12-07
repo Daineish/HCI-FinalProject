@@ -29,7 +29,7 @@ namespace CPSC481Project
         private int _DisplayYear = new int();
         private CultureInfo _cultureInfo = new CultureInfo(CultureInfo.CurrentUICulture.LCID);
         private System.Globalization.Calendar sysCal;
-        private List<Appointment> _monthAppointments = new List<Appointment>();
+        private List<Vacation> _monthAppointments = new List<Vacation>();
 
         public event DisplayMonthChangedEventHandler DisplayMonthChanged;
 
@@ -59,7 +59,7 @@ namespace CPSC481Project
             }
         }
 
-        internal List<Appointment> MonthAppointments
+        internal List<Vacation> MonthAppointments
         {
             get
             {
@@ -136,13 +136,14 @@ namespace CPSC481Project
                     // -- Compiler warning about unpredictable results if using i (the iterator) in lambda, the 
                     // "hint" suggests declaring another var and set equal to iterator var
                     int iday = i;
-                    Predicate<Appointment> aptFind = delegate(Appointment apt) { return (int)apt.StartTime.Value.Day == iday; };
-                    List<Appointment> aptInDay = _monthAppointments.FindAll(aptFind);
-                    foreach (Appointment a in aptInDay)
+                    Predicate<Vacation> aptFind = delegate(Vacation apt) { return (int)apt.m_startDate.Day == iday; };
+                    List<Vacation> aptInDay = _monthAppointments.FindAll(aptFind);
+                    foreach (Vacation a in aptInDay)
                     {
                         DayBoxAppointmentControl apt = new DayBoxAppointmentControl();
-                        apt.DisplayText.Text = a.Subject;
-                        apt.Tag = a.AppointmentID;
+                        //apt.DisplayText.Text = a.Subject;
+                        apt.DisplayText.Text = a.m_doctor;
+                        //apt.Tag = a.AppointmentID;
                         apt.MouseDoubleClick += Appointment_DoubleClick;
                         dayBox.DayAppointmentsStack.Children.Add(apt);
                     }
