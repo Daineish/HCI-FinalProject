@@ -70,7 +70,7 @@ namespace CPSC481Project
         // Debug function to print all appointments.
         public void PrintAllAppointments()
         {
-            Console.WriteLine("All Appointments");
+            Console.WriteLine("All Appointments: " + m_appointments.Count() + ".");
             Console.WriteLine("------------------------------------------");
             foreach (Appointment a in m_appointments)
             {
@@ -93,8 +93,11 @@ namespace CPSC481Project
             }
 
             List<Appointment> rv = new List<Appointment>();
-            List<Appointment> remaining = m_appointments;
-
+            List<Appointment> remaining = new List<Appointment>();
+            foreach(Appointment a in m_appointments)
+            {
+                remaining.Add(new Appointment(a.m_patient, a.m_doctor, a.StartTime.Value, a.EndTime.Value, a.m_information));
+            }
             for(int i = 0; i < num; i++)
             {
                 Appointment soonest = remaining.ElementAt(0);
@@ -158,6 +161,45 @@ namespace CPSC481Project
                         if (DateTime.Compare(a.m_startTime, rv.m_startTime) < 0)
                             rv = a;
                     }
+                }
+            }
+
+            return rv;
+        }
+
+        /**
+         * Returns num appointments in m_appointments that have the soonest startTime where the
+         * appointment's doctor == doc.
+         * 
+         * If there are less than num appointments that fit this description, it should return
+         * a list of appointments with a size < num, or return an empty list. Maybe.
+         */
+        public List<Appointment> NextAppointments(String doc, int num)
+        {
+            List<Appointment> rv = new List<Appointment>();
+            List<Appointment> remaining = new List<Appointment>();
+            foreach (Appointment a in m_appointments)
+            {
+                remaining.Add(new Appointment(a.m_patient, a.m_doctor, a.m_startTime, a.m_endTime, a.m_information));
+            }
+
+            for (int i = 0; i < num; i++)
+            {
+                Appointment soonest = null;
+                DateTime soonestTime = DateTime.MaxValue;
+                foreach (Appointment a in remaining)
+                {
+                    if (DateTime.Compare(a.m_startTime, soonestTime) < 0 && a.m_doctor == doc)
+                    {
+                        soonest = a;
+                        soonestTime = soonest.m_startTime;
+                    }
+                        
+                }
+                if(soonest != null)
+                {
+                    rv.Add(soonest);
+                    remaining.Remove(soonest);
                 }
             }
 
