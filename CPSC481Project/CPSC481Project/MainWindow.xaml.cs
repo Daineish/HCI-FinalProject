@@ -90,6 +90,8 @@ namespace CPSC481Project
 
         /**
          * Used to populate the main screen with expected data for the demo.
+         * 
+         * TODO: This isn't great code and could be cleaned up.
          */
         private void PopulateDefaultInfo()
         {
@@ -194,7 +196,7 @@ namespace CPSC481Project
                 int min = DateTime.Now.Minute;
                 String str = "";
                 if (min < 10) str = "0";
-                this.DashTime.Content = hour + ":" + str + DateTime.Now.Minute + ":" + DateTime.Now.Second + apm;
+                this.DashTime.Content = hour + ":" + str + DateTime.Now.Minute + " " + apm;
                 this.DashDate.Content = month.ElementAt(DateTime.Now.Month - 1) + " " + DateTime.Now.Day + ", " + DateTime.Now.Year;
             });
 
