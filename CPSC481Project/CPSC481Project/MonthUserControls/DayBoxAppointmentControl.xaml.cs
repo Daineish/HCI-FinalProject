@@ -24,5 +24,24 @@ namespace CPSC481Project
         {
             InitializeComponent();
         }
+
+        public void SetDoctor(String str)
+        {
+            if(str == "Dr. Payne")
+            {
+                BorderElement.BorderBrush = new SolidColorBrush(Color.FromRgb(90, 170, 126));
+                BorderElement.Background = new SolidColorBrush(Color.FromRgb(90, 170, 126));
+            }
+            else if(str == "Dr. Lee")
+            {
+                BorderElement.BorderBrush = new SolidColorBrush(Color.FromRgb(234, 142, 122));
+                BorderElement.Background = new SolidColorBrush(Color.FromRgb(234, 142, 122));
+            }
+            else if(str == "Dr. Walter")
+            {
+                BorderElement.BorderBrush = new SolidColorBrush(Color.FromRgb(103, 103, 255));
+                BorderElement.Background = new SolidColorBrush(Color.FromRgb(103, 103, 255));
+            }
+        }
     }
 }

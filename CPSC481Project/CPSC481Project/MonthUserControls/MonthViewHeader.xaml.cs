@@ -112,6 +112,7 @@ namespace CPSC481Project
                 dayBox.DayNumberLabel.Content = i.ToString();
                 dayBox.Tag = i;
                 dayBox.MouseDoubleClick += DayBox_DoubleClick;
+                dayBox.DragEnter += DayBox_DragEnter;
 
                 // -- customize daybox for today:
                 if ((new DateTime(_DisplayYear, _DisplayMonth, i)) == DateTime.Today)
@@ -120,18 +121,7 @@ namespace CPSC481Project
                     dayBox.DayAppointmentsStack.Background = Brushes.Wheat;
                 }
 
-                // -- for design mode, add appointments to random days for show...
-                if (System.ComponentModel.DesignerProperties.GetIsInDesignMode(this))
-                {
-                    Random rnd = new Random();
-                    if (rnd.Next(0,4) < 2)
-                    {
-                        DayBoxAppointmentControl apt = new DayBoxAppointmentControl();
-                        apt.DisplayText.Text = "Apt on " + i + "th";
-                        dayBox.DayAppointmentsStack.Children.Add(apt);
-                    }
-                }
-                else if (_monthAppointments != null)
+                if (_monthAppointments != null)
                 {
                     // -- Compiler warning about unpredictable results if using i (the iterator) in lambda, the 
                     // "hint" suggests declaring another var and set equal to iterator var
@@ -141,9 +131,8 @@ namespace CPSC481Project
                     foreach (Vacation a in aptInDay)
                     {
                         DayBoxAppointmentControl apt = new DayBoxAppointmentControl();
-                        //apt.DisplayText.Text = a.Subject;
+                        apt.SetDoctor(a.m_doctor);
                         apt.DisplayText.Text = a.m_doctor;
-                        //apt.Tag = a.AppointmentID;
                         apt.MouseDoubleClick += Appointment_DoubleClick;
                         dayBox.DayAppointmentsStack.Children.Add(apt);
                     }
@@ -215,9 +204,10 @@ namespace CPSC481Project
         {
             if (e.Source.GetType() == typeof(DayBoxAppointmentControl))
             {
-                if ((DayBoxAppointmentControl)e.Source != null) //tag
-                    // -- You could put your own call to your appointment-displaying code or whatever here..
-                    AppointmentDblClicked?.Invoke(System.Convert.ToInt32((DayBoxAppointmentControl)e.Source)); //Tag
+                if ((DayBoxAppointmentControl)e.Source != null)
+                {// TODO
+                    AppointmentDblClicked?.Invoke(4);//System.Convert.ToInt32((DayBoxAppointmentControl)e.Source)); //Tag
+                }
                 e.Handled = true;
             }
         }
@@ -235,17 +225,21 @@ namespace CPSC481Project
                     ev.EndDate = (DateTime)ev.StartDate.Value.AddHours(2);
                 }
 
-                // open day view (lol someone fix this)
-                Grid g1 = (Grid)(Parent);
-                MonthlyViewControl mvc = (MonthlyViewControl)(g1.Parent);
-                Grid g2 = (Grid)(mvc.Parent);
-                MainWindow w = (MainWindow)(g2.Parent);
-                w.MonthViewToDayView(ev.StartDate.GetValueOrDefault());
-
                 DayBoxDoubleClicked?.Invoke(ev);
                 e.Handled = true;
             }
             
+        }
+
+        private void DayBox_DragEnter(object sender, DragEventArgs e)
+        {
+            Console.WriteLine("Hello");
+            if(e.Source.GetType() == typeof(DayBoxControl) && Utilities.FindVisualAncestor(typeof(DayBoxAppointmentControl), e.OriginalSource as Visual) == null)
+            {
+                Console.WriteLine("Ok");
+                DayBoxControl dbc = (DayBoxControl)e.Source;
+                dbc.Highlight();
+            }
         }
     }
 }

@@ -34,6 +34,8 @@ namespace CPSC481Project
         {
             InitializeComponent();
             aptCalendar.DisplayMonthChanged += DisplayMonthChanged;
+            aptCalendar.DayBoxDoubleClicked += DayBoxDoubleClicked_event;
+            aptCalendar.AppointmentDblClicked += AppointmentDblClicked;
             //this.MonthlyViewGrid.Children.Add(aptCalendar);
             Random rand = new Random(DateTime.Now.Second);
 
@@ -69,13 +71,16 @@ namespace CPSC481Project
 
         ~MonthlyViewControl()
         {
-            String json = JsonConvert.SerializeObject(_myAppointmentsList, Formatting.Indented);
-            File.WriteAllText(m_vacationFile, json);
+            //String json = JsonConvert.SerializeObject(_myAppointmentsList, Formatting.Indented);
+            //File.WriteAllText(m_vacationFile, json);
         }
 
         private void DayBoxDoubleClicked_event(NewAppointmentEventArgs e)
         {
-            MessageBox.Show("You double-clicked on day " + e.StartDate.Value.ToShortDateString(), "Calendar Event", MessageBoxButton.OK);
+            // open day view
+            Grid g2 = (Grid)(this.Parent);
+            MainWindow w = (MainWindow)(g2.Parent);
+            w.MonthViewToDayView(e.StartDate.GetValueOrDefault());
         }
 
         private void AppointmentDblClicked(int Appointment_Id)
@@ -85,7 +90,6 @@ namespace CPSC481Project
 
         private void DisplayMonthChanged(MonthChangedEventArgs e)
         {
-            Console.WriteLine("Display month changed (YAY)");
             SetAppointments();
         }
 
