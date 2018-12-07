@@ -203,9 +203,10 @@ namespace CPSC481Project
         {
             if (e.Source.GetType() == typeof(DayBoxAppointmentControl))
             {
-                if ((DayBoxAppointmentControl)e.Source != null) //tag
-                    // -- You could put your own call to your appointment-displaying code or whatever here..
-                    AppointmentDblClicked?.Invoke(System.Convert.ToInt32((DayBoxAppointmentControl)e.Source)); //Tag
+                if ((DayBoxAppointmentControl)e.Source != null)
+                {// TODO
+                    AppointmentDblClicked?.Invoke(4);//System.Convert.ToInt32((DayBoxAppointmentControl)e.Source)); //Tag
+                }
                 e.Handled = true;
             }
         }
@@ -222,13 +223,6 @@ namespace CPSC481Project
                     ev.StartDate = new DateTime(_DisplayYear, _DisplayMonth, System.Convert.ToInt32(((DayBoxControl)e.Source).m_day), 10, 0, 0); //Tag
                     ev.EndDate = (DateTime)ev.StartDate.Value.AddHours(2);
                 }
-
-                // open day view (lol someone fix this)
-                Grid g1 = (Grid)(Parent);
-                MonthlyViewControl mvc = (MonthlyViewControl)(g1.Parent);
-                Grid g2 = (Grid)(mvc.Parent);
-                MainWindow w = (MainWindow)(g2.Parent);
-                w.MonthViewToDayView(ev.StartDate.GetValueOrDefault());
 
                 DayBoxDoubleClicked?.Invoke(ev);
                 e.Handled = true;
