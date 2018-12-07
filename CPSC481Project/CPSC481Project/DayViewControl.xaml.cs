@@ -45,6 +45,9 @@ namespace CPSC481Project
             //dashboard.Visibility = Visibility.Visible;
         }
 
-
+        private void ToDashboard_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            this.Visibility = Visibility.Hidden;
+        }
     }
 }

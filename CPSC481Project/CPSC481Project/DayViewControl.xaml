@@ -14,7 +14,10 @@
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="57.377" Stroke="Black" VerticalAlignment="Top" Width="1087"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="54" Margin="1,55.877,0,0" Stroke="Black" VerticalAlignment="Top" Width="902.5"/>
         <Label x:Name="currentDate" Content="December 10th, 2018" Height="59.377" Margin="209,-2,0,0" VerticalAlignment="Top" FontSize="36" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Width="678"/>
-        <Button x:Name="BackButton" Content="Back" HorizontalAlignment="Left" Height="41" Margin="36,10,0,0" VerticalAlignment="Top" Width="50" Click="OnBackButton"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Width="Auto">
+            <Image x:Name="ToDashboard" Source="/images/dashboard.png" Height="40" RenderTransformOrigin="0.5,0.5" Margin="10,15,0,18"
+                   MouseLeftButtonUp="ToDashboard_MouseLeftButtonUp" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Cursor="Hand"/>
+        </StackPanel>
         <Grid Margin="0,0,1010,38" RenderTransformOrigin="0.5,0.5">
             <Grid.RenderTransform>
                 <TransformGroup>
