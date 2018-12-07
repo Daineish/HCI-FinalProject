@@ -28,7 +28,7 @@
                 </TransformGroup>
             </Grid.RenderTransform>
         </Grid>
-        <Calendar HorizontalAlignment="Left" Margin="887,55.377,-45,87.793" Width="212"/>
+        <Calendar x:Name="miniCalendar" HorizontalAlignment="Left" Margin="887,55.377,-45,87.793" Width="212" MouseDoubleClick="miniCalendar_MouseDoubleClick"/>
         <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="54" Margin="660.666,55.377,0,0" Stroke="Black" VerticalAlignment="Top" Width="226.334"/>
         <TextBlock HorizontalAlignment="Left" Height="36" Margin="725.5,66.877,0,0" TextWrapping="Wrap" Text="Dr. Payne" VerticalAlignment="Top" Width="112.5" FontSize="24" RenderTransformOrigin="0.61,0.926" FontWeight="Bold" Foreground="White"/>
         <ScrollViewer HorizontalAlignment="Left" Height="749.191" Margin="0,108.877,0,-23.568" VerticalAlignment="Top" Width="903.5" Grid.RowSpan="2">

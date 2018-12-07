@@ -37,6 +37,7 @@ namespace CPSC481Project
 
             m_day = day;
             currentDate.Content = m_day.ToString("f");
+            Console.WriteLine(miniCalendar.SelectedDate);
         }
 
         private void OnBackButton(object sender, RoutedEventArgs e)
@@ -48,6 +49,22 @@ namespace CPSC481Project
         private void ToDashboard_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             this.Visibility = Visibility.Hidden;
+        }
+
+        private void miniCalendar_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            Console.WriteLine(miniCalendar.SelectedDate);
+            String[] newdate = miniCalendar.SelectedDate.ToString().Split(' ');
+            Console.WriteLine(newdate[0]);
+            String[] splitFormat = newdate[0].Split('/');
+            int year = int.Parse(splitFormat[2]);
+            int month = int.Parse(splitFormat[0]);
+            int day = int.Parse(splitFormat[1]);
+            DateTime date1 = new DateTime(year,month, day, 12, 0,0);
+
+            Console.WriteLine(date1);
+            Console.WriteLine(date1.ToString("dddd, dd MMMM yyyy"));
+            currentDate.Content = date1.ToString("dddd, dd MMMM yyyy");
         }
     }
 }
