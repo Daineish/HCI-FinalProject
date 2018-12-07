@@ -139,7 +139,33 @@ namespace CPSC481Project
             PatientListStackPanel.Children.Add(CreateGrid(recent5));
 
             // Populate available times (TODO)
-
+            List<String> availablePayne = m_appointmentDatabase.AvailableTimes("Dr. Payne");
+            List<String> availableLee = m_appointmentDatabase.AvailableTimes("Dr. Lee");
+            List<String> availableWalter = m_appointmentDatabase.AvailableTimes("Dr. Walter");
+            for (int i = 0; i < 2 && i < availablePayne.Count(); i++)
+            {
+                String str = availablePayne.ElementAt(i);
+                if (i == 0 && str != null)
+                    this.DoctorPayneTile.availTime1.Content = str;
+                else if (i == 1 && str != null)
+                    this.DoctorPayneTile.availTime2.Content = str;
+            }
+            for (int i = 0; i < 2 && i < availableLee.Count(); i++)
+            {
+                String str = availableLee.ElementAt(i);
+                if (i == 0 && str != null)
+                    this.DoctorLeeTile.availTime1.Content = str;
+                else if (i == 1 && str != null)
+                    this.DoctorLeeTile.availTime2.Content = str;
+            }
+            for (int i = 0; i < 2 && i < availableWalter.Count(); i++)
+            {
+                String str = availableWalter.ElementAt(i);
+                if (i == 0 && str != null)
+                    this.DoctorWalterTile.availTime1.Content = str;
+                else if (i == 1 && str != null)
+                    this.DoctorWalterTile.availTime2.Content = str;
+            }
         }
 
         private void setTimer()

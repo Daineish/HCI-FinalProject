@@ -238,14 +238,12 @@ namespace CPSC481Project
             else
             {
                 // I'm hardcoding this so it always returns 2 slots just because I'm lazy.
-                DateTime firstTime = DateTime.Now;
-                DateTime secondTime = DateTime.Now;
 
                 // Sketch af algorithm.
+                DateTime curTime = DateTime.Now;
                 int i = 0;
                 while(true)
                 {
-                    DateTime curTime = DateTime.Now;
                     Boolean hasAppt = false;
                     foreach (Appointment a in apts)
                     {
@@ -262,21 +260,21 @@ namespace CPSC481Project
                     {
                         if (i == 0) // Found the first available time
                         {
-                            firstTime = curTime;
+                            rv.Add(curTime.ToString("g"));
                             i++;
                         }
-                        else if (curTime == firstTime) // Found the second available time, but already taken by first available time
+                        else if (i == 1) // Found the second available time, but already taken by first available time
+                        {
                             curTime = curTime.AddMinutes(10);
+                            i++;
+                        }
                         else // found the second available time
                         {
-                            secondTime = curTime;
+                            rv.Add(curTime.ToString("g"));
                             break;
                         }
                     }
                 }
-                // I haven't even tried to see how this formatting looks.
-                rv.Add(firstTime.ToString("f"));
-                rv.Add(secondTime.ToString("f"));
             }
 
             return rv;
