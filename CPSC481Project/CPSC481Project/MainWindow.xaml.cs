@@ -533,6 +533,18 @@ namespace CPSC481Project
             else
             {
                 WalkinTile t = new WalkinTile(m_currentPatient.m_firstName + " " + m_currentPatient.m_lastName, m_currentPatient.m_hcNumber);
+                Console.WriteLine("Hi");
+                //Console.WriteLine(t.getHC());
+                string text = "";
+                foreach(var item in walkinQueueList.Items)
+                {
+                    Console.WriteLine(item);
+
+                }
+
+                Console.WriteLine(text);
+
+
                 walkinQueueList.Items.Add(t);
             }
         }

@@ -40,7 +40,10 @@ namespace CPSC481Project
             NameLabel.Content = name;
             HCLabel.Content = HC;
         }
-
+        public String getHC()
+        {
+            return HCLabel.Content.ToString();
+        }
         private void OnDeleteButton(object sender, RoutedEventArgs e)
         {
             ListBox a = (ListBox)(this.Parent);
