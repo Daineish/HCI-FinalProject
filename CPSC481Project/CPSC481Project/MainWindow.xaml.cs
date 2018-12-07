@@ -332,6 +332,15 @@ namespace CPSC481Project
             r.Width = 422;
             r.Height = 245;
 
+            //Add button to view patient information
+            Button view = new Button();
+            view.Content = "View";
+            view.Width = 75;
+            view.Height = 30;
+            view.Margin = new Thickness(150, 200, 0, 0);
+            view.Tag = p;
+            g.Children.Add(view);
+
             if (withButton)
             {
                 Button b = new Button();
