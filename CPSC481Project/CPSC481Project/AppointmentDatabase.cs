@@ -70,7 +70,7 @@ namespace CPSC481Project
         // Debug function to print all appointments.
         public void PrintAllAppointments()
         {
-            Console.WriteLine("All Appointments");
+            Console.WriteLine("All Appointments: " + m_appointments.Count() + ".");
             Console.WriteLine("------------------------------------------");
             foreach (Appointment a in m_appointments)
             {
@@ -93,8 +93,11 @@ namespace CPSC481Project
             }
 
             List<Appointment> rv = new List<Appointment>();
-            List<Appointment> remaining = m_appointments;
-
+            List<Appointment> remaining = new List<Appointment>();
+            foreach(Appointment a in m_appointments)
+            {
+                remaining.Add(new Appointment(a.m_patient, a.m_doctor, a.StartTime.Value, a.EndTime.Value, a.m_information));
+            }
             for(int i = 0; i < num; i++)
             {
                 Appointment soonest = remaining.ElementAt(0);
@@ -165,6 +168,45 @@ namespace CPSC481Project
         }
 
         /**
+         * Returns num appointments in m_appointments that have the soonest startTime where the
+         * appointment's doctor == doc.
+         * 
+         * If there are less than num appointments that fit this description, it should return
+         * a list of appointments with a size < num, or return an empty list. Maybe.
+         */
+        public List<Appointment> NextAppointments(String doc, int num)
+        {
+            List<Appointment> rv = new List<Appointment>();
+            List<Appointment> remaining = new List<Appointment>();
+            foreach (Appointment a in m_appointments)
+            {
+                remaining.Add(new Appointment(a.m_patient, a.m_doctor, a.m_startTime, a.m_endTime, a.m_information));
+            }
+
+            for (int i = 0; i < num; i++)
+            {
+                Appointment soonest = null;
+                DateTime soonestTime = DateTime.MaxValue;
+                foreach (Appointment a in remaining)
+                {
+                    if (DateTime.Compare(a.m_startTime, soonestTime) < 0 && a.m_doctor == doc)
+                    {
+                        soonest = a;
+                        soonestTime = soonest.m_startTime;
+                    }
+                        
+                }
+                if(soonest != null)
+                {
+                    rv.Add(soonest);
+                    remaining.Remove(soonest);
+                }
+            }
+
+            return rv;
+        }
+
+        /**
          * Gets the next times where doc does not have any appointments scheduled.
          * Each element of the return list is a string saying what time's they're available?
          * 
@@ -196,14 +238,12 @@ namespace CPSC481Project
             else
             {
                 // I'm hardcoding this so it always returns 2 slots just because I'm lazy.
-                DateTime firstTime = DateTime.Now;
-                DateTime secondTime = DateTime.Now;
 
                 // Sketch af algorithm.
+                DateTime curTime = DateTime.Now;
                 int i = 0;
                 while(true)
                 {
-                    DateTime curTime = DateTime.Now;
                     Boolean hasAppt = false;
                     foreach (Appointment a in apts)
                     {
@@ -220,21 +260,21 @@ namespace CPSC481Project
                     {
                         if (i == 0) // Found the first available time
                         {
-                            firstTime = curTime;
+                            rv.Add(curTime.ToString("g"));
                             i++;
                         }
-                        else if (curTime == firstTime) // Found the second available time, but already taken by first available time
+                        else if (i == 1) // Found the second available time, but already taken by first available time
+                        {
                             curTime = curTime.AddMinutes(10);
+                            i++;
+                        }
                         else // found the second available time
                         {
-                            secondTime = curTime;
+                            rv.Add(curTime.ToString("g"));
                             break;
                         }
                     }
                 }
-                // I haven't even tried to see how this formatting looks.
-                rv.Add(firstTime.ToString("f"));
-                rv.Add(secondTime.ToString("f"));
             }
 
             return rv;

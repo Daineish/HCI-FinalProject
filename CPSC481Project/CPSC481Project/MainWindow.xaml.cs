@@ -19,6 +19,10 @@ using System.Windows.Shapes;
 
 namespace CPSC481Project
 {
+    enum Doctor
+    {
+        payne, lee, walter
+    };
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -67,11 +71,11 @@ namespace CPSC481Project
 
             if (m_appointmentDatabase.NumAppointments() < 5)
             {
-                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("00001"), "Dr. Walter", DateTime.Today, DateTime.Today, "Appointment #1"));
-                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("12345"), "Dr. Payne", DateTime.Today, DateTime.Today, "Appointment #1"));
-                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("00002"), "Dr. Lee", DateTime.Today, DateTime.Today, "Appointment #1"));
-                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("44444"), "Dr. Walter", DateTime.Today, DateTime.Today, "Appointment #1"));
-                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("00001"), "Dr. Walter", DateTime.Today, DateTime.Today, "Appointment #1"));
+                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("00001"), "Dr. Walter", DateTime.Now, DateTime.Now, "Appointment #1"));
+                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("12345"), "Dr. Payne", DateTime.Now, DateTime.Now, "Appointment #1"));
+                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("00002"), "Dr. Lee", DateTime.Now, DateTime.Now, "Appointment #1"));
+                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("44444"), "Dr. Walter", DateTime.Now, DateTime.Now, "Appointment #1"));
+                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("00001"), "Dr. Walter", DateTime.Now, DateTime.Now, "Appointment #1"));
             }
 
             // Debug - show all patients and appointments in console.
@@ -89,33 +93,79 @@ namespace CPSC481Project
          */
         private void PopulateDefaultInfo()
         {
-            //Populating Past Patients and Randomly Selecting next  Patients
-            Patient m = m_patientDatabase.findPatient("15432");
-            Patient j = m_patientDatabase.findPatient("15795");
-            Patient d = m_patientDatabase.findPatient("11325");
-            Patient l = m_patientDatabase.findPatient("99999");
-            Patient k = m_patientDatabase.findPatient("83409");
+            // Get next appointments for each doctor from database
+            List<Appointment> appointmentPayne1 = m_appointmentDatabase.NextAppointments("Dr. Payne", 2);
+            List<Appointment> appointmentLee1 = m_appointmentDatabase.NextAppointments("Dr. Lee", 2);
+            List<Appointment> appointmentWalter1 = m_appointmentDatabase.NextAppointments("Dr. Walter", 2);
+            for(int i = 0; i < 2 && i < appointmentPayne1.Count(); i++)
+            {
+                Appointment app = appointmentPayne1.ElementAt(i);
+                Patient pat = appointmentPayne1.ElementAt(i).m_patient;
+                if (i == 0 && pat != null)
+                    this.DoctorPayneTile.npfullName.Content = app.m_startTime.ToString("hh:mm") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
+                if(i == 1 && pat != null)
+                    this.DoctorPayneTile.npfullName2.Content = app.m_startTime.ToString("hh:mm") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
+            }
+            for (int i = 0; i < 2 && i < appointmentLee1.Count(); i++)
+            {
+                Appointment app = appointmentPayne1.ElementAt(i);
+                Patient pat = appointmentLee1.ElementAt(i).m_patient;
+                if (i == 0 && pat != null)
+                    this.DoctorLeeTile.npfullName.Content = app.m_startTime.ToString("hh:mm") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
+                if (i == 1 && pat != null)
+                    this.DoctorLeeTile.npfullName2.Content = app.m_startTime.ToString("hh:mm") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
+            }
+            for (int i = 0; i < 2 && i < appointmentWalter1.Count(); i++)
+            {
+                Appointment app = appointmentWalter1.ElementAt(i);
+                Patient pat = appointmentWalter1.ElementAt(i).m_patient;
+                if(i == 0 && pat != null)
+                    this.DoctorWalterTile.npfullName.Content = app.m_startTime.ToString("hh:mm") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
+                if (i == 1 && pat != null)
+                    this.DoctorWalterTile.npfullName2.Content = app.m_startTime.ToString("hh:mm") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
+            }
 
-            PatientListStackPanel.Children.Add(CreateGrid(m));
-            PatientListStackPanel.Children.Add(CreateGrid(j));
-            PatientListStackPanel.Children.Add(CreateGrid(d));
-            PatientListStackPanel.Children.Add(CreateGrid(l));
-            PatientListStackPanel.Children.Add(CreateGrid(k));
+            // Populate recent patient list with fake data (TODO)
+            Patient recent1 = m_patientDatabase.findPatient("15432");
+            Patient recent2 = m_patientDatabase.findPatient("15795");
+            Patient recent3 = m_patientDatabase.findPatient("11325");
+            Patient recent4 = m_patientDatabase.findPatient("99999");
+            Patient recent5 = m_patientDatabase.findPatient("83409");
 
-            Patient a = m_patientDatabase.findPatient("00001");
-            Patient b = m_patientDatabase.findPatient("00002");
-            Patient c = m_patientDatabase.findPatient("12345");
+            PatientListStackPanel.Children.Add(CreateGrid(recent1));
+            PatientListStackPanel.Children.Add(CreateGrid(recent2));
+            PatientListStackPanel.Children.Add(CreateGrid(recent3));
+            PatientListStackPanel.Children.Add(CreateGrid(recent4));
+            PatientListStackPanel.Children.Add(CreateGrid(recent5));
 
-            Patient z = m_patientDatabase.findPatient("00001");
-            Patient x = m_patientDatabase.findPatient("15432");
-            Patient y = m_patientDatabase.findPatient("99999");
-
-            this.DoctorWalterTile.npfullName2.Content = c.GetLastName() + ", " + c.GetFirstName() + " HC: " + c.GetHCNumber();
-            this.DoctorLeeTile.npfullName2.Content = b.GetLastName() + ", " + b.GetFirstName() + " HC: " + b.GetHCNumber();
-            this.DoctorPayneTile.npfullName2.Content = a.GetLastName() + ", " + a.GetFirstName() + " HC: " + a.GetHCNumber();
-            this.DoctorWalterTile.npfullName.Content = z.GetLastName() + ", " + z.GetFirstName() + " HC: " + z.GetHCNumber();
-            this.DoctorLeeTile.npfullName.Content = x.GetLastName() + ", " + x.GetFirstName() + " HC: " + x.GetHCNumber();
-            this.DoctorPayneTile.npfullName.Content = y.GetLastName() + ", " + y.GetFirstName() + " HC: " + y.GetHCNumber();
+            // Populate available times (TODO)
+            List<String> availablePayne = m_appointmentDatabase.AvailableTimes("Dr. Payne");
+            List<String> availableLee = m_appointmentDatabase.AvailableTimes("Dr. Lee");
+            List<String> availableWalter = m_appointmentDatabase.AvailableTimes("Dr. Walter");
+            for (int i = 0; i < 2 && i < availablePayne.Count(); i++)
+            {
+                String str = availablePayne.ElementAt(i);
+                if (i == 0 && str != null)
+                    this.DoctorPayneTile.availTime1.Content = str;
+                else if (i == 1 && str != null)
+                    this.DoctorPayneTile.availTime2.Content = str;
+            }
+            for (int i = 0; i < 2 && i < availableLee.Count(); i++)
+            {
+                String str = availableLee.ElementAt(i);
+                if (i == 0 && str != null)
+                    this.DoctorLeeTile.availTime1.Content = str;
+                else if (i == 1 && str != null)
+                    this.DoctorLeeTile.availTime2.Content = str;
+            }
+            for (int i = 0; i < 2 && i < availableWalter.Count(); i++)
+            {
+                String str = availableWalter.ElementAt(i);
+                if (i == 0 && str != null)
+                    this.DoctorWalterTile.availTime1.Content = str;
+                else if (i == 1 && str != null)
+                    this.DoctorWalterTile.availTime2.Content = str;
+            }
         }
 
         private void setTimer()
@@ -141,7 +191,10 @@ namespace CPSC481Project
 
             this.Dispatcher.Invoke(() =>
             {
-                this.DashTime.Content = hour + ":" + DateTime.Now.Minute + ":" + DateTime.Now.Second + apm;
+                int min = DateTime.Now.Minute;
+                String str = "";
+                if (min < 10) str = "0";
+                this.DashTime.Content = hour + ":" + str + DateTime.Now.Minute + ":" + DateTime.Now.Second + apm;
                 this.DashDate.Content = month.ElementAt(DateTime.Now.Month - 1) + " " + DateTime.Now.Day + ", " + DateTime.Now.Year;
             });
 
