@@ -73,6 +73,8 @@
     <Compile Include="MonthUserControls\MonthViewHeader.xaml.cs">
       <DependentUpon>MonthViewHeader.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Vacation.cs" />
+    <Compile Include="VacationDatabase.cs" />
     <Compile Include="WalkinTile.xaml.cs">
       <DependentUpon>WalkinTile.xaml</DependentUpon>
     </Compile>

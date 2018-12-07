@@ -43,6 +43,7 @@ namespace CPSC481Project
         Boolean selectedMode;
         PatientDatabase m_patientDatabase;
         AppointmentDatabase m_appointmentDatabase;
+        VacationDatabase m_vacationDatabase;
         DayViewControl m_dayViewControl;
         MonthlyViewControl m_monthlyViewControl;
 
@@ -52,10 +53,12 @@ namespace CPSC481Project
             InitializeComponent();
             m_patientDatabase = new PatientDatabase();
             m_appointmentDatabase = new AppointmentDatabase();
+            m_vacationDatabase = new VacationDatabase();
 
             //get current date for dashboard
             DashDate.Content = month.ElementAt(_DisplayStartDate.Month - 1) + " " + _DisplayStartDate.Day + ", " + _DisplayStartDate.Year;
 
+            // Add data for demo if not already present in cache/database files
             if (m_patientDatabase.NumPatients() < 5)
             {
                 m_patientDatabase.AddPatient(new Patient("Smith", "John", "00001", "769 1st St. NW", "john.smith@yahoo.ca", "(403) 819-0193"));
@@ -78,9 +81,23 @@ namespace CPSC481Project
                 m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("00001"), "Dr. Walter", DateTime.Now, DateTime.Now, "Appointment #1"));
             }
 
+            if(m_vacationDatabase.NumVacations() < 3)
+            {
+                DateTime s1 = DateTime.Parse("2019-01-01");
+                DateTime e1 = DateTime.Parse("2019-02-01");
+                DateTime s2 = DateTime.Parse("2019-02-05");
+                DateTime e2 = DateTime.Parse("2019-02-12");
+                DateTime s3 = DateTime.Parse("2018-12-24");
+                DateTime e3 = DateTime.Parse("2019-01-02");
+                m_vacationDatabase.AddVacation(new Vacation("Dr. Walter", s1, e1));
+                m_vacationDatabase.AddVacation(new Vacation("Dr. Lee", s2, e2));
+                m_vacationDatabase.AddVacation(new Vacation("Dr. Payne", s3, e3));
+            }
+
             // Debug - show all patients and appointments in console.
             m_appointmentDatabase.PrintAllAppointments();
             m_patientDatabase.PrintAllPatients();
+            m_vacationDatabase.PrintAllVacations();
             //randomPatientGenerator();
 
             PopulateDefaultInfo();
