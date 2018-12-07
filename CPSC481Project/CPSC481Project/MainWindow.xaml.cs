@@ -272,11 +272,27 @@ namespace CPSC481Project
                 g.Children.Add(b);
             }
             else if(highlighted)
+            {
                 r.Fill = new SolidColorBrush(Color.FromRgb(249, 209, 26));
+            }
+                
 
             g.Children.Add(r);
             g.Children.Add(nameL); g.Children.Add(hcL); g.Children.Add(addyL); g.Children.Add(emailL); g.Children.Add(phoneL);
             g.Children.Add(nameC); g.Children.Add(hcC); g.Children.Add(addyC); g.Children.Add(emailC); g.Children.Add(phoneC);
+
+            //Now add an unselect button
+            if (!withButton && highlighted)
+            {
+                Button unselectPatient = new Button();
+                unselectPatient.Content = "Unselect";
+                unselectPatient.Width = 100;
+                unselectPatient.Height = 30;
+                unselectPatient.Margin = new Thickness(150, 200, 0, 0);
+                unselectPatient.Tag = p;
+                unselectPatient.Click += unSelectPatientClicked;
+                g.Children.Add(unselectPatient);
+            }
             return g;
         }
 
@@ -293,7 +309,18 @@ namespace CPSC481Project
             PatientListStackPanel.Children.Add(CreateGrid(m_currentPatient, false, true));
 
             selectedMode = true;
+        }
 
+        private void unSelectPatientClicked(object sender, RoutedEventArgs e)
+        {
+            Button unselectPatient = (Button)sender;
+
+            // Remove all boxes, then add back the selected patient box.
+            PatientListStackPanel.Children.Clear();
+            m_currentPatient = (Patient)unselectPatient.Tag;
+            PatientListStackPanel.Children.Add(CreateGrid(m_currentPatient, true, false));
+
+            selectedMode = false;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -519,6 +546,7 @@ namespace CPSC481Project
         {
             PatientListStackPanel.Children.Clear();
             PopulateDefaultInfo();
+            recentLabel.Content = "Recent Patients: ";
             RemoveSearchButton.Visibility = Visibility.Hidden;
         }
     }
