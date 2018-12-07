@@ -330,22 +330,13 @@ namespace CPSC481Project
             r.Width = 422;
             r.Height = 245;
 
-            //Add button to view patient information
-            Button view = new Button();
-            view.Content = "View";
-            view.Width = 75;
-            view.Height = 30;
-            view.Margin = new Thickness(150, 200, 0, 0);
-            view.Tag = p;
-            g.Children.Add(view);
-
             if (withButton)
             {
                 Button b = new Button();
                 b.Content = "Select";
                 b.Width = 100;
                 b.Height = 30;
-                b.Margin = new Thickness(150, 200, 0, 0);
+                b.Margin = new Thickness(-50, 200, 0, 0);
                 b.Tag = p;
                 b.Click += SelectPatientClicked;
                 g.Children.Add(b);
@@ -354,7 +345,16 @@ namespace CPSC481Project
             {
                 r.Fill = new SolidColorBrush(Color.FromRgb(249, 209, 26));
             }
-                
+
+            //Add button to view patient information
+            Button view = new Button();
+            view.Content = "View";
+            view.Width = 75;
+            view.Height = 30;
+            view.Margin = new Thickness(150, 200, 0, 0);
+            view.Tag = p;
+            view.Click += selectViewPatient;
+            g.Children.Add(view);
 
             g.Children.Add(r);
             g.Children.Add(nameL); g.Children.Add(hcL); g.Children.Add(addyL); g.Children.Add(emailL); g.Children.Add(phoneL);
@@ -367,7 +367,7 @@ namespace CPSC481Project
                 unselectPatient.Content = "Unselect";
                 unselectPatient.Width = 100;
                 unselectPatient.Height = 30;
-                unselectPatient.Margin = new Thickness(150, 200, 0, 0);
+                unselectPatient.Margin = new Thickness(-50, 200, 0, 0);
                 unselectPatient.Tag = p;
                 unselectPatient.Click += unSelectPatientClicked;
                 g.Children.Add(unselectPatient);
@@ -402,7 +402,35 @@ namespace CPSC481Project
             selectedMode = false;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        //View patient information
+        private void selectViewPatient(object sender, RoutedEventArgs e)
+        {
+            //First, put all the required information in
+            Button view = (Button)sender;
+
+            PatientListStackPanel.Children.Clear();
+            viewPatient.Visibility = Visibility.Visible;
+
+            m_currentPatient = (Patient)view.Tag;
+            dPatientname.Text = m_currentPatient.GetFirstName();
+            dPatientlname.Text = m_currentPatient.GetLastName();
+            dPatientHC.Text = m_currentPatient.GetHCNumber();
+            dPatientaddr.Text = m_currentPatient.GetAddress();
+            dPatientpn.Text = m_currentPatient.GetPhone();
+            dPatientemail.Text = m_currentPatient.GetEmail();
+
+            //Also, need to fix the "recent" label and add an exit button to exit out of viewing patient info
+            recentLabel.Content = "View Patient:";
+            //Reuse the same button as for exiting search
+            RemoveSearchButton.Visibility = Visibility.Visible;
+
+            //Future work: Add an edit button to edit any field
+            editInfo.Visibility = Visibility.Visible;
+
+
+        }
+
+            private void Button_Click(object sender, RoutedEventArgs e)
         {
             //dashboard.Visibility = Visibility.Hidden;
 
@@ -586,7 +614,7 @@ namespace CPSC481Project
             // error handling?
         }
 		
-		        //Initialize fields when opening the add patient window so users get an example
+		//Initialize fields when opening the add patient window so users get an example
         private void InitAddPatientTextfields()
         {
             apnameField.Text = "Jane";
@@ -639,6 +667,12 @@ namespace CPSC481Project
             PopulateDefaultInfo();
             recentLabel.Content = "Recent Patients: ";
             RemoveSearchButton.Visibility = Visibility.Hidden;
+
+            //If this is remove for the viewPatient panel
+            if (viewPatient.Visibility == Visibility.Visible)
+            {
+                viewPatient.Visibility = Visibility.Hidden;
+            }
         }
 
     }
