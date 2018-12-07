@@ -120,18 +120,7 @@ namespace CPSC481Project
                     dayBox.DayAppointmentsStack.Background = Brushes.Wheat;
                 }
 
-                // -- for design mode, add appointments to random days for show...
-                if (System.ComponentModel.DesignerProperties.GetIsInDesignMode(this))
-                {
-                    Random rnd = new Random();
-                    if (rnd.Next(0,4) < 2)
-                    {
-                        DayBoxAppointmentControl apt = new DayBoxAppointmentControl();
-                        apt.DisplayText.Text = "Apt on " + i + "th";
-                        dayBox.DayAppointmentsStack.Children.Add(apt);
-                    }
-                }
-                else if (_monthAppointments != null)
+                if (_monthAppointments != null)
                 {
                     // -- Compiler warning about unpredictable results if using i (the iterator) in lambda, the 
                     // "hint" suggests declaring another var and set equal to iterator var
@@ -141,9 +130,8 @@ namespace CPSC481Project
                     foreach (Vacation a in aptInDay)
                     {
                         DayBoxAppointmentControl apt = new DayBoxAppointmentControl();
-                        //apt.DisplayText.Text = a.Subject;
+                        apt.SetDoctor(a.m_doctor);
                         apt.DisplayText.Text = a.m_doctor;
-                        //apt.Tag = a.AppointmentID;
                         apt.MouseDoubleClick += Appointment_DoubleClick;
                         dayBox.DayAppointmentsStack.Children.Add(apt);
                     }
