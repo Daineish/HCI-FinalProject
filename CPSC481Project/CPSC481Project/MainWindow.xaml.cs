@@ -346,6 +346,7 @@ namespace CPSC481Project
                 b.Height = 30;
                 b.Margin = new Thickness(-50, 200, 0, 0);
                 b.Tag = p;
+                b.Cursor = Cursors.Hand;
                 b.Click += SelectPatientClicked;
                 g.Children.Add(b);
             }
@@ -361,6 +362,7 @@ namespace CPSC481Project
             view.Height = 30;
             view.Margin = new Thickness(150, 200, 0, 0);
             view.Tag = p;
+            view.Cursor = Cursors.Hand;
             view.Click += selectViewPatient;
             g.Children.Add(view);
 
@@ -377,6 +379,7 @@ namespace CPSC481Project
                 unselectPatient.Height = 30;
                 unselectPatient.Margin = new Thickness(-50, 200, 0, 0);
                 unselectPatient.Tag = p;
+                unselectPatient.Cursor = Cursors.Hand;
                 unselectPatient.Click += unSelectPatientClicked;
                 g.Children.Add(unselectPatient);
             }
@@ -438,7 +441,95 @@ namespace CPSC481Project
 
         }
 
-            private void Button_Click(object sender, RoutedEventArgs e)
+        //Edit patient info
+        private void EditInfo_Click(object sender, RoutedEventArgs e)
+        {
+            //First, hide the text fields
+            dPatientname.Visibility = Visibility.Hidden;
+            dPatientlname.Visibility = Visibility.Hidden;
+            dPatientHC.Visibility = Visibility.Hidden;
+            dPatientaddr.Visibility = Visibility.Hidden;
+            dPatientpn.Visibility = Visibility.Hidden;
+            dPatientemail.Visibility = Visibility.Hidden;
+
+            //Keep text the same, let users change if they want
+            dPatientnameBox.Text = dPatientname.Text;
+            dPatientlnameBox.Text = dPatientlname.Text;
+            dPatientHCBox.Text = dPatientHC.Text;
+            dPatientaddrBox.Text = dPatientaddr.Text;
+            dPatientpnBox.Text = dPatientpn.Text;
+            dPatientemailBox.Text = dPatientemail.Text;
+
+            //Then show the text boxes
+            dPatientnameBox.Visibility = Visibility.Visible;
+            dPatientlnameBox.Visibility = Visibility.Visible;
+            dPatientHCBox.Visibility = Visibility.Visible;
+            dPatientaddrBox.Visibility = Visibility.Visible;
+            dPatientpnBox.Visibility = Visibility.Visible;
+            dPatientemailBox.Visibility = Visibility.Visible;
+
+            //Show the yes and cancel button
+            editInfoYes.Visibility = Visibility.Visible;
+            editInfoCancel.Visibility = Visibility.Visible;
+        }
+
+        private void EditInfoYes_Click(object sender, RoutedEventArgs e)
+        {
+            //Keep text the same, let users change if they want
+            dPatientname.Text = dPatientnameBox.Text;
+            dPatientlname.Text = dPatientlnameBox.Text;
+            dPatientHC.Text = dPatientHCBox.Text;
+            dPatientaddr.Text = dPatientaddrBox.Text;
+            dPatientpn.Text = dPatientpnBox.Text;
+            dPatientemail.Text = dPatientemailBox.Text;
+
+            //Now hide the text boxes and make text fields visible
+            dPatientnameBox.Visibility = Visibility.Hidden;
+            dPatientlnameBox.Visibility = Visibility.Hidden;
+            dPatientHCBox.Visibility = Visibility.Hidden;
+            dPatientaddrBox.Visibility = Visibility.Hidden;
+            dPatientpnBox.Visibility = Visibility.Hidden;
+            dPatientemailBox.Visibility = Visibility.Hidden;
+
+            dPatientname.Visibility = Visibility.Visible;
+            dPatientlname.Visibility = Visibility.Visible;
+            dPatientHC.Visibility = Visibility.Visible;
+            dPatientaddr.Visibility = Visibility.Visible;
+            dPatientpn.Visibility = Visibility.Visible;
+            dPatientemail.Visibility = Visibility.Visible;
+
+            //Now hide the yes/cancel buttons
+            editInfoYes.Visibility = Visibility.Hidden;
+            editInfoCancel.Visibility = Visibility.Hidden;
+
+            editInfo.Visibility = Visibility.Visible;
+        }
+
+        private void EditInfoCancel_Click(object sender, RoutedEventArgs e)
+        {
+            //If cancel, just make text boxes no longer visible
+            dPatientnameBox.Visibility = Visibility.Hidden;
+            dPatientlnameBox.Visibility = Visibility.Hidden;
+            dPatientHCBox.Visibility = Visibility.Hidden;
+            dPatientaddrBox.Visibility = Visibility.Hidden;
+            dPatientpnBox.Visibility = Visibility.Hidden;
+            dPatientemailBox.Visibility = Visibility.Hidden;
+
+            //Then make text fields visible
+            dPatientname.Visibility = Visibility.Visible;
+            dPatientlname.Visibility = Visibility.Visible;
+            dPatientHC.Visibility = Visibility.Visible;
+            dPatientaddr.Visibility = Visibility.Visible;
+            dPatientpn.Visibility = Visibility.Visible;
+            dPatientemail.Visibility = Visibility.Visible;
+
+            //Now hide the yes/cancel buttons
+            editInfoYes.Visibility = Visibility.Hidden;
+            editInfoCancel.Visibility = Visibility.Hidden;
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
             //dashboard.Visibility = Visibility.Hidden;
 
