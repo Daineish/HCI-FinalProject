@@ -552,17 +552,21 @@ namespace CPSC481Project
         }*/
 
         private void calendarBack(object sender, RoutedEventArgs e)
-        {
-            dashboard.Visibility = Visibility.Visible;
-            PatientListScrollViewer.Height = 708.5;
-            filterDoctor.Visibility = Visibility.Hidden;
+        {   if(filterMode == true)
+            {
+                filterMode = false;
+                dashboard.Visibility = Visibility.Visible;
+                PatientListScrollViewer.Height = 708.5;
+                filterDoctor.Visibility = Visibility.Hidden;
+            }
+
             if (m_monthlyViewControl != null)
                 MainGrid.Children.Remove(m_monthlyViewControl);
             // error checking?
         }
         private void ToCalendar_MouseLeftButtonUp(object sender, RoutedEventArgs e)
         {
-            if(filterMode == false)
+            if(filterMode == false || filterDoctor.Visibility == Visibility.Hidden)
             {
                 filterMode = true;
                 PatientListScrollViewer.Height = 708.5 - 180.5;
