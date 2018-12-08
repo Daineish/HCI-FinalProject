@@ -4,6 +4,8 @@
              xmlns:local="clr-namespace:CPSC481Project"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <SolidColorBrush x:Key="DrLeeMain" Color="#FFEA8E7A"/>
+        <SolidColorBrush x:Key="DrPayneMain" Color="#FF5AAA7E"/>
+        <SolidColorBrush x:Key="DrWalterMain" Color="#FF6767FF"/>
     </Application.Resources>
 </Application>

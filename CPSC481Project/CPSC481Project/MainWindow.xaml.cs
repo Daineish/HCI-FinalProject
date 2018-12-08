@@ -14,6 +14,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+//using static CPSC481Project.DrPayneTileControl;
+//using static CPSC481Project.DrLeeTileControl;
+//using static CPSC481Project.DrWalterTileControl;
 
 
 
@@ -38,7 +41,7 @@ namespace CPSC481Project
         String[] month = { "January", "Febuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
 
         internal DateTime _DisplayStartDate = DateTime.Now;
-
+        Boolean filterMode = false;
         Patient m_currentPatient;
         Boolean selectedMode;
         PatientDatabase m_patientDatabase;
@@ -82,7 +85,7 @@ namespace CPSC481Project
                 m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("00001"), "Dr. Walter", DateTime.Now, DateTime.Now, "Appointment #1"));
             }
 
-            if(m_vacationDatabase.NumVacations() < 3)
+            //if(m_vacationDatabase.NumVacations() < 3)
             {
                 DateTime s1 = DateTime.Parse("2019-01-01");
                 DateTime e1 = DateTime.Parse("2019-02-01");
@@ -346,6 +349,7 @@ namespace CPSC481Project
                 b.Height = 30;
                 b.Margin = new Thickness(-50, 200, 0, 0);
                 b.Tag = p;
+                b.Cursor = Cursors.Hand;
                 b.Click += SelectPatientClicked;
                 g.Children.Add(b);
             }
@@ -361,6 +365,7 @@ namespace CPSC481Project
             view.Height = 30;
             view.Margin = new Thickness(150, 200, 0, 0);
             view.Tag = p;
+            view.Cursor = Cursors.Hand;
             view.Click += selectViewPatient;
             g.Children.Add(view);
 
@@ -377,6 +382,7 @@ namespace CPSC481Project
                 unselectPatient.Height = 30;
                 unselectPatient.Margin = new Thickness(-50, 200, 0, 0);
                 unselectPatient.Tag = p;
+                unselectPatient.Cursor = Cursors.Hand;
                 unselectPatient.Click += unSelectPatientClicked;
                 g.Children.Add(unselectPatient);
             }
@@ -438,7 +444,95 @@ namespace CPSC481Project
 
         }
 
-            private void Button_Click(object sender, RoutedEventArgs e)
+        //Edit patient info
+        private void EditInfo_Click(object sender, RoutedEventArgs e)
+        {
+            //First, hide the text fields
+            dPatientname.Visibility = Visibility.Hidden;
+            dPatientlname.Visibility = Visibility.Hidden;
+            dPatientHC.Visibility = Visibility.Hidden;
+            dPatientaddr.Visibility = Visibility.Hidden;
+            dPatientpn.Visibility = Visibility.Hidden;
+            dPatientemail.Visibility = Visibility.Hidden;
+
+            //Keep text the same, let users change if they want
+            dPatientnameBox.Text = dPatientname.Text;
+            dPatientlnameBox.Text = dPatientlname.Text;
+            dPatientHCBox.Text = dPatientHC.Text;
+            dPatientaddrBox.Text = dPatientaddr.Text;
+            dPatientpnBox.Text = dPatientpn.Text;
+            dPatientemailBox.Text = dPatientemail.Text;
+
+            //Then show the text boxes
+            dPatientnameBox.Visibility = Visibility.Visible;
+            dPatientlnameBox.Visibility = Visibility.Visible;
+            dPatientHCBox.Visibility = Visibility.Visible;
+            dPatientaddrBox.Visibility = Visibility.Visible;
+            dPatientpnBox.Visibility = Visibility.Visible;
+            dPatientemailBox.Visibility = Visibility.Visible;
+
+            //Show the yes and cancel button
+            editInfoYes.Visibility = Visibility.Visible;
+            editInfoCancel.Visibility = Visibility.Visible;
+        }
+
+        private void EditInfoYes_Click(object sender, RoutedEventArgs e)
+        {
+            //Keep text the same, let users change if they want
+            dPatientname.Text = dPatientnameBox.Text;
+            dPatientlname.Text = dPatientlnameBox.Text;
+            dPatientHC.Text = dPatientHCBox.Text;
+            dPatientaddr.Text = dPatientaddrBox.Text;
+            dPatientpn.Text = dPatientpnBox.Text;
+            dPatientemail.Text = dPatientemailBox.Text;
+
+            //Now hide the text boxes and make text fields visible
+            dPatientnameBox.Visibility = Visibility.Hidden;
+            dPatientlnameBox.Visibility = Visibility.Hidden;
+            dPatientHCBox.Visibility = Visibility.Hidden;
+            dPatientaddrBox.Visibility = Visibility.Hidden;
+            dPatientpnBox.Visibility = Visibility.Hidden;
+            dPatientemailBox.Visibility = Visibility.Hidden;
+
+            dPatientname.Visibility = Visibility.Visible;
+            dPatientlname.Visibility = Visibility.Visible;
+            dPatientHC.Visibility = Visibility.Visible;
+            dPatientaddr.Visibility = Visibility.Visible;
+            dPatientpn.Visibility = Visibility.Visible;
+            dPatientemail.Visibility = Visibility.Visible;
+
+            //Now hide the yes/cancel buttons
+            editInfoYes.Visibility = Visibility.Hidden;
+            editInfoCancel.Visibility = Visibility.Hidden;
+
+            editInfo.Visibility = Visibility.Visible;
+        }
+
+        private void EditInfoCancel_Click(object sender, RoutedEventArgs e)
+        {
+            //If cancel, just make text boxes no longer visible
+            dPatientnameBox.Visibility = Visibility.Hidden;
+            dPatientlnameBox.Visibility = Visibility.Hidden;
+            dPatientHCBox.Visibility = Visibility.Hidden;
+            dPatientaddrBox.Visibility = Visibility.Hidden;
+            dPatientpnBox.Visibility = Visibility.Hidden;
+            dPatientemailBox.Visibility = Visibility.Hidden;
+
+            //Then make text fields visible
+            dPatientname.Visibility = Visibility.Visible;
+            dPatientlname.Visibility = Visibility.Visible;
+            dPatientHC.Visibility = Visibility.Visible;
+            dPatientaddr.Visibility = Visibility.Visible;
+            dPatientpn.Visibility = Visibility.Visible;
+            dPatientemail.Visibility = Visibility.Visible;
+
+            //Now hide the yes/cancel buttons
+            editInfoYes.Visibility = Visibility.Hidden;
+            editInfoCancel.Visibility = Visibility.Hidden;
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
             //dashboard.Visibility = Visibility.Hidden;
 
@@ -458,12 +552,22 @@ namespace CPSC481Project
         private void calendarBack(object sender, RoutedEventArgs e)
         {
             dashboard.Visibility = Visibility.Visible;
+            PatientListScrollViewer.Height = 708.5;
+            filterDoctor.Visibility = Visibility.Hidden;
             if (m_monthlyViewControl != null)
                 MainGrid.Children.Remove(m_monthlyViewControl);
             // error checking?
         }
         private void ToCalendar_MouseLeftButtonUp(object sender, RoutedEventArgs e)
         {
+            if(filterMode == false)
+            {
+                filterMode = true;
+                PatientListScrollViewer.Height = 708.5 - 180.5;
+                filterDoctor.Visibility = Visibility.Visible;
+            }
+
+
             //dashboard.Visibility = Visibility.Hidden;
             m_monthlyViewControl = new MonthlyViewControl();
             m_monthlyViewControl.Visibility = Visibility.Visible;
@@ -476,6 +580,13 @@ namespace CPSC481Project
         private void ToDayView_MouseLeftButtonUp(object sender, RoutedEventArgs e)
         {
             //dashboard.Visibility = Visibility.Hidden;
+            if(filterMode == true)
+            {
+                filterDoctor.Visibility = Visibility.Hidden;
+                PatientListScrollViewer.Height = 708.5;
+                filterMode = false;
+            }
+
 
             m_dayViewControl = new DayViewControl(DateTime.Today, m_appointmentDatabase);
             MainGrid.Children.Add(m_dayViewControl);
@@ -635,6 +746,13 @@ namespace CPSC481Project
 
         public void MonthViewToDayView(DateTime d)
         {
+            if (filterMode == true)
+            {
+                filterDoctor.Visibility = Visibility.Hidden;
+                PatientListScrollViewer.Height = 708.5;
+                Console.WriteLine(PatientListScrollViewer.Height);
+                filterMode = false;
+            }
             m_dayViewControl = new DayViewControl(d, m_appointmentDatabase);
             m_dayViewControl.Visibility = Visibility.Visible;
             MainGrid.Children.Add(m_dayViewControl);
@@ -706,6 +824,7 @@ namespace CPSC481Project
                 viewPatient.Visibility = Visibility.Hidden;
             }
         }
+
 
     }
 }

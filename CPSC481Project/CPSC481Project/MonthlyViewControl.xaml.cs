@@ -113,6 +113,7 @@ namespace CPSC481Project
         private void ToDashboard_MouseLeftButtonUp(System.Object sender, MouseButtonEventArgs e)
         {
             this.Visibility = Visibility.Hidden;
+            
         }
 
         private void ToDayView_MouseLeftButtonUp(System.Object sender, MouseButtonEventArgs e)
