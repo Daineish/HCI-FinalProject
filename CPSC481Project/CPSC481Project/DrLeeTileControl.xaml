@@ -20,5 +20,6 @@
         <Label x:Name="availTime1" HorizontalAlignment="Left" Height="37.158" VerticalAlignment="Top" Width="283.603" FontSize="18" Margin="6.397,237.999,0,0" Content="Unavailable" Foreground="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <Rectangle x:Name="atblock2" Stroke="#FFEA8E7A" RadiusY="6.103" RadiusX="6.103" Fill="White" Margin="5.397,285.379,10,11.936" StrokeThickness="2" MaxWidth="284.603" MaxHeight="39.533"/>
         <Label x:Name="availTime2" HorizontalAlignment="Left" Height="37.16" VerticalAlignment="Top" Width="283.603" FontSize="18" Margin="6.397,285.37,0,0" Content="Unavailable" Foreground="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Image HorizontalAlignment="Right" Height="25" Source="Images/plane.png" MouseLeftButtonUp="ToVacay_MouseLeftButtonUp" Margin="0,10,10,0" VerticalAlignment="Top" Width="25" Cursor="Hand" ToolTip="Book Vacation"/>
     </Grid>
 </UserControl>

@@ -241,6 +241,8 @@ namespace CPSC481Project
 
                 // Sketch af algorithm.
                 DateTime curTime = DateTime.Now;
+                TimeSpan ts = TimeSpan.FromMinutes(10);
+                curTime = new DateTime((curTime.Ticks + ts.Ticks - 1) / ts.Ticks * ts.Ticks, curTime.Kind);
                 int i = 0;
                 while(true)
                 {

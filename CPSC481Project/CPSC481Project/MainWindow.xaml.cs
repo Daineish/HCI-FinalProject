@@ -80,11 +80,13 @@ namespace CPSC481Project
             if (m_appointmentDatabase.NumAppointments() < 5)
             {
                 DateTime today = DateTime.Today;
-                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("00001"), "Dr. Walter", DateTime.Now, DateTime.Now, "Appointment #1"));
-                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("12345"), "Dr. Payne", DateTime.Now, DateTime.Now, "Appointment #1"));
-                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("00002"), "Dr. Lee", DateTime.Now, DateTime.Now, "Appointment #1"));
-                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("44444"), "Dr. Walter", DateTime.Now, DateTime.Now, "Appointment #1"));
-                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("00001"), "Dr. Walter", DateTime.Now, DateTime.Now, "Appointment #1"));
+                TimeSpan ts = new TimeSpan(10, 0, 0);
+                today = today.Date + ts;
+                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("00001"), "Dr. Walter", today, today.AddMinutes(10), "Appointment #1"));
+                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("12345"), "Dr. Payne", today.AddMinutes(30), today.AddMinutes(40), "Appointment #1"));
+                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("00002"), "Dr. Lee", today.AddDays(1), today.AddDays(1).AddMinutes(10), "Appointment #1"));
+                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("44444"), "Dr. Walter", today.AddHours(4), today.AddHours(4).AddMinutes(10), "Appointment #1"));
+                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("00001"), "Dr. Walter", today.AddMinutes(-20), today.AddMinutes(-10), "Appointment #1"));
             }
 
             if(m_vacationDatabase.NumVacations() < 3)
@@ -161,7 +163,7 @@ namespace CPSC481Project
             PatientListStackPanel.Children.Add(CreateGrid(recent4));
             PatientListStackPanel.Children.Add(CreateGrid(recent5));
 
-            // Populate available times (TODO)
+            // Populate available times
             List<String> availablePayne = m_appointmentDatabase.AvailableTimes("Dr. Payne");
             List<String> availableLee = m_appointmentDatabase.AvailableTimes("Dr. Lee");
             List<String> availableWalter = m_appointmentDatabase.AvailableTimes("Dr. Walter");
@@ -592,6 +594,17 @@ namespace CPSC481Project
             Grid.SetRowSpan(m_monthlyViewControl, 3);
         }
 
+        public void ToVacayCalendar(string drName)
+        {
+            //somehow receive doctor name and use that to control filter for calendar?
+            m_monthlyViewControl = new MonthlyViewControl();
+            m_monthlyViewControl.Visibility = Visibility.Visible;
+            MainGrid.Children.Add(m_monthlyViewControl);
+            Grid.SetRow(m_monthlyViewControl, 0);
+            Grid.SetColumn(m_monthlyViewControl, 1);
+            Grid.SetRowSpan(m_monthlyViewControl, 3);
+        }
+
         private void ToDayView_MouseLeftButtonUp(object sender, RoutedEventArgs e)
         {
             //dashboard.Visibility = Visibility.Hidden;
@@ -724,6 +737,7 @@ namespace CPSC481Project
                 if (MessageBox.Show(infoString, "Confirm New Appointment", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                 {
                     m_appointmentDatabase.AddAppointment(new Appointment(m_currentPatient, doc, datetime, datetime.AddMinutes(10), ""));
+                    PopulateDefaultInfo();
                     MessageBox.Show("Appointment added", "Appointment added", MessageBoxButton.OK, MessageBoxImage.Information); 
                 }
                 else
