@@ -66,6 +66,7 @@ namespace CPSC481Project
                         VerticalAlignment = VerticalAlignment.Top,
                         Height = 36
                     };
+                    tb.MouseUp += EditAppointment_Clicked;
 
                     if (a.m_doctor == "Dr. Walter")
                     {
@@ -164,6 +165,71 @@ namespace CPSC481Project
                             }
                         }
                     }
+                }
+            }
+        }
+
+        private void EditAppointment_Clicked(object sender, MouseButtonEventArgs e)
+        {
+            // bring up window to edit appointment
+            EditAppointment form = new EditAppointment();
+            TextBlock tb = (TextBlock)sender;
+            StackPanel sp = (StackPanel)tb.Parent;
+            DateTime dt = DateTime.Parse((String)currentDate.Content + " " + (String)tb.Tag);
+            form.SetInfo(tb.Text, "patient number", (String)sp.Tag, dt);
+            form.ShowDialog();
+            if(form.m_delete)
+            {
+                // delete appointment
+                bool success = false;
+                foreach(Appointment a in m_appointmentDatabase.m_appointments)
+                {
+                    if(a.m_patient.m_firstName + " " + a.m_patient.m_lastName == tb.Text)
+                    {
+                        if(DateTime.Compare(a.m_startTime, dt) == 0)
+                        {
+                            m_appointmentDatabase.DeleteAppointment(a);
+                            success = true;
+                            break;
+                        }
+                    }
+                }
+                if (!success)
+                {
+                    MessageBox.Show("Error: Could not delete appointment.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                else
+                {
+                    MessageBox.Show("Appointment deleted.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                    UpdateDayWithAppointments();
+                }
+            }
+            else if(form.m_changed)
+            {
+                // edit appointment
+                bool success = false;
+                foreach (Appointment a in m_appointmentDatabase.m_appointments)
+                {
+                    if (a.m_patient.m_firstName + " " + a.m_patient.m_lastName == tb.Text)
+                    {
+                        if (DateTime.Compare(a.m_startTime, dt) == 0)
+                        {
+                            //
+                            a.m_doctor = form.m_doctor;
+                            a.m_startTime = form.m_startDate;
+                            success = true;
+                            break;
+                        }
+                    }
+                }
+                if (!success)
+                {
+                    MessageBox.Show("Error: Could not edit appointment.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                else
+                {
+                    MessageBox.Show("Appointment changed.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                    UpdateDayWithAppointments();
                 }
             }
         }
