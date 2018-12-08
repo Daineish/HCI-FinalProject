@@ -592,6 +592,7 @@ namespace CPSC481Project
             Grid.SetRow(m_monthlyViewControl, 0);
             Grid.SetColumn(m_monthlyViewControl, 1);
             Grid.SetRowSpan(m_monthlyViewControl, 3);
+            m_monthlyViewControl.SetAppointments();
         }
 
         public void ToVacayCalendar(string drName)
@@ -603,6 +604,7 @@ namespace CPSC481Project
             Grid.SetRow(m_monthlyViewControl, 0);
             Grid.SetColumn(m_monthlyViewControl, 1);
             Grid.SetRowSpan(m_monthlyViewControl, 3);
+            m_monthlyViewControl.SetAppointments();
         }
 
         private void ToDayView_MouseLeftButtonUp(object sender, RoutedEventArgs e)
@@ -857,32 +859,38 @@ namespace CPSC481Project
         //Filter Checked
         private void payneChecked(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("Payne Checked");
+            if (m_monthlyViewControl != null)
+                m_monthlyViewControl.SetAppointments();
         }
 
         private void leeChecked(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("Lee Checked");
+            if (m_monthlyViewControl != null)
+                m_monthlyViewControl.SetAppointments();
         }
 
         private void walterChecked(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("Walter Checked");
+            if (m_monthlyViewControl != null)
+                m_monthlyViewControl.SetAppointments();
         }
 
         private void payneUnchecked(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("Payne Unchecked");
+            if (m_monthlyViewControl != null)
+                m_monthlyViewControl.SetAppointments();
         }
 
         private void leeUnchecked(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("Lee Unchecked");
+            if (m_monthlyViewControl != null)
+                m_monthlyViewControl.SetAppointments();
         }
 
         private void walterUnchecked(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("Walter Unchecked");
+            if (m_monthlyViewControl != null)
+                m_monthlyViewControl.SetAppointments();
         }
         //Filter Unchecked
     }
