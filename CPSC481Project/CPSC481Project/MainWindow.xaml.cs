@@ -470,6 +470,17 @@ namespace CPSC481Project
             Grid.SetRowSpan(m_monthlyViewControl, 3);
         }
 
+        public void ToVacayCalendar(string drName)
+        {
+            //somehow receive doctor name and use that to control filter for calendar?
+            m_monthlyViewControl = new MonthlyViewControl();
+            m_monthlyViewControl.Visibility = Visibility.Visible;
+            MainGrid.Children.Add(m_monthlyViewControl);
+            Grid.SetRow(m_monthlyViewControl, 0);
+            Grid.SetColumn(m_monthlyViewControl, 1);
+            Grid.SetRowSpan(m_monthlyViewControl, 3);
+        }
+
         private void ToDayView_MouseLeftButtonUp(object sender, RoutedEventArgs e)
         {
             //dashboard.Visibility = Visibility.Hidden;

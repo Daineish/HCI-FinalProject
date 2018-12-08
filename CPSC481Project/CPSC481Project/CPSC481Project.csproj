@@ -247,5 +247,8 @@
     <Resource Include="Images\calMonView.png" />
     <Resource Include="Images\dashboard.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\plane.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
