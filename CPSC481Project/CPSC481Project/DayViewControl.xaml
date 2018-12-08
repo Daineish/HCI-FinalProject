@@ -5,1069 +5,518 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CPSC481Project"
              mc:Ignorable="d" d:DesignWidth="1120" Height="869" Width="1087">
-    <Grid x:Name="dayview" Margin="0,0,33,34.5">
+    <Grid x:Name="DayViewMainGrid" Margin="0,0,0,0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="163*"/>
-            <RowDefinition Height="270*"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70" />
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Rectangle x:Name="DayViewBackground" Fill="#FFF4F4F5" Height="869" Stroke="Black" VerticalAlignment="Top" Grid.RowSpan="2" Margin="0,0,-33,-34.5"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="57.377" Stroke="Black" VerticalAlignment="Top" Width="1087"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="54" Margin="1,55.877,0,0" Stroke="Black" VerticalAlignment="Top" Width="902.5"/>
-        <Label x:Name="currentDate" Content="December 10th, 2018" Height="59.377" Margin="209,-2,0,0" VerticalAlignment="Top" FontSize="36" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Width="678"/>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Width="Auto">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="207"/>
+            <ColumnDefinition Width="95*" />
+            <ColumnDefinition Width="95*"/>
+            <ColumnDefinition Width="95*"/>
+            <ColumnDefinition Width="18" />
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+        <Rectangle Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="6" Grid.RowSpan="3" x:Name="DayViewBackground" Fill="#FFF4F4F5" Height="auto" Width="auto" HorizontalAlignment="Stretch" Stroke="Black" VerticalAlignment="Stretch" Margin="0,0,0,0"/>
+        <Rectangle Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="6" Fill="#FFF4F4F5" Height="auto" Stroke="Black" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="auto"/>
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="6" x:Name="currentDate" Content="December 10th, 2018" Height="auto" Margin="0,0,0,0" VerticalAlignment="Center" FontSize="36" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Width="auto"/>
+        <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Width="Auto">
             <Image x:Name="ToDashboard" Source="/images/dashboard.png" Height="40" RenderTransformOrigin="0.5,0.5" Margin="10,15,0,18"
                    MouseLeftButtonUp="ToDashboard_MouseLeftButtonUp" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Cursor="Hand"/>
         </StackPanel>
-        <Grid Margin="0,0,1010,38" RenderTransformOrigin="0.5,0.5">
-            <Grid.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="0.062"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Grid.RenderTransform>
-        </Grid>
-        <Calendar x:Name="miniCalendar" HorizontalAlignment="Left" Margin="887,55.377,-45,87.793" Width="212" MouseDoubleClick="miniCalendar_MouseDoubleClick"/>
-        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="54" Margin="660.666,55.377,0,0" Stroke="Black" VerticalAlignment="Top" Width="226.334"/>
-        <TextBlock HorizontalAlignment="Left" Height="36" Margin="725.5,66.877,0,0" TextWrapping="Wrap" Text="Dr. Payne" VerticalAlignment="Top" Width="112.5" FontSize="24" RenderTransformOrigin="0.61,0.926" FontWeight="Bold" Foreground="White"/>
-        <ScrollViewer HorizontalAlignment="Left" Height="749.191" Margin="0,108.877,0,-23.568" VerticalAlignment="Top" Width="903.5" Grid.RowSpan="2">
-            <StackPanel Height="2129.811" Width="890">
-                <Grid x:Name="hour8" Margin="41.167,0,-337,0" Height="211">
-                    <Grid Margin="154.667,0,0,175">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="32.833" Margin="-32.5,35,0,0" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="32.833" Margin="-32.5,69.903,0,-34.903" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="32.833" Margin="-32.5,104.973,0,-69.973" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="32.833" Margin="-32.5,140.043,0,-105.043" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="32.833" Margin="-32.5,174.946,0,-139.946" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="196.833" Margin="-196.5,0.701,0,0" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                    </Grid>
-                    <Grid Margin="154.667,35,0,140">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                    </Grid>
-                    <Grid Margin="154.667,70,0,105">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                    </Grid>
-                    <Grid Margin="154.667,105,0,70">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                    </Grid>
-                    <Grid Margin="154.667,140,0,35">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                    </Grid>
-                    <Grid Margin="154.667,175,0,0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="722*"/>
-                            <ColumnDefinition Width="309*"/>
-                        </Grid.ColumnDefinitions>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                    </Grid>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,6.5,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="23.333" FontSize="16"/>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,41.833,0,0" TextWrapping="Wrap" Text="20" VerticalAlignment="Top" Width="23.333" FontSize="16"/>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,78.721,0,0" TextWrapping="Wrap" Text="30" VerticalAlignment="Top" Width="23.333" FontSize="16"/>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,113.12,0,0" TextWrapping="Wrap" Text="40" VerticalAlignment="Top" Width="23.333" FontSize="16" RenderTransformOrigin="0.5,0.978"/>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,149.454,0,0" TextWrapping="Wrap" Text="50" VerticalAlignment="Top" Width="23.333" FontSize="16" RenderTransformOrigin="0.5,0.978"/>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,181.47,0,0" TextWrapping="Wrap" Text="60" VerticalAlignment="Top" Width="23.333" FontSize="16" RenderTransformOrigin="0.5,0.978"/>
-                    <TextBlock HorizontalAlignment="Left" Height="101.333" Margin="25.167,52.69,0,0" TextWrapping="Wrap" Text="8" VerticalAlignment="Top" Width="101.167" FontSize="72"/>
+        <Rectangle Grid.Column="4" Grid.Row="1" Height="auto" Width="auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+        <Rectangle Grid.Column="3" Grid.Row="1" Fill="#FF5AAA7E" Height="auto" Margin="0,0,0,0" Stroke="Black" Width="auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <Rectangle Grid.Column="2" Grid.Row="1" Fill="#FFEA8E7A" Height="auto" Margin="0,0,0,0" Stroke="Black" Width="auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <Rectangle Grid.Column="1" Grid.Row="1" Fill="#FF6767FF" Height="auto" Margin="0,0,0,0" Stroke="Black" Width="auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+        <TextBlock Grid.Column="3" Grid.Row="1" HorizontalAlignment="Center" Height="36" Margin="0,0,0,0" TextWrapping="Wrap" Text="Dr. Payne" VerticalAlignment="Center" Width="auto" FontSize="24" FontWeight="Bold" Foreground="White"/>
+        <TextBlock Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" Height="36" Margin="0,0,0,0" TextWrapping="Wrap" Text="Dr. Lee" VerticalAlignment="Center" Width="auto" FontSize="24" FontWeight="Bold" Foreground="White"/>
+        <TextBlock Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" Height="36" Margin="0,0,0,0" TextWrapping="Wrap" Text="Dr. Walter" VerticalAlignment="Center" Width="auto" FontSize="24" FontWeight="Bold" Foreground="White"/>
+        <ScrollViewer Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="2" Height="auto" Margin="0,0,0,0" VerticalAlignment="Stretch" Width="auto" HorizontalAlignment="Stretch" Grid.RowSpan="1">
+            <StackPanel x:Name="DayViewStackPanelScroller" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <Grid x:Name="Hour8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="37*" />
+                        <ColumnDefinition Width="10*" />
+                        <ColumnDefinition Width="50*" />
+                        <ColumnDefinition Width="50*" />
+                        <ColumnDefinition Width="50*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" HorizontalAlignment="Center" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="8" VerticalAlignment="Center" Width="auto" FontSize="72"/>
+                    <StackPanel Grid.Column="1" Margin="0,0,0,0" Height="auto" VerticalAlignment="Stretch">
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Stretch" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="20" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="30" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="40" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="50" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="60" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                    </StackPanel>
+                    <Rectangle Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="1" Stroke="Black" VerticalAlignment="Top" Width="auto" Margin="0,0.0,0,0" />
+                    <StackPanel Grid.Column="2">
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="3">
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="4">
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    </StackPanel>
                 </Grid>
-                <Grid x:Name="hour9" Margin="41.167,0,-337,0" Height="211">
-                    <Grid Margin="154.667,0,0,175">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="32.833" Margin="-32.5,35,0,0" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="32.833" Margin="-32.5,69.903,0,-34.903" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="32.833" Margin="-32.5,104.973,0,-69.973" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="32.833" Margin="-32.5,140.043,0,-105.043" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="32.833" Margin="-32.5,174.946,0,-139.946" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="196.833" Margin="-196.5,0.701,0,0" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                    </Grid>
-                    <Grid Margin="154.667,35,0,140">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                    </Grid>
-                    <Grid Margin="154.667,70,0,105">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                    </Grid>
-                    <Grid Margin="154.667,105,0,70">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                    </Grid>
-                    <Grid Margin="154.667,140,0,35">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                    </Grid>
-                    <Grid Margin="154.667,175,0,0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="722*"/>
-                            <ColumnDefinition Width="309*"/>
-                        </Grid.ColumnDefinitions>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                    </Grid>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,6.5,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="23.333" FontSize="16"/>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,41.833,0,0" TextWrapping="Wrap" Text="20" VerticalAlignment="Top" Width="23.333" FontSize="16"/>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,78.721,0,0" TextWrapping="Wrap" Text="30" VerticalAlignment="Top" Width="23.333" FontSize="16"/>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,113.12,0,0" TextWrapping="Wrap" Text="40" VerticalAlignment="Top" Width="23.333" FontSize="16" RenderTransformOrigin="0.5,0.978"/>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,149.454,0,0" TextWrapping="Wrap" Text="50" VerticalAlignment="Top" Width="23.333" FontSize="16" RenderTransformOrigin="0.5,0.978"/>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,181.47,0,0" TextWrapping="Wrap" Text="60" VerticalAlignment="Top" Width="23.333" FontSize="16" RenderTransformOrigin="0.5,0.978"/>
-                    <TextBlock HorizontalAlignment="Left" Height="101.333" Margin="25.167,48.121,0,0" TextWrapping="Wrap" Text="9" VerticalAlignment="Top" Width="101.167" FontSize="72"/>
+                <Grid x:Name="Hour9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="37*" />
+                        <ColumnDefinition Width="10*" />
+                        <ColumnDefinition Width="50*" />
+                        <ColumnDefinition Width="50*" />
+                        <ColumnDefinition Width="50*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="9" VerticalAlignment="Center" Width="auto" FontSize="72"/>
+                    <StackPanel Grid.Column="1" Margin="0,0,0,0" Height="auto" VerticalAlignment="Stretch">
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Stretch" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="20" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="30" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="40" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="50" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="60" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                    </StackPanel>
+                    <Rectangle Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="1" Stroke="Black" VerticalAlignment="Top" Width="auto" Margin="0,0.0,0,0" />
+                    <StackPanel Grid.Column="2">
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="3">
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="4">
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    </StackPanel>
                 </Grid>
-                <Grid x:Name="hour10" Margin="41.167,0,-337,0" Height="211">
-                    <Grid Margin="154.667,0,0,175">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="32.833" Margin="-32.5,35,0,0" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="32.833" Margin="-32.5,69.903,0,-34.903" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="32.833" Margin="-32.5,104.973,0,-69.973" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="32.833" Margin="-32.5,140.043,0,-105.043" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="32.833" Margin="-32.5,174.946,0,-139.946" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="196.833" Margin="-196.5,0.701,0,0" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                    </Grid>
-                    <Grid Margin="154.667,35,0,140">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                    </Grid>
-                    <Grid Margin="154.667,70,0,105">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                    </Grid>
-                    <Grid Margin="154.667,105,0,70">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                    </Grid>
-                    <Grid Margin="154.667,140,0,35">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                    </Grid>
-                    <Grid Margin="154.667,175,0,0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="722*"/>
-                            <ColumnDefinition Width="309*"/>
-                        </Grid.ColumnDefinitions>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                    </Grid>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,6.5,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="23.333" FontSize="16"/>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,41.833,0,0" TextWrapping="Wrap" Text="20" VerticalAlignment="Top" Width="23.333" FontSize="16"/>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,78.721,0,0" TextWrapping="Wrap" Text="30" VerticalAlignment="Top" Width="23.333" FontSize="16"/>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,113.12,0,0" TextWrapping="Wrap" Text="40" VerticalAlignment="Top" Width="23.333" FontSize="16" RenderTransformOrigin="0.5,0.978"/>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,149.454,0,0" TextWrapping="Wrap" Text="50" VerticalAlignment="Top" Width="23.333" FontSize="16" RenderTransformOrigin="0.5,0.978"/>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,181.47,0,0" TextWrapping="Wrap" Text="60" VerticalAlignment="Top" Width="23.333" FontSize="16" RenderTransformOrigin="0.5,0.978"/>
-                    <TextBlock HorizontalAlignment="Left" Height="101.333" Margin="10,52.69,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="101.167" FontSize="72"/>
+                <Grid x:Name="Hour10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="37*" />
+                        <ColumnDefinition Width="10*" />
+                        <ColumnDefinition Width="50*" />
+                        <ColumnDefinition Width="50*" />
+                        <ColumnDefinition Width="50*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Center" Width="auto" FontSize="72"/>
+                    <StackPanel Grid.Column="1" Margin="0,0,0,0" Height="auto" VerticalAlignment="Stretch">
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Stretch" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="20" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="30" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="40" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="50" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="60" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                    </StackPanel>
+                    <Rectangle Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="1" Stroke="Black" VerticalAlignment="Top" Width="auto" Margin="0,0.0,0,0" />
+                    <StackPanel Grid.Column="2">
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="3">
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="4">
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    </StackPanel>
                 </Grid>
-                <Grid x:Name="hour11" Margin="41.167,0,-337,0" Height="211">
-                    <Grid Margin="154.667,0,0,175">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="32.833" Margin="-32.5,35,0,0" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="32.833" Margin="-32.5,69.903,0,-34.903" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="32.833" Margin="-32.5,104.973,0,-69.973" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="32.833" Margin="-32.5,140.043,0,-105.043" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="32.833" Margin="-32.5,174.946,0,-139.946" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="196.833" Margin="-196.5,0.701,0,0" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                    </Grid>
-                    <Grid Margin="154.667,35,0,140">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                    </Grid>
-                    <Grid Margin="154.667,70,0,105">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                    </Grid>
-                    <Grid Margin="154.667,105,0,70">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                    </Grid>
-                    <Grid Margin="154.667,140,0,35">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                    </Grid>
-                    <Grid Margin="154.667,175,0,0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="722*"/>
-                            <ColumnDefinition Width="309*"/>
-                        </Grid.ColumnDefinitions>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                    </Grid>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,6.5,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="23.333" FontSize="16"/>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,41.833,0,0" TextWrapping="Wrap" Text="20" VerticalAlignment="Top" Width="23.333" FontSize="16"/>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,78.721,0,0" TextWrapping="Wrap" Text="30" VerticalAlignment="Top" Width="23.333" FontSize="16"/>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,113.12,0,0" TextWrapping="Wrap" Text="40" VerticalAlignment="Top" Width="23.333" FontSize="16" RenderTransformOrigin="0.5,0.978"/>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,149.454,0,0" TextWrapping="Wrap" Text="50" VerticalAlignment="Top" Width="23.333" FontSize="16" RenderTransformOrigin="0.5,0.978"/>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,181.47,0,0" TextWrapping="Wrap" Text="60" VerticalAlignment="Top" Width="23.333" FontSize="16" RenderTransformOrigin="0.5,0.978"/>
-                    <TextBlock HorizontalAlignment="Left" Height="101.333" Margin="10,52.69,0,0" TextWrapping="Wrap" Text="11" VerticalAlignment="Top" Width="101.167" FontSize="72"/>
+                <Grid x:Name="Hour11" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="37*" />
+                        <ColumnDefinition Width="10*" />
+                        <ColumnDefinition Width="50*" />
+                        <ColumnDefinition Width="50*" />
+                        <ColumnDefinition Width="50*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="11" VerticalAlignment="Center" Width="auto" FontSize="72"/>
+                    <StackPanel Grid.Column="1" Margin="0,0,0,0" Height="auto" VerticalAlignment="Stretch">
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Stretch" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="20" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="30" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="40" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="50" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="60" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                    </StackPanel>
+                    <Rectangle Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="1" Stroke="Black" VerticalAlignment="Top" Width="auto" Margin="0,0.0,0,0" />
+                    <StackPanel Grid.Column="2">
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="3">
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="4">
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    </StackPanel>
                 </Grid>
-                <Grid x:Name="hour12" Margin="41.167,0,-337,0" Height="211">
-                    <Grid Margin="154.667,0,0,175">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="32.833" Margin="-32.5,35,0,0" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="32.833" Margin="-32.5,69.903,0,-34.903" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="32.833" Margin="-32.5,104.973,0,-69.973" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="32.833" Margin="-32.5,140.043,0,-105.043" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="32.833" Margin="-32.5,174.946,0,-139.946" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="196.833" Margin="-196.5,0.701,0,0" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                    </Grid>
-                    <Grid Margin="154.667,35,0,140">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                    </Grid>
-                    <Grid Margin="154.667,70,0,105">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                    </Grid>
-                    <Grid Margin="154.667,105,0,70">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                    </Grid>
-                    <Grid Margin="154.667,140,0,35">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                    </Grid>
-                    <Grid Margin="154.667,175,0,0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="722*"/>
-                            <ColumnDefinition Width="309*"/>
-                        </Grid.ColumnDefinitions>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                    </Grid>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,6.5,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="23.333" FontSize="16"/>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,41.833,0,0" TextWrapping="Wrap" Text="20" VerticalAlignment="Top" Width="23.333" FontSize="16"/>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,78.721,0,0" TextWrapping="Wrap" Text="30" VerticalAlignment="Top" Width="23.333" FontSize="16"/>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,113.12,0,0" TextWrapping="Wrap" Text="40" VerticalAlignment="Top" Width="23.333" FontSize="16" RenderTransformOrigin="0.5,0.978"/>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,149.454,0,0" TextWrapping="Wrap" Text="50" VerticalAlignment="Top" Width="23.333" FontSize="16" RenderTransformOrigin="0.5,0.978"/>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,181.47,0,0" TextWrapping="Wrap" Text="60" VerticalAlignment="Top" Width="23.333" FontSize="16" RenderTransformOrigin="0.5,0.978"/>
-                    <TextBlock HorizontalAlignment="Left" Height="101.333" Margin="10,52.69,0,0" TextWrapping="Wrap" Text="12" VerticalAlignment="Top" Width="101.167" FontSize="72"/>
+                <Grid x:Name="Hour12" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="37*" />
+                        <ColumnDefinition Width="10*" />
+                        <ColumnDefinition Width="50*" />
+                        <ColumnDefinition Width="50*" />
+                        <ColumnDefinition Width="50*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="12" VerticalAlignment="Center" Width="auto" FontSize="72"/>
+                    <StackPanel Grid.Column="1" Margin="0,0,0,0" Height="auto" VerticalAlignment="Stretch">
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Stretch" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="20" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="30" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="40" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="50" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="60" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                    </StackPanel>
+                    <Rectangle Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="1" Stroke="Black" VerticalAlignment="Top" Width="auto" Margin="0,0.0,0,0" />
+                    <StackPanel Grid.Column="2">
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="3">
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="4">
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    </StackPanel>
                 </Grid>
-                <Grid x:Name="hour1" Margin="41.167,0,-337,0" Height="211">
-                    <Grid Margin="154.667,0,0,175">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="32.833" Margin="-32.5,35,0,0" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="32.833" Margin="-32.5,69.903,0,-34.903" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="32.833" Margin="-32.5,104.973,0,-69.973" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="32.833" Margin="-32.5,140.043,0,-105.043" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="32.833" Margin="-32.5,174.946,0,-139.946" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="196.833" Margin="-196.5,0.701,0,0" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                    </Grid>
-                    <Grid Margin="154.667,35,0,140">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                    </Grid>
-                    <Grid Margin="154.667,70,0,105">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                    </Grid>
-                    <Grid Margin="154.667,105,0,70">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                    </Grid>
-                    <Grid Margin="154.667,140,0,35">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                    </Grid>
-                    <Grid Margin="154.667,175,0,0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="722*"/>
-                            <ColumnDefinition Width="309*"/>
-                        </Grid.ColumnDefinitions>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                    </Grid>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,6.5,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="23.333" FontSize="16"/>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,41.833,0,0" TextWrapping="Wrap" Text="20" VerticalAlignment="Top" Width="23.333" FontSize="16"/>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,78.721,0,0" TextWrapping="Wrap" Text="30" VerticalAlignment="Top" Width="23.333" FontSize="16"/>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,113.12,0,0" TextWrapping="Wrap" Text="40" VerticalAlignment="Top" Width="23.333" FontSize="16" RenderTransformOrigin="0.5,0.978"/>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,149.454,0,0" TextWrapping="Wrap" Text="50" VerticalAlignment="Top" Width="23.333" FontSize="16" RenderTransformOrigin="0.5,0.978"/>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,181.47,0,0" TextWrapping="Wrap" Text="60" VerticalAlignment="Top" Width="23.333" FontSize="16" RenderTransformOrigin="0.5,0.978"/>
-                    <TextBlock HorizontalAlignment="Left" Height="101.333" Margin="10,52.69,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="101.167" FontSize="72"/>
+                <Grid x:Name="Hour13" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="37*" />
+                        <ColumnDefinition Width="10*" />
+                        <ColumnDefinition Width="50*" />
+                        <ColumnDefinition Width="50*" />
+                        <ColumnDefinition Width="50*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Center" Width="auto" FontSize="72"/>
+                    <StackPanel Grid.Column="1" Margin="0,0,0,0" Height="auto" VerticalAlignment="Stretch">
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Stretch" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="20" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="30" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="40" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="50" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="60" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                    </StackPanel>
+                    <Rectangle Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="1" Stroke="Black" VerticalAlignment="Top" Width="auto" Margin="0,0.0,0,0" />
+                    <StackPanel Grid.Column="2">
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="3">
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="4">
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    </StackPanel>
                 </Grid>
-                <Grid x:Name="hour2" Margin="41.167,0,-337,0" Height="211">
-                    <Grid Margin="154.667,0,0,175">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="32.833" Margin="-32.5,35,0,0" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="32.833" Margin="-32.5,69.903,0,-34.903" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="32.833" Margin="-32.5,104.973,0,-69.973" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="32.833" Margin="-32.5,140.043,0,-105.043" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="32.833" Margin="-32.5,174.946,0,-139.946" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="196.833" Margin="-196.5,0.701,0,0" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                    </Grid>
-                    <Grid Margin="154.667,35,0,140">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                    </Grid>
-                    <Grid Margin="154.667,70,0,105">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                    </Grid>
-                    <Grid Margin="154.667,105,0,70">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                    </Grid>
-                    <Grid Margin="154.667,140,0,35">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                    </Grid>
-                    <Grid Margin="154.667,175,0,0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="722*"/>
-                            <ColumnDefinition Width="309*"/>
-                        </Grid.ColumnDefinitions>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                    </Grid>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,6.5,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="23.333" FontSize="16"/>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,41.833,0,0" TextWrapping="Wrap" Text="20" VerticalAlignment="Top" Width="23.333" FontSize="16"/>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,78.721,0,0" TextWrapping="Wrap" Text="30" VerticalAlignment="Top" Width="23.333" FontSize="16"/>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,113.12,0,0" TextWrapping="Wrap" Text="40" VerticalAlignment="Top" Width="23.333" FontSize="16" RenderTransformOrigin="0.5,0.978"/>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,149.454,0,0" TextWrapping="Wrap" Text="50" VerticalAlignment="Top" Width="23.333" FontSize="16" RenderTransformOrigin="0.5,0.978"/>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,181.47,0,0" TextWrapping="Wrap" Text="60" VerticalAlignment="Top" Width="23.333" FontSize="16" RenderTransformOrigin="0.5,0.978"/>
-                    <TextBlock HorizontalAlignment="Left" Height="101.333" Margin="10,52.69,0,0" TextWrapping="Wrap" Text="2" VerticalAlignment="Top" Width="101.167" FontSize="72"/>
+                <Grid x:Name="Hour14" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="37*" />
+                        <ColumnDefinition Width="10*" />
+                        <ColumnDefinition Width="50*" />
+                        <ColumnDefinition Width="50*" />
+                        <ColumnDefinition Width="50*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="2" VerticalAlignment="Center" Width="auto" FontSize="72"/>
+                    <StackPanel Grid.Column="1" Margin="0,0,0,0" Height="auto" VerticalAlignment="Stretch">
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Stretch" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="20" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="30" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="40" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="50" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="60" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                    </StackPanel>
+                    <Rectangle Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="1" Stroke="Black" VerticalAlignment="Top" Width="auto" Margin="0,0.0,0,0" />
+                    <StackPanel Grid.Column="2">
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="3">
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="4">
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    </StackPanel>
                 </Grid>
-                <Grid x:Name="hour3" Margin="41.167,0,-337,0" Height="211">
-                    <Grid Margin="154.667,0,0,175">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="32.833" Margin="-32.5,35,0,0" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="32.833" Margin="-32.5,69.903,0,-34.903" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="32.833" Margin="-32.5,104.973,0,-69.973" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="32.833" Margin="-32.5,140.043,0,-105.043" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="32.833" Margin="-32.5,174.946,0,-139.946" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="196.833" Margin="-196.5,0.701,0,0" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                    </Grid>
-                    <Grid Margin="154.667,35,0,140">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                    </Grid>
-                    <Grid Margin="154.667,70,0,105">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                    </Grid>
-                    <Grid Margin="154.667,105,0,70">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                    </Grid>
-                    <Grid Margin="154.667,140,0,35">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                    </Grid>
-                    <Grid Margin="154.667,175,0,0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="722*"/>
-                            <ColumnDefinition Width="309*"/>
-                        </Grid.ColumnDefinitions>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                    </Grid>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,6.5,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="23.333" FontSize="16"/>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,41.833,0,0" TextWrapping="Wrap" Text="20" VerticalAlignment="Top" Width="23.333" FontSize="16"/>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,78.721,0,0" TextWrapping="Wrap" Text="30" VerticalAlignment="Top" Width="23.333" FontSize="16"/>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,113.12,0,0" TextWrapping="Wrap" Text="40" VerticalAlignment="Top" Width="23.333" FontSize="16" RenderTransformOrigin="0.5,0.978"/>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,149.454,0,0" TextWrapping="Wrap" Text="50" VerticalAlignment="Top" Width="23.333" FontSize="16" RenderTransformOrigin="0.5,0.978"/>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,181.47,0,0" TextWrapping="Wrap" Text="60" VerticalAlignment="Top" Width="23.333" FontSize="16" RenderTransformOrigin="0.5,0.978"/>
-                    <TextBlock HorizontalAlignment="Left" Height="101.333" Margin="10,52.69,0,0" TextWrapping="Wrap" Text="3" VerticalAlignment="Top" Width="101.167" FontSize="72"/>
+                <Grid x:Name="Hour15" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="37*" />
+                        <ColumnDefinition Width="10*" />
+                        <ColumnDefinition Width="50*" />
+                        <ColumnDefinition Width="50*" />
+                        <ColumnDefinition Width="50*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="3" VerticalAlignment="Center" Width="auto" FontSize="72"/>
+                    <StackPanel Grid.Column="1" Margin="0,0,0,0" Height="auto" VerticalAlignment="Stretch">
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Stretch" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="20" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="30" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="40" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="50" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="60" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                    </StackPanel>
+                    <Rectangle Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="1" Stroke="Black" VerticalAlignment="Top" Width="auto" Margin="0,0.0,0,0" />
+                    <StackPanel Grid.Column="2">
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="3">
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="4">
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    </StackPanel>
                 </Grid>
-                <Grid x:Name="hour4" Margin="41.167,0,-337,0" Height="211">
-                    <Grid Margin="154.667,0,0,175">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="32.833" Margin="-32.5,35,0,0" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="32.833" Margin="-32.5,69.903,0,-34.903" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="32.833" Margin="-32.5,104.973,0,-69.973" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="32.833" Margin="-32.5,140.043,0,-105.043" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="32.833" Margin="-32.5,174.946,0,-139.946" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="196.833" Margin="-196.5,0.701,0,0" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                    </Grid>
-                    <Grid Margin="154.667,35,0,140">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                    </Grid>
-                    <Grid Margin="154.667,70,0,105">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                    </Grid>
-                    <Grid Margin="154.667,105,0,70">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                    </Grid>
-                    <Grid Margin="154.667,140,0,35">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                    </Grid>
-                    <Grid Margin="154.667,175,0,0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="722*"/>
-                            <ColumnDefinition Width="309*"/>
-                        </Grid.ColumnDefinitions>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                    </Grid>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,6.5,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="23.333" FontSize="16"/>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,41.833,0,0" TextWrapping="Wrap" Text="20" VerticalAlignment="Top" Width="23.333" FontSize="16"/>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,78.721,0,0" TextWrapping="Wrap" Text="30" VerticalAlignment="Top" Width="23.333" FontSize="16"/>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,113.12,0,0" TextWrapping="Wrap" Text="40" VerticalAlignment="Top" Width="23.333" FontSize="16" RenderTransformOrigin="0.5,0.978"/>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,149.454,0,0" TextWrapping="Wrap" Text="50" VerticalAlignment="Top" Width="23.333" FontSize="16" RenderTransformOrigin="0.5,0.978"/>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,181.47,0,0" TextWrapping="Wrap" Text="60" VerticalAlignment="Top" Width="23.333" FontSize="16" RenderTransformOrigin="0.5,0.978"/>
-                    <TextBlock HorizontalAlignment="Left" Height="101.333" Margin="10,52.69,0,0" TextWrapping="Wrap" Text="4" VerticalAlignment="Top" Width="101.167" FontSize="72"/>
+                <Grid x:Name="Hour16" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="37*" />
+                        <ColumnDefinition Width="10*" />
+                        <ColumnDefinition Width="50*" />
+                        <ColumnDefinition Width="50*" />
+                        <ColumnDefinition Width="50*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="4" VerticalAlignment="Center" Width="auto" FontSize="72"/>
+                    <StackPanel Grid.Column="1" Margin="0,0,0,0" Height="auto" VerticalAlignment="Stretch">
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Stretch" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="20" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="30" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="40" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="50" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="60" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                    </StackPanel>
+                    <Rectangle Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="1" Stroke="Black" VerticalAlignment="Top" Width="auto" Margin="0,0.0,0,0" />
+                    <StackPanel Grid.Column="2">
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="3">
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="4">
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    </StackPanel>
                 </Grid>
-                <Grid x:Name="hour5" Margin="41.167,0,-337,0" Height="211">
-                    <Grid Margin="154.667,0,0,175">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="32.833" Margin="-32.5,35,0,0" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="32.833" Margin="-32.5,69.903,0,-34.903" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="32.833" Margin="-32.5,104.973,0,-69.973" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="32.833" Margin="-32.5,140.043,0,-105.043" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="32.833" Margin="-32.5,174.946,0,-139.946" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="1" Stroke="Black" VerticalAlignment="Top" Width="196.833" Margin="-196.5,0.701,0,0" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleY="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                    </Grid>
-                    <Grid Margin="154.667,35,0,140">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                    </Grid>
-                    <Grid Margin="154.667,70,0,105">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                    </Grid>
-                    <Grid Margin="154.667,105,0,70">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                    </Grid>
-                    <Grid Margin="154.667,140,0,35">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                    </Grid>
-                    <Grid Margin="154.667,175,0,0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="722*"/>
-                            <ColumnDefinition Width="309*"/>
-                        </Grid.ColumnDefinitions>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="36" Margin="232,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="36" Margin="464,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-                    </Grid>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,6.5,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="23.333" FontSize="16"/>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,41.833,0,0" TextWrapping="Wrap" Text="20" VerticalAlignment="Top" Width="23.333" FontSize="16"/>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,78.721,0,0" TextWrapping="Wrap" Text="30" VerticalAlignment="Top" Width="23.333" FontSize="16"/>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,113.12,0,0" TextWrapping="Wrap" Text="40" VerticalAlignment="Top" Width="23.333" FontSize="16" RenderTransformOrigin="0.5,0.978"/>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,149.454,0,0" TextWrapping="Wrap" Text="50" VerticalAlignment="Top" Width="23.333" FontSize="16" RenderTransformOrigin="0.5,0.978"/>
-                    <TextBlock HorizontalAlignment="Left" Height="23.211" Margin="126.334,181.47,0,0" TextWrapping="Wrap" Text="60" VerticalAlignment="Top" Width="23.333" FontSize="16" RenderTransformOrigin="0.5,0.978"/>
-                    <TextBlock HorizontalAlignment="Left" Height="101.333" Margin="10,52.69,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="101.167" FontSize="72"/>
+                <Grid x:Name="Hour17" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="37*" />
+                        <ColumnDefinition Width="10*" />
+                        <ColumnDefinition Width="50*" />
+                        <ColumnDefinition Width="50*" />
+                        <ColumnDefinition Width="50*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Center" Width="auto" FontSize="72"/>
+                    <StackPanel Grid.Column="1" Margin="0,0,0,0" Height="auto" VerticalAlignment="Stretch">
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Stretch" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="20" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="30" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="40" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="50" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="60" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                    </StackPanel>
+                    <Rectangle Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="1" Stroke="Black" VerticalAlignment="Top" Width="auto" Margin="0,0.0,0,0" />
+                    <StackPanel Grid.Column="2">
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="3">
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="4">
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    </StackPanel>
                 </Grid>
             </StackPanel>
         </ScrollViewer>
-        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="54" Margin="427.833,55.377,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-        <TextBlock HorizontalAlignment="Left" Height="36" Margin="499.333,66.877,0,0" TextWrapping="Wrap" Text="Dr. Lee" VerticalAlignment="Top" Width="97.5" FontSize="24" RenderTransformOrigin="0.61,0.926" FontWeight="Bold" Foreground="White"/>
-        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="54" Margin="195.667,55.377,0,0" Stroke="Black" VerticalAlignment="Top" Width="232.833"/>
-        <TextBlock HorizontalAlignment="Left" Height="36" Margin="245.839,66.877,0,0" TextWrapping="Wrap" Text="Dr. Walter" VerticalAlignment="Top" Width="129" FontSize="24" RenderTransformOrigin="0.61,0.926" FontWeight="Bold" Foreground="White"/>
+        <Calendar Grid.Column="5" Grid.Row="2" x:Name="miniCalendar" HorizontalAlignment="Center" Margin="0,0,0,0" Width="auto" Height="auto" MouseDoubleClick="miniCalendar_MouseDoubleClick"/>
     </Grid>
 </UserControl>
