@@ -502,6 +502,15 @@ namespace CPSC481Project
             dPatientaddr.Visibility = Visibility.Visible;
             dPatientpn.Visibility = Visibility.Visible;
             dPatientemail.Visibility = Visibility.Visible;
+            
+            //Replace and edit information.
+            Patient p = new Patient(dPatientlnameBox.Text, dPatientnameBox.Text, dPatientHCBox.Text, dPatientaddrBox.Text, dPatientemailBox.Text, dPatientpnBox.Text);
+            if(m_patientDatabase.findPatient(p.m_hcNumber)!= null)
+            {
+                m_patientDatabase.RemovePatient(p.m_hcNumber);
+                m_patientDatabase.AddPatient(p);
+            }
+
 
             //Now hide the yes/cancel buttons
             editInfoYes.Visibility = Visibility.Hidden;
@@ -831,7 +840,36 @@ namespace CPSC481Project
                 viewPatient.Visibility = Visibility.Hidden;
             }
         }
+        //Filter Checked
+        private void payneChecked(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine("Payne Checked");
+        }
 
+        private void leeChecked(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine("Lee Checked");
+        }
 
+        private void walterChecked(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine("Walter Checked");
+        }
+
+        private void payneUnchecked(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine("Payne Unchecked");
+        }
+
+        private void leeUnchecked(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine("Lee Unchecked");
+        }
+
+        private void walterUnchecked(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine("Walter Unchecked");
+        }
+        //Filter Unchecked
     }
 }

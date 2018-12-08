@@ -139,14 +139,14 @@
         </Grid>
         <Grid x:Name="filterDoctor" Margin="0,150.438,0,0" Visibility="Hidden">
             <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="180.5" Margin="0,538.062,0,0" VerticalAlignment="Top" Width="345"/>
-            <TextBlock HorizontalAlignment="Left" Height="30" Margin="10,550.562,0,0" TextWrapping="Wrap" Text="Doctor Filter: " VerticalAlignment="Top" Width="162" FontWeight="Bold" FontSize="18"/>
+            <TextBlock x:Name="drFilterlbl" HorizontalAlignment="Left" Height="30" Margin="10,550.562,0,0" TextWrapping="Wrap" Text="Doctor Filter: " VerticalAlignment="Top" Width="162" FontWeight="Bold" FontSize="18"/>
             <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="180.5" Margin="0,538.062,0,0" VerticalAlignment="Top" Width="345"/>
             <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="31" Margin="48.667,583.229,0,0" RadiusY="6.103" RadiusX="6.103" Stroke="Black" VerticalAlignment="Top" Width="223.875"/>
             <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="31" Margin="49,629.895,0,0" RadiusY="6.103" RadiusX="6.103" Stroke="Black" VerticalAlignment="Top" Width="223.542"/>
             <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="31" Margin="49,677.562,0,0" RadiusY="6.103" RadiusX="6.103" Stroke="Black" VerticalAlignment="Top" Width="223.875"/>
-            <CheckBox Content="Dr. Payne" HorizontalAlignment="Left" Height="19" Margin="102.772,684.729,0,0" VerticalAlignment="Top" Width="115.29" FontSize="14"/>
-            <CheckBox Content="Dr. Lee" HorizontalAlignment="Left" Height="19" Margin="102.772,636.562,0,0" VerticalAlignment="Top" Width="115.29" FontSize="14" RenderTransformOrigin="0.491,0.482"/>
-            <CheckBox Content="Dr. Walter" HorizontalAlignment="Left" Height="24" Margin="102.772,591.229,0,0" VerticalAlignment="Top" Width="115.29" FontSize="14"/>
+            <CheckBox x:Name="paynecBox" Content="Dr. Payne" HorizontalAlignment="Left" Height="19" Margin="102.772,684.729,0,0" VerticalAlignment="Top" Width="115.29" FontSize="14" Checked="payneChecked" Unchecked="payneUnchecked"/>
+            <CheckBox x:Name="leecBox" Content="Dr. Lee" HorizontalAlignment="Left" Height="19" Margin="102.772,636.562,0,0" VerticalAlignment="Top" Width="115.29" FontSize="14" RenderTransformOrigin="0.491,0.482" Checked="leeChecked" Unchecked="leeUnchecked"/>
+            <CheckBox x:Name="waltercBox" Content="Dr. Walter" HorizontalAlignment="Left" Height="24" Margin="102.772,591.229,0,0" VerticalAlignment="Top" Width="115.29" FontSize="14" Checked="walterChecked" Unchecked="walterUnchecked"/>
 
         </Grid>
         <Grid  Grid.Column="0" x:Name="addAppointment" Margin="0,157,0,0" Visibility="Hidden">

@@ -79,6 +79,7 @@ namespace CPSC481Project
                 {
                     m_patientList.Remove(p);
                     rv = true;
+                    break;
                 }
             }
             return rv;
@@ -129,6 +130,8 @@ namespace CPSC481Project
             }
             return rv;
         }
+
+       
 
         /**
          * Searches the patient list and returns a list of patients whose name contains name.
