@@ -85,7 +85,7 @@ namespace CPSC481Project
                 m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("00001"), "Dr. Walter", DateTime.Now, DateTime.Now, "Appointment #1"));
             }
 
-            //if(m_vacationDatabase.NumVacations() < 3)
+            if(m_vacationDatabase.NumVacations() < 3)
             {
                 DateTime s1 = DateTime.Parse("2019-01-01");
                 DateTime e1 = DateTime.Parse("2019-02-01");
@@ -696,7 +696,7 @@ namespace CPSC481Project
             recentLabel.Content = "Recent Patients:";
         }
 
-        public void NewAppointmentClicked(DateTime datetime, String doc)
+        public AppointmentDatabase NewAppointmentClicked(DateTime datetime, String doc)
         {
             if (m_currentPatient == null)
             {
@@ -716,6 +716,7 @@ namespace CPSC481Project
                     // Do nothing
                 }
             }
+            return m_appointmentDatabase;
         }
 
         private void WalkInClicked(object sender, RoutedEventArgs e)
