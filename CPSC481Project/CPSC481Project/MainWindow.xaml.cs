@@ -163,7 +163,7 @@ namespace CPSC481Project
             PatientListStackPanel.Children.Add(CreateGrid(recent4));
             PatientListStackPanel.Children.Add(CreateGrid(recent5));
 
-            // Populate available times (TODO)
+            // Populate available times
             List<String> availablePayne = m_appointmentDatabase.AvailableTimes("Dr. Payne");
             List<String> availableLee = m_appointmentDatabase.AvailableTimes("Dr. Lee");
             List<String> availableWalter = m_appointmentDatabase.AvailableTimes("Dr. Walter");
@@ -717,6 +717,7 @@ namespace CPSC481Project
                 if (MessageBox.Show(infoString, "Confirm New Appointment", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                 {
                     m_appointmentDatabase.AddAppointment(new Appointment(m_currentPatient, doc, datetime, datetime.AddMinutes(10), ""));
+                    PopulateDefaultInfo();
                     MessageBox.Show("Appointment added", "Appointment added", MessageBoxButton.OK, MessageBoxImage.Information); 
                 }
                 else
