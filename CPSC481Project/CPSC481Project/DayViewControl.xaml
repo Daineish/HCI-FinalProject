@@ -45,8 +45,10 @@
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" HorizontalAlignment="Center" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="8" VerticalAlignment="Center" Width="auto" FontSize="72"/>
                     <StackPanel Grid.Column="1" Margin="0,0,0,0" Height="auto" VerticalAlignment="Stretch">
-                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="00" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
                         <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Stretch" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
                         <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="20" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
                         <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
                         <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="30" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
@@ -54,33 +56,31 @@
                         <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="40" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
                         <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
                         <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="50" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
-                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="60" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
                     </StackPanel>
                     <Rectangle Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="1" Stroke="Black" VerticalAlignment="Top" Width="auto" Margin="0,0.0,0,0" />
-                    <StackPanel Grid.Column="2">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    <StackPanel Grid.Column="2" Tag="Dr.Walter">
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="08:00" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="08:10" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="08:20" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="08:30" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="08:40" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="08:50" MouseUp="CreateAppointment_Click"/>
                     </StackPanel>
-                    <StackPanel Grid.Column="3">
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    <StackPanel Grid.Column="3" Tag="Dr. Lee">
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="08:00" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="08:10" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="08:20" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="08:30" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="08:40" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="08:50" MouseUp="CreateAppointment_Click"/>
                     </StackPanel>
-                    <StackPanel Grid.Column="4">
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    <StackPanel Grid.Column="4" Tag="Dr. Payne">
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="08:00" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="08:10" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="08:20" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="08:30" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="08:40" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="08:50" MouseUp="CreateAppointment_Click"/>
                     </StackPanel>
                 </Grid>
                 <Grid x:Name="Hour9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
@@ -93,8 +93,10 @@
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="9" VerticalAlignment="Center" Width="auto" FontSize="72"/>
                     <StackPanel Grid.Column="1" Margin="0,0,0,0" Height="auto" VerticalAlignment="Stretch">
-                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="00" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
                         <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Stretch" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
                         <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="20" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
                         <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
                         <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="30" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
@@ -102,33 +104,31 @@
                         <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="40" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
                         <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
                         <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="50" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
-                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="60" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
                     </StackPanel>
                     <Rectangle Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="1" Stroke="Black" VerticalAlignment="Top" Width="auto" Margin="0,0.0,0,0" />
-                    <StackPanel Grid.Column="2">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    <StackPanel Grid.Column="2" Tag="Dr. Walter">
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="09:00" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="09:10" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="09:20" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="09:30" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="09:40" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="09:50" MouseUp="CreateAppointment_Click"/>
                     </StackPanel>
-                    <StackPanel Grid.Column="3">
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    <StackPanel Grid.Column="3" Tag="Dr. Lee">
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="09:00" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="09:10" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="09:20" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="09:30" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="09:40" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="09:50" MouseUp="CreateAppointment_Click"/>
                     </StackPanel>
-                    <StackPanel Grid.Column="4">
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    <StackPanel Grid.Column="4" Tag="Dr. Payne">
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="09:00" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="09:10" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="09:20" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="09:30" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="09:40" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="09:50" MouseUp="CreateAppointment_Click"/>
                     </StackPanel>
                 </Grid>
                 <Grid x:Name="Hour10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
@@ -141,8 +141,10 @@
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Center" Width="auto" FontSize="72"/>
                     <StackPanel Grid.Column="1" Margin="0,0,0,0" Height="auto" VerticalAlignment="Stretch">
-                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="00" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
                         <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Stretch" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
                         <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="20" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
                         <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
                         <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="30" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
@@ -150,33 +152,31 @@
                         <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="40" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
                         <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
                         <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="50" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
-                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="60" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
                     </StackPanel>
                     <Rectangle Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="1" Stroke="Black" VerticalAlignment="Top" Width="auto" Margin="0,0.0,0,0" />
-                    <StackPanel Grid.Column="2">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    <StackPanel Grid.Column="2" Tag="Dr. Walter">
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="10:00" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="10:10" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="10:20" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="10:30" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="10:40" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="10:50" MouseUp="CreateAppointment_Click"/>
                     </StackPanel>
-                    <StackPanel Grid.Column="3">
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    <StackPanel Grid.Column="3" Tag="Dr. Lee">
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="10:00" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="10:10" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="10:20" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="10:30" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="10:40" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="10:50" MouseUp="CreateAppointment_Click"/>
                     </StackPanel>
-                    <StackPanel Grid.Column="4">
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    <StackPanel Grid.Column="4" Tag="Dr. Payne">
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="10:00" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="10:10" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="10:20" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="10:30" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="10:40" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="10:50" MouseUp="CreateAppointment_Click"/>
                     </StackPanel>
                 </Grid>
                 <Grid x:Name="Hour11" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
@@ -189,8 +189,10 @@
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="11" VerticalAlignment="Center" Width="auto" FontSize="72"/>
                     <StackPanel Grid.Column="1" Margin="0,0,0,0" Height="auto" VerticalAlignment="Stretch">
-                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="00" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
                         <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Stretch" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
                         <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="20" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
                         <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
                         <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="30" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
@@ -198,33 +200,31 @@
                         <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="40" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
                         <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
                         <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="50" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
-                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="60" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
                     </StackPanel>
                     <Rectangle Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="1" Stroke="Black" VerticalAlignment="Top" Width="auto" Margin="0,0.0,0,0" />
-                    <StackPanel Grid.Column="2">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    <StackPanel Grid.Column="2" Tag="Dr. Walter">
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="11:00" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="11:10" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="11:20" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="11:30" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="11:40" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="11:50" MouseUp="CreateAppointment_Click"/>
                     </StackPanel>
-                    <StackPanel Grid.Column="3">
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    <StackPanel Grid.Column="3" Tag="Dr. Lee">
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="11:00" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="11:10" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="11:20" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="11:30" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="11:40" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="11:50" MouseUp="CreateAppointment_Click"/>
                     </StackPanel>
-                    <StackPanel Grid.Column="4">
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    <StackPanel Grid.Column="4" Tag="Dr. Payne">
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="11:00" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="11:10" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="11:20" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="11:30" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="11:40" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="11:50" MouseUp="CreateAppointment_Click"/>
                     </StackPanel>
                 </Grid>
                 <Grid x:Name="Hour12" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
@@ -237,8 +237,10 @@
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="12" VerticalAlignment="Center" Width="auto" FontSize="72"/>
                     <StackPanel Grid.Column="1" Margin="0,0,0,0" Height="auto" VerticalAlignment="Stretch">
-                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="00" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
                         <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Stretch" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
                         <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="20" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
                         <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
                         <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="30" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
@@ -246,33 +248,31 @@
                         <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="40" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
                         <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
                         <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="50" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
-                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="60" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
                     </StackPanel>
                     <Rectangle Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="1" Stroke="Black" VerticalAlignment="Top" Width="auto" Margin="0,0.0,0,0" />
-                    <StackPanel Grid.Column="2">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    <StackPanel Grid.Column="2" Tag="Dr. Walter">
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="12:00" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="12:10" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="12:20" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="12:30" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="12:40" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="12:50" MouseUp="CreateAppointment_Click"/>
                     </StackPanel>
-                    <StackPanel Grid.Column="3">
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    <StackPanel Grid.Column="3" Tag="Dr. Lee">
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="12:00" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="12:10" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="12:20" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="12:30" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="12:40" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="12:50" MouseUp="CreateAppointment_Click"/>
                     </StackPanel>
-                    <StackPanel Grid.Column="4">
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    <StackPanel Grid.Column="4" Tag="Dr. Payne">
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="12:00" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="12:10" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="12:20" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="12:30" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="12:40" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="12:50" MouseUp="CreateAppointment_Click"/>
                     </StackPanel>
                 </Grid>
                 <Grid x:Name="Hour13" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
@@ -285,8 +285,10 @@
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Center" Width="auto" FontSize="72"/>
                     <StackPanel Grid.Column="1" Margin="0,0,0,0" Height="auto" VerticalAlignment="Stretch">
-                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="00" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
                         <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Stretch" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
                         <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="20" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
                         <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
                         <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="30" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
@@ -294,33 +296,31 @@
                         <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="40" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
                         <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
                         <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="50" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
-                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="60" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
                     </StackPanel>
                     <Rectangle Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="1" Stroke="Black" VerticalAlignment="Top" Width="auto" Margin="0,0.0,0,0" />
-                    <StackPanel Grid.Column="2">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    <StackPanel Grid.Column="2" Tag="Dr. Walter">
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="13:00" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="13:10" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="13:20" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="13:30" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="13:40" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="13:50" MouseUp="CreateAppointment_Click"/>
                     </StackPanel>
-                    <StackPanel Grid.Column="3">
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    <StackPanel Grid.Column="3" Tag="Dr. Lee">
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="13:00" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="13:10" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="13:20" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="13:30" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="13:40" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="13:50" MouseUp="CreateAppointment_Click"/>
                     </StackPanel>
-                    <StackPanel Grid.Column="4">
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    <StackPanel Grid.Column="4" Tag="Dr. Payne">
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="13:00" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="13:10" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="13:20" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="13:30" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="13:40" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="13:50" MouseUp="CreateAppointment_Click"/>
                     </StackPanel>
                 </Grid>
                 <Grid x:Name="Hour14" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
@@ -333,8 +333,10 @@
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="2" VerticalAlignment="Center" Width="auto" FontSize="72"/>
                     <StackPanel Grid.Column="1" Margin="0,0,0,0" Height="auto" VerticalAlignment="Stretch">
-                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="00" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
                         <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Stretch" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
                         <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="20" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
                         <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
                         <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="30" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
@@ -342,33 +344,31 @@
                         <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="40" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
                         <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
                         <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="50" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
-                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="60" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
                     </StackPanel>
                     <Rectangle Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="1" Stroke="Black" VerticalAlignment="Top" Width="auto" Margin="0,0.0,0,0" />
-                    <StackPanel Grid.Column="2">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    <StackPanel Grid.Column="2" Tag="Dr. Walter">
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="14:00" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="14:10" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="14:20" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="14:30" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="14:40" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="14:50" MouseUp="CreateAppointment_Click"/>
                     </StackPanel>
-                    <StackPanel Grid.Column="3">
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    <StackPanel Grid.Column="3" Tag="Dr. Lee">
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="14:00" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="14:10" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="14:20" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="14:30" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="14:40" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="14:50" MouseUp="CreateAppointment_Click"/>
                     </StackPanel>
-                    <StackPanel Grid.Column="4">
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    <StackPanel Grid.Column="4" Tag="Dr. Payne">
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="14:00" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="14:10" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="14:20" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="14:30" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="14:40" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="14:50" MouseUp="CreateAppointment_Click"/>
                     </StackPanel>
                 </Grid>
                 <Grid x:Name="Hour15" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
@@ -381,8 +381,10 @@
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="3" VerticalAlignment="Center" Width="auto" FontSize="72"/>
                     <StackPanel Grid.Column="1" Margin="0,0,0,0" Height="auto" VerticalAlignment="Stretch">
-                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="00" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
                         <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Stretch" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
                         <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="20" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
                         <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
                         <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="30" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
@@ -390,33 +392,31 @@
                         <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="40" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
                         <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
                         <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="50" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
-                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="60" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
                     </StackPanel>
                     <Rectangle Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="1" Stroke="Black" VerticalAlignment="Top" Width="auto" Margin="0,0.0,0,0" />
-                    <StackPanel Grid.Column="2">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    <StackPanel Grid.Column="2" Tag="Dr. Watler">
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="15:00" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="15:10" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="15:20" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="15:30" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="15:40" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="15:50" MouseUp="CreateAppointment_Click"/>
                     </StackPanel>
-                    <StackPanel Grid.Column="3">
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    <StackPanel Grid.Column="3" Tag="Dr. Lee">
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="15:00" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="15:10" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="15:20" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="15:30" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="15:40" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="15:50" MouseUp="CreateAppointment_Click"/>
                     </StackPanel>
-                    <StackPanel Grid.Column="4">
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    <StackPanel Grid.Column="4" Tag="Dr. Payne">
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="15:00" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="15:10" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="15:20" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="15:30" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="15:40" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="15:50" MouseUp="CreateAppointment_Click"/>
                     </StackPanel>
                 </Grid>
                 <Grid x:Name="Hour16" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
@@ -429,8 +429,10 @@
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="4" VerticalAlignment="Center" Width="auto" FontSize="72"/>
                     <StackPanel Grid.Column="1" Margin="0,0,0,0" Height="auto" VerticalAlignment="Stretch">
-                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="00" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
                         <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Stretch" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
                         <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="20" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
                         <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
                         <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="30" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
@@ -438,33 +440,31 @@
                         <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="40" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
                         <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
                         <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="50" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
-                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="60" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
                     </StackPanel>
                     <Rectangle Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="1" Stroke="Black" VerticalAlignment="Top" Width="auto" Margin="0,0.0,0,0" />
-                    <StackPanel Grid.Column="2">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    <StackPanel Grid.Column="2" Tag="Dr. Walter">
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="16:00" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="16:10" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="16:20" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="16:30" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="16:40" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="16:50" MouseUp="CreateAppointment_Click"/>
                     </StackPanel>
-                    <StackPanel Grid.Column="3">
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    <StackPanel Grid.Column="3" Tag="Dr. Lee">
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="16:00" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="16:10" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="16:20" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="16:30" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="16:40" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="16:50" MouseUp="CreateAppointment_Click"/>
                     </StackPanel>
-                    <StackPanel Grid.Column="4">
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    <StackPanel Grid.Column="4" Tag="Dr. Payne">
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="16:00" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="16:10" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="16:20" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="16:30" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="16:40" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="16:50" MouseUp="CreateAppointment_Click"/>
                     </StackPanel>
                 </Grid>
                 <Grid x:Name="Hour17" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
@@ -477,8 +477,10 @@
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Center" Width="auto" FontSize="72"/>
                     <StackPanel Grid.Column="1" Margin="0,0,0,0" Height="auto" VerticalAlignment="Stretch">
-                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="00" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
                         <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Stretch" Width="auto" Margin="0,0,0,0" />
+                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
                         <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="20" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
                         <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
                         <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="30" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
@@ -486,33 +488,31 @@
                         <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="40" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
                         <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
                         <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="50" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="auto" Stroke="Black" VerticalAlignment="Bottom" Width="auto" Margin="0,0,0,0" />
-                        <TextBlock HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" TextWrapping="Wrap" Text="60" VerticalAlignment="Stretch" Width="auto" FontSize="26"/>
                     </StackPanel>
                     <Rectangle Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="1" Stroke="Black" VerticalAlignment="Top" Width="auto" Margin="0,0.0,0,0" />
-                    <StackPanel Grid.Column="2">
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    <StackPanel Grid.Column="2" Tag="Dr. Walter">
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="17:00" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="17:10" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="17:20" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="17:30" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="17:40" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF6767FF" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="17:50" MouseUp="CreateAppointment_Click"/>
                     </StackPanel>
-                    <StackPanel Grid.Column="3">
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    <StackPanel Grid.Column="3" Tag="Dr. Lee">
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="17:00" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="17:10" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="17:20" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="17:30" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="17:40" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="17:50" MouseUp="CreateAppointment_Click"/>
                     </StackPanel>
-                    <StackPanel Grid.Column="4">
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
-                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto"/>
+                    <StackPanel Grid.Column="4" Tag="Dr. Payne">
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="17:00" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="17:10" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="17:20" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="17:30" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="17:40" MouseUp="CreateAppointment_Click"/>
+                        <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Stretch" Height="36" Stroke="Black" VerticalAlignment="Top" Width="auto" Tag="17:50" MouseUp="CreateAppointment_Click"/>
                     </StackPanel>
                 </Grid>
             </StackPanel>

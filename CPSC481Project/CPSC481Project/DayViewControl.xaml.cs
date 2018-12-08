@@ -36,7 +36,7 @@ namespace CPSC481Project
             dt.Columns.Add();
 
             m_day = day;
-            currentDate.Content = m_day.ToString("f");
+            currentDate.Content = m_day.ToString("dddd MMMM d, yyyy");
             Console.WriteLine(miniCalendar.SelectedDate);
         }
 
@@ -62,9 +62,29 @@ namespace CPSC481Project
             int day = int.Parse(splitFormat[1]);
             DateTime date1 = new DateTime(year,month, day, 12, 0,0);
 
-            Console.WriteLine(date1);
-            Console.WriteLine(date1.ToString("dddd, dd MMMM yyyy"));
-            currentDate.Content = date1.ToString("dddd, dd MMMM yyyy");
+            currentDate.Content = date1.ToString("dddd MMMM d, yyyy");
         }
+
+        private void StackPanel_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            Console.WriteLine("Type: " + sender.GetType());
+        }
+
+        private void CreateAppointment_Click(object sender, MouseButtonEventArgs e)
+        {
+            // TODO: Handle clicking on an already set appointment
+
+            // Set new appointment
+            Rectangle r = (Rectangle)sender;
+            StackPanel p = (StackPanel)r.Parent;
+
+            DateTime datetime = DateTime.Parse((String)currentDate.Content + " " + (String)r.Tag);
+            String doc = (String)p.Tag;
+
+            Console.WriteLine("Create an appointment at: " + datetime.ToString("f") + " with " + doc);
+        }
+
+        // TODO: Implemented drag & drop functionality for setting an appointment?
+        // TODO: List appointments on dayview
     }
 }
