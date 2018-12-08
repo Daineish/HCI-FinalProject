@@ -30,7 +30,7 @@ namespace CPSC481Project
             Grid g2 = (Grid)(this.Parent);
             Grid g3 = (Grid)(g2.Parent);
             MainWindow w = (MainWindow)(g3.Parent);
-            w.ToVacayCalendar("Lee");
+            w.ToVacayCalendar("Dr. Lee");
         }
     }
 }

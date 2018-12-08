@@ -584,7 +584,6 @@ namespace CPSC481Project
                 filterDoctor.Visibility = Visibility.Visible;
             }
 
-
             //dashboard.Visibility = Visibility.Hidden;
             m_monthlyViewControl = new MonthlyViewControl();
             m_monthlyViewControl.Visibility = Visibility.Visible;
@@ -597,7 +596,33 @@ namespace CPSC481Project
 
         public void ToVacayCalendar(string drName)
         {
-            //somehow receive doctor name and use that to control filter for calendar?
+            // Auto check the desired doctor (is this what we want?)
+            if(drName == "Dr. Lee")
+            {
+                leecBox.IsChecked = true;
+                waltercBox.IsChecked = false;
+                paynecBox.IsChecked = false;
+            }
+            else if(drName == "Dr. Walter")
+            {
+                leecBox.IsChecked = false;
+                waltercBox.IsChecked = true;
+                paynecBox.IsChecked = false;
+            }
+            else if(drName == "Dr. Payne")
+            {
+                leecBox.IsChecked = false;
+                waltercBox.IsChecked = false;
+                paynecBox.IsChecked = true;
+            }
+
+            if (filterMode == false || filterDoctor.Visibility == Visibility.Hidden)
+            {
+                filterMode = true;
+                PatientListScrollViewer.Height = 708.5 - 180.5;
+                filterDoctor.Visibility = Visibility.Visible;
+            }
+
             m_monthlyViewControl = new MonthlyViewControl();
             m_monthlyViewControl.Visibility = Visibility.Visible;
             MainGrid.Children.Add(m_monthlyViewControl);
