@@ -21,7 +21,7 @@
             </LinearGradientBrush>
         </Grid.Background>
 
-        <Rectangle Grid.Column="0" HorizontalAlignment="Left" Height="auto" VerticalAlignment="Stretch" Width="345" Fill="#FFF4F5F5"/>
+        <Rectangle Grid.Column="0" HorizontalAlignment="Left" Height="auto" VerticalAlignment="Stretch" Width="345" Fill="#FFF4F4F5"/>
 
         <Label Grid.Column="0" x:Name="patientLabel" Content="Patient Search" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="166" Margin="10,10,0,0" FontSize="24"/>
         <TextBox Grid.Column="0" x:Name="searchField" HorizontalAlignment="Left" Height="34" TextWrapping="Wrap" VerticalAlignment="Top" Width="236" Margin="14,73,0,0" FontSize="18" MouseDoubleClick="searchClicked" Opacity="0.5" TextChanged="searchField_TextChanged"/>
