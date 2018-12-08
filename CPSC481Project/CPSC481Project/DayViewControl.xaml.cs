@@ -176,6 +176,7 @@ namespace CPSC481Project
             TextBlock tb = (TextBlock)sender;
             StackPanel sp = (StackPanel)tb.Parent;
             DateTime dt = DateTime.Parse((String)currentDate.Content + " " + (String)tb.Tag);
+            String doc = (String)sp.Tag;
             form.SetInfo(tb.Text, "patient number", (String)sp.Tag, dt);
             form.ShowDialog();
             if(form.m_delete)
@@ -207,30 +208,48 @@ namespace CPSC481Project
             else if(form.m_changed)
             {
                 // edit appointment
-                bool success = false;
+                Appointment ap = null;
                 foreach (Appointment a in m_appointmentDatabase.m_appointments)
                 {
                     if (a.m_patient.m_firstName + " " + a.m_patient.m_lastName == tb.Text)
                     {
-                        if (DateTime.Compare(a.m_startTime, dt) == 0)
+                        if (DateTime.Compare(a.m_startTime, dt) == 0 && a.m_doctor == doc)
                         {
-                            //
-                            a.m_doctor = form.m_doctor;
-                            a.m_startTime = form.m_startDate;
-                            success = true;
+                            ap = a;
                             break;
                         }
                     }
                 }
-                if (!success)
+                if (ap == null)
                 {
                     MessageBox.Show("Error: Could not edit appointment.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 else
                 {
-                    MessageBox.Show("Appointment changed.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-                    UpdateDayWithAppointments();
+                    bool conflict = false;
+                    foreach (Appointment a in m_appointmentDatabase.m_appointments)
+                    {
+                        if (DateTime.Compare(a.m_startTime, form.m_startDate) == 0 && a.m_doctor == form.m_doctor)
+                        {
+                            conflict = true;
+                            break;
+                        }
+                    }
+                    if (conflict)
+                    {
+                        String msg = "Appointment time conflicts with another appointment, nothing was changed.";
+                        MessageBox.Show(msg, "Time Conflict", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    else
+                    {
+                        ap.m_doctor = form.m_doctor;
+                        ap.m_startTime = form.m_startDate;
+                        MessageBox.Show("Appointment changed.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                        UpdateDayWithAppointments();
+                    }
+                    
                 }
+                
             }
         }
 
