@@ -132,7 +132,15 @@
             <TextBlock x:Name="dPatientaddr" HorizontalAlignment="Left" Height="31" Margin="135,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="18"/>
             <TextBlock x:Name="dPatientpn" HorizontalAlignment="Left" Height="31" Margin="135,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="18"/>
             <TextBlock x:Name="dPatientemail" HorizontalAlignment="Left" Height="31" Margin="135,242,0,0" TextWrapping="WrapWithOverflow" VerticalAlignment="Top" Width="200" FontSize="18"/>
-            <Button x:Name="editInfo" Content="Edit" HorizontalAlignment="Left" Height="26" Margin="271.5,545,0,0" VerticalAlignment="Top" Width="63.5"/>
+            <TextBox x:Name="dPatientnameBox" HorizontalAlignment="Left" Height="31" Margin="135,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="18" Visibility="Hidden"/>
+            <TextBox x:Name="dPatientlnameBox" HorizontalAlignment="Left" Height="31" Margin="135,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="18" Visibility="Hidden"/>
+            <TextBox x:Name="dPatientHCBox" HorizontalAlignment="Left" Height="31" Margin="135,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="18" Visibility="Hidden"/>
+            <TextBox x:Name="dPatientaddrBox" HorizontalAlignment="Left" Height="31" Margin="135,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="18" Visibility="Hidden"/>
+            <TextBox x:Name="dPatientpnBox" HorizontalAlignment="Left" Height="31" Margin="135,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="18" Visibility="Hidden"/>
+            <TextBox x:Name="dPatientemailBox" HorizontalAlignment="Left" Height="31" Margin="135,242,0,0" TextWrapping="WrapWithOverflow" VerticalAlignment="Top" Width="200" FontSize="18" Visibility="Hidden"/>
+            <Button x:Name="editInfo" Content="Edit" HorizontalAlignment="Left" Height="26" Margin="271.5,545,0,0" VerticalAlignment="Top" Width="63.5" Cursor="Hand" Click="EditInfo_Click"/>
+            <Button x:Name="editInfoYes" Content="Ok" HorizontalAlignment="Left" Height="26" Margin="271.5,545,0,0" VerticalAlignment="Top" Width="63.5" Cursor="Hand" Visibility="Hidden" Click="EditInfoYes_Click"/>
+            <Button x:Name="editInfoCancel" Content="Cancel" HorizontalAlignment="Left" Height="26" Margin="188.5,545,0,0" VerticalAlignment="Top" Width="63.5" Cursor="Hand" Visibility="Hidden" Click="EditInfoCancel_Click"/>
 
         </Grid>
         <Grid x:Name="filterDoctor" Margin="0,150.438,0,0" Visibility="Hidden">
