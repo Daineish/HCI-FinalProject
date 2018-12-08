@@ -9,7 +9,7 @@ namespace CPSC481Project
     /**
      *  Represents a patient.
      */
-    class Patient
+    public class Patient
     {
         public String m_lastName { get; set; }
         public String m_firstName { get; set; }

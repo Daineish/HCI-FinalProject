@@ -10,7 +10,7 @@ using Microsoft.Win32;
 
 namespace CPSC481Project
 {
-    class AppointmentDatabase
+    public class AppointmentDatabase
     {
 
         /**
@@ -18,7 +18,7 @@ namespace CPSC481Project
           * value of each pair is the Appointment object.
         */
         //private Dictionary<uint, Appointment> m_appointments;
-        private List<Appointment> m_appointments;
+        public List<Appointment> m_appointments { get; }
         private JsonSerializer m_serializer;
         private static String m_appointmentFile = "./Appointments.txt";
 

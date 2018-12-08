@@ -15,7 +15,7 @@ namespace CPSC481Project
     /**
      * An /easy/ way to keep track of all patients.
      */
-    class PatientDatabase
+    public class PatientDatabase
     {
         // Patient list where key is HC#.
         List<Patient> m_patientList;

@@ -434,7 +434,7 @@ namespace CPSC481Project
         {
             //dashboard.Visibility = Visibility.Hidden;
 
-            m_dayViewControl = new DayViewControl(DateTime.Today);
+            m_dayViewControl = new DayViewControl(DateTime.Today, m_appointmentDatabase);
             MainGrid.Children.Add(m_dayViewControl);
             Grid.SetRow(m_dayViewControl, 0);
             Grid.SetColumn(m_dayViewControl, 1);
@@ -469,7 +469,7 @@ namespace CPSC481Project
         {
             //dashboard.Visibility = Visibility.Hidden;
 
-            m_dayViewControl = new DayViewControl(DateTime.Today);
+            m_dayViewControl = new DayViewControl(DateTime.Today, m_appointmentDatabase);
             MainGrid.Children.Add(m_dayViewControl);
             Grid.SetRow(m_dayViewControl, 0);
             Grid.SetColumn(m_dayViewControl, 1);
@@ -576,6 +576,28 @@ namespace CPSC481Project
             recentLabel.Content = "Recent Patients:";
         }
 
+        public void NewAppointmentClicked(DateTime datetime, String doc)
+        {
+            if (m_currentPatient == null)
+            {
+                MessageBox.Show("Please select a patient first.", "No Patient Selected", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
+                // TODO: Dialog box to enter additional appointment information or something like in prototypes?
+                String infoString = "Confirm appointment on " + datetime.ToString("dddd MMMM d, yyyy") + " at " + datetime.ToString("t") + " with " + doc + "?";
+                if (MessageBox.Show(infoString, "Confirm New Appointment", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                {
+                    m_appointmentDatabase.AddAppointment(new Appointment(m_currentPatient, doc, datetime, datetime.AddMinutes(10), ""));
+                    MessageBox.Show("Appointment added", "Appointment added", MessageBoxButton.OK, MessageBoxImage.Information); 
+                }
+                else
+                {
+                    // Do nothing
+                }
+            }
+        }
+
         private void WalkInClicked(object sender, RoutedEventArgs e)
         {
             if (m_currentPatient == null)
@@ -603,7 +625,7 @@ namespace CPSC481Project
 
         public void MonthViewToDayView(DateTime d)
         {
-            m_dayViewControl = new DayViewControl(d);
+            m_dayViewControl = new DayViewControl(d, m_appointmentDatabase);
             m_dayViewControl.Visibility = Visibility.Visible;
             MainGrid.Children.Add(m_dayViewControl);
             Grid.SetRow(m_dayViewControl, 0);

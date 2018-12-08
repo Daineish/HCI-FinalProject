@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CPSC481Project
 {
-    class Appointment
+    public class Appointment
     {
         //from other class
         private int _AppointmentID;
