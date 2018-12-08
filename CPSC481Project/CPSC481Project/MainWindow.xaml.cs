@@ -14,6 +14,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+//using static CPSC481Project.DrPayneTileControl;
+//using static CPSC481Project.DrLeeTileControl;
+//using static CPSC481Project.DrWalterTileControl;
 
 
 
@@ -82,7 +85,7 @@ namespace CPSC481Project
                 m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("00001"), "Dr. Walter", DateTime.Now, DateTime.Now, "Appointment #1"));
             }
 
-            if(m_vacationDatabase.NumVacations() < 3)
+            //if(m_vacationDatabase.NumVacations() < 3)
             {
                 DateTime s1 = DateTime.Parse("2019-01-01");
                 DateTime e1 = DateTime.Parse("2019-02-01");
