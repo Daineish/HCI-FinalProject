@@ -38,7 +38,7 @@ namespace CPSC481Project
         String[] month = { "January", "Febuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
 
         internal DateTime _DisplayStartDate = DateTime.Now;
-
+        Boolean filterMode = false;
         Patient m_currentPatient;
         Boolean selectedMode;
         PatientDatabase m_patientDatabase;
@@ -450,12 +450,22 @@ namespace CPSC481Project
         private void calendarBack(object sender, RoutedEventArgs e)
         {
             dashboard.Visibility = Visibility.Visible;
+            PatientListScrollViewer.Height = 708.5;
+            filterDoctor.Visibility = Visibility.Hidden;
             if (m_monthlyViewControl != null)
                 MainGrid.Children.Remove(m_monthlyViewControl);
             // error checking?
         }
         private void ToCalendar_MouseLeftButtonUp(object sender, RoutedEventArgs e)
         {
+            if(filterMode == false)
+            {
+                filterMode = true;
+                PatientListScrollViewer.Height = 708.5 - 180.5;
+                filterDoctor.Visibility = Visibility.Visible;
+            }
+
+
             //dashboard.Visibility = Visibility.Hidden;
             m_monthlyViewControl = new MonthlyViewControl();
             m_monthlyViewControl.Visibility = Visibility.Visible;
@@ -468,6 +478,13 @@ namespace CPSC481Project
         private void ToDayView_MouseLeftButtonUp(object sender, RoutedEventArgs e)
         {
             //dashboard.Visibility = Visibility.Hidden;
+            if(filterMode == true)
+            {
+                filterDoctor.Visibility = Visibility.Hidden;
+                PatientListScrollViewer.Height = 708.5;
+                filterMode = false;
+            }
+
 
             m_dayViewControl = new DayViewControl(DateTime.Today, m_appointmentDatabase);
             MainGrid.Children.Add(m_dayViewControl);
@@ -626,6 +643,13 @@ namespace CPSC481Project
 
         public void MonthViewToDayView(DateTime d)
         {
+            if (filterMode == true)
+            {
+                filterDoctor.Visibility = Visibility.Hidden;
+                PatientListScrollViewer.Height = 708.5;
+                Console.WriteLine(PatientListScrollViewer.Height);
+                filterMode = false;
+            }
             m_dayViewControl = new DayViewControl(d, m_appointmentDatabase);
             m_dayViewControl.Visibility = Visibility.Visible;
             MainGrid.Children.Add(m_dayViewControl);
@@ -697,6 +721,7 @@ namespace CPSC481Project
                 viewPatient.Visibility = Visibility.Hidden;
             }
         }
+
 
     }
 }

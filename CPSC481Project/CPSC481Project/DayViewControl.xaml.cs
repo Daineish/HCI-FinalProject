@@ -176,6 +176,7 @@ namespace CPSC481Project
         private void ToDashboard_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             this.Visibility = Visibility.Hidden;
+            
         }
 
         private void miniCalendar_MouseDoubleClick(object sender, MouseButtonEventArgs e)
