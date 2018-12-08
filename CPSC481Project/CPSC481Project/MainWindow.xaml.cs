@@ -74,6 +74,7 @@ namespace CPSC481Project
 
             if (m_appointmentDatabase.NumAppointments() < 5)
             {
+                DateTime today = DateTime.Today;
                 m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("00001"), "Dr. Walter", DateTime.Now, DateTime.Now, "Appointment #1"));
                 m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("12345"), "Dr. Payne", DateTime.Now, DateTime.Now, "Appointment #1"));
                 m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("00002"), "Dr. Lee", DateTime.Now, DateTime.Now, "Appointment #1"));
@@ -125,7 +126,7 @@ namespace CPSC481Project
             }
             for (int i = 0; i < 2 && i < appointmentLee1.Count(); i++)
             {
-                Appointment app = appointmentPayne1.ElementAt(i);
+                Appointment app = appointmentLee1.ElementAt(i);
                 Patient pat = appointmentLee1.ElementAt(i).m_patient;
                 if (i == 0 && pat != null)
                     this.DoctorLeeTile.npfullName.Content = app.m_startTime.ToString("hh:mm") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
@@ -206,14 +207,21 @@ namespace CPSC481Project
                 apm = "PM";
             }
 
-            this.Dispatcher.Invoke(() =>
+            try
             {
-                int min = DateTime.Now.Minute;
-                String str = "";
-                if (min < 10) str = "0";
-                this.DashTime.Content = hour + ":" + str + DateTime.Now.Minute + " " + apm;
-                this.DashDate.Content = month.ElementAt(DateTime.Now.Month - 1) + " " + DateTime.Now.Day + ", " + DateTime.Now.Year;
-            });
+                this.Dispatcher.Invoke(() =>
+                {
+                    int min = DateTime.Now.Minute;
+                    String str = "";
+                    if (min < 10) str = "0";
+                    this.DashTime.Content = hour + ":" + str + DateTime.Now.Minute + " " + apm;
+                    this.DashDate.Content = month.ElementAt(DateTime.Now.Month - 1) + " " + DateTime.Now.Day + ", " + DateTime.Now.Year;
+                });
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Exception: " + ex.Message);
+            }
 
         }
 
