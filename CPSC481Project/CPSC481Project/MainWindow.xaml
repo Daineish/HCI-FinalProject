@@ -137,7 +137,7 @@
             <Button x:Name="editInfoCancel" Content="Cancel" HorizontalAlignment="Left" Height="46" Margin="86,545,0,0" VerticalAlignment="Top" Width="122" Cursor="Hand" Click="EditInfoCancel_Click" Visibility="Hidden"/>
 
         </Grid>
-        <Grid x:Name="filterDoctor" Margin="0,150.438,0,0" Visibility="Visible">
+        <Grid x:Name="filterDoctor" Margin="0,150.438,0,0" Visibility="Hidden">
             <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="180.5" Margin="0,538.062,0,0" VerticalAlignment="Top" Width="345"/>
             <TextBlock x:Name="drFilterlbl" HorizontalAlignment="Left" Height="30" Margin="10,550.562,0,0" TextWrapping="Wrap" Text="Doctor Filter: " VerticalAlignment="Top" Width="162" FontWeight="Bold" FontSize="18"/>
             <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="180.5" Margin="0,538.062,0,0" VerticalAlignment="Top" Width="345"/>
