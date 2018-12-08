@@ -30,7 +30,7 @@ namespace CPSC481Project
             HorizontalAlignment = HorizontalAlignment.Center;
         }
 
-        public WalkinTile(String name, String HC)
+        public WalkinTile(String name, String HC, int position)
         {
             InitializeComponent();
             Height = 162.5;
@@ -39,6 +39,7 @@ namespace CPSC481Project
             HorizontalAlignment = HorizontalAlignment.Center;
             NameLabel.Content = name;
             HCLabel.Content = HC;
+            Position.Content = position;
         }
         public String getHC()
         {
@@ -48,6 +49,11 @@ namespace CPSC481Project
         {
             ListBox a = (ListBox)(this.Parent);
             a.Items.Remove(this);
+        }
+
+        public void UpdatePosition(int count)
+        {
+            Position.Content = count;
         }
     }
 }
