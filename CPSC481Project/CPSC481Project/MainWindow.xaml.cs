@@ -585,7 +585,7 @@ namespace CPSC481Project
             recentLabel.Content = "Recent Patients:";
         }
 
-        public void NewAppointmentClicked(DateTime datetime, String doc)
+        public AppointmentDatabase NewAppointmentClicked(DateTime datetime, String doc)
         {
             if (m_currentPatient == null)
             {
@@ -605,6 +605,7 @@ namespace CPSC481Project
                     // Do nothing
                 }
             }
+            return m_appointmentDatabase;
         }
 
         private void WalkInClicked(object sender, RoutedEventArgs e)
