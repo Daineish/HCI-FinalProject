@@ -66,7 +66,7 @@ namespace CPSC481Project
                 }
             }
 
-            SetAppointments();
+            //SetAppointments();
         }
 
         ~MonthlyViewControl()
@@ -94,7 +94,7 @@ namespace CPSC481Project
         }
 
         
-        private void SetAppointments()
+        public void SetAppointments()
         {
             // -- Use whatever function you want to load the MonthAppointments list, I happen to have a list filled by linq that has
             // many (possibly the past several years) of them loaded, so i filter to only pass the ones showing up in the displayed
@@ -104,10 +104,24 @@ namespace CPSC481Project
                 //int temp = aptCal.DisplayStartDate.Month;
                 return apt.m_startDate != null
                 && (int)apt.m_startDate.Month == this.aptCalendar.DisplayStartDate.Month 
-                && (int)apt.m_startDate.Year == this.aptCalendar.DisplayStartDate.Year;
+                && (int)apt.m_startDate.Year == this.aptCalendar.DisplayStartDate.Year
+                && DoctorChecked(apt.m_doctor);
             } ;
             List<Vacation> aptInDay = _myAppointmentsList.FindAll(aptFind);
             this.aptCalendar.MonthAppointments = aptInDay;
+        }
+
+        private bool DoctorChecked(String doc)
+        {
+            Grid g2 = (Grid)(this.Parent);
+            MainWindow w = (MainWindow)(g2.Parent);
+            if (doc == "Dr. Payne")
+                return w.paynecBox.IsChecked != null ? w.paynecBox.IsChecked.Value : false;
+            else if (doc == "Dr. Lee")
+                return w.leecBox.IsChecked != null ? w.leecBox.IsChecked.Value : false;
+            else if (doc == "Dr. Walter")
+                return w.waltercBox.IsChecked != null ? w.waltercBox.IsChecked.Value : false;
+            return false;
         }
 
         private void ToDashboard_MouseLeftButtonUp(System.Object sender, MouseButtonEventArgs e)

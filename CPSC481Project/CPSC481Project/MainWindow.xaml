@@ -144,9 +144,9 @@
             <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="31" Margin="48.667,575.229,0,0" RadiusY="6.103" RadiusX="6.103" Stroke="Black" VerticalAlignment="Top" Width="223.875"/>
             <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="31" Margin="49,621.895,0,0" RadiusY="6.103" RadiusX="6.103" Stroke="Black" VerticalAlignment="Top" Width="223.542"/>
             <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="31" Margin="49,669.562,0,0" RadiusY="6.103" RadiusX="6.103" Stroke="Black" VerticalAlignment="Top" Width="223.875"/>
-            <CheckBox x:Name="paynecBox" Content="Dr. Payne" HorizontalAlignment="Left" Height="19" Margin="102.772,676.729,0,0" VerticalAlignment="Top" Width="115.29" FontSize="14" Checked="payneChecked" Unchecked="payneUnchecked"/>
-            <CheckBox x:Name="leecBox" Content="Dr. Lee" HorizontalAlignment="Left" Height="19" Margin="102.772,628.562,0,0" VerticalAlignment="Top" Width="115.29" FontSize="14" RenderTransformOrigin="0.491,0.482" Checked="leeChecked" Unchecked="leeUnchecked"/>
-            <CheckBox x:Name="waltercBox" Content="Dr. Walter" HorizontalAlignment="Left" Height="24" Margin="102.772,583.229,0,0" VerticalAlignment="Top" Width="115.29" FontSize="14" Checked="walterChecked" Unchecked="walterUnchecked"/>
+            <CheckBox x:Name="paynecBox" Content="Dr. Payne" HorizontalAlignment="Left" Height="19" Margin="102.772,676.729,0,0" VerticalAlignment="Top" Width="115.29" FontSize="14" Checked="payneChecked" Unchecked="payneUnchecked" IsChecked="true"/>
+            <CheckBox x:Name="leecBox" Content="Dr. Lee" HorizontalAlignment="Left" Height="19" Margin="102.772,628.562,0,0" VerticalAlignment="Top" Width="115.29" FontSize="14" RenderTransformOrigin="0.491,0.482" Checked="leeChecked" Unchecked="leeUnchecked" IsChecked="true"/>
+            <CheckBox x:Name="waltercBox" Content="Dr. Walter" HorizontalAlignment="Left" Height="24" Margin="102.772,583.229,0,0" VerticalAlignment="Top" Width="115.29" FontSize="14" Checked="walterChecked" Unchecked="walterUnchecked" IsChecked="true"/>
 
         </Grid>
         <Grid  Grid.Column="0" x:Name="addAppointment" Margin="0,157,0,0" Visibility="Hidden">
