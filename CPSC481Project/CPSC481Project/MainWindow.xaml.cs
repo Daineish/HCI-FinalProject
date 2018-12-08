@@ -492,6 +492,7 @@ namespace CPSC481Project
             recentLabel.Content = "Add Patient:";
             PatientListScrollViewer.Visibility = Visibility.Hidden;
             addPatient.Visibility = Visibility.Visible;
+            clearAddtext();
             InitAddPatientTextfields();
         }
 
