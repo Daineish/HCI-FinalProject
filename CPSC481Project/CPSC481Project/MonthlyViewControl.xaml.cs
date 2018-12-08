@@ -113,6 +113,11 @@ namespace CPSC481Project
         private void ToDashboard_MouseLeftButtonUp(System.Object sender, MouseButtonEventArgs e)
         {
             this.Visibility = Visibility.Hidden;
+            Grid g2 = (Grid)(this.Parent);
+            MainWindow w = (MainWindow)(g2.Parent);
+            w.PatientListScrollViewer.Height = 708;
+            w.filterDoctor.Visibility = Visibility.Hidden;
+            
         }
 
         private void ToDayView_MouseLeftButtonUp(System.Object sender, MouseButtonEventArgs e)

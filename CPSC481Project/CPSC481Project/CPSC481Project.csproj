@@ -81,6 +81,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -101,6 +103,12 @@
     </ApplicationDefinition>
     <Compile Include="Appointment.cs" />
     <Compile Include="AppointmentDatabase.cs" />
+    <Compile Include="EditAppointment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditAppointment.Designer.cs">
+      <DependentUpon>EditAppointment.cs</DependentUpon>
+    </Compile>
     <Compile Include="MonthUserControls\DayBoxAppointmentControl.xaml.cs">
       <DependentUpon>DayBoxAppointmentControl.xaml</DependentUpon>
     </Compile>
@@ -202,6 +210,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="EditAppointment.resx">
+      <DependentUpon>EditAppointment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

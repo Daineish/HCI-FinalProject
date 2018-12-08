@@ -41,7 +41,7 @@ namespace CPSC481Project
         String[] month = { "January", "Febuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
 
         internal DateTime _DisplayStartDate = DateTime.Now;
-
+        Boolean filterMode = false;
         Patient m_currentPatient;
         Boolean selectedMode;
         PatientDatabase m_patientDatabase;
@@ -79,14 +79,17 @@ namespace CPSC481Project
 
             if (m_appointmentDatabase.NumAppointments() < 5)
             {
-                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("00001"), "Dr. Walter", DateTime.Now, DateTime.Now, "Appointment #1"));
-                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("12345"), "Dr. Payne", DateTime.Now, DateTime.Now, "Appointment #1"));
-                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("00002"), "Dr. Lee", DateTime.Now, DateTime.Now, "Appointment #1"));
-                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("44444"), "Dr. Walter", DateTime.Now, DateTime.Now, "Appointment #1"));
-                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("00001"), "Dr. Walter", DateTime.Now, DateTime.Now, "Appointment #1"));
+                DateTime today = DateTime.Today;
+                TimeSpan ts = new TimeSpan(10, 0, 0);
+                today = today.Date + ts;
+                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("00001"), "Dr. Walter", today, today.AddMinutes(10), "Appointment #1"));
+                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("12345"), "Dr. Payne", today.AddMinutes(30), today.AddMinutes(40), "Appointment #1"));
+                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("00002"), "Dr. Lee", today.AddDays(1), today.AddDays(1).AddMinutes(10), "Appointment #1"));
+                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("44444"), "Dr. Walter", today.AddHours(4), today.AddHours(4).AddMinutes(10), "Appointment #1"));
+                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("00001"), "Dr. Walter", today.AddMinutes(-20), today.AddMinutes(-10), "Appointment #1"));
             }
 
-            //if(m_vacationDatabase.NumVacations() < 3)
+            if(m_vacationDatabase.NumVacations() < 3)
             {
                 DateTime s1 = DateTime.Parse("2019-01-01");
                 DateTime e1 = DateTime.Parse("2019-02-01");
@@ -130,7 +133,7 @@ namespace CPSC481Project
             }
             for (int i = 0; i < 2 && i < appointmentLee1.Count(); i++)
             {
-                Appointment app = appointmentPayne1.ElementAt(i);
+                Appointment app = appointmentLee1.ElementAt(i);
                 Patient pat = appointmentLee1.ElementAt(i).m_patient;
                 if (i == 0 && pat != null)
                     this.DoctorLeeTile.npfullName.Content = app.m_startTime.ToString("hh:mm") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
@@ -160,7 +163,7 @@ namespace CPSC481Project
             PatientListStackPanel.Children.Add(CreateGrid(recent4));
             PatientListStackPanel.Children.Add(CreateGrid(recent5));
 
-            // Populate available times (TODO)
+            // Populate available times
             List<String> availablePayne = m_appointmentDatabase.AvailableTimes("Dr. Payne");
             List<String> availableLee = m_appointmentDatabase.AvailableTimes("Dr. Lee");
             List<String> availableWalter = m_appointmentDatabase.AvailableTimes("Dr. Walter");
@@ -211,14 +214,21 @@ namespace CPSC481Project
                 apm = "PM";
             }
 
-            this.Dispatcher.Invoke(() =>
+            try
             {
-                int min = DateTime.Now.Minute;
-                String str = "";
-                if (min < 10) str = "0";
-                this.DashTime.Content = hour + ":" + str + DateTime.Now.Minute + " " + apm;
-                this.DashDate.Content = month.ElementAt(DateTime.Now.Month - 1) + " " + DateTime.Now.Day + ", " + DateTime.Now.Year;
-            });
+                this.Dispatcher.Invoke(() =>
+                {
+                    int min = DateTime.Now.Minute;
+                    String str = "";
+                    if (min < 10) str = "0";
+                    this.DashTime.Content = hour + ":" + str + DateTime.Now.Minute + " " + apm;
+                    this.DashDate.Content = month.ElementAt(DateTime.Now.Month - 1) + " " + DateTime.Now.Day + ", " + DateTime.Now.Year;
+                });
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Exception: " + ex.Message);
+            }
 
         }
 
@@ -343,6 +353,7 @@ namespace CPSC481Project
                 b.Height = 30;
                 b.Margin = new Thickness(-50, 200, 0, 0);
                 b.Tag = p;
+                b.Cursor = Cursors.Hand;
                 b.Click += SelectPatientClicked;
                 g.Children.Add(b);
             }
@@ -358,6 +369,7 @@ namespace CPSC481Project
             view.Height = 30;
             view.Margin = new Thickness(150, 200, 0, 0);
             view.Tag = p;
+            view.Cursor = Cursors.Hand;
             view.Click += selectViewPatient;
             g.Children.Add(view);
 
@@ -374,6 +386,7 @@ namespace CPSC481Project
                 unselectPatient.Height = 30;
                 unselectPatient.Margin = new Thickness(-50, 200, 0, 0);
                 unselectPatient.Tag = p;
+                unselectPatient.Cursor = Cursors.Hand;
                 unselectPatient.Click += unSelectPatientClicked;
                 g.Children.Add(unselectPatient);
             }
@@ -435,7 +448,95 @@ namespace CPSC481Project
 
         }
 
-            private void Button_Click(object sender, RoutedEventArgs e)
+        //Edit patient info
+        private void EditInfo_Click(object sender, RoutedEventArgs e)
+        {
+            //First, hide the text fields
+            dPatientname.Visibility = Visibility.Hidden;
+            dPatientlname.Visibility = Visibility.Hidden;
+            dPatientHC.Visibility = Visibility.Hidden;
+            dPatientaddr.Visibility = Visibility.Hidden;
+            dPatientpn.Visibility = Visibility.Hidden;
+            dPatientemail.Visibility = Visibility.Hidden;
+
+            //Keep text the same, let users change if they want
+            dPatientnameBox.Text = dPatientname.Text;
+            dPatientlnameBox.Text = dPatientlname.Text;
+            dPatientHCBox.Text = dPatientHC.Text;
+            dPatientaddrBox.Text = dPatientaddr.Text;
+            dPatientpnBox.Text = dPatientpn.Text;
+            dPatientemailBox.Text = dPatientemail.Text;
+
+            //Then show the text boxes
+            dPatientnameBox.Visibility = Visibility.Visible;
+            dPatientlnameBox.Visibility = Visibility.Visible;
+            dPatientHCBox.Visibility = Visibility.Visible;
+            dPatientaddrBox.Visibility = Visibility.Visible;
+            dPatientpnBox.Visibility = Visibility.Visible;
+            dPatientemailBox.Visibility = Visibility.Visible;
+
+            //Show the yes and cancel button
+            editInfoYes.Visibility = Visibility.Visible;
+            editInfoCancel.Visibility = Visibility.Visible;
+        }
+
+        private void EditInfoYes_Click(object sender, RoutedEventArgs e)
+        {
+            //Keep text the same, let users change if they want
+            dPatientname.Text = dPatientnameBox.Text;
+            dPatientlname.Text = dPatientlnameBox.Text;
+            dPatientHC.Text = dPatientHCBox.Text;
+            dPatientaddr.Text = dPatientaddrBox.Text;
+            dPatientpn.Text = dPatientpnBox.Text;
+            dPatientemail.Text = dPatientemailBox.Text;
+
+            //Now hide the text boxes and make text fields visible
+            dPatientnameBox.Visibility = Visibility.Hidden;
+            dPatientlnameBox.Visibility = Visibility.Hidden;
+            dPatientHCBox.Visibility = Visibility.Hidden;
+            dPatientaddrBox.Visibility = Visibility.Hidden;
+            dPatientpnBox.Visibility = Visibility.Hidden;
+            dPatientemailBox.Visibility = Visibility.Hidden;
+
+            dPatientname.Visibility = Visibility.Visible;
+            dPatientlname.Visibility = Visibility.Visible;
+            dPatientHC.Visibility = Visibility.Visible;
+            dPatientaddr.Visibility = Visibility.Visible;
+            dPatientpn.Visibility = Visibility.Visible;
+            dPatientemail.Visibility = Visibility.Visible;
+
+            //Now hide the yes/cancel buttons
+            editInfoYes.Visibility = Visibility.Hidden;
+            editInfoCancel.Visibility = Visibility.Hidden;
+
+            editInfo.Visibility = Visibility.Visible;
+        }
+
+        private void EditInfoCancel_Click(object sender, RoutedEventArgs e)
+        {
+            //If cancel, just make text boxes no longer visible
+            dPatientnameBox.Visibility = Visibility.Hidden;
+            dPatientlnameBox.Visibility = Visibility.Hidden;
+            dPatientHCBox.Visibility = Visibility.Hidden;
+            dPatientaddrBox.Visibility = Visibility.Hidden;
+            dPatientpnBox.Visibility = Visibility.Hidden;
+            dPatientemailBox.Visibility = Visibility.Hidden;
+
+            //Then make text fields visible
+            dPatientname.Visibility = Visibility.Visible;
+            dPatientlname.Visibility = Visibility.Visible;
+            dPatientHC.Visibility = Visibility.Visible;
+            dPatientaddr.Visibility = Visibility.Visible;
+            dPatientpn.Visibility = Visibility.Visible;
+            dPatientemail.Visibility = Visibility.Visible;
+
+            //Now hide the yes/cancel buttons
+            editInfoYes.Visibility = Visibility.Hidden;
+            editInfoCancel.Visibility = Visibility.Hidden;
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
             //dashboard.Visibility = Visibility.Hidden;
 
@@ -453,14 +554,28 @@ namespace CPSC481Project
         }*/
 
         private void calendarBack(object sender, RoutedEventArgs e)
-        {
-            dashboard.Visibility = Visibility.Visible;
+        {   if(filterMode == true)
+            {
+                filterMode = false;
+                dashboard.Visibility = Visibility.Visible;
+                PatientListScrollViewer.Height = 708.5;
+                filterDoctor.Visibility = Visibility.Hidden;
+            }
+
             if (m_monthlyViewControl != null)
                 MainGrid.Children.Remove(m_monthlyViewControl);
             // error checking?
         }
         private void ToCalendar_MouseLeftButtonUp(object sender, RoutedEventArgs e)
         {
+            if(filterMode == false || filterDoctor.Visibility == Visibility.Hidden)
+            {
+                filterMode = true;
+                PatientListScrollViewer.Height = 708.5 - 180.5;
+                filterDoctor.Visibility = Visibility.Visible;
+            }
+
+
             //dashboard.Visibility = Visibility.Hidden;
             m_monthlyViewControl = new MonthlyViewControl();
             m_monthlyViewControl.Visibility = Visibility.Visible;
@@ -484,6 +599,13 @@ namespace CPSC481Project
         private void ToDayView_MouseLeftButtonUp(object sender, RoutedEventArgs e)
         {
             //dashboard.Visibility = Visibility.Hidden;
+            if(filterMode == true)
+            {
+                filterDoctor.Visibility = Visibility.Hidden;
+                PatientListScrollViewer.Height = 708.5;
+                filterMode = false;
+            }
+
 
             m_dayViewControl = new DayViewControl(DateTime.Today, m_appointmentDatabase);
             MainGrid.Children.Add(m_dayViewControl);
@@ -593,7 +715,7 @@ namespace CPSC481Project
             recentLabel.Content = "Recent Patients:";
         }
 
-        public void NewAppointmentClicked(DateTime datetime, String doc)
+        public AppointmentDatabase NewAppointmentClicked(DateTime datetime, String doc)
         {
             if (m_currentPatient == null)
             {
@@ -606,6 +728,7 @@ namespace CPSC481Project
                 if (MessageBox.Show(infoString, "Confirm New Appointment", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                 {
                     m_appointmentDatabase.AddAppointment(new Appointment(m_currentPatient, doc, datetime, datetime.AddMinutes(10), ""));
+                    PopulateDefaultInfo();
                     MessageBox.Show("Appointment added", "Appointment added", MessageBoxButton.OK, MessageBoxImage.Information); 
                 }
                 else
@@ -613,6 +736,7 @@ namespace CPSC481Project
                     // Do nothing
                 }
             }
+            return m_appointmentDatabase;
         }
 
         private void WalkInClicked(object sender, RoutedEventArgs e)
@@ -643,6 +767,13 @@ namespace CPSC481Project
 
         public void MonthViewToDayView(DateTime d)
         {
+            if (filterMode == true)
+            {
+                filterDoctor.Visibility = Visibility.Hidden;
+                PatientListScrollViewer.Height = 708.5;
+                Console.WriteLine(PatientListScrollViewer.Height);
+                filterMode = false;
+            }
             m_dayViewControl = new DayViewControl(d, m_appointmentDatabase);
             m_dayViewControl.Visibility = Visibility.Visible;
             MainGrid.Children.Add(m_dayViewControl);
@@ -714,6 +845,7 @@ namespace CPSC481Project
                 viewPatient.Visibility = Visibility.Hidden;
             }
         }
+
 
     }
 }
