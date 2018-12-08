@@ -50,6 +50,8 @@ namespace CPSC481Project
         DayViewControl m_dayViewControl;
         MonthlyViewControl m_monthlyViewControl;
 
+        private int queuePosition = 0;
+
         public MainWindow()
         {
             setTimer();
@@ -610,7 +612,8 @@ namespace CPSC481Project
             }
             else
             {
-                WalkinTile t = new WalkinTile(m_currentPatient.m_firstName + " " + m_currentPatient.m_lastName, m_currentPatient.m_hcNumber);
+                queuePosition++;
+                WalkinTile t = new WalkinTile(m_currentPatient.m_firstName + " " + m_currentPatient.m_lastName, m_currentPatient.m_hcNumber, queuePosition);
                 Console.WriteLine("Hi");
                 //Console.WriteLine(t.getHC());
                 string text = "";
