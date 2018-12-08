@@ -117,7 +117,7 @@ namespace CPSC481Project
             MainWindow w = (MainWindow)(g2.Parent);
             w.PatientListScrollViewer.Height = 708;
             w.filterDoctor.Visibility = Visibility.Hidden;
-
+            
         }
 
         private void ToDayView_MouseLeftButtonUp(System.Object sender, MouseButtonEventArgs e)
