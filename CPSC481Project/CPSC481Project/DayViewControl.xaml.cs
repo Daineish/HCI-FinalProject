@@ -355,12 +355,7 @@ namespace CPSC481Project
                 dvScrollView.ScrollToVerticalOffset(0);
             }
 
-
             UpdateDayWithAppointments();
-
-
-
-
         }
 
         private void StackPanel_MouseUp(object sender, MouseButtonEventArgs e)
@@ -370,21 +365,16 @@ namespace CPSC481Project
 
         private void CreateAppointment_Click(object sender, MouseButtonEventArgs e)
         {
-            // TODO: Handle clicking on an already set appointment
-
-            // Set new appointment
+            // Bring up window to add appointment
+            EditAppointment form = new EditAppointment();
             Rectangle r = (Rectangle)sender;
-            StackPanel p = (StackPanel)r.Parent;
-
             DateTime datetime = DateTime.Parse((String)currentDate.Content + " " + (String)r.Tag);
-            String doc = (String)p.Tag;
 
-            Console.WriteLine("Create an appointment at: " + datetime.ToString("f") + " with " + doc);
             Grid g = (Grid)this.Parent;
             MainWindow mw = (MainWindow)g.Parent;
-            m_appointmentDatabase = mw.NewAppointmentClicked(datetime, doc);
-            UpdateDayWithAppointments();
+            m_appointmentDatabase = mw.NewAppointmentClicked(datetime, (String)((StackPanel)(r.Parent)).Tag);
 
+            UpdateDayWithAppointments();
         }
 
         private void ToMonth_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)

@@ -101,6 +101,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddAppointment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddAppointment.Designer.cs">
+      <DependentUpon>AddAppointment.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddVacation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,6 +228,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="AddAppointment.resx">
+      <DependentUpon>AddAppointment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddVacation.resx">
       <DependentUpon>AddVacation.cs</DependentUpon>
     </EmbeddedResource>

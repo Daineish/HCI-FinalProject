@@ -150,18 +150,22 @@ namespace CPSC481Project
                     this.DoctorWalterTile.npfullName2.Content = app.m_startTime.ToString("hh:mm") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
             }
 
-            // Populate recent patient list with fake data (TODO)
-            Patient recent1 = m_patientDatabase.findPatient("15432");
-            Patient recent2 = m_patientDatabase.findPatient("15795");
-            Patient recent3 = m_patientDatabase.findPatient("11325");
-            Patient recent4 = m_patientDatabase.findPatient("99999");
-            Patient recent5 = m_patientDatabase.findPatient("83409");
+            if(!selectedMode)
+            {
+                // Populate recent patient list with fake data (TODO)
+                Patient recent1 = m_patientDatabase.findPatient("15432");
+                Patient recent2 = m_patientDatabase.findPatient("15795");
+                Patient recent3 = m_patientDatabase.findPatient("11325");
+                Patient recent4 = m_patientDatabase.findPatient("99999");
+                Patient recent5 = m_patientDatabase.findPatient("83409");
 
-            PatientListStackPanel.Children.Add(CreateGrid(recent1));
-            PatientListStackPanel.Children.Add(CreateGrid(recent2));
-            PatientListStackPanel.Children.Add(CreateGrid(recent3));
-            PatientListStackPanel.Children.Add(CreateGrid(recent4));
-            PatientListStackPanel.Children.Add(CreateGrid(recent5));
+                PatientListStackPanel.Children.Add(CreateGrid(recent1));
+                PatientListStackPanel.Children.Add(CreateGrid(recent2));
+                PatientListStackPanel.Children.Add(CreateGrid(recent3));
+                PatientListStackPanel.Children.Add(CreateGrid(recent4));
+                PatientListStackPanel.Children.Add(CreateGrid(recent5));
+            }
+            
 
             // Populate available times
             List<String> availablePayne = m_appointmentDatabase.AvailableTimes("Dr. Payne");
@@ -764,17 +768,35 @@ namespace CPSC481Project
             }
             else
             {
-                // TODO: Dialog box to enter additional appointment information or something like in prototypes?
-                String infoString = "Confirm appointment on " + datetime.ToString("dddd MMMM d, yyyy") + " at " + datetime.ToString("t") + " with " + doc + "?";
-                if (MessageBox.Show(infoString, "Confirm New Appointment", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                AddAppointment form = new AddAppointment();
+                form.SetInfo(m_currentPatient.m_firstName + " " + m_currentPatient.m_lastName, m_currentPatient.m_hcNumber, doc, datetime);
+                form.ShowDialog();
+
+                if (form.m_add)
                 {
-                    m_appointmentDatabase.AddAppointment(new Appointment(m_currentPatient, doc, datetime, datetime.AddMinutes(10), ""));
-                    PopulateDefaultInfo();
-                    MessageBox.Show("Appointment added", "Appointment added", MessageBoxButton.OK, MessageBoxImage.Information); 
-                }
-                else
-                {
-                    // Do nothing
+                    // create appointment
+                    Appointment newApp = new Appointment(m_currentPatient, form.m_doctor, form.m_startDate, form.m_startDate, "");
+
+                    bool conflict = false;
+                    foreach (Appointment a in m_appointmentDatabase.m_appointments)
+                    {
+                        if (DateTime.Compare(a.m_startTime, newApp.m_startTime) == 0 && a.m_doctor == newApp.m_doctor)
+                        {
+                            conflict = true;
+                            break;
+                        }
+                    }
+                    if (conflict)
+                    {
+                        String msg = "Appointment time conflicts with another appointment, nothing was added.";
+                        MessageBox.Show(msg, "Time Conflict", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    else
+                    {
+                        m_appointmentDatabase.AddAppointment(newApp);
+                        PopulateDefaultInfo();
+                        MessageBox.Show("Appointment added", "Appointment added", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
                 }
             }
             return m_appointmentDatabase;
@@ -879,13 +901,11 @@ namespace CPSC481Project
             PopulateDefaultInfo();
             recentLabel.Content = "Recent Patients: ";
             RemoveSearchButton.Visibility = Visibility.Hidden;
+            selectedMode = false;
             m_currentPatient = null;
 
-            //If this is remove for the viewPatient panel
-            if (viewPatient.Visibility == Visibility.Visible)
-            {
-                viewPatient.Visibility = Visibility.Hidden;
-            }
+            viewPatient.Visibility = Visibility.Hidden;
+            PopulateDefaultInfo();
         }
         //Filter Checked
         private void payneChecked(object sender, RoutedEventArgs e)
