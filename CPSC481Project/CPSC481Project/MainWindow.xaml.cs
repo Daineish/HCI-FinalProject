@@ -609,6 +609,7 @@ namespace CPSC481Project
             dPatientemail.Visibility = Visibility.Hidden;
             dPatientprevdr.Visibility = Visibility.Hidden;
             dPatientHCBox.IsEnabled = false;
+            dPatientprevdrBox.IsEnabled = false;
             //Keep text the same, let users change if they want
             dPatientnameBox.Text = dPatientname.Text;
             dPatientlnameBox.Text = dPatientlname.Text;
