@@ -203,6 +203,14 @@ namespace CPSC481Project
             List<String> availablePayne = m_appointmentDatabase.AvailableTimes("Dr. Payne");
             List<String> availableLee = m_appointmentDatabase.AvailableTimes("Dr. Lee");
             List<String> availableWalter = m_appointmentDatabase.AvailableTimes("Dr. Walter");
+
+            this.DoctorPayneTile.availTime1.MouseDoubleClick += AvailableTimeClicked;
+            this.DoctorPayneTile.availTime2.MouseDoubleClick += AvailableTimeClicked;
+            this.DoctorLeeTile.availTime1.MouseDoubleClick += AvailableTimeClicked;
+            this.DoctorLeeTile.availTime2.MouseDoubleClick += AvailableTimeClicked;
+            this.DoctorWalterTile.availTime1.MouseDoubleClick += AvailableTimeClicked;
+            this.DoctorWalterTile.availTime2.MouseDoubleClick += AvailableTimeClicked;
+
             for (int i = 0; i < 2 && i < availablePayne.Count(); i++)
             {
                 String str = availablePayne.ElementAt(i);
@@ -1029,6 +1037,32 @@ namespace CPSC481Project
                 PatientListStackPanel.Children.Add(CreateGrid(m_currentPatient, false, true));
 
                 selectedMode = true;
+            }
+        }
+
+        private void AvailableTimeClicked(object sender, RoutedEventArgs e)
+        {
+            if (sender.GetType() != typeof(Label))
+                return;
+
+            Label l = (Label)sender;
+            String s = (l == this.DoctorPayneTile.availTime1) ? (String)this.DoctorPayneTile.availTime1.Content :
+                        (l == this.DoctorPayneTile.availTime2) ? (String)this.DoctorPayneTile.availTime2.Content :
+                        (l == this.DoctorLeeTile.availTime1) ? (String)this.DoctorLeeTile.availTime1.Content :
+                        (l == this.DoctorLeeTile.availTime2) ? (String)this.DoctorLeeTile.availTime2.Content :
+                        (l == this.DoctorWalterTile.availTime1) ? (String)this.DoctorWalterTile.availTime1.Content :
+                        (l == this.DoctorWalterTile.availTime2) ? (String)this.DoctorWalterTile.availTime2.Content : null;
+
+            if (s != null)
+            {
+                DateTime dt = DateTime.Parse(s);
+
+                m_dayViewControl = new DayViewControl(dt, m_appointmentDatabase);
+                MainGrid.Children.Add(m_dayViewControl);
+                Grid.SetRow(m_dayViewControl, 0);
+                Grid.SetColumn(m_dayViewControl, 1);
+                Grid.SetRowSpan(m_dayViewControl, 3);
+                m_dayViewControl.Visibility = Visibility.Visible;
             }
         }
     }
