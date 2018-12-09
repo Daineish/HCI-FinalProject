@@ -293,7 +293,9 @@ namespace CPSC481Project
                     {
                         if (i == 0) // Found the first available time
                         {
-                            rv.Add(curTime.ToString("g"));
+                            String s = curTime.ToString("MMM. dd");
+                            s += " " + curTime.ToString("t");
+                            rv.Add(s);
                             i++;
                         }
                         else if (i == 1) // Found the second available time, but already taken by first available time
@@ -303,7 +305,9 @@ namespace CPSC481Project
                         }
                         else // found the second available time
                         {
-                            rv.Add(curTime.ToString("g"));
+                            String s = curTime.ToString("MMM. dd");
+                            s += " " + curTime.ToString("t");
+                            rv.Add(s);
                             break;
                         }
                     }
