@@ -9,7 +9,9 @@
         MinHeight="900"
         MaxHeight="900"
         MaxWidth="1440"
-        MinWidth="1440">
+        MinWidth="1440"
+        Left="0"
+        Top="0">
     <Grid x:Name="MainGrid" Margin="0,0,0,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="345"/>

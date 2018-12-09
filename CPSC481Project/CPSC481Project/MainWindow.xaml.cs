@@ -884,20 +884,7 @@ namespace CPSC481Project
             else
             {
                 queuePosition++;
-                WalkinTile t = new WalkinTile(m_currentPatient.m_firstName + " " + m_currentPatient.m_lastName, m_currentPatient.m_hcNumber, queuePosition);
-                Console.WriteLine("Hi");
-                //Console.WriteLine(t.getHC());
-                string text = "";
-                foreach(var item in walkinQueueList.Items)
-                {
-                    Console.WriteLine(item);
-
-                }
-
-                Console.WriteLine(text);
-
-
-                walkinQueueList.Items.Add(t);
+                walkinQueueList.Items.Add(new WalkinTile(m_currentPatient.m_firstName + " " + m_currentPatient.m_lastName, m_currentPatient.m_hcNumber, queuePosition));
             }
         }
 
@@ -907,7 +894,6 @@ namespace CPSC481Project
             {
                 filterDoctor.Visibility = Visibility.Hidden;
                 PatientListScrollViewer.Height = 708.5;
-                Console.WriteLine(PatientListScrollViewer.Height);
                 filterMode = false;
             }
             m_dayViewControl = new DayViewControl(d, m_appointmentDatabase);

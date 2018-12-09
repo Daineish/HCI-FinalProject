@@ -43,10 +43,7 @@ namespace CPSC481Project
 
             m_day = day;
             currentDate.Content = m_day.ToString("dddd MMMM d, yyyy");
-            Console.WriteLine(miniCalendar.SelectedDate);
             //Setting proper Dayview Offset
-            //Console.WriteLine(DateTime.Now.ToString("dddd MMMM d, yyyy"));
-            //Console.WriteLine(currentDate.Content);
             int offset = 8;
             if ((DateTime.Now.TimeOfDay.Hours - offset < 10) && (currentDate.Content.ToString() == DateTime.Now.ToString("dddd MMMM d, yyyy")))
             {
@@ -333,34 +330,41 @@ namespace CPSC481Project
 
         private void miniCalendar_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            Console.WriteLine(miniCalendar.SelectedDate);
-            String[] newdate = miniCalendar.SelectedDate.ToString().Split(' ');
-            Console.WriteLine(newdate[0]);
-            String[] splitFormat = newdate[0].Split('/');
-            int year = int.Parse(splitFormat[2]);
-            int month = int.Parse(splitFormat[0]);
-            int day = int.Parse(splitFormat[1]);
-            DateTime date1 = new DateTime(year,month, day, 12, 0,0);
-
-            currentDate.Content = date1.ToString("dddd MMMM d, yyyy");
-            //Scrollview Position
-            int offset = 8;
-            if ((DateTime.Now.TimeOfDay.Hours - offset < 10) && (currentDate.Content.ToString() == DateTime.Now.ToString("dddd MMMM d, yyyy")))
+            try
             {
-                int val = DateTime.Now.TimeOfDay.Hours - offset;
-                dvScrollView.ScrollToVerticalOffset(val * 216);
+                String[] newdate = miniCalendar.SelectedDate.ToString().Split(' ');
+                String[] splitFormat = newdate[0].Split('/');
+                int year = int.Parse(splitFormat[2]);
+                int month = int.Parse(splitFormat[0]);
+                int day = int.Parse(splitFormat[1]);
+                DateTime date1 = new DateTime(year, month, day, 12, 0, 0);
+
+                currentDate.Content = date1.ToString("dddd MMMM d, yyyy");
+                //Scrollview Position
+                int offset = 8;
+                if ((DateTime.Now.TimeOfDay.Hours - offset < 10) && (currentDate.Content.ToString() == DateTime.Now.ToString("dddd MMMM d, yyyy")))
+                {
+                    int val = DateTime.Now.TimeOfDay.Hours - offset;
+                    dvScrollView.ScrollToVerticalOffset(val * 216);
+                }
+                else
+                {
+                    dvScrollView.ScrollToVerticalOffset(0);
+                }
+
+                UpdateDayWithAppointments();
             }
-            else
+            catch(Exception ex)
             {
-                dvScrollView.ScrollToVerticalOffset(0);
+                // Do nothing?
+                Console.WriteLine("Caught exception: " + ex.Message);
             }
 
-            UpdateDayWithAppointments();
         }
 
         private void StackPanel_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            Console.WriteLine("Type: " + sender.GetType());
+            //Console.WriteLine("Type: " + sender.GetType());
         }
 
         private void CreateAppointment_Click(object sender, MouseButtonEventArgs e)
