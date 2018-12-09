@@ -137,7 +137,7 @@ namespace CPSC481Project
                 if (i == 0 && pat != null)
                 {
                     this.DoctorPayneTile.npfullName.Content = app.m_startTime.ToString("t") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
-                    this.DoctorPayneTile.npfullName.MouseLeftButtonDown += NextPatientClicked;
+                    this.DoctorPayneTile.npfullName.MouseDoubleClick += NextPatientClicked;
                     this.DoctorPayneTile.npfullName.Cursor = Cursors.Hand;
                     
                     m_payneNext1 = pat;
@@ -145,7 +145,7 @@ namespace CPSC481Project
                 if (i == 1 && pat != null)
                 {
                     this.DoctorPayneTile.npfullName2.Content = app.m_startTime.ToString("t") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
-                    this.DoctorPayneTile.npfullName2.MouseLeftButtonDown += NextPatientClicked;
+                    this.DoctorPayneTile.npfullName2.MouseDoubleClick += NextPatientClicked;
                     this.DoctorPayneTile.npfullName2.Cursor = Cursors.Hand;
                     m_payneNext2 = pat;
                 }
@@ -157,14 +157,14 @@ namespace CPSC481Project
                 if (i == 0 && pat != null)
                 {
                     this.DoctorLeeTile.npfullName.Content = app.m_startTime.ToString("t") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
-                    this.DoctorLeeTile.npfullName.MouseLeftButtonDown += NextPatientClicked;
+                    this.DoctorLeeTile.npfullName.MouseDoubleClick += NextPatientClicked;
                     this.DoctorLeeTile.npfullName.Cursor = Cursors.Hand;
                     m_leeNext1 = pat;
                 }
                 if (i == 1 && pat != null)
                 {
                     this.DoctorLeeTile.npfullName2.Content = app.m_startTime.ToString("t") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
-                    this.DoctorLeeTile.npfullName2.MouseLeftButtonDown += NextPatientClicked;
+                    this.DoctorLeeTile.npfullName2.MouseDoubleClick += NextPatientClicked;
                     this.DoctorLeeTile.npfullName2.Cursor = Cursors.Hand;
                     m_leeNext2 = pat;
                 }
@@ -176,14 +176,14 @@ namespace CPSC481Project
                 if (i == 0 && pat != null)
                 {
                     this.DoctorWalterTile.npfullName.Content = app.m_startTime.ToString("t") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
-                    this.DoctorWalterTile.npfullName.MouseLeftButtonDown += NextPatientClicked;
+                    this.DoctorWalterTile.npfullName.MouseDoubleClick += NextPatientClicked;
                     this.DoctorWalterTile.npfullName.Cursor = Cursors.Hand;
                     m_walterNext1 = pat;
                 }
                 if (i == 1 && pat != null)
                 {
                     this.DoctorWalterTile.npfullName2.Content = app.m_startTime.ToString("t") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
-                    this.DoctorWalterTile.npfullName2.MouseLeftButtonDown += NextPatientClicked;
+                    this.DoctorWalterTile.npfullName2.MouseDoubleClick += NextPatientClicked;
                     this.DoctorWalterTile.npfullName2.Cursor = Cursors.Hand;
                     m_walterNext2 = pat;
                 }
@@ -211,20 +211,14 @@ namespace CPSC481Project
             List<String> availableLee = m_appointmentDatabase.AvailableTimes("Dr. Lee");
             List<String> availableWalter = m_appointmentDatabase.AvailableTimes("Dr. Walter");
 
-            this.DoctorPayneTile.availTime1.MouseLeftButtonDown += AvailableTimeClicked;
-            this.DoctorPayneTile.availTime1.Cursor = Cursors.Hand;
-            this.DoctorPayneTile.availTime2.MouseLeftButtonDown += AvailableTimeClicked;
-            this.DoctorPayneTile.availTime2.Cursor = Cursors.Hand;
+            this.DoctorPayneTile.availTime1.MouseDoubleClick += AvailableTimeClicked;
+            this.DoctorPayneTile.availTime2.MouseDoubleClick += AvailableTimeClicked;
 
-            this.DoctorLeeTile.availTime1.MouseLeftButtonDown += AvailableTimeClicked;
-            this.DoctorLeeTile.availTime1.Cursor = Cursors.Hand;
-            this.DoctorLeeTile.availTime2.MouseLeftButtonDown += AvailableTimeClicked;
-            this.DoctorLeeTile.availTime2.Cursor = Cursors.Hand;
+            this.DoctorLeeTile.availTime1.MouseDoubleClick += AvailableTimeClicked;
+            this.DoctorLeeTile.availTime2.MouseDoubleClick += AvailableTimeClicked;
 
-            this.DoctorWalterTile.availTime1.MouseLeftButtonDown += AvailableTimeClicked;
-            this.DoctorWalterTile.availTime1.Cursor = Cursors.Hand;
-            this.DoctorWalterTile.availTime2.MouseLeftButtonDown += AvailableTimeClicked;
-            this.DoctorWalterTile.availTime2.Cursor = Cursors.Hand;
+            this.DoctorWalterTile.availTime1.MouseDoubleClick += AvailableTimeClicked;
+            this.DoctorWalterTile.availTime2.MouseDoubleClick += AvailableTimeClicked;
 
             for (int i = 0; i < 2 && i < availablePayne.Count(); i++)
             {
@@ -232,27 +226,71 @@ namespace CPSC481Project
                 if (i == 0 && str != null)
                 {
                     this.DoctorPayneTile.availTime1.Content = str;
+                    if (str.Equals("No appointments scheduled."))
+                        {
+                        
+                        }
+                    else
+                        this.DoctorPayneTile.availTime1.Cursor = Cursors.Hand;
                 }
                 else if (i == 1 && str != null)
                 {
                     this.DoctorPayneTile.availTime2.Content = str;
+                    if (str.Equals("No appointments scheduled."))
+                    {
+
+                    }
+                    else
+                        this.DoctorPayneTile.availTime2.Cursor = Cursors.Hand;
                 }
             }
             for (int i = 0; i < 2 && i < availableLee.Count(); i++)
             {
                 String str = availableLee.ElementAt(i);
                 if (i == 0 && str != null)
+                {
                     this.DoctorLeeTile.availTime1.Content = str;
+                    if (str.Equals("No appointments scheduled."))
+                    {
+
+                    }
+                    else
+                        this.DoctorLeeTile.availTime1.Cursor = Cursors.Hand;
+                }
                 else if (i == 1 && str != null)
+                {
                     this.DoctorLeeTile.availTime2.Content = str;
+                    if (str.Equals("No appointments scheduled."))
+                    {
+
+                    }
+                    else
+                        this.DoctorLeeTile.availTime2.Cursor = Cursors.Hand;
+                }
             }
             for (int i = 0; i < 2 && i < availableWalter.Count(); i++)
             {
                 String str = availableWalter.ElementAt(i);
                 if (i == 0 && str != null)
+                {
                     this.DoctorWalterTile.availTime1.Content = str;
+                    if (str.Equals("No appointments scheduled."))
+                    {
+
+                    }
+                    else
+                        this.DoctorWalterTile.availTime1.Cursor = Cursors.Hand;
+                }
                 else if (i == 1 && str != null)
+                {
                     this.DoctorWalterTile.availTime2.Content = str;
+                    if (str.Equals("No appointments scheduled."))
+                    {
+
+                    }
+                    else
+                        this.DoctorWalterTile.availTime2.Cursor = Cursors.Hand;
+                }
             }
         }
 
@@ -505,8 +543,8 @@ namespace CPSC481Project
         {
             PatientListStackPanel.Children.Clear();
             //Set patient to null so we don't create another grid of the patient
-            m_currentPatient = null;
             PatientListStackPanel.Children.Add(CreateGrid(m_currentPatient, true, false));
+            m_currentPatient = null;
             selectedMode = false;
 
             if (m_recentPatientsShowing)
