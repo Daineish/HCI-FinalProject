@@ -655,10 +655,11 @@ namespace CPSC481Project
         private void addContact(object sender, RoutedEventArgs e)
         {
             //MessageBox.Show("Add Contact", "Add Contact");
-            recentLabel.Content = "Add Patient:";
-            PatientListScrollViewer.Visibility = Visibility.Hidden;
-            addPatient.Visibility = Visibility.Visible;
             clearAddtext();
+            recentLabel.Content = "Add Patient:";
+            recentRec.Fill = (SolidColorBrush) Application.Current.Resources["AddPatient"];
+            PatientListScrollViewer.Visibility = Visibility.Hidden;
+            this.addPatient.Visibility = Visibility.Visible;
             InitAddPatientTextfields();
         }
 
@@ -679,7 +680,7 @@ namespace CPSC481Project
             if (newName != "" && newLname != "" && newHC != "" && newPhone != "" && email != "" && addr != "")
             {
                 PatientListScrollViewer.Visibility = Visibility.Hidden;
-                confirmBtn.Visibility = Visibility.Hidden;
+                //confirmBtn.Visibility = Visibility.Hidden;
                 Yes.Visibility = Visibility.Visible;
                 warning.Visibility = Visibility.Visible;
                 warning.Text = "Are you sure?";
@@ -732,6 +733,7 @@ namespace CPSC481Project
 
             Patient p = new Patient(newName, newLname, newHC, addr, email, newPhone);
             warning.Visibility = Visibility.Hidden;
+            Yes.Visibility = Visibility.Hidden;
             addPatient.Visibility = Visibility.Hidden;
             PatientListScrollViewer.Visibility = Visibility.Visible;
             m_patientDatabase.AddPatient(p);
@@ -749,6 +751,7 @@ namespace CPSC481Project
             apemailField.Text = "";
             apaddrField.Text = "";
             recentLabel.Content = "Recent Patients:";
+            recentRec.Fill = (SolidColorBrush)Application.Current.Resources["RecentPatient"];
         }
 
         public AppointmentDatabase NewAppointmentClicked(DateTime datetime, String doc)

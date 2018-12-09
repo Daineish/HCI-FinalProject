@@ -7,5 +7,7 @@
         <SolidColorBrush x:Key="DrLeeMain" Color="#FFEA8E7A"/>
         <SolidColorBrush x:Key="DrPayneMain" Color="#FF5AAA7E"/>
         <SolidColorBrush x:Key="DrWalterMain" Color="#FF6767FF"/>
+        <SolidColorBrush x:Key="AddPatient" Color="#F3B045"/>
+        <SolidColorBrush x:Key="RecentPatient" Color="#94D0CE"/>
     </Application.Resources>
 </Application>
