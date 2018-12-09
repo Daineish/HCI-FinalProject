@@ -26,43 +26,29 @@ namespace CPSC481Project
     public partial class MonthlyViewControl : UserControl
     {
         private List<Vacation> _myAppointmentsList = new List<Vacation>();
-        private static String m_vacationFile = "./Vacations.txt";
         //public MonthViewHeader aptCalendar = new MonthViewHeader();
 
 
-        public MonthlyViewControl()
+        public MonthlyViewControl(VacationDatabase vd)
         {
             InitializeComponent();
             aptCalendar.DisplayMonthChanged += DisplayMonthChanged;
             aptCalendar.DayBoxDoubleClicked += DayBoxDoubleClicked_event;
             aptCalendar.AppointmentDblClicked += AppointmentDblClicked;
             //this.MonthlyViewGrid.Children.Add(aptCalendar);
-            Random rand = new Random(DateTime.Now.Second);
 
-            if (!File.Exists(m_vacationFile))
+            List<Vacation> temp = new List<Vacation>();
+            foreach(Vacation v in vd.m_vacationList)
             {
-                // idk if this is necessary because idk how files work in C#.
-                File.Create(m_vacationFile).Close();
+                temp.Add(v);
             }
-
-            StreamReader vacationFile = File.OpenText(m_vacationFile);
-
-            JsonSerializer serializer = new JsonSerializer();
-            List<Vacation> temp = (List<Vacation>)(serializer.Deserialize(vacationFile, typeof(List<Vacation>)));
-            if (temp == null)
+            foreach(Vacation v in temp)
             {
-                temp = new List<Vacation>();
-            }
-            else
-            {
-                foreach(Vacation v in temp)
+                DateTime dt = v.m_startDate;
+                while(DateTime.Compare(dt, v.m_endDate) < 0)
                 {
-                    DateTime dt = v.m_startDate;
-                    while(DateTime.Compare(dt, v.m_endDate) < 0)
-                    {
-                        _myAppointmentsList.Add(new Vacation(v.m_doctor, v.m_startDate, v.m_endDate, dt));
-                        dt = dt.AddDays(1);
-                    }
+                    _myAppointmentsList.Add(new Vacation(v.m_doctor, v.m_startDate, v.m_endDate, dt));
+                    dt = dt.AddDays(1);
                 }
             }
 
@@ -83,67 +69,81 @@ namespace CPSC481Project
             w.MonthViewToDayView(e.StartDate.GetValueOrDefault());
         }
 
-        private void AppointmentDblClicked(String doc, DateTime start, DateTime end)
+        public void AppointmentDblClicked(String doc, DateTime start, DateTime end)
         {
-            //EditVacation form = new EditVacation();
-            //form.SetInfo(doc, start, end);
-            //form.ShowDialog();
-            //if (form.m_delete)
-            //{
-            //    List<Vacation> v1 = null;
-            //    DateTime cur = start;
-            //    foreach(Vacation v in _myAppointmentsList)
-            //    {
-            //        if(v.m_doctor == doc && v.m_startDate == start && v.m_endDate == end)
-            //        {
-            //            v1 = v;
-            //            break;
-            //        }
-            //    }
-            //    if (v1 == null)
-            //    {
-            //        // messagebox error
-            //        MessageBox.Show("Error: Could not delete appointment.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            //    }
-            //    else
-            //    {
-            //        _myAppointmentsList.Remove(v1); // and remove from database in MainWindow...?
-            //        // success msg?
-            //        // update view
-            //        MessageBox.Show("Appointment deleted.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-            //        SetAppointments();
-            //    }
-            //}
-            //else if (form.m_changed)
-            //{
-            //    // edit appointment
-            //    Vacation v1 = null;
-            //    foreach (Vacation v in _myAppointmentsList)
-            //    {
-            //        if (v.m_doctor == doc && v.m_startDate == start && v.m_endDate == end)
-            //        {
-            //            v1 = v;
-            //            break;
-            //        }
-            //    }
-            //    if (v1 == null)
-            //    {
-            //        MessageBox.Show("Error: Could not edit appointment.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            //        // messagebox error
-            //    }
-            //    else
-            //    {
-                    
-            //        v1.m_startDate = form.m_startDate;
-            //        v1.m_endDate = form.m_startDate;
-            //        v1.m_doctor = form.m_doctor;
-            //        // edit database in MainWindow...
-            //        // success msg?
-            //        // update view
-            //        MessageBox.Show("Appointment changed.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-            //        SetAppointments();
-            //    }
-            //}
+            Grid g2 = (Grid)(this.Parent);
+            MainWindow w = (MainWindow)(g2.Parent);
+
+            EditVacation form = new EditVacation();
+            form.SetInfo(doc, start, end);
+            form.ShowDialog();
+            if (form.m_delete)
+            {
+                List<Vacation> v1 = new List<Vacation>();
+                DateTime cur = start;
+                foreach (Vacation v in _myAppointmentsList)
+                {
+                    if (v.m_doctor == doc && DateTime.Compare(v.m_startDate, start) >= 0 && DateTime.Compare(v.m_endDate, end) <=0)
+                    {
+                        v1.Add(v);
+                    }
+                }
+                if (v1.Count() == 0)
+                {
+                    // messagebox error
+                    MessageBox.Show("Error: Could not delete appointment.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                else
+                {
+                    foreach (Vacation v in v1)
+                    {
+                        _myAppointmentsList.Remove(v); // and remove from database in MainWindow...?
+                        w.m_vacationDatabase.RemoveVacation(v);
+                    }
+                    // success msg?
+                    // update view
+                    MessageBox.Show("Appointment deleted.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                    SetAppointments();
+                }
+            }
+            else if (form.m_changed)
+            {
+                // edit appointment
+                List<Vacation> v1 = new List<Vacation>();
+                foreach (Vacation v in _myAppointmentsList)
+                {
+                    if (v.m_doctor == doc && DateTime.Compare(v.m_startDate, start) >= 0 && DateTime.Compare(v.m_endDate, end) <= 0)
+                    {
+                        v1.Add(v);
+                    }
+                }
+                if (v1.Count() == 0)
+                {
+                    MessageBox.Show("Error: Could not edit appointment.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    // messagebox error
+                }
+                else
+                {
+                    foreach (Vacation v in v1)
+                    {
+                        _myAppointmentsList.Remove(v);
+                        w.m_vacationDatabase.RemoveVacation(v);
+                    }
+                    w.m_vacationDatabase.AddVacation(new Vacation(form.m_doctor, form.m_startDate, form.m_endDate));
+
+                    DateTime dt = form.m_startDate;
+                    while (DateTime.Compare(dt, form.m_endDate) < 0)
+                    {
+                        _myAppointmentsList.Add(new Vacation(form.m_doctor, form.m_startDate, form.m_endDate, dt));
+                        dt = dt.AddDays(1);
+                    }
+                    // edit database in MainWindow...
+                    // success msg?
+                    // update view
+                    MessageBox.Show("Appointment changed.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                    SetAppointments();
+                }
+            }
         }
 
         private void DisplayMonthChanged(MonthChangedEventArgs e)

@@ -17,6 +17,7 @@ namespace CPSC481Project
         public bool m_changed { get; set; }
         public String m_doctor { get; set; }
         public DateTime m_startDate { get; set; }
+        public DateTime m_endDate { get; set; }
         public EditVacation()
         {
             InitializeComponent();
@@ -30,6 +31,7 @@ namespace CPSC481Project
             m_changed = true;
             m_doctor = doctorComboBox.Text;
             m_startDate = startTimePicker.Value;
+            m_endDate = endTimePicker.Value;
 
             Close();
         }

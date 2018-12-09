@@ -46,7 +46,7 @@ namespace CPSC481Project
         Boolean selectedMode;
         PatientDatabase m_patientDatabase;
         AppointmentDatabase m_appointmentDatabase;
-        VacationDatabase m_vacationDatabase;
+        public VacationDatabase m_vacationDatabase { get; set; }
         DayViewControl m_dayViewControl;
         MonthlyViewControl m_monthlyViewControl;
 
@@ -585,7 +585,7 @@ namespace CPSC481Project
             }
 
             //dashboard.Visibility = Visibility.Hidden;
-            m_monthlyViewControl = new MonthlyViewControl();
+            m_monthlyViewControl = new MonthlyViewControl(m_vacationDatabase);
             m_monthlyViewControl.Visibility = Visibility.Visible;
             MainGrid.Children.Add(m_monthlyViewControl);
             Grid.SetRow(m_monthlyViewControl, 0);
@@ -623,7 +623,7 @@ namespace CPSC481Project
                 filterDoctor.Visibility = Visibility.Visible;
             }
 
-            m_monthlyViewControl = new MonthlyViewControl();
+            m_monthlyViewControl = new MonthlyViewControl(m_vacationDatabase);
             m_monthlyViewControl.Visibility = Visibility.Visible;
             MainGrid.Children.Add(m_monthlyViewControl);
             Grid.SetRow(m_monthlyViewControl, 0);

@@ -12,7 +12,7 @@ using Microsoft.Win32;
 
 namespace CPSC481Project
 {
-    class VacationDatabase
+    public class VacationDatabase
     {
         private static String m_vacationFile = "./Vacations.txt";
         JsonSerializer m_serializer;
@@ -55,17 +55,16 @@ namespace CPSC481Project
         // not implemented yet
         public Boolean RemoveVacation(Vacation v)
         {
-            Console.WriteLine("Remove vacations is not implemented yet!");
             Boolean rv = false;
-            //foreach (Vacation v1 in m_vacationList)
-            //{
-            //    if (v.m_doctor == v1.m_doctor)
-            //    {
-            //        m_vacationList.Remove(p);
-            //        rv = true;
-            //        break;
-            //    }
-            //}
+            foreach (Vacation v1 in m_vacationList)
+            {
+                if (v.m_doctor == v1.m_doctor && v.m_startDate == v1.m_startDate && v.m_endDate == v1.m_endDate)
+                {
+                    m_vacationList.Remove(v1);
+                    rv = true;
+                    break;
+                }
+            }
             return rv;
         }
 

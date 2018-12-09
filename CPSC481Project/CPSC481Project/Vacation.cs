@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CPSC481Project
 {
-    class Vacation
+    public class Vacation
     {
         public String m_doctor { get; set; }
         public DateTime m_startDate { get; set; }
