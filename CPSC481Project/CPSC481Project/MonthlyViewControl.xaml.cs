@@ -137,9 +137,7 @@ namespace CPSC481Project
                         _myAppointmentsList.Add(new Vacation(form.m_doctor, form.m_startDate, form.m_endDate, dt));
                         dt = dt.AddDays(1);
                     }
-                    // edit database in MainWindow...
-                    // success msg?
-                    // update view
+
                     MessageBox.Show("Appointment changed.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                     SetAppointments();
                 }
@@ -154,9 +152,6 @@ namespace CPSC481Project
         
         public void SetAppointments()
         {
-            // -- Use whatever function you want to load the MonthAppointments list, I happen to have a list filled by linq that has
-            // many (possibly the past several years) of them loaded, so i filter to only pass the ones showing up in the displayed
-            // month.  Note that the "setter" for MonthAppointments also triggers a redraw of the display.
             Predicate<Vacation> aptFind = delegate(Vacation apt)
             {
                 //int temp = aptCal.DisplayStartDate.Month;
@@ -198,6 +193,32 @@ namespace CPSC481Project
             Grid g2 = (Grid)(this.Parent);
             MainWindow w = (MainWindow)(g2.Parent);
             w.MonthViewToDayView(DateTime.Today);
+        }
+
+        public void NewVacationWindow(String doc)
+        {
+            Grid g2 = (Grid)(this.Parent);
+            MainWindow w = (MainWindow)(g2.Parent);
+
+            AddVacation form = new AddVacation();
+            form.SetInfo(doc);
+            form.ShowDialog();
+
+            if (form.m_add)
+            {
+                // add appointment
+                w.m_vacationDatabase.AddVacation(new Vacation(form.m_doctor, form.m_startDate, form.m_endDate));
+
+                DateTime dt = form.m_startDate;
+                while (DateTime.Compare(dt, form.m_endDate) < 0)
+                {
+                    _myAppointmentsList.Add(new Vacation(form.m_doctor, form.m_startDate, form.m_endDate, dt));
+                    dt = dt.AddDays(1);
+                }
+
+                MessageBox.Show("Appointment added.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                SetAppointments();
+            }
         }
     }
 }

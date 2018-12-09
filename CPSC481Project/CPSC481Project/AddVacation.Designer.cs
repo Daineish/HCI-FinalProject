@@ -1,6 +1,6 @@
 ﻿namespace CPSC481Project
 {
-    partial class EditVacation
+    partial class AddVacation
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,6 @@
         {
             this.button1 = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
-            this.deleteButton = new System.Windows.Forms.Button();
             this.doctorLabel = new System.Windows.Forms.Label();
             this.startTimeLabel = new System.Windows.Forms.Label();
             this.doctorComboBox = new System.Windows.Forms.ComboBox();
@@ -60,17 +59,6 @@
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
-            // 
-            // deleteButton
-            // 
-            this.deleteButton.AccessibleDescription = "deleteButton";
-            this.deleteButton.Location = new System.Drawing.Point(153, 206);
-            this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(65, 23);
-            this.deleteButton.TabIndex = 2;
-            this.deleteButton.Text = "Delete";
-            this.deleteButton.UseVisualStyleBackColor = true;
-            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // doctorLabel
             // 
@@ -133,7 +121,7 @@
             this.endTimePicker.TabIndex = 10;
             this.endTimePicker.ValueChanged += new System.EventHandler(this.endTimePicker_ValueChanged);
             // 
-            // EditVacation
+            // AddVacation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -144,11 +132,10 @@
             this.Controls.Add(this.doctorComboBox);
             this.Controls.Add(this.startTimeLabel);
             this.Controls.Add(this.doctorLabel);
-            this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.button1);
-            this.Name = "EditVacation";
-            this.Text = "Edit Vacation";
+            this.Name = "AddVacation";
+            this.Text = "Add Vacation";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -158,7 +145,6 @@
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button cancelButton;
-        private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Label doctorLabel;
         private System.Windows.Forms.Label startTimeLabel;
         private System.Windows.Forms.ComboBox doctorComboBox;

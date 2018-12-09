@@ -630,6 +630,7 @@ namespace CPSC481Project
             Grid.SetColumn(m_monthlyViewControl, 1);
             Grid.SetRowSpan(m_monthlyViewControl, 3);
             m_monthlyViewControl.SetAppointments();
+            m_monthlyViewControl.NewVacationWindow(drName);
         }
 
         private void ToDayView_MouseLeftButtonUp(object sender, RoutedEventArgs e)
