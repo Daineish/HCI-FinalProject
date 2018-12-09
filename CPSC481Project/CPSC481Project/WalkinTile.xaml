@@ -30,7 +30,7 @@
     </UserControl.Resources>
     <Grid>
         <Rectangle x:Name="tile" Fill="#FFEFDCF3" Stroke="#FFAC99B0" Margin="0,10,5.167,10" RadiusY="16.5" RadiusX="16.5" StrokeThickness="3"/>
-        <Button x:Name="deleteButton" Content="Button" Margin="120.628,21,37.872,123" Style="{DynamicResource ButtonStyle1}" Click="OnDeleteButton" Cursor="Hand"/>
+        <Button x:Name="deleteButton" Content="Button" Margin="120.628,21,37.872,123" Style="{DynamicResource ButtonStyle1}" Click="OnDeleteButton" MouseUp="OnDeleteButton" Cursor="Hand"/>
         <Label x:Name="NameLabel" Content="..." HorizontalAlignment="Center" Margin="2.584,44.5,5.167,0" VerticalAlignment="Top" Width="169.249" FontSize="16" Height="72.365" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold"/>
         <Label x:Name = "HCLabel" Content="..." HorizontalAlignment="Left" Margin="64.872,115.333,0,0" VerticalAlignment="Top" Width="102.77"/>
         <Label x:Name="name_Copy" Height="32.433" Width="77" HorizontalAlignment="Center" VerticalAlignment="Center" Background="{x:Null}" BorderBrush="#FFAC99B0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,112.43,100,17.637" Content="HC#:" FontSize="14" FontWeight="Bold"/>
