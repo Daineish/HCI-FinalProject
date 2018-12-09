@@ -27,6 +27,7 @@ namespace CPSC481Project
 
         public DayViewControl(AppointmentDatabase a)
         {
+            
             InitializeComponent();
             DataTable dt = new DataTable();
             dt.Columns.Add();
@@ -43,6 +44,22 @@ namespace CPSC481Project
             m_day = day;
             currentDate.Content = m_day.ToString("dddd MMMM d, yyyy");
             Console.WriteLine(miniCalendar.SelectedDate);
+            //Setting proper Dayview Offset
+            //Console.WriteLine(DateTime.Now.ToString("dddd MMMM d, yyyy"));
+            //Console.WriteLine(currentDate.Content);
+            int offset = 8;
+            if ((DateTime.Now.TimeOfDay.Hours - offset < 10) && (currentDate.Content.ToString() == DateTime.Now.ToString("dddd MMMM d, yyyy")))
+            {
+                int val = DateTime.Now.TimeOfDay.Hours - offset;
+                dvScrollView.ScrollToVerticalOffset(val * 216);
+            }
+            else
+            {
+                dvScrollView.ScrollToVerticalOffset(0);
+            }
+
+
+            //--------
             m_appointmentDatabase = ad;
             UpdateDayWithAppointments();
         }
@@ -327,9 +344,24 @@ namespace CPSC481Project
             DateTime date1 = new DateTime(year,month, day, 12, 0,0);
 
             currentDate.Content = date1.ToString("dddd MMMM d, yyyy");
-            
+            //Scrollview Position
+            int offset = 8;
+            if ((DateTime.Now.TimeOfDay.Hours - offset < 10) && (currentDate.Content.ToString() == DateTime.Now.ToString("dddd MMMM d, yyyy")))
+            {
+                int val = DateTime.Now.TimeOfDay.Hours - offset;
+                dvScrollView.ScrollToVerticalOffset(val * 216);
+            }
+            else
+            {
+                dvScrollView.ScrollToVerticalOffset(0);
+            }
+            //ScrollView Position
+
             UpdateDayWithAppointments();
-            
+
+
+
+
         }
 
         private void StackPanel_MouseUp(object sender, MouseButtonEventArgs e)

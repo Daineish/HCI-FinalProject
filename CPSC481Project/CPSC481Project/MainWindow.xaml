@@ -59,12 +59,12 @@
                 <Image x:Name="ToDayView" Source="/images/calDayView.png" Height="61" RenderTransformOrigin="0.5,0.5" Margin="0,32,6,18"
                    MouseLeftButtonUp="ToDayView_MouseLeftButtonUp" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75" Cursor="Hand" ToolTip="Go to daily view"/>
             </StackPanel>
-            <Label x:Name="DashDate" Content="December 10th, 2018&#xA; " Margin="200,0,0,0" HorizontalAlignment="Center" Height="63" VerticalAlignment="Top" Width="671" FontSize="48" Grid.Row="0" Grid.ColumnSpan="3"/>
-            <Label x:Name="DashTime" Content="" HorizontalAlignment="Center" Height="74" VerticalAlignment="Top" Width="630" FontSize="48" Margin="300,63,0,0" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3"/>
+            <Label x:Name="DashDate" Content="December 10th, 2018&#xA; " HorizontalAlignment="Center" Height="63" VerticalAlignment="Top" Width="1087" FontSize="48" Grid.Row="0" Grid.ColumnSpan="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label x:Name="DashTime" Content="" HorizontalAlignment="Center" Height="74" VerticalAlignment="Top" Width="1087" FontSize="48" Margin="0,63,0,0" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
             <local:DrWalterTileControl x:Name="DoctorWalterTile" Margin="0,0,0,0" Grid.Row="1" Grid.Column="0"/>
             <local:DrLeeTileControl x:Name="DoctorLeeTile" Margin="0,0,0,0" Grid.Column="1" Grid.Row="1"/>
             <local:DrPayneTileControl x:Name="DoctorPayneTile" Margin="0,0,0,0" Grid.Column="2" Grid.Row="1"/>
-            <Image x:Name="clinicLogo" Source="images/clinicLogo.png" Height="138" Margin="150,0,0,0" VerticalAlignment="Center" Grid.Column="2" Grid.Row="0">
+            <Image x:Name="clinicLogo" Source="images/clinicLogo.png" Height="138" Margin="150,20.605,0,435.974" VerticalAlignment="Center" Grid.Column="2" Grid.Row="0" Grid.RowSpan="2">
                 <Image.OpacityMask>
                     <ImageBrush ImageSource="images/clinicLogo.png"/>
                 </Image.OpacityMask>
@@ -77,8 +77,8 @@
                 </ListBox.ItemsPanel>
 
             </ListBox>
-            <Image x:Name="addWalkInButton" Source="/Images/addButton.png" MouseLeftButtonUp="WalkInClicked" HorizontalAlignment="Right" VerticalAlignment="Top" Width="54.927" Margin="0,0,60,0" Height="51.401" Grid.Column="2" Grid.Row="2" Cursor="Hand" ToolTip="Add walk-in appointment"/>
-            <Label Grid.Column="0" Content="Walk-In Queue" HorizontalAlignment="Left" Height="60" Margin="62,0,0,0" VerticalAlignment="Top" Width="300" FontSize="36" Grid.Row="2"/>
+            <Label Grid.Column="0" Content="Walk-In Queue" HorizontalAlignment="Left" Height="60" Margin="58,0,0,0" VerticalAlignment="Top" Width="299.5" FontSize="36" Grid.Row="2"/>
+            <Image x:Name="addWalkInButton" Source="/Images/addButton.png" MouseLeftButtonUp="WalkInClicked" HorizontalAlignment="Right" VerticalAlignment="Top" Width="45.844" Margin="0,11.5,3.906,0" Height="42.901" Grid.Row="2" Cursor="Hand" ToolTip="Add walk-in appointment"/>
         </Grid>
         <ScrollViewer Grid.Column="0" x:Name="PatientListScrollViewer" HorizontalAlignment="Stretch" Height="702" Margin="0,157,0,0" VerticalAlignment="Top" Width="auto" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto">
             <StackPanel x:Name="PatientListStackPanel" Height="Auto" Width="Auto" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -119,12 +119,12 @@
             <TextBlock x:Name="apnameLbl_Copy13" HorizontalAlignment="Left" Height="31" Margin="16,278,0,0" TextWrapping="Wrap" Text="Additional Notes:" VerticalAlignment="Top" Width="149.5" FontSize="18"/>
             <TextBox x:Name="apaddField1" HorizontalAlignment="Left" Height="226" Margin="10,314,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="325" FontSize="18"/>
             <TextBlock x:Name="warning1" HorizontalAlignment="Left" Height="36" Margin="176.5,683.5,0,0" TextWrapping="Wrap" Text="Are you sure?" VerticalAlignment="Top" Width="205.5" FontSize="24" Foreground="Red" Visibility="Hidden"/>
-            <TextBlock x:Name="dPatientname" HorizontalAlignment="Left" Height="31" Margin="135,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="18"/>
-            <TextBlock x:Name="dPatientlname" HorizontalAlignment="Left" Height="31" Margin="135,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="18"/>
-            <TextBlock x:Name="dPatientHC" HorizontalAlignment="Left" Height="31" Margin="135,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="18"/>
-            <TextBlock x:Name="dPatientaddr" HorizontalAlignment="Left" Height="31" Margin="135,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="18"/>
-            <TextBlock x:Name="dPatientpn" HorizontalAlignment="Left" Height="31" Margin="135,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="18"/>
-            <TextBlock x:Name="dPatientemail" HorizontalAlignment="Left" Height="31" Margin="135,242,0,0" TextWrapping="WrapWithOverflow" VerticalAlignment="Top" Width="200" FontSize="18"/>
+            <TextBlock x:Name="dPatientname" HorizontalAlignment="Left" Height="31" Margin="135,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="18" FontWeight="Bold"/>
+            <TextBlock x:Name="dPatientlname" HorizontalAlignment="Left" Height="31" Margin="135,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="18" FontWeight="Bold"/>
+            <TextBlock x:Name="dPatientHC" HorizontalAlignment="Left" Height="31" Margin="135,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="18" FontWeight="Bold"/>
+            <TextBlock x:Name="dPatientaddr" HorizontalAlignment="Left" Height="31" Margin="135,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="18" FontWeight="Bold"/>
+            <TextBlock x:Name="dPatientpn" HorizontalAlignment="Left" Height="31" Margin="135,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="18" FontWeight="Bold"/>
+            <TextBlock x:Name="dPatientemail" HorizontalAlignment="Left" Height="31" Margin="135,242,0,0" TextWrapping="WrapWithOverflow" VerticalAlignment="Top" Width="200" FontSize="18" FontWeight="Bold"/>
             <TextBox x:Name="dPatientnameBox" HorizontalAlignment="Left" Height="31" Margin="135,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="18" Visibility="Hidden"/>
             <TextBox x:Name="dPatientlnameBox" HorizontalAlignment="Left" Height="31" Margin="135,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="18" Visibility="Hidden"/>
             <TextBox x:Name="dPatientHCBox" HorizontalAlignment="Left" Height="31" Margin="135,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="18" Visibility="Hidden"/>
