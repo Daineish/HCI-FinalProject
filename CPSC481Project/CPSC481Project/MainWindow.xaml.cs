@@ -739,7 +739,6 @@ namespace CPSC481Project
             recentRec.Fill = (SolidColorBrush) Application.Current.Resources["AddPatient"];
             PatientListScrollViewer.Visibility = Visibility.Hidden;
             this.addPatient.Visibility = Visibility.Visible;
-            InitAddPatientTextfields();
         }
 
         private void patientaddConfirm(object sender, RoutedEventArgs e)
@@ -756,17 +755,8 @@ namespace CPSC481Project
             String email = apemailField.Text;
             String addr = apaddrField.Text;
 
-            if (newName != "" && newLname != "" && newHC != "" && newPhone != "" && email != "" && addr != "")
-            {
-                PatientListScrollViewer.Visibility = Visibility.Hidden;
-                //confirmBtn.Visibility = Visibility.Hidden;
-                Yes.Visibility = Visibility.Visible;
-                warning.Visibility = Visibility.Visible;
-                warning.Text = "Are you sure?";
-
-            }
             //Add error check for names (letters only)
-            else if (!IsLettersOnly(newName) || !IsLettersOnly(newLname))
+            if (!IsLettersOnly(newName) || !IsLettersOnly(newLname))
             {
                 warning.Text = "Please ensure that names only contain letters";
                 warning.Visibility = Visibility.Visible;
@@ -777,15 +767,24 @@ namespace CPSC481Project
                 warning.Text = "Please ensure that the Health Care # only contains digits";
                 warning.Visibility = Visibility.Visible;
             }
-            else if (!IsDigitsOnly(newPhone))
-            {
-                warning.Text = "Please ensure that the phone number only contains digits";
-                warning.Visibility = Visibility.Visible;
-            }
+            //else if (!IsDigitsOnly(newPhone))
+            //{
+            //    warning.Text = "Please ensure that the phone number only contains digits";
+            //    warning.Visibility = Visibility.Visible;
+            //}
             else if (newName == "" || newLname == "" || newHC == "" || newPhone == "" || email == "" || addr == "")
             {
                 warning.Text = "Please ensure all required fields are completed.";
                 warning.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                PatientListScrollViewer.Visibility = Visibility.Hidden;
+                //confirmBtn.Visibility = Visibility.Hidden;
+                Yes.Visibility = Visibility.Visible;
+                warning.Visibility = Visibility.Visible;
+                warning.Text = "Are you sure?";
+
             }
         }
 
@@ -921,17 +920,7 @@ namespace CPSC481Project
                 MainGrid.Children.Remove(m_monthlyViewControl);
             // error handling?
         }
-		
-		//Initialize fields when opening the add patient window so users get an example
-        private void InitAddPatientTextfields()
-        {
-            apnameField.Text = "Jane";
-            aplnameField.Text = "Smith";
-            aphcField.Text = "00000";
-            apaddrField.Text = "12 University Dr";
-            apphoneField.Text = "(403) 123-4567";
-            apemailField.Text = "abc@abc.com";
-        }
+
 
         //Remove the example when user clicks into field
         private void ApnameField_GotFocus(object sender, RoutedEventArgs e)
