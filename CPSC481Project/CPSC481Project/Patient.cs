@@ -17,12 +17,12 @@ namespace CPSC481Project
         public String m_address { get; set; }
         public String m_email { get; set; }
         public String m_phoneNumber { get; set; }
-
+        public String m_prevDr { get; set; }
         public Patient()
         {
             // throw error
         }
-
+        //Constructor without prev doctor
         public Patient(String last, String first, String num, String addy, String email, String phone)
         {
             m_lastName = last;
@@ -32,7 +32,16 @@ namespace CPSC481Project
             m_email = email;
             m_phoneNumber = phone;
         }
-
+        public Patient(String last, String first, String num, String addy, String email, String phone, String prevDr)
+        {
+            m_lastName = last;
+            m_firstName = first;
+            m_hcNumber = num;
+            m_address = addy;
+            m_email = email;
+            m_phoneNumber = phone;
+            m_prevDr = prevDr;
+        }
         public Boolean MatchHealthCareNumber(String num)
         {
             // Doing String->num then compare is probably better.
@@ -51,7 +60,7 @@ namespace CPSC481Project
         public String GetAddress() { return m_address; }
         public String GetEmail() { return m_email; }
         public String GetPhone() { return m_phoneNumber; }
-
+        public String GetPrev() { return m_prevDr; }
         // Debug method to print patient info
         public void PrintPatientInfo()
         {

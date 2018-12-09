@@ -54,7 +54,12 @@ namespace CPSC481Project
             Patient pat = new Patient(last, first, num, addy, email, phone);
             m_patientList.Add(pat);
         }
-
+        //Constructor w/ previous doctor
+        public void AddPatient(String last, String first, String num, String addy, String email, String phone, String prevDr)
+        {
+            Patient pat = new Patient(last, first, num, addy, email, phone, prevDr);
+            m_patientList.Add(pat);
+        }
         public void AddPatient(Patient p)
         {
             // TODO: Exception Handling.
