@@ -195,9 +195,9 @@
             <TextBlock x:Name="apnameLbl_Copy9" HorizontalAlignment="Left" Height="31" Margin="16,170,0,0" TextWrapping="Wrap" Text="Address: " VerticalAlignment="Top" Width="72.5" FontSize="18"/>
             <TextBlock x:Name="apnameLbl_Copy10" HorizontalAlignment="Left" Height="31" Margin="16,206,0,0" TextWrapping="Wrap" Text="Phone:" VerticalAlignment="Top" Width="86.5" FontSize="18"/>
             <TextBlock x:Name="apnameLbl_Copy11" HorizontalAlignment="Left" Height="31" Margin="16,242,0,0" TextWrapping="Wrap" Text="Email:" VerticalAlignment="Top" Width="70.5" FontSize="18"/>
-            <TextBlock x:Name="apnameLbl_Copy12" HorizontalAlignment="Left" Height="31" Margin="16,10,0,0" TextWrapping="Wrap" Text="Patient Information:" VerticalAlignment="Top" Width="255.5" FontSize="18"/>
+            <TextBlock x:Name="apnameLbl_Copy12" HorizontalAlignment="Left" Height="31" Margin="16,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="255.5" FontSize="18"><Run FontWeight="Bold" Text="Patient Information:"/></TextBlock>
             <TextBlock x:Name="apnameLbl_Copy13" HorizontalAlignment="Left" Height="31" Margin="16,318,0,0" TextWrapping="Wrap" Text="Additional Notes:" VerticalAlignment="Top" Width="149.5" FontSize="18"/>
-            <TextBox x:Name="apaddField1" HorizontalAlignment="Left" Height="160" Margin="16,354,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="314" FontSize="18"/>
+            <TextBox x:Name="apaddField1" HorizontalAlignment="Left" Height="101.5" Margin="16,354,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="314" FontSize="18"/>
             <TextBlock x:Name="warning1" HorizontalAlignment="Left" Height="36" Margin="176.5,683.5,0,0" TextWrapping="Wrap" Text="Are you sure?" VerticalAlignment="Top" Width="205.5" FontSize="24" Foreground="Red" Visibility="Hidden"/>
             <TextBlock x:Name="dPatientname" HorizontalAlignment="Left" Height="31" Margin="135,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="18" FontWeight="Bold"/>
             <TextBlock x:Name="dPatientlname" HorizontalAlignment="Left" Height="31" Margin="135,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="18" FontWeight="Bold"/>
@@ -213,7 +213,7 @@
             <TextBox x:Name="dPatientpnBox" HorizontalAlignment="Left" Height="31" Margin="135,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="18" Visibility="Hidden"/>
             <TextBox x:Name="dPatientemailBox" HorizontalAlignment="Left" Height="31" Margin="135,242,0,0" TextWrapping="WrapWithOverflow" VerticalAlignment="Top" Width="200" FontSize="18" Visibility="Hidden"/>
             <TextBox x:Name="dPatientprevdrBox" HorizontalAlignment="Left" Height="31" Margin="155.167,278,0,0" TextWrapping="WrapWithOverflow" VerticalAlignment="Top" Width="179.833" FontSize="18" Visibility="Hidden"/>
-            <Button x:Name="editInfo" Content="Edit" HorizontalAlignment="Left" Height="46" Margin="208,523.03,0,0" VerticalAlignment="Top" Width="122
+            <Button x:Name="editInfo" Content="Edit" HorizontalAlignment="Left" Height="46" Margin="208,472.03,0,0" VerticalAlignment="Top" Width="122
                     " Cursor="Hand" Click="EditInfo_Click" RenderTransformOrigin="0.533,-0.315"/>
             <Button x:Name="editInfoYes" Content="Confirm" HorizontalAlignment="Left" Height="46" Margin="208,523.03,0,0" VerticalAlignment="Top" Width="122" Cursor="Hand" Click="EditInfoYes_Click" Visibility="Hidden"/>
             <Button x:Name="editInfoCancel" Content="Cancel" HorizontalAlignment="Left" Height="46" Margin="81,523.03,0,0" VerticalAlignment="Top" Width="122" Cursor="Hand" Click="EditInfoCancel_Click" Visibility="Hidden"/>
@@ -227,9 +227,9 @@
             <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="31" Margin="48.667,575.229,0,0" RadiusY="6.103" RadiusX="6.103" Stroke="Black" VerticalAlignment="Top" Width="223.875"/>
             <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="31" Margin="49,621.895,0,0" RadiusY="6.103" RadiusX="6.103" Stroke="Black" VerticalAlignment="Top" Width="223.542"/>
             <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="31" Margin="49,669.562,0,0" RadiusY="6.103" RadiusX="6.103" Stroke="Black" VerticalAlignment="Top" Width="223.875"/>
-            <CheckBox x:Name="paynecBox" Content="Dr. Payne" HorizontalAlignment="Left" Height="19" Margin="102.772,676.729,0,0" VerticalAlignment="Top" Width="115.29" FontSize="14" Checked="payneChecked" Unchecked="payneUnchecked" IsChecked="true"/>
-            <CheckBox x:Name="leecBox" Content="Dr. Lee" HorizontalAlignment="Left" Height="19" Margin="102.772,628.562,0,0" VerticalAlignment="Top" Width="115.29" FontSize="14" RenderTransformOrigin="0.491,0.482" Checked="leeChecked" Unchecked="leeUnchecked" IsChecked="true"/>
-            <CheckBox x:Name="waltercBox" Content="Dr. Walter" HorizontalAlignment="Left" Height="24" Margin="102.772,583.229,0,0" VerticalAlignment="Top" Width="115.29" FontSize="14" Checked="walterChecked" Unchecked="walterUnchecked" IsChecked="true"/>
+            <CheckBox x:Name="paynecBox" Content="Dr. Payne" HorizontalAlignment="Left" Height="19" Margin="102.772,676.729,0,0" VerticalAlignment="Top" Width="115.29" FontSize="14" Checked="payneChecked" Unchecked="payneUnchecked" IsChecked="true" FontWeight="Bold" Foreground="White"/>
+            <CheckBox x:Name="leecBox" Content="Dr. Lee" HorizontalAlignment="Left" Height="19" Margin="102.772,628.562,0,0" VerticalAlignment="Top" Width="115.29" FontSize="14" RenderTransformOrigin="0.491,0.482" Checked="leeChecked" Unchecked="leeUnchecked" IsChecked="true" FontWeight="Bold" Foreground="White"/>
+            <CheckBox x:Name="waltercBox" Content="Dr. Walter" HorizontalAlignment="Left" Height="24" Margin="102.772,583.229,0,0" VerticalAlignment="Top" Width="115.29" FontSize="14" Checked="walterChecked" Unchecked="walterUnchecked" IsChecked="true" FontWeight="Bold" Foreground="White"/>
 
         </Grid>
         <Grid  Grid.Column="0" x:Name="addAppointment" Margin="0,157,0,0" Visibility="Hidden">
