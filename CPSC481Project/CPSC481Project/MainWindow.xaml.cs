@@ -1055,14 +1055,18 @@ namespace CPSC481Project
 
             if (s != null)
             {
-                DateTime dt = DateTime.Parse(s);
+                try
+                {
+                    DateTime dt = DateTime.Parse(s);
 
-                m_dayViewControl = new DayViewControl(dt, m_appointmentDatabase);
-                MainGrid.Children.Add(m_dayViewControl);
-                Grid.SetRow(m_dayViewControl, 0);
-                Grid.SetColumn(m_dayViewControl, 1);
-                Grid.SetRowSpan(m_dayViewControl, 3);
-                m_dayViewControl.Visibility = Visibility.Visible;
+                    m_dayViewControl = new DayViewControl(dt, m_appointmentDatabase);
+                    MainGrid.Children.Add(m_dayViewControl);
+                    Grid.SetRow(m_dayViewControl, 0);
+                    Grid.SetColumn(m_dayViewControl, 1);
+                    Grid.SetRowSpan(m_dayViewControl, 3);
+                    m_dayViewControl.Visibility = Visibility.Visible;
+                }
+                catch (Exception ex) { /* probably because available time can't be parsed, just do nothing*/ }
             }
         }
     }
