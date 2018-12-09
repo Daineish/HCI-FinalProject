@@ -121,10 +121,10 @@ namespace CPSC481Project
 
             PopulateDefaultInfo();
 
-            //for walkinqueuelist
-            _walkinList.Add(new WalkinTile("John Doe", "12333", 1));
-            _walkinList.Add(new WalkinTile("John Deer", "33455", 2));
-            _walkinList.Add(new WalkinTile("Jane Deer", "33465", 3));
+            //for walkinqueuelist (fake data)
+            //_walkinList.Add(new WalkinTile("John Doe", "12333", 1));
+            //_walkinList.Add(new WalkinTile("John Deer", "33455", 2));
+            //_walkinList.Add(new WalkinTile("Jane Deer", "33465", 3));
 
 
             //walkinQueueList.DisplayMemberPath = "Name";//*
@@ -479,18 +479,28 @@ namespace CPSC481Project
                 TextBlock emailC = new TextBlock();
                 TextBlock phoneC = new TextBlock();
 
-                nameC.Text = p.GetLastName() + ", " + p.GetFirstName(); nameC.Height = 40; nameC.Margin = new Thickness(100, 5, 0, 0); nameC.Width = 230; nameC.FontSize = 18; nameC.FontWeight = FontWeights.Bold; nameC.HorizontalAlignment = HorizontalAlignment.Left; nameC.VerticalAlignment = VerticalAlignment.Top; nameC.TextTrimming = TextTrimming.CharacterEllipsis;
-                hcC.Text = p.GetHCNumber(); hcC.Height = 40; hcC.Margin = new Thickness(100, 45, 0, 0); hcC.Width = 230; hcC.FontSize = 18; hcC.FontWeight = FontWeights.Bold; hcC.HorizontalAlignment = HorizontalAlignment.Left; hcC.VerticalAlignment = VerticalAlignment.Top; hcC.TextTrimming = TextTrimming.CharacterEllipsis;
-                addyC.Text = p.GetAddress(); addyC.Height = 40; addyC.Margin = new Thickness(100, 85, 0, 0); addyC.Width = 230; addyC.FontSize = 18; addyC.FontWeight = FontWeights.Bold; addyC.HorizontalAlignment = HorizontalAlignment.Left; addyC.VerticalAlignment = VerticalAlignment.Top; addyC.TextTrimming = TextTrimming.CharacterEllipsis;
-                emailC.Text = p.GetEmail(); emailC.Height = 40; emailC.Margin = new Thickness(100, 125, 0, 0); emailC.Width = 230; emailC.FontSize = 18; emailC.FontWeight = FontWeights.Bold; emailC.HorizontalAlignment = HorizontalAlignment.Left; emailC.VerticalAlignment = VerticalAlignment.Top; emailC.TextTrimming = TextTrimming.CharacterEllipsis;
-                phoneC.Text = p.GetPhone(); phoneC.Height = 40; phoneC.Margin = new Thickness(100, 165, 0, 0); phoneC.Width = 230; phoneC.FontSize = 18; phoneC.FontWeight = FontWeights.Bold; phoneC.HorizontalAlignment = HorizontalAlignment.Left; phoneC.VerticalAlignment = VerticalAlignment.Top; phoneC.TextTrimming = TextTrimming.CharacterEllipsis;
+                nameC.Text = p.GetLastName() + ", " + p.GetFirstName(); nameC.Height = 40; nameC.Margin = new Thickness(100, 5, 0, 0); nameC.Width = 220; nameC.FontSize = 18; nameC.FontWeight = FontWeights.Bold; nameC.HorizontalAlignment = HorizontalAlignment.Left; nameC.VerticalAlignment = VerticalAlignment.Top; nameC.TextTrimming = TextTrimming.CharacterEllipsis;
+                hcC.Text = p.GetHCNumber(); hcC.Height = 40; hcC.Margin = new Thickness(100, 45, 0, 0); hcC.Width = 220; hcC.FontSize = 18; hcC.FontWeight = FontWeights.Bold; hcC.HorizontalAlignment = HorizontalAlignment.Left; hcC.VerticalAlignment = VerticalAlignment.Top; hcC.TextTrimming = TextTrimming.CharacterEllipsis;
+                addyC.Text = p.GetAddress(); addyC.Height = 40; addyC.Margin = new Thickness(100, 85, 0, 0); addyC.Width = 220; addyC.FontSize = 18; addyC.FontWeight = FontWeights.Bold; addyC.HorizontalAlignment = HorizontalAlignment.Left; addyC.VerticalAlignment = VerticalAlignment.Top; addyC.TextTrimming = TextTrimming.CharacterEllipsis;
+                emailC.Text = p.GetEmail(); emailC.Height = 40; emailC.Margin = new Thickness(100, 125, 0, 0); emailC.Width = 220; emailC.FontSize = 18; emailC.FontWeight = FontWeights.Bold; emailC.HorizontalAlignment = HorizontalAlignment.Left; emailC.VerticalAlignment = VerticalAlignment.Top; emailC.TextTrimming = TextTrimming.CharacterEllipsis;
+                phoneC.Text = p.GetPhone(); phoneC.Height = 40; phoneC.Margin = new Thickness(100, 165, 0, 0); phoneC.Width = 220; phoneC.FontSize = 18; phoneC.FontWeight = FontWeights.Bold; phoneC.HorizontalAlignment = HorizontalAlignment.Left; phoneC.VerticalAlignment = VerticalAlignment.Top; phoneC.TextTrimming = TextTrimming.CharacterEllipsis;
 
                 Rectangle r = new Rectangle();
-                r.Stroke = System.Windows.Media.Brushes.Black;
+                r.Stroke = System.Windows.Media.Brushes.LightGray;
                 r.HorizontalAlignment = HorizontalAlignment.Left;
                 r.VerticalAlignment = VerticalAlignment.Top;
-                r.Width = 422;
+                r.Width = 320;
                 r.Height = 245;
+                Thickness p_margin = new Thickness();
+                p_margin.Left = 2;
+                p_margin.Right = 45;
+                p_margin.Top = 2;
+                p_margin.Bottom = 2;
+                r.Margin = p_margin;
+                r.RadiusX = 16.5;
+                r.RadiusY = 16.5;
+                r.StrokeThickness = 3;
+
 
                 if (withButton)
                 {

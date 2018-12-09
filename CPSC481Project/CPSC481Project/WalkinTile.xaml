@@ -11,7 +11,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
-                        <Grid Margin="21,0,-21,0">
+                        <Grid Margin="0,0,-0,0">
                             <Path Width="18.012" VerticalAlignment="Top" StrokeThickness="3" Stroke="#FFAC99B0" Stretch="Fill" Height="17.513" HorizontalAlignment="Left" Fill="#FFEFDCF3" Data="M122,22 C138,37.5 136.99973,36.49984 136.99973,36.49984"/>
                             <Path Width="18" VerticalAlignment="Top" StrokeThickness="3" Stroke="#FFAC99B0" Stretch="Fill" Margin="0.5,0.5,0,0" Height="18" HorizontalAlignment="Left" Fill="#FFEFDCF3" Data="M137.5,22.5 L122.5,37.5"/>
                             <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Content=""/>
