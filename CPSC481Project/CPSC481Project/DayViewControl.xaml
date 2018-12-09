@@ -33,7 +33,7 @@
         <TextBlock Grid.Column="3" Grid.Row="1" HorizontalAlignment="Center" Height="36" Margin="0,0,0,0" TextWrapping="Wrap" Text="Dr. Payne" VerticalAlignment="Center" Width="auto" FontSize="24" FontWeight="Bold" Foreground="White"/>
         <TextBlock Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" Height="36" Margin="0,0,0,0" TextWrapping="Wrap" Text="Dr. Lee" VerticalAlignment="Center" Width="auto" FontSize="24" FontWeight="Bold" Foreground="White"/>
         <TextBlock Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" Height="36" Margin="0,0,0,0" TextWrapping="Wrap" Text="Dr. Walter" VerticalAlignment="Center" Width="auto" FontSize="24" FontWeight="Bold" Foreground="White"/>
-        <ScrollViewer Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="2" Height="auto" Margin="0,0,0,0" VerticalAlignment="Stretch" Width="auto" HorizontalAlignment="Stretch" Grid.RowSpan="1">
+        <ScrollViewer x:Name="dvScrollView" Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="2" Height="auto" Margin="0,0,0,0" VerticalAlignment="Stretch" Width="auto" HorizontalAlignment="Stretch" Grid.RowSpan="1">
             <StackPanel x:Name="DayViewStackPanelScroller" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                 <Grid x:Name="Hour8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                     <Grid.ColumnDefinitions>
