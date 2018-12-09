@@ -6,8 +6,10 @@
         xmlns:local="clr-namespace:CPSC481Project"
         mc:Ignorable="d"
         Title="Medical Appointment System" Height="900" Width="1440"
-        MinHeight="812.5"
-        MinWidth="1300">
+        MinHeight="900"
+        MaxHeight="900"
+        MaxWidth="1440"
+        MinWidth="1440">
     <Grid x:Name="MainGrid" Margin="0,0,0,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="345"/>
