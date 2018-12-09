@@ -22,9 +22,9 @@
         <Rectangle Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="6" Grid.RowSpan="3" x:Name="DayViewBackground" Fill="#FFF4F4F5" Height="auto" Width="auto" HorizontalAlignment="Stretch" Stroke="Black" VerticalAlignment="Stretch" Margin="0,0,0,0"/>
         <Rectangle Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="6" Fill="#FFF4F4F5" Height="auto" Stroke="Black" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="auto"/>
         <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="6" x:Name="currentDate" Content="December 10th, 2018" Height="auto" Margin="0,0,0,0" VerticalAlignment="Center" FontSize="36" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Width="auto"/>
-        <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Width="Auto">
-            <Image x:Name="ToDashboard" Source="/images/dashboard.png" Height="40" RenderTransformOrigin="0.5,0.5" Margin="10,15,0,18"
-                   MouseLeftButtonUp="ToDashboard_MouseLeftButtonUp" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Cursor="Hand"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Width="Auto">
+            <Image x:Name="ToDashboard" Source="Images/dashboard.png" Height="38" RenderTransformOrigin="0.5,0.5" Margin="10,15,0,18"
+                   MouseLeftButtonUp="ToDashboard_MouseLeftButtonUp" HorizontalAlignment="Center" VerticalAlignment="Center" Width="59" Cursor="Hand"/>
             <Image x:Name="ToMonthView" Source="/images/calMonView.png" Height="40" RenderTransformOrigin="0.5,0.5" Margin="0,13,6,18"
                    MouseLeftButtonUp="ToMonth_MouseLeftButtonUp" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Cursor="Hand"/>
         </StackPanel>

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static CPSC481Project.MainWindow;
 
 namespace CPSC481Project
 {
@@ -47,8 +48,13 @@ namespace CPSC481Project
         }
         private void OnDeleteButton(object sender, RoutedEventArgs e)
         {
-            ListBox a = (ListBox)(this.Parent);
-            a.Items.Remove(this);
+            Console.WriteLine("AASDFJLSDKFJ");
+            ListBox a = (ListBox) (this.Parent);
+
+            Grid a2 = (Grid)(a.Parent);
+            Grid a3 = (Grid)(a2.Parent);
+            MainWindow b = (MainWindow)(a3.Parent);
+            b.walkin_delete(this);
         }
 
         public void UpdatePosition(int count)

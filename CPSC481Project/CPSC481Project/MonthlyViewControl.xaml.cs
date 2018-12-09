@@ -166,15 +166,23 @@ namespace CPSC481Project
 
         private bool DoctorChecked(String doc)
         {
-            Grid g2 = (Grid)(this.Parent);
-            MainWindow w = (MainWindow)(g2.Parent);
-            if (doc == "Dr. Payne")
-                return w.paynecBox.IsChecked != null ? w.paynecBox.IsChecked.Value : false;
-            else if (doc == "Dr. Lee")
-                return w.leecBox.IsChecked != null ? w.leecBox.IsChecked.Value : false;
-            else if (doc == "Dr. Walter")
-                return w.waltercBox.IsChecked != null ? w.waltercBox.IsChecked.Value : false;
-            return false;
+            try
+            {
+                Grid g2 = (Grid)(this.Parent);
+                MainWindow w = (MainWindow)(g2.Parent);
+                if (doc == "Dr. Payne")
+                    return w.paynecBox.IsChecked != null ? w.paynecBox.IsChecked.Value : false;
+                else if (doc == "Dr. Lee")
+                    return w.leecBox.IsChecked != null ? w.leecBox.IsChecked.Value : false;
+                else if (doc == "Dr. Walter")
+                    return w.waltercBox.IsChecked != null ? w.waltercBox.IsChecked.Value : false;
+                return false;
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("Exception caught: " + e.Message);
+                return true;
+            }
         }
 
         private void ToDashboard_MouseLeftButtonUp(System.Object sender, MouseButtonEventArgs e)

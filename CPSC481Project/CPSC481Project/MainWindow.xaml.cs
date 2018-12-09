@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -57,7 +58,9 @@ namespace CPSC481Project
         Patient m_walterNext1;
         Patient m_walterNext2;
 
+        //for walkinqueue
         private int queuePosition = 0;
+        public ObservableCollection<WalkinTile> _walkinList = new ObservableCollection<WalkinTile>();
 
         public MainWindow()
         {
@@ -117,6 +120,20 @@ namespace CPSC481Project
             //randomPatientGenerator();
 
             PopulateDefaultInfo();
+
+            //for walkinqueuelist
+            _walkinList.Add(new WalkinTile("John Doe", "12333", 1));
+            _walkinList.Add(new WalkinTile("John Deer", "33455", 2));
+            _walkinList.Add(new WalkinTile("Jane Deer", "33465", 3));
+
+
+            //walkinQueueList.DisplayMemberPath = "Name";//*
+            walkinQueueList.ItemsSource = _walkinList;
+            Style itemContainerStyle = new Style(typeof(ListBoxItem));
+            itemContainerStyle.Setters.Add(new Setter(ListBoxItem.AllowDropProperty, true));
+            itemContainerStyle.Setters.Add(new EventSetter(ListBoxItem.PreviewMouseLeftButtonDownEvent, new MouseButtonEventHandler(walkinqueue_PreviewMouseMoveEvent)));
+            itemContainerStyle.Setters.Add(new EventSetter(ListBoxItem.DropEvent, new DragEventHandler(walkinqueue_Drop)));
+            walkinQueueList.ItemContainerStyle = itemContainerStyle;
         }
 
         /**
@@ -137,7 +154,7 @@ namespace CPSC481Project
                 if (i == 0 && pat != null)
                 {
                     this.DoctorPayneTile.npfullName.Content = app.m_startTime.ToString("t") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
-                    this.DoctorPayneTile.npfullName.MouseLeftButtonDown += NextPatientClicked;
+                    this.DoctorPayneTile.npfullName.MouseDoubleClick += NextPatientClicked;
                     this.DoctorPayneTile.npfullName.Cursor = Cursors.Hand;
                     
                     m_payneNext1 = pat;
@@ -145,7 +162,7 @@ namespace CPSC481Project
                 if (i == 1 && pat != null)
                 {
                     this.DoctorPayneTile.npfullName2.Content = app.m_startTime.ToString("t") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
-                    this.DoctorPayneTile.npfullName2.MouseLeftButtonDown += NextPatientClicked;
+                    this.DoctorPayneTile.npfullName2.MouseDoubleClick += NextPatientClicked;
                     this.DoctorPayneTile.npfullName2.Cursor = Cursors.Hand;
                     m_payneNext2 = pat;
                 }
@@ -157,14 +174,14 @@ namespace CPSC481Project
                 if (i == 0 && pat != null)
                 {
                     this.DoctorLeeTile.npfullName.Content = app.m_startTime.ToString("t") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
-                    this.DoctorLeeTile.npfullName.MouseLeftButtonDown += NextPatientClicked;
+                    this.DoctorLeeTile.npfullName.MouseDoubleClick += NextPatientClicked;
                     this.DoctorLeeTile.npfullName.Cursor = Cursors.Hand;
                     m_leeNext1 = pat;
                 }
                 if (i == 1 && pat != null)
                 {
                     this.DoctorLeeTile.npfullName2.Content = app.m_startTime.ToString("t") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
-                    this.DoctorLeeTile.npfullName2.MouseLeftButtonDown += NextPatientClicked;
+                    this.DoctorLeeTile.npfullName2.MouseDoubleClick += NextPatientClicked;
                     this.DoctorLeeTile.npfullName2.Cursor = Cursors.Hand;
                     m_leeNext2 = pat;
                 }
@@ -176,14 +193,14 @@ namespace CPSC481Project
                 if (i == 0 && pat != null)
                 {
                     this.DoctorWalterTile.npfullName.Content = app.m_startTime.ToString("t") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
-                    this.DoctorWalterTile.npfullName.MouseLeftButtonDown += NextPatientClicked;
+                    this.DoctorWalterTile.npfullName.MouseDoubleClick += NextPatientClicked;
                     this.DoctorWalterTile.npfullName.Cursor = Cursors.Hand;
                     m_walterNext1 = pat;
                 }
                 if (i == 1 && pat != null)
                 {
                     this.DoctorWalterTile.npfullName2.Content = app.m_startTime.ToString("t") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
-                    this.DoctorWalterTile.npfullName2.MouseLeftButtonDown += NextPatientClicked;
+                    this.DoctorWalterTile.npfullName2.MouseDoubleClick += NextPatientClicked;
                     this.DoctorWalterTile.npfullName2.Cursor = Cursors.Hand;
                     m_walterNext2 = pat;
                 }
@@ -211,20 +228,14 @@ namespace CPSC481Project
             List<String> availableLee = m_appointmentDatabase.AvailableTimes("Dr. Lee");
             List<String> availableWalter = m_appointmentDatabase.AvailableTimes("Dr. Walter");
 
-            this.DoctorPayneTile.availTime1.MouseLeftButtonDown += AvailableTimeClicked;
-            this.DoctorPayneTile.availTime1.Cursor = Cursors.Hand;
-            this.DoctorPayneTile.availTime2.MouseLeftButtonDown += AvailableTimeClicked;
-            this.DoctorPayneTile.availTime2.Cursor = Cursors.Hand;
+            this.DoctorPayneTile.availTime1.MouseDoubleClick += AvailableTimeClicked;
+            this.DoctorPayneTile.availTime2.MouseDoubleClick += AvailableTimeClicked;
 
-            this.DoctorLeeTile.availTime1.MouseLeftButtonDown += AvailableTimeClicked;
-            this.DoctorLeeTile.availTime1.Cursor = Cursors.Hand;
-            this.DoctorLeeTile.availTime2.MouseLeftButtonDown += AvailableTimeClicked;
-            this.DoctorLeeTile.availTime2.Cursor = Cursors.Hand;
+            this.DoctorLeeTile.availTime1.MouseDoubleClick += AvailableTimeClicked;
+            this.DoctorLeeTile.availTime2.MouseDoubleClick += AvailableTimeClicked;
 
-            this.DoctorWalterTile.availTime1.MouseLeftButtonDown += AvailableTimeClicked;
-            this.DoctorWalterTile.availTime1.Cursor = Cursors.Hand;
-            this.DoctorWalterTile.availTime2.MouseLeftButtonDown += AvailableTimeClicked;
-            this.DoctorWalterTile.availTime2.Cursor = Cursors.Hand;
+            this.DoctorWalterTile.availTime1.MouseDoubleClick += AvailableTimeClicked;
+            this.DoctorWalterTile.availTime2.MouseDoubleClick += AvailableTimeClicked;
 
             for (int i = 0; i < 2 && i < availablePayne.Count(); i++)
             {
@@ -232,27 +243,71 @@ namespace CPSC481Project
                 if (i == 0 && str != null)
                 {
                     this.DoctorPayneTile.availTime1.Content = str;
+                    if (str.Equals("No appointments scheduled."))
+                        {
+                        
+                        }
+                    else
+                        this.DoctorPayneTile.availTime1.Cursor = Cursors.Hand;
                 }
                 else if (i == 1 && str != null)
                 {
                     this.DoctorPayneTile.availTime2.Content = str;
+                    if (str.Equals("No appointments scheduled."))
+                    {
+
+                    }
+                    else
+                        this.DoctorPayneTile.availTime2.Cursor = Cursors.Hand;
                 }
             }
             for (int i = 0; i < 2 && i < availableLee.Count(); i++)
             {
                 String str = availableLee.ElementAt(i);
                 if (i == 0 && str != null)
+                {
                     this.DoctorLeeTile.availTime1.Content = str;
+                    if (str.Equals("No appointments scheduled."))
+                    {
+
+                    }
+                    else
+                        this.DoctorLeeTile.availTime1.Cursor = Cursors.Hand;
+                }
                 else if (i == 1 && str != null)
+                {
                     this.DoctorLeeTile.availTime2.Content = str;
+                    if (str.Equals("No appointments scheduled."))
+                    {
+
+                    }
+                    else
+                        this.DoctorLeeTile.availTime2.Cursor = Cursors.Hand;
+                }
             }
             for (int i = 0; i < 2 && i < availableWalter.Count(); i++)
             {
                 String str = availableWalter.ElementAt(i);
                 if (i == 0 && str != null)
+                {
                     this.DoctorWalterTile.availTime1.Content = str;
+                    if (str.Equals("No appointments scheduled."))
+                    {
+
+                    }
+                    else
+                        this.DoctorWalterTile.availTime1.Cursor = Cursors.Hand;
+                }
                 else if (i == 1 && str != null)
+                {
                     this.DoctorWalterTile.availTime2.Content = str;
+                    if (str.Equals("No appointments scheduled."))
+                    {
+
+                    }
+                    else
+                        this.DoctorWalterTile.availTime2.Cursor = Cursors.Hand;
+                }
             }
         }
 
@@ -505,8 +560,8 @@ namespace CPSC481Project
         {
             PatientListStackPanel.Children.Clear();
             //Set patient to null so we don't create another grid of the patient
-            m_currentPatient = null;
             PatientListStackPanel.Children.Add(CreateGrid(m_currentPatient, true, false));
+            m_currentPatient = null;
             selectedMode = false;
 
             if (m_recentPatientsShowing)
@@ -934,8 +989,62 @@ namespace CPSC481Project
             else
             {
                 queuePosition++;
-                walkinQueueList.Items.Add(new WalkinTile(m_currentPatient.m_firstName + " " + m_currentPatient.m_lastName, m_currentPatient.m_hcNumber, queuePosition));
+                WalkinTile t = new WalkinTile(m_currentPatient.m_firstName + " " + m_currentPatient.m_lastName, m_currentPatient.m_hcNumber, queuePosition);
+                Console.WriteLine("Hi");
+                //Console.WriteLine(t.getHC());
+                string text = "";
+                foreach(var item in walkinQueueList.Items)
+                {
+                    Console.WriteLine(item);
+
+                }
+
+                Console.WriteLine(text);
+
+                _walkinList.Add(t);
+                walkinQueueList.ItemsSource = _walkinList;
+                //walkinQueueList.Items.Add(t);
             }
+        }
+
+        private void walkinqueue_PreviewMouseMoveEvent(object sender, MouseButtonEventArgs e)
+        {
+            if (sender is ListBoxItem && e.LeftButton == MouseButtonState.Pressed)
+            {
+                ListBoxItem draggedItem = sender as ListBoxItem;
+                DragDrop.DoDragDrop(draggedItem, draggedItem.DataContext, DragDropEffects.Move);
+                draggedItem.IsSelected = true;
+            }
+        }
+
+        void walkinqueue_Drop(object sender, DragEventArgs e)
+        {
+            WalkinTile droppedData = e.Data.GetData(typeof(WalkinTile)) as WalkinTile;
+            WalkinTile target = ((ListBoxItem)(sender)).DataContext as WalkinTile;
+
+            int removedIdx = walkinQueueList.Items.IndexOf(droppedData);
+            int targetIdx = walkinQueueList.Items.IndexOf(target);
+
+            if (removedIdx < targetIdx)
+            {
+                _walkinList.Insert(targetIdx + 1, droppedData);
+                _walkinList.RemoveAt(removedIdx);
+            }
+            else
+            {
+                int remIdx = removedIdx + 1;
+                if (_walkinList.Count + 1 > remIdx)
+                {
+                    _walkinList.Insert(targetIdx, droppedData);
+                    _walkinList.RemoveAt(remIdx);
+                }
+            }
+        }
+
+        public void walkin_delete(WalkinTile a)
+        {
+            _walkinList.Remove(_walkinList.Where(i => i.HCLabel == a.HCLabel).Single());
+            walkinQueueList.ItemsSource = _walkinList;
         }
 
         public void MonthViewToDayView(DateTime d)
