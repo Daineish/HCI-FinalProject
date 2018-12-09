@@ -9,7 +9,9 @@
         MinHeight="900"
         MaxHeight="900"
         MaxWidth="1440"
-        MinWidth="1440">
+        MinWidth="1440"
+        Left="0"
+        Top="0">
     <Grid x:Name="MainGrid" Margin="0,0,0,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="345"/>
@@ -101,11 +103,83 @@
             <TextBlock x:Name="apnameLbl_Copy5" HorizontalAlignment="Left" Height="31" Margin="15,12,0,0" TextWrapping="Wrap" Text="Patient Information:" VerticalAlignment="Top" Width="255.5" FontSize="20" FontWeight="Bold"/>
             <TextBlock x:Name="apnameLbl_Copy6" HorizontalAlignment="Left" Height="31" Margin="18,278,0,0" TextWrapping="Wrap" Text="Additional Notes:" VerticalAlignment="Top" Width="149.5" FontSize="18"/>
             <TextBox x:Name="apnameField" HorizontalAlignment="Left" Height="31" Margin="146.833,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" FontSize="18" GotFocus="ApnameField_GotFocus"/>
+            <TextBlock Grid.Column="0" IsHitTestVisible="False" Text="Jane" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="146.833,62,0,0" FontSize ="18" Foreground="DarkGray" Height="31" Width="160">
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Visibility" Value="Collapsed"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Text, ElementName=apnameField}" Value="">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
             <TextBox x:Name="aplnameField" HorizontalAlignment="Left" Height="31" Margin="146.833,98,-52.833,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" FontSize="18" GotFocus="AplnameField_GotFocus"/>
+            <TextBlock Grid.Column="0" IsHitTestVisible="False" Text="Smith" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="146.833,98,0,0" FontSize ="18" Foreground="DarkGray" Height="31" Width="160">
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Visibility" Value="Collapsed"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Text, ElementName=aplnameField}" Value="">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
             <TextBox x:Name="aphcField" HorizontalAlignment="Left" Height="31" Margin="146.833,134,-52.833,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" FontSize="18" GotFocus="AphcField_GotFocus"/>
+            <TextBlock Grid.Column="0" IsHitTestVisible="False" Text="00000" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="146.833,134,0,0" FontSize ="18" Foreground="DarkGray" Height="31" Width="160">
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Visibility" Value="Collapsed"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Text, ElementName=aphcField}" Value="">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
             <TextBox x:Name="apaddrField" HorizontalAlignment="Left" Height="31" Margin="146.833,170,-52.833,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" FontSize="18" GotFocus="ApaddrField_GotFocus"/>
+            <TextBlock Grid.Column="0" IsHitTestVisible="False" Text="12 University Dr." VerticalAlignment="Top" HorizontalAlignment="Left" Margin="146.833,170,0,0" FontSize ="18" Foreground="DarkGray" Height="31" Width="160">
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Visibility" Value="Collapsed"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Text, ElementName=apaddrField}" Value="">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
             <TextBox x:Name="apphoneField" HorizontalAlignment="Left" Height="31" Margin="146.833,206,-52.833,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" FontSize="18" GotFocus="ApphoneField_GotFocus"/>
+            <TextBlock Grid.Column="0" IsHitTestVisible="False" Text="(403) 123-4567" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="146.833,206,0,0" FontSize ="18" Foreground="DarkGray" Height="31" Width="160">
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Visibility" Value="Collapsed"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Text, ElementName=apphoneField}" Value="">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
             <TextBox x:Name="apemailField" HorizontalAlignment="Left" Height="31" Margin="146.833,242,-52.833,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" FontSize="18" GotFocus="ApemailField_GotFocus"/>
+            <TextBlock Grid.Column="0" IsHitTestVisible="False" Text="abc@abc.com" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="146.833,242,0,0" FontSize ="18" Foreground="DarkGray" Height="31" Width="160">
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Visibility" Value="Collapsed"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Text, ElementName=apemailField}" Value="">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
             <TextBox x:Name="apaddField" Height="117.667" Margin="18,314,19.667,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18"/>
             <Button x:Name="confirmBtn" Content="Confirm" HorizontalAlignment="Left" Height="46" Margin="203.333,454.334,0,0" VerticalAlignment="Top" Width="122" Click="patientaddConfirm" Cursor="Hand" BorderBrush="#FF5AA139" Background="#FF5AA139" FontSize="20" FontWeight="Bold"/>
             <Button x:Name="cancelBtn" Content="Cancel" HorizontalAlignment="Left" Height="46" Margin="61,454.334,0,0" VerticalAlignment="Top" Width="122" Click="cancelClicked" Cursor="Hand" Background="#FFF34F4F" FontWeight="Bold" FontSize="20"/>

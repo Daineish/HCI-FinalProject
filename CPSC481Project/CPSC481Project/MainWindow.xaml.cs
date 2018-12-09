@@ -88,13 +88,13 @@ namespace CPSC481Project
             if (m_appointmentDatabase.NumAppointments() < 5)
             {
                 DateTime today = DateTime.Today;
-                TimeSpan ts = new TimeSpan(10, 0, 0);
+                TimeSpan ts = new TimeSpan(15, 0, 0);
                 today = today.Date + ts;
                 m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("00001"), "Dr. Walter", today, today.AddMinutes(10), "Appointment #1"));
-                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("12345"), "Dr. Payne", today.AddMinutes(30), today.AddMinutes(40), "Appointment #1"));
-                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("00002"), "Dr. Lee", today.AddDays(1), today.AddDays(1).AddMinutes(10), "Appointment #1"));
-                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("44444"), "Dr. Walter", today.AddHours(4), today.AddHours(4).AddMinutes(10), "Appointment #1"));
-                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("00001"), "Dr. Walter", today.AddMinutes(-20), today.AddMinutes(-10), "Appointment #1"));
+                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("12345"), "Dr. Payne", today.AddMinutes(30), today.AddMinutes(40), "Appointment #2"));
+                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("00002"), "Dr. Lee", today.AddDays(1), today.AddDays(1).AddMinutes(10), "Appointment #3"));
+                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("44444"), "Dr. Walter", today.AddHours(1), today.AddHours(4).AddMinutes(10), "Appointment #4"));
+                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("00001"), "Dr. Walter", today.AddMinutes(-20), today.AddMinutes(-10), "Appointment #5"));
             }
 
             if(m_vacationDatabase.NumVacations() < 3)
@@ -137,13 +137,16 @@ namespace CPSC481Project
                 if (i == 0 && pat != null)
                 {
                     this.DoctorPayneTile.npfullName.Content = app.m_startTime.ToString("hh:mm") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
-                    this.DoctorPayneTile.npfullName.MouseDoubleClick += NextPatientClicked;
+                    this.DoctorPayneTile.npfullName.MouseLeftButtonDown += NextPatientClicked;
+                    this.DoctorPayneTile.npfullName.Cursor = Cursors.Hand;
+                    
                     m_payneNext1 = pat;
                 }
                 if (i == 1 && pat != null)
                 {
                     this.DoctorPayneTile.npfullName2.Content = app.m_startTime.ToString("hh:mm") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
-                    this.DoctorPayneTile.npfullName2.MouseDoubleClick += NextPatientClicked;
+                    this.DoctorPayneTile.npfullName2.MouseLeftButtonDown += NextPatientClicked;
+                    this.DoctorPayneTile.npfullName2.Cursor = Cursors.Hand;
                     m_payneNext2 = pat;
                 }
             }
@@ -154,13 +157,15 @@ namespace CPSC481Project
                 if (i == 0 && pat != null)
                 {
                     this.DoctorLeeTile.npfullName.Content = app.m_startTime.ToString("hh:mm") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
-                    this.DoctorLeeTile.npfullName.MouseDoubleClick += NextPatientClicked;
+                    this.DoctorLeeTile.npfullName.MouseLeftButtonDown += NextPatientClicked;
+                    this.DoctorLeeTile.npfullName.Cursor = Cursors.Hand;
                     m_leeNext1 = pat;
                 }
                 if (i == 1 && pat != null)
                 {
                     this.DoctorLeeTile.npfullName2.Content = app.m_startTime.ToString("hh:mm") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
-                    this.DoctorLeeTile.npfullName2.MouseDoubleClick += NextPatientClicked;
+                    this.DoctorLeeTile.npfullName2.MouseLeftButtonDown += NextPatientClicked;
+                    this.DoctorLeeTile.npfullName2.Cursor = Cursors.Hand;
                     m_leeNext2 = pat;
                 }
             }
@@ -171,13 +176,15 @@ namespace CPSC481Project
                 if (i == 0 && pat != null)
                 {
                     this.DoctorWalterTile.npfullName.Content = app.m_startTime.ToString("hh:mm") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
-                    this.DoctorWalterTile.npfullName.MouseDoubleClick += NextPatientClicked;
+                    this.DoctorWalterTile.npfullName.MouseLeftButtonDown += NextPatientClicked;
+                    this.DoctorWalterTile.npfullName.Cursor = Cursors.Hand;
                     m_walterNext1 = pat;
                 }
                 if (i == 1 && pat != null)
                 {
                     this.DoctorWalterTile.npfullName2.Content = app.m_startTime.ToString("hh:mm") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
-                    this.DoctorWalterTile.npfullName2.MouseDoubleClick += NextPatientClicked;
+                    this.DoctorWalterTile.npfullName2.MouseLeftButtonDown += NextPatientClicked;
+                    this.DoctorWalterTile.npfullName2.Cursor = Cursors.Hand;
                     m_walterNext2 = pat;
                 }
             }
@@ -204,12 +211,14 @@ namespace CPSC481Project
             List<String> availableLee = m_appointmentDatabase.AvailableTimes("Dr. Lee");
             List<String> availableWalter = m_appointmentDatabase.AvailableTimes("Dr. Walter");
 
-            this.DoctorPayneTile.availTime1.MouseDoubleClick += AvailableTimeClicked;
-            this.DoctorPayneTile.availTime2.MouseDoubleClick += AvailableTimeClicked;
-            this.DoctorLeeTile.availTime1.MouseDoubleClick += AvailableTimeClicked;
-            this.DoctorLeeTile.availTime2.MouseDoubleClick += AvailableTimeClicked;
-            this.DoctorWalterTile.availTime1.MouseDoubleClick += AvailableTimeClicked;
-            this.DoctorWalterTile.availTime2.MouseDoubleClick += AvailableTimeClicked;
+            this.DoctorPayneTile.availTime1.MouseLeftButtonDown += AvailableTimeClicked;
+            this.DoctorPayneTile.availTime2.MouseLeftButtonDown += AvailableTimeClicked;
+
+            this.DoctorLeeTile.availTime1.MouseLeftButtonDown += AvailableTimeClicked;
+            this.DoctorLeeTile.availTime2.MouseLeftButtonDown += AvailableTimeClicked;
+
+            this.DoctorWalterTile.availTime1.MouseLeftButtonDown += AvailableTimeClicked;
+            this.DoctorWalterTile.availTime2.MouseLeftButtonDown += AvailableTimeClicked;
 
             for (int i = 0; i < 2 && i < availablePayne.Count(); i++)
             {
@@ -741,7 +750,6 @@ namespace CPSC481Project
             recentRec.Fill = (SolidColorBrush) Application.Current.Resources["AddPatient"];
             PatientListScrollViewer.Visibility = Visibility.Hidden;
             this.addPatient.Visibility = Visibility.Visible;
-            InitAddPatientTextfields();
         }
 
         private void patientaddConfirm(object sender, RoutedEventArgs e)
@@ -758,17 +766,8 @@ namespace CPSC481Project
             String email = apemailField.Text;
             String addr = apaddrField.Text;
 
-            if (newName != "" && newLname != "" && newHC != "" && newPhone != "" && email != "" && addr != "")
-            {
-                PatientListScrollViewer.Visibility = Visibility.Hidden;
-                //confirmBtn.Visibility = Visibility.Hidden;
-                Yes.Visibility = Visibility.Visible;
-                warning.Visibility = Visibility.Visible;
-                warning.Text = "Are you sure?";
-
-            }
             //Add error check for names (letters only)
-            else if (!IsLettersOnly(newName) || !IsLettersOnly(newLname))
+            if (!IsLettersOnly(newName) || !IsLettersOnly(newLname))
             {
                 warning.Text = "Please ensure that names only contain letters";
                 warning.Visibility = Visibility.Visible;
@@ -779,15 +778,24 @@ namespace CPSC481Project
                 warning.Text = "Please ensure that the Health Care # only contains digits";
                 warning.Visibility = Visibility.Visible;
             }
-            else if (!IsDigitsOnly(newPhone))
-            {
-                warning.Text = "Please ensure that the phone number only contains digits";
-                warning.Visibility = Visibility.Visible;
-            }
+            //else if (!IsDigitsOnly(newPhone))
+            //{
+            //    warning.Text = "Please ensure that the phone number only contains digits";
+            //    warning.Visibility = Visibility.Visible;
+            //}
             else if (newName == "" || newLname == "" || newHC == "" || newPhone == "" || email == "" || addr == "")
             {
                 warning.Text = "Please ensure all required fields are completed.";
                 warning.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                PatientListScrollViewer.Visibility = Visibility.Hidden;
+                //confirmBtn.Visibility = Visibility.Hidden;
+                Yes.Visibility = Visibility.Visible;
+                warning.Visibility = Visibility.Visible;
+                warning.Text = "Are you sure?";
+
             }
         }
 
@@ -887,20 +895,7 @@ namespace CPSC481Project
             else
             {
                 queuePosition++;
-                WalkinTile t = new WalkinTile(m_currentPatient.m_firstName + " " + m_currentPatient.m_lastName, m_currentPatient.m_hcNumber, queuePosition);
-                Console.WriteLine("Hi");
-                //Console.WriteLine(t.getHC());
-                string text = "";
-                foreach(var item in walkinQueueList.Items)
-                {
-                    Console.WriteLine(item);
-
-                }
-
-                Console.WriteLine(text);
-
-
-                walkinQueueList.Items.Add(t);
+                walkinQueueList.Items.Add(new WalkinTile(m_currentPatient.m_firstName + " " + m_currentPatient.m_lastName, m_currentPatient.m_hcNumber, queuePosition));
             }
         }
 
@@ -910,7 +905,6 @@ namespace CPSC481Project
             {
                 filterDoctor.Visibility = Visibility.Hidden;
                 PatientListScrollViewer.Height = 708.5;
-                Console.WriteLine(PatientListScrollViewer.Height);
                 filterMode = false;
             }
             m_dayViewControl = new DayViewControl(d, m_appointmentDatabase);
@@ -923,17 +917,7 @@ namespace CPSC481Project
                 MainGrid.Children.Remove(m_monthlyViewControl);
             // error handling?
         }
-		
-		//Initialize fields when opening the add patient window so users get an example
-        private void InitAddPatientTextfields()
-        {
-            apnameField.Text = "Jane";
-            aplnameField.Text = "Smith";
-            aphcField.Text = "00000";
-            apaddrField.Text = "12 University Dr";
-            apphoneField.Text = "(403) 123-4567";
-            apemailField.Text = "abc@abc.com";
-        }
+
 
         //Remove the example when user clicks into field
         private void ApnameField_GotFocus(object sender, RoutedEventArgs e)
