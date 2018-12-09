@@ -202,7 +202,6 @@ namespace CPSC481Project
 
         private void Appointment_DoubleClick(object sender, MouseButtonEventArgs e)
         {
-            Console.WriteLine("TYPE: " + sender.GetType());
             DayBoxAppointmentControl dbac = (DayBoxAppointmentControl)sender;
             if (e.Source.GetType() == typeof(DayBoxAppointmentControl))
             {
@@ -235,10 +234,8 @@ namespace CPSC481Project
 
         private void DayBox_DragEnter(object sender, DragEventArgs e)
         {
-            Console.WriteLine("Hello");
             if(e.Source.GetType() == typeof(DayBoxControl) && Utilities.FindVisualAncestor(typeof(DayBoxAppointmentControl), e.OriginalSource as Visual) == null)
             {
-                Console.WriteLine("Ok");
                 DayBoxControl dbc = (DayBoxControl)e.Source;
                 dbc.Highlight();
             }

@@ -40,7 +40,7 @@ namespace CPSC481Project
         String[] addr = { "University", "Edgemont", "Hamptons", "Hawkwood", "Citadel", "Sandstone", "Country", "Ave", "Downtown" };
         String[] addr2 = { "Street", "Drive", "Memorial", "Dale", "Rise", "Mews", "Place", "Bank" };
         String[] month = { "January", "Febuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
-
+        
         internal DateTime _DisplayStartDate = DateTime.Now;
         Boolean filterMode = false;
         Patient m_currentPatient;
@@ -70,7 +70,7 @@ namespace CPSC481Project
             m_appointmentDatabase = new AppointmentDatabase();
             m_vacationDatabase = new VacationDatabase();
             m_recentPatientsShowing = true;
-
+            
             //get current date for dashboard
             DashDate.Content = month.ElementAt(_DisplayStartDate.Month - 1) + " " + _DisplayStartDate.Day + ", " + _DisplayStartDate.Year;
 
@@ -91,13 +91,13 @@ namespace CPSC481Project
             if (m_appointmentDatabase.NumAppointments() < 5)
             {
                 DateTime today = DateTime.Today;
-                TimeSpan ts = new TimeSpan(10, 0, 0);
+                TimeSpan ts = new TimeSpan(15, 0, 0);
                 today = today.Date + ts;
                 m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("00001"), "Dr. Walter", today, today.AddMinutes(10), "Appointment #1"));
-                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("12345"), "Dr. Payne", today.AddMinutes(30), today.AddMinutes(40), "Appointment #1"));
-                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("00002"), "Dr. Lee", today.AddDays(1), today.AddDays(1).AddMinutes(10), "Appointment #1"));
-                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("44444"), "Dr. Walter", today.AddHours(4), today.AddHours(4).AddMinutes(10), "Appointment #1"));
-                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("00001"), "Dr. Walter", today.AddMinutes(-20), today.AddMinutes(-10), "Appointment #1"));
+                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("12345"), "Dr. Payne", today.AddMinutes(30), today.AddMinutes(40), "Appointment #2"));
+                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("00002"), "Dr. Lee", today.AddDays(1), today.AddDays(1).AddMinutes(10), "Appointment #3"));
+                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("44444"), "Dr. Walter", today.AddHours(1), today.AddHours(4).AddMinutes(10), "Appointment #4"));
+                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("00001"), "Dr. Walter", today.AddMinutes(-20), today.AddMinutes(-10), "Appointment #5"));
             }
 
             if(m_vacationDatabase.NumVacations() < 3)
@@ -153,14 +153,17 @@ namespace CPSC481Project
                 Patient pat = appointmentPayne1.ElementAt(i).m_patient;
                 if (i == 0 && pat != null)
                 {
-                    this.DoctorPayneTile.npfullName.Content = app.m_startTime.ToString("hh:mm") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
-                    this.DoctorPayneTile.npfullName.MouseDoubleClick += NextPatientClicked;
+                    this.DoctorPayneTile.npfullName.Content = app.m_startTime.ToString("t") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
+                    this.DoctorPayneTile.npfullName.MouseLeftButtonDown += NextPatientClicked;
+                    this.DoctorPayneTile.npfullName.Cursor = Cursors.Hand;
+                    
                     m_payneNext1 = pat;
                 }
                 if (i == 1 && pat != null)
                 {
-                    this.DoctorPayneTile.npfullName2.Content = app.m_startTime.ToString("hh:mm") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
-                    this.DoctorPayneTile.npfullName2.MouseDoubleClick += NextPatientClicked;
+                    this.DoctorPayneTile.npfullName2.Content = app.m_startTime.ToString("t") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
+                    this.DoctorPayneTile.npfullName2.MouseLeftButtonDown += NextPatientClicked;
+                    this.DoctorPayneTile.npfullName2.Cursor = Cursors.Hand;
                     m_payneNext2 = pat;
                 }
             }
@@ -170,14 +173,16 @@ namespace CPSC481Project
                 Patient pat = appointmentLee1.ElementAt(i).m_patient;
                 if (i == 0 && pat != null)
                 {
-                    this.DoctorLeeTile.npfullName.Content = app.m_startTime.ToString("hh:mm") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
-                    this.DoctorLeeTile.npfullName.MouseDoubleClick += NextPatientClicked;
+                    this.DoctorLeeTile.npfullName.Content = app.m_startTime.ToString("t") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
+                    this.DoctorLeeTile.npfullName.MouseLeftButtonDown += NextPatientClicked;
+                    this.DoctorLeeTile.npfullName.Cursor = Cursors.Hand;
                     m_leeNext1 = pat;
                 }
                 if (i == 1 && pat != null)
                 {
-                    this.DoctorLeeTile.npfullName2.Content = app.m_startTime.ToString("hh:mm") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
-                    this.DoctorLeeTile.npfullName2.MouseDoubleClick += NextPatientClicked;
+                    this.DoctorLeeTile.npfullName2.Content = app.m_startTime.ToString("t") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
+                    this.DoctorLeeTile.npfullName2.MouseLeftButtonDown += NextPatientClicked;
+                    this.DoctorLeeTile.npfullName2.Cursor = Cursors.Hand;
                     m_leeNext2 = pat;
                 }
             }
@@ -187,14 +192,16 @@ namespace CPSC481Project
                 Patient pat = appointmentWalter1.ElementAt(i).m_patient;
                 if (i == 0 && pat != null)
                 {
-                    this.DoctorWalterTile.npfullName.Content = app.m_startTime.ToString("hh:mm") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
-                    this.DoctorWalterTile.npfullName.MouseDoubleClick += NextPatientClicked;
+                    this.DoctorWalterTile.npfullName.Content = app.m_startTime.ToString("t") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
+                    this.DoctorWalterTile.npfullName.MouseLeftButtonDown += NextPatientClicked;
+                    this.DoctorWalterTile.npfullName.Cursor = Cursors.Hand;
                     m_walterNext1 = pat;
                 }
                 if (i == 1 && pat != null)
                 {
-                    this.DoctorWalterTile.npfullName2.Content = app.m_startTime.ToString("hh:mm") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
-                    this.DoctorWalterTile.npfullName2.MouseDoubleClick += NextPatientClicked;
+                    this.DoctorWalterTile.npfullName2.Content = app.m_startTime.ToString("t") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
+                    this.DoctorWalterTile.npfullName2.MouseLeftButtonDown += NextPatientClicked;
+                    this.DoctorWalterTile.npfullName2.Cursor = Cursors.Hand;
                     m_walterNext2 = pat;
                 }
             }
@@ -221,20 +228,32 @@ namespace CPSC481Project
             List<String> availableLee = m_appointmentDatabase.AvailableTimes("Dr. Lee");
             List<String> availableWalter = m_appointmentDatabase.AvailableTimes("Dr. Walter");
 
-            this.DoctorPayneTile.availTime1.MouseDoubleClick += AvailableTimeClicked;
-            this.DoctorPayneTile.availTime2.MouseDoubleClick += AvailableTimeClicked;
-            this.DoctorLeeTile.availTime1.MouseDoubleClick += AvailableTimeClicked;
-            this.DoctorLeeTile.availTime2.MouseDoubleClick += AvailableTimeClicked;
-            this.DoctorWalterTile.availTime1.MouseDoubleClick += AvailableTimeClicked;
-            this.DoctorWalterTile.availTime2.MouseDoubleClick += AvailableTimeClicked;
+            this.DoctorPayneTile.availTime1.MouseLeftButtonDown += AvailableTimeClicked;
+            this.DoctorPayneTile.availTime1.Cursor = Cursors.Hand;
+            this.DoctorPayneTile.availTime2.MouseLeftButtonDown += AvailableTimeClicked;
+            this.DoctorPayneTile.availTime2.Cursor = Cursors.Hand;
+
+            this.DoctorLeeTile.availTime1.MouseLeftButtonDown += AvailableTimeClicked;
+            this.DoctorLeeTile.availTime1.Cursor = Cursors.Hand;
+            this.DoctorLeeTile.availTime2.MouseLeftButtonDown += AvailableTimeClicked;
+            this.DoctorLeeTile.availTime2.Cursor = Cursors.Hand;
+
+            this.DoctorWalterTile.availTime1.MouseLeftButtonDown += AvailableTimeClicked;
+            this.DoctorWalterTile.availTime1.Cursor = Cursors.Hand;
+            this.DoctorWalterTile.availTime2.MouseLeftButtonDown += AvailableTimeClicked;
+            this.DoctorWalterTile.availTime2.Cursor = Cursors.Hand;
 
             for (int i = 0; i < 2 && i < availablePayne.Count(); i++)
             {
                 String str = availablePayne.ElementAt(i);
                 if (i == 0 && str != null)
+                {
                     this.DoctorPayneTile.availTime1.Content = str;
+                }
                 else if (i == 1 && str != null)
+                {
                     this.DoctorPayneTile.availTime2.Content = str;
+                }
             }
             for (int i = 0; i < 2 && i < availableLee.Count(); i++)
             {
@@ -407,75 +426,79 @@ namespace CPSC481Project
             Label emailL = new Label();
             Label phoneL = new Label();
 
-            nameL.Content = "Name:"; nameL.Height = 40; nameL.Margin = new Thickness(16, 5, 0, 0); nameL.Width = 101; nameL.FontSize = 18; nameL.HorizontalAlignment = HorizontalAlignment.Left; nameL.VerticalAlignment = VerticalAlignment.Top;
-            hcL.Content = "HC#:"; hcL.Height = 40; hcL.Margin = new Thickness(16, 45, 0, 0); hcL.Width = 101; hcL.FontSize = 18; hcL.HorizontalAlignment = HorizontalAlignment.Left; hcL.VerticalAlignment = VerticalAlignment.Top;
-            addyL.Content = "Address:"; addyL.Height = 40; addyL.Margin = new Thickness(16, 85, 0, 0); addyL.Width = 101; addyL.FontSize = 18; addyL.HorizontalAlignment = HorizontalAlignment.Left; addyL.VerticalAlignment = VerticalAlignment.Top;
-            emailL.Content = "Email:"; emailL.Height = 40; emailL.Margin = new Thickness(16, 125, 0, 0); emailL.Width = 101; emailL.FontSize = 18; emailL.HorizontalAlignment = HorizontalAlignment.Left; emailL.VerticalAlignment = VerticalAlignment.Top;
-            phoneL.Content = "Phone:"; phoneL.Height = 40; phoneL.Margin = new Thickness(16, 165, 0, 0); phoneL.Width = 101; phoneL.FontSize = 18; phoneL.HorizontalAlignment = HorizontalAlignment.Left; phoneL.VerticalAlignment = VerticalAlignment.Top;
-
-            TextBlock nameC = new TextBlock();
-            TextBlock hcC = new TextBlock();
-            TextBlock addyC = new TextBlock();
-            TextBlock emailC = new TextBlock();
-            TextBlock phoneC = new TextBlock();
-
-            nameC.Text = p.GetLastName() + ", " + p.GetFirstName(); nameC.Height = 40; nameC.Margin = new Thickness(100, 5, 0, 0); nameC.Width = 230; nameC.FontSize = 18; nameC.FontWeight = FontWeights.Bold; nameC.HorizontalAlignment = HorizontalAlignment.Left; nameC.VerticalAlignment = VerticalAlignment.Top; nameC.TextTrimming = TextTrimming.CharacterEllipsis;
-            hcC.Text = p.GetHCNumber(); hcC.Height = 40; hcC.Margin = new Thickness(100, 45, 0, 0); hcC.Width = 230; hcC.FontSize = 18; hcC.FontWeight = FontWeights.Bold; hcC.HorizontalAlignment = HorizontalAlignment.Left; hcC.VerticalAlignment = VerticalAlignment.Top; hcC.TextTrimming = TextTrimming.CharacterEllipsis;
-            addyC.Text = p.GetAddress(); addyC.Height = 40; addyC.Margin = new Thickness(100, 85, 0, 0); addyC.Width = 230; addyC.FontSize = 18; addyC.FontWeight = FontWeights.Bold; addyC.HorizontalAlignment = HorizontalAlignment.Left; addyC.VerticalAlignment = VerticalAlignment.Top; addyC.TextTrimming = TextTrimming.CharacterEllipsis;
-            emailC.Text = p.GetEmail(); emailC.Height = 40; emailC.Margin = new Thickness(100, 125, 0, 0); emailC.Width = 230; emailC.FontSize = 18; emailC.FontWeight = FontWeights.Bold; emailC.HorizontalAlignment = HorizontalAlignment.Left; emailC.VerticalAlignment = VerticalAlignment.Top; emailC.TextTrimming = TextTrimming.CharacterEllipsis;
-            phoneC.Text = p.GetPhone(); phoneC.Height = 40; phoneC.Margin = new Thickness(100, 165, 0, 0); phoneC.Width = 230; phoneC.FontSize = 18; phoneC.FontWeight = FontWeights.Bold; phoneC.HorizontalAlignment = HorizontalAlignment.Left; phoneC.VerticalAlignment = VerticalAlignment.Top; phoneC.TextTrimming = TextTrimming.CharacterEllipsis;
-
-            Rectangle r = new Rectangle();
-            r.Stroke = System.Windows.Media.Brushes.Black;
-            r.HorizontalAlignment = HorizontalAlignment.Left;
-            r.VerticalAlignment = VerticalAlignment.Top;
-            r.Width = 422;
-            r.Height = 245;
-
-            if (withButton)
+            //Only add grid if patient is not null
+            if (p != null)
             {
-                Button b = new Button();
-                b.Content = "Select";
-                b.Width = 100;
-                b.Height = 30;
-                b.Margin = new Thickness(-50, 200, 0, 0);
-                b.Tag = p;
-                b.Cursor = Cursors.Hand;
-                b.Click += SelectPatientClicked;
-                g.Children.Add(b);
-            }
-            else if(highlighted)
-            {
-                r.Fill = new SolidColorBrush(Color.FromRgb(249, 209, 26));
-            }
+                nameL.Content = "Name:"; nameL.Height = 40; nameL.Margin = new Thickness(16, 5, 0, 0); nameL.Width = 101; nameL.FontSize = 18; nameL.HorizontalAlignment = HorizontalAlignment.Left; nameL.VerticalAlignment = VerticalAlignment.Top;
+                hcL.Content = "HC#:"; hcL.Height = 40; hcL.Margin = new Thickness(16, 45, 0, 0); hcL.Width = 101; hcL.FontSize = 18; hcL.HorizontalAlignment = HorizontalAlignment.Left; hcL.VerticalAlignment = VerticalAlignment.Top;
+                addyL.Content = "Address:"; addyL.Height = 40; addyL.Margin = new Thickness(16, 85, 0, 0); addyL.Width = 101; addyL.FontSize = 18; addyL.HorizontalAlignment = HorizontalAlignment.Left; addyL.VerticalAlignment = VerticalAlignment.Top;
+                emailL.Content = "Email:"; emailL.Height = 40; emailL.Margin = new Thickness(16, 125, 0, 0); emailL.Width = 101; emailL.FontSize = 18; emailL.HorizontalAlignment = HorizontalAlignment.Left; emailL.VerticalAlignment = VerticalAlignment.Top;
+                phoneL.Content = "Phone:"; phoneL.Height = 40; phoneL.Margin = new Thickness(16, 165, 0, 0); phoneL.Width = 101; phoneL.FontSize = 18; phoneL.HorizontalAlignment = HorizontalAlignment.Left; phoneL.VerticalAlignment = VerticalAlignment.Top;
 
-            //Add button to view patient information
-            Button view = new Button();
-            view.Content = "View";
-            view.Width = 75;
-            view.Height = 30;
-            view.Margin = new Thickness(150, 200, 0, 0);
-            view.Tag = p;
-            view.Cursor = Cursors.Hand;
-            view.Click += selectViewPatient;
-            g.Children.Add(view);
+                TextBlock nameC = new TextBlock();
+                TextBlock hcC = new TextBlock();
+                TextBlock addyC = new TextBlock();
+                TextBlock emailC = new TextBlock();
+                TextBlock phoneC = new TextBlock();
 
-            g.Children.Add(r);
-            g.Children.Add(nameL); g.Children.Add(hcL); g.Children.Add(addyL); g.Children.Add(emailL); g.Children.Add(phoneL);
-            g.Children.Add(nameC); g.Children.Add(hcC); g.Children.Add(addyC); g.Children.Add(emailC); g.Children.Add(phoneC);
+                nameC.Text = p.GetLastName() + ", " + p.GetFirstName(); nameC.Height = 40; nameC.Margin = new Thickness(100, 5, 0, 0); nameC.Width = 230; nameC.FontSize = 18; nameC.FontWeight = FontWeights.Bold; nameC.HorizontalAlignment = HorizontalAlignment.Left; nameC.VerticalAlignment = VerticalAlignment.Top; nameC.TextTrimming = TextTrimming.CharacterEllipsis;
+                hcC.Text = p.GetHCNumber(); hcC.Height = 40; hcC.Margin = new Thickness(100, 45, 0, 0); hcC.Width = 230; hcC.FontSize = 18; hcC.FontWeight = FontWeights.Bold; hcC.HorizontalAlignment = HorizontalAlignment.Left; hcC.VerticalAlignment = VerticalAlignment.Top; hcC.TextTrimming = TextTrimming.CharacterEllipsis;
+                addyC.Text = p.GetAddress(); addyC.Height = 40; addyC.Margin = new Thickness(100, 85, 0, 0); addyC.Width = 230; addyC.FontSize = 18; addyC.FontWeight = FontWeights.Bold; addyC.HorizontalAlignment = HorizontalAlignment.Left; addyC.VerticalAlignment = VerticalAlignment.Top; addyC.TextTrimming = TextTrimming.CharacterEllipsis;
+                emailC.Text = p.GetEmail(); emailC.Height = 40; emailC.Margin = new Thickness(100, 125, 0, 0); emailC.Width = 230; emailC.FontSize = 18; emailC.FontWeight = FontWeights.Bold; emailC.HorizontalAlignment = HorizontalAlignment.Left; emailC.VerticalAlignment = VerticalAlignment.Top; emailC.TextTrimming = TextTrimming.CharacterEllipsis;
+                phoneC.Text = p.GetPhone(); phoneC.Height = 40; phoneC.Margin = new Thickness(100, 165, 0, 0); phoneC.Width = 230; phoneC.FontSize = 18; phoneC.FontWeight = FontWeights.Bold; phoneC.HorizontalAlignment = HorizontalAlignment.Left; phoneC.VerticalAlignment = VerticalAlignment.Top; phoneC.TextTrimming = TextTrimming.CharacterEllipsis;
 
-            //Now add an unselect button
-            if (!withButton && highlighted)
-            {
-                Button unselectPatient = new Button();
-                unselectPatient.Content = "Unselect";
-                unselectPatient.Width = 100;
-                unselectPatient.Height = 30;
-                unselectPatient.Margin = new Thickness(-50, 200, 0, 0);
-                unselectPatient.Tag = p;
-                unselectPatient.Cursor = Cursors.Hand;
-                unselectPatient.Click += unSelectPatientClicked;
-                g.Children.Add(unselectPatient);
+                Rectangle r = new Rectangle();
+                r.Stroke = System.Windows.Media.Brushes.Black;
+                r.HorizontalAlignment = HorizontalAlignment.Left;
+                r.VerticalAlignment = VerticalAlignment.Top;
+                r.Width = 422;
+                r.Height = 245;
+
+                if (withButton)
+                {
+                    Button b = new Button();
+                    b.Content = "Select";
+                    b.Width = 100;
+                    b.Height = 30;
+                    b.Margin = new Thickness(-50, 200, 0, 0);
+                    b.Tag = p;
+                    b.Cursor = Cursors.Hand;
+                    b.Click += SelectPatientClicked;
+                    g.Children.Add(b);
+                }
+                else if (highlighted)
+                {
+                    r.Fill = new SolidColorBrush(Color.FromRgb(249, 209, 26));
+                }
+
+                //Add button to view patient information
+                Button view = new Button();
+                view.Content = "View";
+                view.Width = 75;
+                view.Height = 30;
+                view.Margin = new Thickness(150, 200, 0, 0);
+                view.Tag = p;
+                view.Cursor = Cursors.Hand;
+                view.Click += selectViewPatient;
+                g.Children.Add(view);
+
+                g.Children.Add(r);
+                g.Children.Add(nameL); g.Children.Add(hcL); g.Children.Add(addyL); g.Children.Add(emailL); g.Children.Add(phoneL);
+                g.Children.Add(nameC); g.Children.Add(hcC); g.Children.Add(addyC); g.Children.Add(emailC); g.Children.Add(phoneC);
+
+                //Now add an unselect button
+                if (!withButton && highlighted)
+                {
+                    Button unselectPatient = new Button();
+                    unselectPatient.Content = "Unselect";
+                    unselectPatient.Width = 100;
+                    unselectPatient.Height = 30;
+                    unselectPatient.Margin = new Thickness(-50, 200, 0, 0);
+                    unselectPatient.Tag = p;
+                    unselectPatient.Cursor = Cursors.Hand;
+                    unselectPatient.Click += unSelectPatientClicked;
+                    g.Children.Add(unselectPatient);
+                }
             }
             return g;
         }
@@ -498,8 +521,9 @@ namespace CPSC481Project
         private void unSelectPatientClicked(object sender, RoutedEventArgs e)
         {
             PatientListStackPanel.Children.Clear();
-            PatientListStackPanel.Children.Add(CreateGrid(m_currentPatient, true, false));
+            //Set patient to null so we don't create another grid of the patient
             m_currentPatient = null;
+            PatientListStackPanel.Children.Add(CreateGrid(m_currentPatient, true, false));
             selectedMode = false;
 
             if (m_recentPatientsShowing)
@@ -522,6 +546,7 @@ namespace CPSC481Project
             dPatientaddr.Text = m_currentPatient.GetAddress();
             dPatientpn.Text = m_currentPatient.GetPhone();
             dPatientemail.Text = m_currentPatient.GetEmail();
+            dPatientprevdr.Text = m_currentPatient.GetPrev();
 
             // TODO: Also, need to fix the "recent" label and add an exit button to exit out of viewing patient info
             recentLabel.Content = "View Patient:";
@@ -544,7 +569,8 @@ namespace CPSC481Project
             dPatientaddr.Visibility = Visibility.Hidden;
             dPatientpn.Visibility = Visibility.Hidden;
             dPatientemail.Visibility = Visibility.Hidden;
-
+            dPatientprevdr.Visibility = Visibility.Hidden;
+            dPatientHCBox.IsEnabled = false;
             //Keep text the same, let users change if they want
             dPatientnameBox.Text = dPatientname.Text;
             dPatientlnameBox.Text = dPatientlname.Text;
@@ -552,7 +578,7 @@ namespace CPSC481Project
             dPatientaddrBox.Text = dPatientaddr.Text;
             dPatientpnBox.Text = dPatientpn.Text;
             dPatientemailBox.Text = dPatientemail.Text;
-
+            dPatientprevdrBox.Text = dPatientprevdr.Text;
             //Then show the text boxes
             dPatientnameBox.Visibility = Visibility.Visible;
             dPatientlnameBox.Visibility = Visibility.Visible;
@@ -560,7 +586,7 @@ namespace CPSC481Project
             dPatientaddrBox.Visibility = Visibility.Visible;
             dPatientpnBox.Visibility = Visibility.Visible;
             dPatientemailBox.Visibility = Visibility.Visible;
-
+            dPatientprevdrBox.Visibility = Visibility.Visible;
             //Show the yes and cancel button
             editInfoYes.Visibility = Visibility.Visible;
             editInfoCancel.Visibility = Visibility.Visible;
@@ -575,7 +601,7 @@ namespace CPSC481Project
             dPatientaddr.Text = dPatientaddrBox.Text;
             dPatientpn.Text = dPatientpnBox.Text;
             dPatientemail.Text = dPatientemailBox.Text;
-
+            dPatientprevdr.Text = dPatientprevdrBox.Text;
             //Now hide the text boxes and make text fields visible
             dPatientnameBox.Visibility = Visibility.Hidden;
             dPatientlnameBox.Visibility = Visibility.Hidden;
@@ -583,22 +609,35 @@ namespace CPSC481Project
             dPatientaddrBox.Visibility = Visibility.Hidden;
             dPatientpnBox.Visibility = Visibility.Hidden;
             dPatientemailBox.Visibility = Visibility.Hidden;
-
+            dPatientprevdrBox.Visibility = Visibility.Hidden;
+            
             dPatientname.Visibility = Visibility.Visible;
             dPatientlname.Visibility = Visibility.Visible;
             dPatientHC.Visibility = Visibility.Visible;
             dPatientaddr.Visibility = Visibility.Visible;
             dPatientpn.Visibility = Visibility.Visible;
             dPatientemail.Visibility = Visibility.Visible;
-            
+            dPatientprevdr.Visibility = Visibility.Visible;
             //Replace and edit information.
-            Patient p = new Patient(dPatientlnameBox.Text, dPatientnameBox.Text, dPatientHCBox.Text, dPatientaddrBox.Text, dPatientemailBox.Text, dPatientpnBox.Text);
+          
+            Patient p = m_patientDatabase.findPatient(dPatientHCBox.Text.ToString());
+            if(p != null)
+            {
+                p.m_firstName = dPatientnameBox.Text;
+                p.m_lastName = dPatientlnameBox.Text;
+                p.m_phoneNumber = dPatientpnBox.Text;
+                p.m_prevDr = dPatientprevdrBox.Text;
+                p.m_email = dPatientemailBox.Text;
+                p.m_address = dPatientaddrBox.Text;
+            }
+            /*
+            Patient p = new Patient(dPatientlnameBox.Text, dPatientnameBox.Text, dPatientHCBox.Text, dPatientaddrBox.Text, dPatientemailBox.Text, dPatientpnBox.Text, dPatientprevdrBox.Text);
             if(m_patientDatabase.findPatient(p.m_hcNumber)!= null)
             {
                 m_patientDatabase.RemovePatient(p.m_hcNumber);
                 m_patientDatabase.AddPatient(p);
             }
-
+            */
 
             //Now hide the yes/cancel buttons
             editInfoYes.Visibility = Visibility.Hidden;
@@ -613,10 +652,11 @@ namespace CPSC481Project
             dPatientnameBox.Visibility = Visibility.Hidden;
             dPatientlnameBox.Visibility = Visibility.Hidden;
             dPatientHCBox.Visibility = Visibility.Hidden;
+            
             dPatientaddrBox.Visibility = Visibility.Hidden;
             dPatientpnBox.Visibility = Visibility.Hidden;
             dPatientemailBox.Visibility = Visibility.Hidden;
-
+            dPatientprevdrBox.Visibility = Visibility.Hidden;
             //Then make text fields visible
             dPatientname.Visibility = Visibility.Visible;
             dPatientlname.Visibility = Visibility.Visible;
@@ -624,7 +664,7 @@ namespace CPSC481Project
             dPatientaddr.Visibility = Visibility.Visible;
             dPatientpn.Visibility = Visibility.Visible;
             dPatientemail.Visibility = Visibility.Visible;
-
+            dPatientprevdr.Visibility = Visibility.Visible;
             //Now hide the yes/cancel buttons
             editInfoYes.Visibility = Visibility.Hidden;
             editInfoCancel.Visibility = Visibility.Hidden;
@@ -683,6 +723,10 @@ namespace CPSC481Project
             Grid.SetColumn(m_monthlyViewControl, 1);
             Grid.SetRowSpan(m_monthlyViewControl, 3);
             m_monthlyViewControl.SetAppointments();
+
+            leecBox.IsChecked = true;
+            waltercBox.IsChecked = true;
+            paynecBox.IsChecked = true;
         }
 
         public void ToVacayCalendar(string drName)
@@ -752,7 +796,6 @@ namespace CPSC481Project
             recentRec.Fill = (SolidColorBrush) Application.Current.Resources["AddPatient"];
             PatientListScrollViewer.Visibility = Visibility.Hidden;
             this.addPatient.Visibility = Visibility.Visible;
-            InitAddPatientTextfields();
         }
 
         private void patientaddConfirm(object sender, RoutedEventArgs e)
@@ -769,17 +812,8 @@ namespace CPSC481Project
             String email = apemailField.Text;
             String addr = apaddrField.Text;
 
-            if (newName != "" && newLname != "" && newHC != "" && newPhone != "" && email != "" && addr != "")
-            {
-                PatientListScrollViewer.Visibility = Visibility.Hidden;
-                //confirmBtn.Visibility = Visibility.Hidden;
-                Yes.Visibility = Visibility.Visible;
-                warning.Visibility = Visibility.Visible;
-                warning.Text = "Are you sure?";
-
-            }
             //Add error check for names (letters only)
-            else if (!IsLettersOnly(newName) || !IsLettersOnly(newLname))
+            if (!IsLettersOnly(newName) || !IsLettersOnly(newLname))
             {
                 warning.Text = "Please ensure that names only contain letters";
                 warning.Visibility = Visibility.Visible;
@@ -790,15 +824,24 @@ namespace CPSC481Project
                 warning.Text = "Please ensure that the Health Care # only contains digits";
                 warning.Visibility = Visibility.Visible;
             }
-            else if (!IsDigitsOnly(newPhone))
-            {
-                warning.Text = "Please ensure that the phone number only contains digits";
-                warning.Visibility = Visibility.Visible;
-            }
+            //else if (!IsDigitsOnly(newPhone))
+            //{
+            //    warning.Text = "Please ensure that the phone number only contains digits";
+            //    warning.Visibility = Visibility.Visible;
+            //}
             else if (newName == "" || newLname == "" || newHC == "" || newPhone == "" || email == "" || addr == "")
             {
                 warning.Text = "Please ensure all required fields are completed.";
                 warning.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                PatientListScrollViewer.Visibility = Visibility.Hidden;
+                //confirmBtn.Visibility = Visibility.Hidden;
+                Yes.Visibility = Visibility.Visible;
+                warning.Visibility = Visibility.Visible;
+                warning.Text = "Are you sure?";
+
             }
         }
 
@@ -865,6 +908,7 @@ namespace CPSC481Project
                     Appointment newApp = new Appointment(m_currentPatient, form.m_doctor, form.m_startDate, form.m_startDate, "");
 
                     bool conflict = false;
+                    bool inPast = false;
                     foreach (Appointment a in m_appointmentDatabase.m_appointments)
                     {
                         if (DateTime.Compare(a.m_startTime, newApp.m_startTime) == 0 && a.m_doctor == newApp.m_doctor)
@@ -873,10 +917,19 @@ namespace CPSC481Project
                             break;
                         }
                     }
+                    if (DateTime.Compare(newApp.m_startTime, DateTime.Now) < 0)
+                    {
+                        inPast = true;
+                    }
                     if (conflict)
                     {
                         String msg = "Appointment time conflicts with another appointment, nothing was added.";
-                        MessageBox.Show(msg, "Time Conflict", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show(msg, "Time Unavailable", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    else if(inPast)
+                    {
+                        String msg = "The appointment you are trying to add is in the past, please try another time.";
+                        MessageBox.Show(msg, "Time Unavailable", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                     else
                     {
@@ -962,7 +1015,6 @@ namespace CPSC481Project
             {
                 filterDoctor.Visibility = Visibility.Hidden;
                 PatientListScrollViewer.Height = 708.5;
-                Console.WriteLine(PatientListScrollViewer.Height);
                 filterMode = false;
             }
             m_dayViewControl = new DayViewControl(d, m_appointmentDatabase);
@@ -975,17 +1027,7 @@ namespace CPSC481Project
                 MainGrid.Children.Remove(m_monthlyViewControl);
             // error handling?
         }
-		
-		//Initialize fields when opening the add patient window so users get an example
-        private void InitAddPatientTextfields()
-        {
-            apnameField.Text = "Jane";
-            aplnameField.Text = "Smith";
-            aphcField.Text = "00000";
-            apaddrField.Text = "12 University Dr";
-            apphoneField.Text = "(403) 123-4567";
-            apemailField.Text = "abc@abc.com";
-        }
+
 
         //Remove the example when user clicks into field
         private void ApnameField_GotFocus(object sender, RoutedEventArgs e)
@@ -1035,6 +1077,28 @@ namespace CPSC481Project
 
             viewPatient.Visibility = Visibility.Hidden;
             PopulateDefaultInfo();
+
+            //This is for if its in EDIT MODE AND WE CLICK THE X
+            //If cancel, just make text boxes no longer visible
+            dPatientnameBox.Visibility = Visibility.Hidden;
+            dPatientlnameBox.Visibility = Visibility.Hidden;
+            dPatientHCBox.Visibility = Visibility.Hidden;
+
+            dPatientaddrBox.Visibility = Visibility.Hidden;
+            dPatientpnBox.Visibility = Visibility.Hidden;
+            dPatientemailBox.Visibility = Visibility.Hidden;
+            dPatientprevdrBox.Visibility = Visibility.Hidden;
+            //Then make text fields visible
+            dPatientname.Visibility = Visibility.Visible;
+            dPatientlname.Visibility = Visibility.Visible;
+            dPatientHC.Visibility = Visibility.Visible;
+            dPatientaddr.Visibility = Visibility.Visible;
+            dPatientpn.Visibility = Visibility.Visible;
+            dPatientemail.Visibility = Visibility.Visible;
+            dPatientprevdr.Visibility = Visibility.Visible;
+            //Now hide the yes/cancel buttons
+            editInfoYes.Visibility = Visibility.Hidden;
+            editInfoCancel.Visibility = Visibility.Hidden;
         }
         //Filter Checked
         private void payneChecked(object sender, RoutedEventArgs e)
@@ -1113,14 +1177,18 @@ namespace CPSC481Project
 
             if (s != null)
             {
-                DateTime dt = DateTime.Parse(s);
+                try
+                {
+                    DateTime dt = DateTime.Parse(s);
 
-                m_dayViewControl = new DayViewControl(dt, m_appointmentDatabase);
-                MainGrid.Children.Add(m_dayViewControl);
-                Grid.SetRow(m_dayViewControl, 0);
-                Grid.SetColumn(m_dayViewControl, 1);
-                Grid.SetRowSpan(m_dayViewControl, 3);
-                m_dayViewControl.Visibility = Visibility.Visible;
+                    m_dayViewControl = new DayViewControl(dt, m_appointmentDatabase);
+                    MainGrid.Children.Add(m_dayViewControl);
+                    Grid.SetRow(m_dayViewControl, 0);
+                    Grid.SetColumn(m_dayViewControl, 1);
+                    Grid.SetRowSpan(m_dayViewControl, 3);
+                    m_dayViewControl.Visibility = Visibility.Visible;
+                }
+                catch (Exception ex) { /* probably because available time can't be parsed, just do nothing*/ }
             }
         }
     }
