@@ -212,13 +212,19 @@ namespace CPSC481Project
             List<String> availableWalter = m_appointmentDatabase.AvailableTimes("Dr. Walter");
 
             this.DoctorPayneTile.availTime1.MouseLeftButtonDown += AvailableTimeClicked;
+            this.DoctorPayneTile.availTime1.Cursor = Cursors.Hand;
             this.DoctorPayneTile.availTime2.MouseLeftButtonDown += AvailableTimeClicked;
+            this.DoctorPayneTile.availTime2.Cursor = Cursors.Hand;
 
             this.DoctorLeeTile.availTime1.MouseLeftButtonDown += AvailableTimeClicked;
+            this.DoctorLeeTile.availTime1.Cursor = Cursors.Hand;
             this.DoctorLeeTile.availTime2.MouseLeftButtonDown += AvailableTimeClicked;
+            this.DoctorLeeTile.availTime2.Cursor = Cursors.Hand;
 
             this.DoctorWalterTile.availTime1.MouseLeftButtonDown += AvailableTimeClicked;
+            this.DoctorWalterTile.availTime1.Cursor = Cursors.Hand;
             this.DoctorWalterTile.availTime2.MouseLeftButtonDown += AvailableTimeClicked;
+            this.DoctorWalterTile.availTime2.Cursor = Cursors.Hand;
 
             for (int i = 0; i < 2 && i < availablePayne.Count(); i++)
             {
