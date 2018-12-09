@@ -39,7 +39,7 @@ namespace CPSC481Project
         String[] addr = { "University", "Edgemont", "Hamptons", "Hawkwood", "Citadel", "Sandstone", "Country", "Ave", "Downtown" };
         String[] addr2 = { "Street", "Drive", "Memorial", "Dale", "Rise", "Mews", "Place", "Bank" };
         String[] month = { "January", "Febuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
-
+        
         internal DateTime _DisplayStartDate = DateTime.Now;
         Boolean filterMode = false;
         Patient m_currentPatient;
@@ -67,7 +67,7 @@ namespace CPSC481Project
             m_appointmentDatabase = new AppointmentDatabase();
             m_vacationDatabase = new VacationDatabase();
             m_recentPatientsShowing = true;
-
+            
             //get current date for dashboard
             DashDate.Content = month.ElementAt(_DisplayStartDate.Month - 1) + " " + _DisplayStartDate.Day + ", " + _DisplayStartDate.Year;
 
