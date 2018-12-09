@@ -38,11 +38,14 @@ namespace CPSC481Project
             m_appointments = (List<Appointment>)(m_serializer.Deserialize(appointmentsFile, typeof(List<Appointment>)));
             if (m_appointments == null)
                 m_appointments = new List<Appointment>();
+
+            UpdateAppointments();
         }
 
         public void AddAppointment(Appointment a)
         {
             m_appointments.Add(a);
+            UpdateAppointments();
         }
 
         public void DeleteAppointment(Appointment a)
@@ -55,15 +58,18 @@ namespace CPSC481Project
             {
                 // Item was not found in list, error message
             }
+            UpdateAppointments();
         }
 
         public Boolean IsEmpty()
         {
+            UpdateAppointments();
             return m_appointments.Count() == 0;
         }
 
         public int NumAppointments()
         {
+            UpdateAppointments();
             return m_appointments.Count();
         }
 
@@ -86,8 +92,9 @@ namespace CPSC481Project
          */
         public List<Appointment> NextAppointments(int num)
         {
+            UpdateAppointments();
             // TODO: This hasn't been tested at all so odds are it doesn't work.
-            if(num > NumAppointments())
+            if (num > NumAppointments())
             {
                 return m_appointments;
             }
@@ -120,6 +127,7 @@ namespace CPSC481Project
          */
         public Appointment NextAppointment()
         {
+            UpdateAppointments();
             if (m_appointments.Count() == 0)
                 return null;
 
@@ -140,6 +148,7 @@ namespace CPSC481Project
          */
         public Appointment NextAppointment(String doc)
         {
+            UpdateAppointments();
             // TODO: Hasn't been tested.
             // TODO: Perhaps we should make a doctor class?
             Appointment rv = null;
@@ -176,6 +185,7 @@ namespace CPSC481Project
          */
         public List<Appointment> NextAppointments(String doc, int num)
         {
+            UpdateAppointments();
             List<Appointment> rv = new List<Appointment>();
             List<Appointment> remaining = new List<Appointment>();
             foreach (Appointment a in m_appointments)
@@ -220,6 +230,7 @@ namespace CPSC481Project
          */
         public List<String> AvailableTimes(String doc, int num = 2)
         {
+            UpdateAppointments();
             List<Appointment> apts = new List<Appointment>();
             // Get all appointments for this doctor.
             foreach(Appointment a in m_appointments)
@@ -247,6 +258,8 @@ namespace CPSC481Project
                 while(true)
                 {
                     Boolean hasAppt = false;
+                    Boolean ffTmr = false;
+                    Boolean ffTdy = false;
                     foreach (Appointment a in apts)
                     {
                         if(DateTime.Compare(curTime, a.m_startTime) >= 0 && DateTime.Compare(curTime, a.m_endTime) <= 0)
@@ -255,9 +268,28 @@ namespace CPSC481Project
                             hasAppt = true;
                             break;
                         }
+                        if(curTime.Hour > 18)
+                        {
+                            ffTmr = true;
+                            break;
+                        }
+                        if(curTime.Hour < 8)
+                        {
+                            ffTdy = true;
+                            break;
+                        }
                     }
                     if(hasAppt)
                         curTime = curTime.AddMinutes(10);
+                    else if(ffTmr)
+                    {
+                        curTime = curTime.AddDays(1);
+                        curTime = curTime.Date + new TimeSpan(8, 0, 0);
+                    }
+                    else if(ffTdy)
+                    {
+                        curTime = curTime.Date + new TimeSpan(8, 0, 0);
+                    }
                     else
                     {
                         if (i == 0) // Found the first available time
@@ -282,8 +314,25 @@ namespace CPSC481Project
             return rv;
         }
 
+        public void UpdateAppointments()
+        {
+            List<Appointment> temp = new List<Appointment>();
+            foreach(Appointment a in m_appointments)
+            {
+                if(DateTime.Compare(a.m_startTime, DateTime.Now) < 0)
+                {
+                    temp.Add(a);
+                }
+            }
+            foreach(Appointment a in temp)
+            {
+                DeleteAppointment(a);
+            }
+        }
+
         ~AppointmentDatabase()
         {
+            UpdateAppointments();
             String json = JsonConvert.SerializeObject(m_appointments, Formatting.Indented);
             File.WriteAllText(m_appointmentFile, json);
         }
