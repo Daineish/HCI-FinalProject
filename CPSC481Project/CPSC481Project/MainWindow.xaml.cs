@@ -137,13 +137,16 @@ namespace CPSC481Project
                 if (i == 0 && pat != null)
                 {
                     this.DoctorPayneTile.npfullName.Content = app.m_startTime.ToString("hh:mm") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
-                    this.DoctorPayneTile.npfullName.MouseDoubleClick += NextPatientClicked;
+                    this.DoctorPayneTile.npfullName.MouseLeftButtonDown += NextPatientClicked;
+                    this.DoctorPayneTile.npfullName.Cursor = Cursors.Hand;
+                    
                     m_payneNext1 = pat;
                 }
                 if (i == 1 && pat != null)
                 {
                     this.DoctorPayneTile.npfullName2.Content = app.m_startTime.ToString("hh:mm") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
-                    this.DoctorPayneTile.npfullName2.MouseDoubleClick += NextPatientClicked;
+                    this.DoctorPayneTile.npfullName2.MouseLeftButtonDown += NextPatientClicked;
+                    this.DoctorPayneTile.npfullName2.Cursor = Cursors.Hand;
                     m_payneNext2 = pat;
                 }
             }
@@ -154,13 +157,15 @@ namespace CPSC481Project
                 if (i == 0 && pat != null)
                 {
                     this.DoctorLeeTile.npfullName.Content = app.m_startTime.ToString("hh:mm") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
-                    this.DoctorLeeTile.npfullName.MouseDoubleClick += NextPatientClicked;
+                    this.DoctorLeeTile.npfullName.MouseLeftButtonDown += NextPatientClicked;
+                    this.DoctorLeeTile.npfullName.Cursor = Cursors.Hand;
                     m_leeNext1 = pat;
                 }
                 if (i == 1 && pat != null)
                 {
                     this.DoctorLeeTile.npfullName2.Content = app.m_startTime.ToString("hh:mm") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
-                    this.DoctorLeeTile.npfullName2.MouseDoubleClick += NextPatientClicked;
+                    this.DoctorLeeTile.npfullName2.MouseLeftButtonDown += NextPatientClicked;
+                    this.DoctorLeeTile.npfullName2.Cursor = Cursors.Hand;
                     m_leeNext2 = pat;
                 }
             }
@@ -171,13 +176,15 @@ namespace CPSC481Project
                 if (i == 0 && pat != null)
                 {
                     this.DoctorWalterTile.npfullName.Content = app.m_startTime.ToString("hh:mm") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
-                    this.DoctorWalterTile.npfullName.MouseDoubleClick += NextPatientClicked;
+                    this.DoctorWalterTile.npfullName.MouseLeftButtonDown += NextPatientClicked;
+                    this.DoctorWalterTile.npfullName.Cursor = Cursors.Hand;
                     m_walterNext1 = pat;
                 }
                 if (i == 1 && pat != null)
                 {
                     this.DoctorWalterTile.npfullName2.Content = app.m_startTime.ToString("hh:mm") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
-                    this.DoctorWalterTile.npfullName2.MouseDoubleClick += NextPatientClicked;
+                    this.DoctorWalterTile.npfullName2.MouseLeftButtonDown += NextPatientClicked;
+                    this.DoctorWalterTile.npfullName2.Cursor = Cursors.Hand;
                     m_walterNext2 = pat;
                 }
             }
@@ -204,12 +211,14 @@ namespace CPSC481Project
             List<String> availableLee = m_appointmentDatabase.AvailableTimes("Dr. Lee");
             List<String> availableWalter = m_appointmentDatabase.AvailableTimes("Dr. Walter");
 
-            this.DoctorPayneTile.availTime1.MouseDoubleClick += AvailableTimeClicked;
-            this.DoctorPayneTile.availTime2.MouseDoubleClick += AvailableTimeClicked;
-            this.DoctorLeeTile.availTime1.MouseDoubleClick += AvailableTimeClicked;
-            this.DoctorLeeTile.availTime2.MouseDoubleClick += AvailableTimeClicked;
-            this.DoctorWalterTile.availTime1.MouseDoubleClick += AvailableTimeClicked;
-            this.DoctorWalterTile.availTime2.MouseDoubleClick += AvailableTimeClicked;
+            this.DoctorPayneTile.availTime1.MouseLeftButtonDown += AvailableTimeClicked;
+            this.DoctorPayneTile.availTime2.MouseLeftButtonDown += AvailableTimeClicked;
+
+            this.DoctorLeeTile.availTime1.MouseLeftButtonDown += AvailableTimeClicked;
+            this.DoctorLeeTile.availTime2.MouseLeftButtonDown += AvailableTimeClicked;
+
+            this.DoctorWalterTile.availTime1.MouseLeftButtonDown += AvailableTimeClicked;
+            this.DoctorWalterTile.availTime2.MouseLeftButtonDown += AvailableTimeClicked;
 
             for (int i = 0; i < 2 && i < availablePayne.Count(); i++)
             {
