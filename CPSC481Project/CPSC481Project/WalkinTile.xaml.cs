@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,9 +22,13 @@ namespace CPSC481Project
     /// </summary>
     public partial class WalkinTile : UserControl
     {
+        public ObservableCollection<WalkinTile> m_collection { get; set; }
+        public ListBox m_list { get; set; }
 
         public WalkinTile()
         {
+            m_collection = null;
+            m_list = null;
             InitializeComponent();
             Height = 162.5;
             Width = 177;
@@ -31,8 +36,24 @@ namespace CPSC481Project
             HorizontalAlignment = HorizontalAlignment.Center;
         }
 
-        public WalkinTile(String name, String HC, int position)
+        //public WalkinTile(String name, String HC, int position)
+        //{
+        //    m_collection = null;
+        //    m_list = null;
+        //    InitializeComponent();
+        //    Height = 162.5;
+        //    Width = 177;
+        //    VerticalAlignment = VerticalAlignment.Center;
+        //    HorizontalAlignment = HorizontalAlignment.Center;
+        //    NameLabel.Content = name;
+        //    HCLabel.Content = HC;
+        //    Position.Content = position;
+        //}
+
+        public WalkinTile(String name, String HC, int position, ObservableCollection<WalkinTile> c, ListBox l)
         {
+            m_collection = c;
+            m_list = l;
             InitializeComponent();
             Height = 162.5;
             Width = 177;
@@ -48,13 +69,14 @@ namespace CPSC481Project
         }
         private void OnDeleteButton(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("AASDFJLSDKFJ");
-            ListBox a = (ListBox) (this.Parent);
+            if(m_collection != null && m_list != null)
+            {
+                m_collection.Remove(this);
+                m_list.ItemsSource = m_collection;
 
-            Grid a2 = (Grid)(a.Parent);
-            Grid a3 = (Grid)(a2.Parent);
-            MainWindow b = (MainWindow)(a3.Parent);
-            b.walkin_delete(this);
+                m_collection = null;
+                m_list = null;
+            }
         }
 
         public void UpdatePosition(int count)

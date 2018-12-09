@@ -122,9 +122,9 @@ namespace CPSC481Project
             PopulateDefaultInfo();
 
             //for walkinqueuelist
-            _walkinList.Add(new WalkinTile("John Doe", "12333", 1));
-            _walkinList.Add(new WalkinTile("John Deer", "33455", 2));
-            _walkinList.Add(new WalkinTile("Jane Deer", "33465", 3));
+            _walkinList.Add(new WalkinTile("John Doe", "12333", 1, _walkinList, walkinQueueList));
+            _walkinList.Add(new WalkinTile("John Deer", "33455", 2, _walkinList, walkinQueueList));
+            _walkinList.Add(new WalkinTile("Jane Deer", "33465", 3, _walkinList, walkinQueueList));
 
 
             //walkinQueueList.DisplayMemberPath = "Name";//*
@@ -989,18 +989,7 @@ namespace CPSC481Project
             else
             {
                 queuePosition++;
-                WalkinTile t = new WalkinTile(m_currentPatient.m_firstName + " " + m_currentPatient.m_lastName, m_currentPatient.m_hcNumber, queuePosition);
-                Console.WriteLine("Hi");
-                //Console.WriteLine(t.getHC());
-                string text = "";
-                foreach(var item in walkinQueueList.Items)
-                {
-                    Console.WriteLine(item);
-
-                }
-
-                Console.WriteLine(text);
-
+                WalkinTile t = new WalkinTile(m_currentPatient.m_firstName + " " + m_currentPatient.m_lastName, m_currentPatient.m_hcNumber, queuePosition, _walkinList, walkinQueueList);
                 _walkinList.Add(t);
                 walkinQueueList.ItemsSource = _walkinList;
                 //walkinQueueList.Items.Add(t);
