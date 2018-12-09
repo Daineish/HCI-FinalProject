@@ -73,14 +73,34 @@ namespace CPSC481Project
                 int hr = appTime.Hour;
                 if (cur.Year == appTime.Year && cur.Month == appTime.Month && cur.Day == appTime.Day && hr >= 8 && hr < 18)
                 {
+                    Grid gr = new Grid
+                    {
+                        Height = 36,
+                        HorizontalAlignment = HorizontalAlignment.Stretch,
+                        VerticalAlignment = VerticalAlignment.Stretch
+                    };
+                    Rectangle rec = new Rectangle
+                    {
+                        HorizontalAlignment = HorizontalAlignment.Stretch,
+                        VerticalAlignment = VerticalAlignment.Stretch,
+                        Stroke = new SolidColorBrush(Color.FromRgb(0,0,0)),
+                        RadiusX = 10,
+                        RadiusY = 10
+                    };
                     TextBlock tb = new TextBlock
                     {
                         Text = a.m_patient.m_firstName + " " + a.m_patient.m_lastName,
                         HorizontalAlignment = HorizontalAlignment.Stretch,
-                        VerticalAlignment = VerticalAlignment.Top,
-                        Height = 36
+                        VerticalAlignment = VerticalAlignment.Stretch,
+                        Height = 36,
+                        TextAlignment = TextAlignment.Center,
+                        Padding = new Thickness(5),
+                        FontSize = 18,
+                        Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0)),
                     };
                     tb.MouseUp += EditAppointment_Clicked;
+                    gr.Children.Add(rec);
+                    gr.Children.Add(tb);
 
                     if (a.m_doctor == "Dr. Walter")
                     {
@@ -108,9 +128,9 @@ namespace CPSC481Project
                             }
                             if (index != -1)
                             {
-                                tb.Background = new SolidColorBrush(Color.FromRgb(255, 0, 0));
+                                rec.Fill = new SolidColorBrush(Color.FromRgb(103, 103, 255));
                                 p.Children.RemoveAt(index);
-                                p.Children.Insert(index, tb);
+                                p.Children.Insert(index, gr);
                                 break;
                             }
                         }
@@ -140,9 +160,9 @@ namespace CPSC481Project
                             }
                             if (index != -1)
                             {
-                                tb.Background = new SolidColorBrush(Color.FromRgb(255, 0, 0));
+                                rec.Fill = new SolidColorBrush(Color.FromRgb(234, 142, 122));
                                 p.Children.RemoveAt(index);
-                                p.Children.Insert(index, tb);
+                                p.Children.Insert(index, gr);
                                 break;
                             }
                         }
@@ -172,9 +192,9 @@ namespace CPSC481Project
                             }
                             if (index != -1)
                             {
-                                tb.Background = new SolidColorBrush(Color.FromRgb(255, 0, 0));
+                                rec.Fill = new SolidColorBrush(Color.FromRgb(90, 170, 126));
                                 p.Children.RemoveAt(index);
-                                p.Children.Insert(index, tb);
+                                p.Children.Insert(index, gr);
                                 break;
                             }
                         }
@@ -188,7 +208,19 @@ namespace CPSC481Project
             // bring up window to edit appointment
             EditAppointment form = new EditAppointment();
             TextBlock tb = (TextBlock)sender;
-            StackPanel sp = (StackPanel)tb.Parent;
+            //Grid g = (Grid)sender;
+            //TextBlock tb = null;
+            //foreach(UIElement c in g.Children)
+            //{
+            //    if (c.GetType() == typeof(TextBlock))
+            //        tb = (TextBlock)c;
+            //}
+            //if (tb == null)
+            //{
+            //    MessageBox.Show("Error: Could not edit appointment.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            //}
+            Grid g = (Grid)tb.Parent;
+            StackPanel sp = (StackPanel)g.Parent;
             DateTime dt = DateTime.Parse((String)currentDate.Content + " " + (String)tb.Tag);
             String doc = (String)sp.Tag;
             form.SetInfo(tb.Text, "patient number", (String)sp.Tag, dt);
@@ -276,36 +308,36 @@ namespace CPSC481Project
             Color color = Color.FromRgb(0, 0, 0);
             foreach (StackPanel p in panels)
             {
-                if ((String)p.Tag == "Dr. Walter")
-                    color = Color.FromRgb(103,103,255);
-                else if ((String)p.Tag == "Dr. Lee")
-                    color = Color.FromRgb(234, 142, 122);
-                else if ((String)p.Tag == "Dr. Payne")
-                    color = Color.FromRgb(90, 170, 126);
-                // else error
-
                 List<int> removeThese = new List<int>();
                 List<Rectangle> addThese = new List<Rectangle>();
                 foreach (UIElement c in p.Children)
                 {
-                    if (c.GetType() == typeof(TextBlock))
+                    if (c.GetType() == typeof(Grid))
                     {
-                        TextBlock txt = (TextBlock)c;
-
-                        Rectangle r = new Rectangle
+                        Grid g = (Grid)c;
+                        foreach(UIElement c1 in g.Children)
                         {
-                            Fill = new SolidColorBrush(color),
-                            Height = 36,
-                            VerticalAlignment = VerticalAlignment.Top,
-                            Stroke = new SolidColorBrush(Color.FromRgb(0, 0, 0)),
-                            Tag = txt.Tag,
-                        };
-                        r.MouseUp += CreateAppointment_Click;
-                        // width = auto
-                        // fill = #6767ff, for ex.
+                            if(c1.GetType() == typeof(TextBlock))
+                            {
+                                TextBlock txt = (TextBlock)c1;
 
-                        removeThese.Add(p.Children.IndexOf(c));
-                        addThese.Add(r);
+                                Rectangle r = new Rectangle
+                                {
+                                    Fill = new SolidColorBrush(Color.FromRgb(255, 255, 255)),
+                                    Height = 36,
+                                    VerticalAlignment = VerticalAlignment.Top,
+                                    Stroke = new SolidColorBrush(Color.FromRgb(0, 0, 0)),
+                                    Tag = txt.Tag,
+                                };
+                                r.MouseUp += CreateAppointment_Click;
+                                // width = auto
+                                // fill = #6767ff, for ex.
+
+                                removeThese.Add(p.Children.IndexOf(c));
+                                addThese.Add(r);
+                            }
+                        }
+                        
 
                     }
                 }
