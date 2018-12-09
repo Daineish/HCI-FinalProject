@@ -514,6 +514,7 @@ namespace CPSC481Project
             dPatientaddr.Text = m_currentPatient.GetAddress();
             dPatientpn.Text = m_currentPatient.GetPhone();
             dPatientemail.Text = m_currentPatient.GetEmail();
+            dPatientprevdr.Text = m_currentPatient.GetPrev();
 
             // TODO: Also, need to fix the "recent" label and add an exit button to exit out of viewing patient info
             recentLabel.Content = "View Patient:";
@@ -586,7 +587,7 @@ namespace CPSC481Project
             dPatientemail.Visibility = Visibility.Visible;
             dPatientprevdr.Visibility = Visibility.Visible;
             //Replace and edit information.
-            Patient p = new Patient(dPatientlnameBox.Text, dPatientnameBox.Text, dPatientHCBox.Text, dPatientaddrBox.Text, dPatientemailBox.Text, dPatientpnBox.Text);
+            Patient p = new Patient(dPatientlnameBox.Text, dPatientnameBox.Text, dPatientHCBox.Text, dPatientaddrBox.Text, dPatientemailBox.Text, dPatientpnBox.Text, dPatientprevdrBox.Text);
             if(m_patientDatabase.findPatient(p.m_hcNumber)!= null)
             {
                 m_patientDatabase.RemovePatient(p.m_hcNumber);
@@ -610,7 +611,7 @@ namespace CPSC481Project
             dPatientaddrBox.Visibility = Visibility.Hidden;
             dPatientpnBox.Visibility = Visibility.Hidden;
             dPatientemailBox.Visibility = Visibility.Hidden;
-
+            dPatientprevdrBox.Visibility = Visibility.Hidden;
             //Then make text fields visible
             dPatientname.Visibility = Visibility.Visible;
             dPatientlname.Visibility = Visibility.Visible;
@@ -618,7 +619,7 @@ namespace CPSC481Project
             dPatientaddr.Visibility = Visibility.Visible;
             dPatientpn.Visibility = Visibility.Visible;
             dPatientemail.Visibility = Visibility.Visible;
-
+            dPatientprevdr.Visibility = Visibility.Visible;
             //Now hide the yes/cancel buttons
             editInfoYes.Visibility = Visibility.Hidden;
             editInfoCancel.Visibility = Visibility.Hidden;
