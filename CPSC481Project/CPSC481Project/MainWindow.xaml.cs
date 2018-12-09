@@ -230,9 +230,13 @@ namespace CPSC481Project
             {
                 String str = availablePayne.ElementAt(i);
                 if (i == 0 && str != null)
+                {
                     this.DoctorPayneTile.availTime1.Content = str;
+                }
                 else if (i == 1 && str != null)
+                {
                     this.DoctorPayneTile.availTime2.Content = str;
+                }
             }
             for (int i = 0; i < 2 && i < availableLee.Count(); i++)
             {
@@ -405,75 +409,79 @@ namespace CPSC481Project
             Label emailL = new Label();
             Label phoneL = new Label();
 
-            nameL.Content = "Name:"; nameL.Height = 40; nameL.Margin = new Thickness(16, 5, 0, 0); nameL.Width = 101; nameL.FontSize = 18; nameL.HorizontalAlignment = HorizontalAlignment.Left; nameL.VerticalAlignment = VerticalAlignment.Top;
-            hcL.Content = "HC#:"; hcL.Height = 40; hcL.Margin = new Thickness(16, 45, 0, 0); hcL.Width = 101; hcL.FontSize = 18; hcL.HorizontalAlignment = HorizontalAlignment.Left; hcL.VerticalAlignment = VerticalAlignment.Top;
-            addyL.Content = "Address:"; addyL.Height = 40; addyL.Margin = new Thickness(16, 85, 0, 0); addyL.Width = 101; addyL.FontSize = 18; addyL.HorizontalAlignment = HorizontalAlignment.Left; addyL.VerticalAlignment = VerticalAlignment.Top;
-            emailL.Content = "Email:"; emailL.Height = 40; emailL.Margin = new Thickness(16, 125, 0, 0); emailL.Width = 101; emailL.FontSize = 18; emailL.HorizontalAlignment = HorizontalAlignment.Left; emailL.VerticalAlignment = VerticalAlignment.Top;
-            phoneL.Content = "Phone:"; phoneL.Height = 40; phoneL.Margin = new Thickness(16, 165, 0, 0); phoneL.Width = 101; phoneL.FontSize = 18; phoneL.HorizontalAlignment = HorizontalAlignment.Left; phoneL.VerticalAlignment = VerticalAlignment.Top;
-
-            TextBlock nameC = new TextBlock();
-            TextBlock hcC = new TextBlock();
-            TextBlock addyC = new TextBlock();
-            TextBlock emailC = new TextBlock();
-            TextBlock phoneC = new TextBlock();
-
-            nameC.Text = p.GetLastName() + ", " + p.GetFirstName(); nameC.Height = 40; nameC.Margin = new Thickness(100, 5, 0, 0); nameC.Width = 230; nameC.FontSize = 18; nameC.FontWeight = FontWeights.Bold; nameC.HorizontalAlignment = HorizontalAlignment.Left; nameC.VerticalAlignment = VerticalAlignment.Top; nameC.TextTrimming = TextTrimming.CharacterEllipsis;
-            hcC.Text = p.GetHCNumber(); hcC.Height = 40; hcC.Margin = new Thickness(100, 45, 0, 0); hcC.Width = 230; hcC.FontSize = 18; hcC.FontWeight = FontWeights.Bold; hcC.HorizontalAlignment = HorizontalAlignment.Left; hcC.VerticalAlignment = VerticalAlignment.Top; hcC.TextTrimming = TextTrimming.CharacterEllipsis;
-            addyC.Text = p.GetAddress(); addyC.Height = 40; addyC.Margin = new Thickness(100, 85, 0, 0); addyC.Width = 230; addyC.FontSize = 18; addyC.FontWeight = FontWeights.Bold; addyC.HorizontalAlignment = HorizontalAlignment.Left; addyC.VerticalAlignment = VerticalAlignment.Top; addyC.TextTrimming = TextTrimming.CharacterEllipsis;
-            emailC.Text = p.GetEmail(); emailC.Height = 40; emailC.Margin = new Thickness(100, 125, 0, 0); emailC.Width = 230; emailC.FontSize = 18; emailC.FontWeight = FontWeights.Bold; emailC.HorizontalAlignment = HorizontalAlignment.Left; emailC.VerticalAlignment = VerticalAlignment.Top; emailC.TextTrimming = TextTrimming.CharacterEllipsis;
-            phoneC.Text = p.GetPhone(); phoneC.Height = 40; phoneC.Margin = new Thickness(100, 165, 0, 0); phoneC.Width = 230; phoneC.FontSize = 18; phoneC.FontWeight = FontWeights.Bold; phoneC.HorizontalAlignment = HorizontalAlignment.Left; phoneC.VerticalAlignment = VerticalAlignment.Top; phoneC.TextTrimming = TextTrimming.CharacterEllipsis;
-
-            Rectangle r = new Rectangle();
-            r.Stroke = System.Windows.Media.Brushes.Black;
-            r.HorizontalAlignment = HorizontalAlignment.Left;
-            r.VerticalAlignment = VerticalAlignment.Top;
-            r.Width = 422;
-            r.Height = 245;
-
-            if (withButton)
+            //Only add grid if patient is not null
+            if (p != null)
             {
-                Button b = new Button();
-                b.Content = "Select";
-                b.Width = 100;
-                b.Height = 30;
-                b.Margin = new Thickness(-50, 200, 0, 0);
-                b.Tag = p;
-                b.Cursor = Cursors.Hand;
-                b.Click += SelectPatientClicked;
-                g.Children.Add(b);
-            }
-            else if(highlighted)
-            {
-                r.Fill = new SolidColorBrush(Color.FromRgb(249, 209, 26));
-            }
+                nameL.Content = "Name:"; nameL.Height = 40; nameL.Margin = new Thickness(16, 5, 0, 0); nameL.Width = 101; nameL.FontSize = 18; nameL.HorizontalAlignment = HorizontalAlignment.Left; nameL.VerticalAlignment = VerticalAlignment.Top;
+                hcL.Content = "HC#:"; hcL.Height = 40; hcL.Margin = new Thickness(16, 45, 0, 0); hcL.Width = 101; hcL.FontSize = 18; hcL.HorizontalAlignment = HorizontalAlignment.Left; hcL.VerticalAlignment = VerticalAlignment.Top;
+                addyL.Content = "Address:"; addyL.Height = 40; addyL.Margin = new Thickness(16, 85, 0, 0); addyL.Width = 101; addyL.FontSize = 18; addyL.HorizontalAlignment = HorizontalAlignment.Left; addyL.VerticalAlignment = VerticalAlignment.Top;
+                emailL.Content = "Email:"; emailL.Height = 40; emailL.Margin = new Thickness(16, 125, 0, 0); emailL.Width = 101; emailL.FontSize = 18; emailL.HorizontalAlignment = HorizontalAlignment.Left; emailL.VerticalAlignment = VerticalAlignment.Top;
+                phoneL.Content = "Phone:"; phoneL.Height = 40; phoneL.Margin = new Thickness(16, 165, 0, 0); phoneL.Width = 101; phoneL.FontSize = 18; phoneL.HorizontalAlignment = HorizontalAlignment.Left; phoneL.VerticalAlignment = VerticalAlignment.Top;
 
-            //Add button to view patient information
-            Button view = new Button();
-            view.Content = "View";
-            view.Width = 75;
-            view.Height = 30;
-            view.Margin = new Thickness(150, 200, 0, 0);
-            view.Tag = p;
-            view.Cursor = Cursors.Hand;
-            view.Click += selectViewPatient;
-            g.Children.Add(view);
+                TextBlock nameC = new TextBlock();
+                TextBlock hcC = new TextBlock();
+                TextBlock addyC = new TextBlock();
+                TextBlock emailC = new TextBlock();
+                TextBlock phoneC = new TextBlock();
 
-            g.Children.Add(r);
-            g.Children.Add(nameL); g.Children.Add(hcL); g.Children.Add(addyL); g.Children.Add(emailL); g.Children.Add(phoneL);
-            g.Children.Add(nameC); g.Children.Add(hcC); g.Children.Add(addyC); g.Children.Add(emailC); g.Children.Add(phoneC);
+                nameC.Text = p.GetLastName() + ", " + p.GetFirstName(); nameC.Height = 40; nameC.Margin = new Thickness(100, 5, 0, 0); nameC.Width = 230; nameC.FontSize = 18; nameC.FontWeight = FontWeights.Bold; nameC.HorizontalAlignment = HorizontalAlignment.Left; nameC.VerticalAlignment = VerticalAlignment.Top; nameC.TextTrimming = TextTrimming.CharacterEllipsis;
+                hcC.Text = p.GetHCNumber(); hcC.Height = 40; hcC.Margin = new Thickness(100, 45, 0, 0); hcC.Width = 230; hcC.FontSize = 18; hcC.FontWeight = FontWeights.Bold; hcC.HorizontalAlignment = HorizontalAlignment.Left; hcC.VerticalAlignment = VerticalAlignment.Top; hcC.TextTrimming = TextTrimming.CharacterEllipsis;
+                addyC.Text = p.GetAddress(); addyC.Height = 40; addyC.Margin = new Thickness(100, 85, 0, 0); addyC.Width = 230; addyC.FontSize = 18; addyC.FontWeight = FontWeights.Bold; addyC.HorizontalAlignment = HorizontalAlignment.Left; addyC.VerticalAlignment = VerticalAlignment.Top; addyC.TextTrimming = TextTrimming.CharacterEllipsis;
+                emailC.Text = p.GetEmail(); emailC.Height = 40; emailC.Margin = new Thickness(100, 125, 0, 0); emailC.Width = 230; emailC.FontSize = 18; emailC.FontWeight = FontWeights.Bold; emailC.HorizontalAlignment = HorizontalAlignment.Left; emailC.VerticalAlignment = VerticalAlignment.Top; emailC.TextTrimming = TextTrimming.CharacterEllipsis;
+                phoneC.Text = p.GetPhone(); phoneC.Height = 40; phoneC.Margin = new Thickness(100, 165, 0, 0); phoneC.Width = 230; phoneC.FontSize = 18; phoneC.FontWeight = FontWeights.Bold; phoneC.HorizontalAlignment = HorizontalAlignment.Left; phoneC.VerticalAlignment = VerticalAlignment.Top; phoneC.TextTrimming = TextTrimming.CharacterEllipsis;
 
-            //Now add an unselect button
-            if (!withButton && highlighted)
-            {
-                Button unselectPatient = new Button();
-                unselectPatient.Content = "Unselect";
-                unselectPatient.Width = 100;
-                unselectPatient.Height = 30;
-                unselectPatient.Margin = new Thickness(-50, 200, 0, 0);
-                unselectPatient.Tag = p;
-                unselectPatient.Cursor = Cursors.Hand;
-                unselectPatient.Click += unSelectPatientClicked;
-                g.Children.Add(unselectPatient);
+                Rectangle r = new Rectangle();
+                r.Stroke = System.Windows.Media.Brushes.Black;
+                r.HorizontalAlignment = HorizontalAlignment.Left;
+                r.VerticalAlignment = VerticalAlignment.Top;
+                r.Width = 422;
+                r.Height = 245;
+
+                if (withButton)
+                {
+                    Button b = new Button();
+                    b.Content = "Select";
+                    b.Width = 100;
+                    b.Height = 30;
+                    b.Margin = new Thickness(-50, 200, 0, 0);
+                    b.Tag = p;
+                    b.Cursor = Cursors.Hand;
+                    b.Click += SelectPatientClicked;
+                    g.Children.Add(b);
+                }
+                else if (highlighted)
+                {
+                    r.Fill = new SolidColorBrush(Color.FromRgb(249, 209, 26));
+                }
+
+                //Add button to view patient information
+                Button view = new Button();
+                view.Content = "View";
+                view.Width = 75;
+                view.Height = 30;
+                view.Margin = new Thickness(150, 200, 0, 0);
+                view.Tag = p;
+                view.Cursor = Cursors.Hand;
+                view.Click += selectViewPatient;
+                g.Children.Add(view);
+
+                g.Children.Add(r);
+                g.Children.Add(nameL); g.Children.Add(hcL); g.Children.Add(addyL); g.Children.Add(emailL); g.Children.Add(phoneL);
+                g.Children.Add(nameC); g.Children.Add(hcC); g.Children.Add(addyC); g.Children.Add(emailC); g.Children.Add(phoneC);
+
+                //Now add an unselect button
+                if (!withButton && highlighted)
+                {
+                    Button unselectPatient = new Button();
+                    unselectPatient.Content = "Unselect";
+                    unselectPatient.Width = 100;
+                    unselectPatient.Height = 30;
+                    unselectPatient.Margin = new Thickness(-50, 200, 0, 0);
+                    unselectPatient.Tag = p;
+                    unselectPatient.Cursor = Cursors.Hand;
+                    unselectPatient.Click += unSelectPatientClicked;
+                    g.Children.Add(unselectPatient);
+                }
             }
             return g;
         }
@@ -496,8 +504,9 @@ namespace CPSC481Project
         private void unSelectPatientClicked(object sender, RoutedEventArgs e)
         {
             PatientListStackPanel.Children.Clear();
-            PatientListStackPanel.Children.Add(CreateGrid(m_currentPatient, true, false));
+            //Set patient to null so we don't create another grid of the patient
             m_currentPatient = null;
+            PatientListStackPanel.Children.Add(CreateGrid(m_currentPatient, true, false));
             selectedMode = false;
 
             if (m_recentPatientsShowing)
