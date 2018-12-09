@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -57,7 +58,9 @@ namespace CPSC481Project
         Patient m_walterNext1;
         Patient m_walterNext2;
 
+        //for walkinqueue
         private int queuePosition = 0;
+        public ObservableCollection<WalkinTile> _walkinList = new ObservableCollection<WalkinTile>();
 
         public MainWindow()
         {
@@ -117,6 +120,20 @@ namespace CPSC481Project
             //randomPatientGenerator();
 
             PopulateDefaultInfo();
+
+            //for walkinqueuelist
+            _walkinList.Add(new WalkinTile("John Doe", "12333", 1));
+            _walkinList.Add(new WalkinTile("John Deer", "33455", 2));
+            _walkinList.Add(new WalkinTile("Jane Deer", "33465", 3));
+
+
+            //walkinQueueList.DisplayMemberPath = "Name";//*
+            walkinQueueList.ItemsSource = _walkinList;
+            Style itemContainerStyle = new Style(typeof(ListBoxItem));
+            itemContainerStyle.Setters.Add(new Setter(ListBoxItem.AllowDropProperty, true));
+            itemContainerStyle.Setters.Add(new EventSetter(ListBoxItem.PreviewMouseLeftButtonDownEvent, new MouseButtonEventHandler(walkinqueue_PreviewMouseMoveEvent)));
+            itemContainerStyle.Setters.Add(new EventSetter(ListBoxItem.DropEvent, new DragEventHandler(walkinqueue_Drop)));
+            walkinQueueList.ItemContainerStyle = itemContainerStyle;
         }
 
         /**
@@ -893,9 +910,50 @@ namespace CPSC481Project
 
                 Console.WriteLine(text);
 
-
-                walkinQueueList.Items.Add(t);
+                _walkinList.Add(t);
+                walkinQueueList.ItemsSource = _walkinList;
+                //walkinQueueList.Items.Add(t);
             }
+        }
+
+        private void walkinqueue_PreviewMouseMoveEvent(object sender, MouseButtonEventArgs e)
+        {
+            if (sender is ListBoxItem && e.LeftButton == MouseButtonState.Pressed)
+            {
+                ListBoxItem draggedItem = sender as ListBoxItem;
+                DragDrop.DoDragDrop(draggedItem, draggedItem.DataContext, DragDropEffects.Move);
+                draggedItem.IsSelected = true;
+            }
+        }
+
+        void walkinqueue_Drop(object sender, DragEventArgs e)
+        {
+            WalkinTile droppedData = e.Data.GetData(typeof(WalkinTile)) as WalkinTile;
+            WalkinTile target = ((ListBoxItem)(sender)).DataContext as WalkinTile;
+
+            int removedIdx = walkinQueueList.Items.IndexOf(droppedData);
+            int targetIdx = walkinQueueList.Items.IndexOf(target);
+
+            if (removedIdx < targetIdx)
+            {
+                _walkinList.Insert(targetIdx + 1, droppedData);
+                _walkinList.RemoveAt(removedIdx);
+            }
+            else
+            {
+                int remIdx = removedIdx + 1;
+                if (_walkinList.Count + 1 > remIdx)
+                {
+                    _walkinList.Insert(targetIdx, droppedData);
+                    _walkinList.RemoveAt(remIdx);
+                }
+            }
+        }
+
+        public void walkin_delete(WalkinTile a)
+        {
+            _walkinList.Remove(_walkinList.Where(i => i.HCLabel == a.HCLabel).Single());
+            walkinQueueList.ItemsSource = _walkinList;
         }
 
         public void MonthViewToDayView(DateTime d)

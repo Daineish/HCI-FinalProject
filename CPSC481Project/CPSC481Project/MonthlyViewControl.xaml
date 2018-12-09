@@ -9,8 +9,8 @@
         <Rectangle Fill="LightSteelBlue" HorizontalAlignment="Stretch" Stroke="Black" VerticalAlignment="Stretch"/>
         <local:MonthViewHeader x:Name="aptCalendar" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Width="Auto">
-            <Image x:Name="ToDashboard" Source="/images/dashboard.png" Height="40" RenderTransformOrigin="0.5,0.5" Margin="10,15,0,18"
-                   MouseLeftButtonUp="ToDashboard_MouseLeftButtonUp" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Cursor="Hand"/>
+            <Image x:Name="ToDashboard" Source="/images/dashboard.png" Height="38" RenderTransformOrigin="0.5,0.5" Margin="10,15,0,18"
+                   MouseLeftButtonUp="ToDashboard_MouseLeftButtonUp" HorizontalAlignment="Center" VerticalAlignment="Center" Width="59" Cursor="Hand"/>
             <Image x:Name="ToDayView" Source="/images/calDayView.png" Height="40" RenderTransformOrigin="0.5,0.5" Margin="0,13,6,18"
                    MouseLeftButtonUp="ToDayView_MouseLeftButtonUp" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Cursor="Hand"/>
         </StackPanel>
