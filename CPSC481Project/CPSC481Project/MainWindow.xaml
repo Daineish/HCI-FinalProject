@@ -215,8 +215,8 @@
             <TextBox x:Name="dPatientprevdrBox" HorizontalAlignment="Left" Height="31" Margin="155.167,278,0,0" TextWrapping="WrapWithOverflow" VerticalAlignment="Top" Width="179.833" FontSize="18" Visibility="Hidden"/>
             <Button x:Name="editInfo" Content="Edit" HorizontalAlignment="Left" Height="46" Margin="208,472.03,0,0" VerticalAlignment="Top" Width="122
                     " Cursor="Hand" Click="EditInfo_Click" RenderTransformOrigin="0.533,-0.315"/>
-            <Button x:Name="editInfoYes" Content="Confirm" HorizontalAlignment="Left" Height="46" Margin="208,523.03,0,0" VerticalAlignment="Top" Width="122" Cursor="Hand" Click="EditInfoYes_Click" Visibility="Hidden"/>
-            <Button x:Name="editInfoCancel" Content="Cancel" HorizontalAlignment="Left" Height="46" Margin="81,523.03,0,0" VerticalAlignment="Top" Width="122" Cursor="Hand" Click="EditInfoCancel_Click" Visibility="Hidden"/>
+            <Button x:Name="editInfoYes" Content="Confirm" HorizontalAlignment="Left" Height="46" Margin="208,472.03,0,0" VerticalAlignment="Top" Width="122" Cursor="Hand" Click="EditInfoYes_Click" Visibility="Hidden"/>
+            <Button x:Name="editInfoCancel" Content="Cancel" HorizontalAlignment="Left" Height="46" Margin="81,472.03,0,0" VerticalAlignment="Top" Width="122" Cursor="Hand" Click="EditInfoCancel_Click" Visibility="Hidden"/>
             <TextBlock HorizontalAlignment="Left" Height="40" Margin="16,278,0,0" TextWrapping="Wrap" Text="Previous Doctor:" VerticalAlignment="Top" Width="149.5" FontSize="18"/>
 
         </Grid>
