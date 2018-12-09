@@ -868,6 +868,7 @@ namespace CPSC481Project
                     Appointment newApp = new Appointment(m_currentPatient, form.m_doctor, form.m_startDate, form.m_startDate, "");
 
                     bool conflict = false;
+                    bool inPast = false;
                     foreach (Appointment a in m_appointmentDatabase.m_appointments)
                     {
                         if (DateTime.Compare(a.m_startTime, newApp.m_startTime) == 0 && a.m_doctor == newApp.m_doctor)
@@ -876,10 +877,19 @@ namespace CPSC481Project
                             break;
                         }
                     }
+                    if (DateTime.Compare(newApp.m_startTime, DateTime.Now) < 0)
+                    {
+                        inPast = true;
+                    }
                     if (conflict)
                     {
                         String msg = "Appointment time conflicts with another appointment, nothing was added.";
-                        MessageBox.Show(msg, "Time Conflict", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show(msg, "Time Unavailable", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    else if(inPast)
+                    {
+                        String msg = "The appointment you are trying to add is in the past, please try another time.";
+                        MessageBox.Show(msg, "Time Unavailable", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                     else
                     {
