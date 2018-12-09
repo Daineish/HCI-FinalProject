@@ -49,6 +49,7 @@ namespace CPSC481Project
         public VacationDatabase m_vacationDatabase { get; set; }
         DayViewControl m_dayViewControl;
         MonthlyViewControl m_monthlyViewControl;
+        Boolean m_recentPatientsShowing;
 
         private int queuePosition = 0;
 
@@ -59,6 +60,7 @@ namespace CPSC481Project
             m_patientDatabase = new PatientDatabase();
             m_appointmentDatabase = new AppointmentDatabase();
             m_vacationDatabase = new VacationDatabase();
+            m_recentPatientsShowing = true;
 
             //get current date for dashboard
             DashDate.Content = month.ElementAt(_DisplayStartDate.Month - 1) + " " + _DisplayStartDate.Day + ", " + _DisplayStartDate.Year;
@@ -159,11 +161,11 @@ namespace CPSC481Project
                 Patient recent4 = m_patientDatabase.findPatient("99999");
                 Patient recent5 = m_patientDatabase.findPatient("83409");
 
-                PatientListStackPanel.Children.Add(CreateGrid(recent1));
-                PatientListStackPanel.Children.Add(CreateGrid(recent2));
-                PatientListStackPanel.Children.Add(CreateGrid(recent3));
-                PatientListStackPanel.Children.Add(CreateGrid(recent4));
-                PatientListStackPanel.Children.Add(CreateGrid(recent5));
+                PatientListStackPanel.Children.Add(CreateGrid(recent1, true));
+                PatientListStackPanel.Children.Add(CreateGrid(recent2, true));
+                PatientListStackPanel.Children.Add(CreateGrid(recent3, true));
+                PatientListStackPanel.Children.Add(CreateGrid(recent4, true));
+                PatientListStackPanel.Children.Add(CreateGrid(recent5, true));
             }
             
 
@@ -238,18 +240,16 @@ namespace CPSC481Project
 
         private void searchClicked(object sender, MouseButtonEventArgs e)
         {
-            Console.WriteLine("Search has been clicked\n");
             searchField.Text = "";
             searchField.Opacity = 100;
         }
-
-
 
         private void SearchBtn_Click(object sender, RoutedEventArgs e)
         {
             // first clear StackPanel contents
             PatientListStackPanel.Children.Clear();
             recentLabel.Content = "Patient Search";
+            m_recentPatientsShowing = false;
 
             // Add a button to remove search results
             RemoveSearchButton.Visibility = Visibility.Visible;
@@ -309,7 +309,35 @@ namespace CPSC481Project
 
         private void searchField_TextChanged(object sender, TextChangedEventArgs e)
         {
+            // first clear StackPanel contents
+            PatientListStackPanel.Children.Clear();
+            recentLabel.Content = "Patient Search";
+            m_recentPatientsShowing = false;
 
+            // Add a button to remove search results
+            RemoveSearchButton.Visibility = Visibility.Visible;
+
+            if (IsDigitsOnly(searchField.Text))
+            {
+                List<Patient> patients = m_patientDatabase.FindPatientHC(searchField.Text);
+                double size = 0;
+                foreach (Patient pat in patients)
+                {
+                    Grid g = CreateGrid(pat, true, false);
+                    size += g.Height;
+                    PatientListStackPanel.Children.Add(g);
+                }
+                PatientListStackPanel.Height = size + 10;
+
+            }
+            else// if(Regex.IsMatch(searchField.Text, @"^[a-zA-Z]+$")) //Search by Lastname
+            {
+                List<Patient> patients = m_patientDatabase.FindPatientName(searchField.Text);
+                foreach (Patient pat in patients)
+                {
+                    PatientListStackPanel.Children.Add(CreateGrid(pat, true, false));
+                }
+            }
         }
 
         /**
@@ -418,6 +446,9 @@ namespace CPSC481Project
             PatientListStackPanel.Children.Add(CreateGrid(m_currentPatient, true, false));
             m_currentPatient = null;
             selectedMode = false;
+
+            if (m_recentPatientsShowing)
+                PopulateDefaultInfo(); // or something
         }
 
         //View patient information
@@ -437,12 +468,12 @@ namespace CPSC481Project
             dPatientpn.Text = m_currentPatient.GetPhone();
             dPatientemail.Text = m_currentPatient.GetEmail();
 
-            //Also, need to fix the "recent" label and add an exit button to exit out of viewing patient info
+            // TODO: Also, need to fix the "recent" label and add an exit button to exit out of viewing patient info
             recentLabel.Content = "View Patient:";
             //Reuse the same button as for exiting search
             RemoveSearchButton.Visibility = Visibility.Visible;
 
-            //Future work: Add an edit button to edit any field
+            // TODO: Future work: Add an edit button to edit any field
             editInfo.Visibility = Visibility.Visible;
 
 
@@ -757,6 +788,7 @@ namespace CPSC481Project
             apemailField.Text = "";
             apaddrField.Text = "";
             recentLabel.Content = "Recent Patients:";
+            m_recentPatientsShowing = true;
             recentRec.Fill = (SolidColorBrush)Application.Current.Resources["RecentPatient"];
         }
 
@@ -900,6 +932,7 @@ namespace CPSC481Project
             PatientListStackPanel.Children.Clear();
             PopulateDefaultInfo();
             recentLabel.Content = "Recent Patients: ";
+            m_recentPatientsShowing = true;
             RemoveSearchButton.Visibility = Visibility.Hidden;
             selectedMode = false;
             m_currentPatient = null;
