@@ -50,6 +50,12 @@ namespace CPSC481Project
         DayViewControl m_dayViewControl;
         MonthlyViewControl m_monthlyViewControl;
         Boolean m_recentPatientsShowing;
+        Patient m_payneNext1;
+        Patient m_payneNext2;
+        Patient m_leeNext1;
+        Patient m_leeNext2;
+        Patient m_walterNext1;
+        Patient m_walterNext2;
 
         private int queuePosition = 0;
 
@@ -129,27 +135,51 @@ namespace CPSC481Project
                 Appointment app = appointmentPayne1.ElementAt(i);
                 Patient pat = appointmentPayne1.ElementAt(i).m_patient;
                 if (i == 0 && pat != null)
+                {
                     this.DoctorPayneTile.npfullName.Content = app.m_startTime.ToString("hh:mm") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
-                if(i == 1 && pat != null)
+                    this.DoctorPayneTile.npfullName.MouseDoubleClick += NextPatientClicked;
+                    m_payneNext1 = pat;
+                }
+                if (i == 1 && pat != null)
+                {
                     this.DoctorPayneTile.npfullName2.Content = app.m_startTime.ToString("hh:mm") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
+                    this.DoctorPayneTile.npfullName2.MouseDoubleClick += NextPatientClicked;
+                    m_payneNext2 = pat;
+                }
             }
             for (int i = 0; i < 2 && i < appointmentLee1.Count(); i++)
             {
                 Appointment app = appointmentLee1.ElementAt(i);
                 Patient pat = appointmentLee1.ElementAt(i).m_patient;
                 if (i == 0 && pat != null)
+                {
                     this.DoctorLeeTile.npfullName.Content = app.m_startTime.ToString("hh:mm") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
+                    this.DoctorLeeTile.npfullName.MouseDoubleClick += NextPatientClicked;
+                    m_leeNext1 = pat;
+                }
                 if (i == 1 && pat != null)
+                {
                     this.DoctorLeeTile.npfullName2.Content = app.m_startTime.ToString("hh:mm") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
+                    this.DoctorLeeTile.npfullName2.MouseDoubleClick += NextPatientClicked;
+                    m_leeNext2 = pat;
+                }
             }
             for (int i = 0; i < 2 && i < appointmentWalter1.Count(); i++)
             {
                 Appointment app = appointmentWalter1.ElementAt(i);
                 Patient pat = appointmentWalter1.ElementAt(i).m_patient;
-                if(i == 0 && pat != null)
+                if (i == 0 && pat != null)
+                {
                     this.DoctorWalterTile.npfullName.Content = app.m_startTime.ToString("hh:mm") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
+                    this.DoctorWalterTile.npfullName.MouseDoubleClick += NextPatientClicked;
+                    m_walterNext1 = pat;
+                }
                 if (i == 1 && pat != null)
+                {
                     this.DoctorWalterTile.npfullName2.Content = app.m_startTime.ToString("hh:mm") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
+                    this.DoctorWalterTile.npfullName2.MouseDoubleClick += NextPatientClicked;
+                    m_walterNext2 = pat;
+                }
             }
 
             if(!selectedMode)
@@ -977,5 +1007,29 @@ namespace CPSC481Project
                 m_monthlyViewControl.SetAppointments();
         }
         //Filter Unchecked
+
+        private void NextPatientClicked(object sender, RoutedEventArgs e)
+        {
+            if (sender.GetType() != typeof(Label))
+                return;
+
+            Label l = (Label)sender;
+            Patient p = (l == this.DoctorPayneTile.npfullName) ? m_payneNext1 :
+                        (l == this.DoctorPayneTile.npfullName2) ? m_payneNext2 :
+                        (l == this.DoctorLeeTile.npfullName) ? m_leeNext1 :
+                        (l == this.DoctorLeeTile.npfullName2) ? m_leeNext2 :
+                        (l == this.DoctorWalterTile.npfullName) ? m_walterNext1 :
+                        (l == this.DoctorWalterTile.npfullName2) ? m_walterNext2 : null;
+
+            if (p != null)
+            {
+                // Remove all boxes, then add back the selected patient box.
+                PatientListStackPanel.Children.Clear();
+                m_currentPatient = (Patient)p;
+                PatientListStackPanel.Children.Add(CreateGrid(m_currentPatient, false, true));
+
+                selectedMode = true;
+            }
+        }
     }
 }
