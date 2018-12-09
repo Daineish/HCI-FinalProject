@@ -329,6 +329,7 @@ namespace CPSC481Project
             }
             foreach(Appointment a in temp)
             {
+                a.m_patient.m_prevDr = a.m_doctor;
                 DeleteAppointment(a);
             }
         }

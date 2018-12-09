@@ -553,7 +553,7 @@ namespace CPSC481Project
             dPatientpn.Visibility = Visibility.Hidden;
             dPatientemail.Visibility = Visibility.Hidden;
             dPatientprevdr.Visibility = Visibility.Hidden;
-
+            dPatientHCBox.IsEnabled = false;
             //Keep text the same, let users change if they want
             dPatientnameBox.Text = dPatientname.Text;
             dPatientlnameBox.Text = dPatientlname.Text;
@@ -593,7 +593,7 @@ namespace CPSC481Project
             dPatientpnBox.Visibility = Visibility.Hidden;
             dPatientemailBox.Visibility = Visibility.Hidden;
             dPatientprevdrBox.Visibility = Visibility.Hidden;
-
+            
             dPatientname.Visibility = Visibility.Visible;
             dPatientlname.Visibility = Visibility.Visible;
             dPatientHC.Visibility = Visibility.Visible;
@@ -602,13 +602,25 @@ namespace CPSC481Project
             dPatientemail.Visibility = Visibility.Visible;
             dPatientprevdr.Visibility = Visibility.Visible;
             //Replace and edit information.
+          
+            Patient p = m_patientDatabase.findPatient(dPatientHCBox.Text.ToString());
+            if(p != null)
+            {
+                p.m_firstName = dPatientnameBox.Text;
+                p.m_lastName = dPatientlnameBox.Text;
+                p.m_phoneNumber = dPatientpnBox.Text;
+                p.m_prevDr = dPatientprevdrBox.Text;
+                p.m_email = dPatientemailBox.Text;
+                p.m_address = dPatientaddrBox.Text;
+            }
+            /*
             Patient p = new Patient(dPatientlnameBox.Text, dPatientnameBox.Text, dPatientHCBox.Text, dPatientaddrBox.Text, dPatientemailBox.Text, dPatientpnBox.Text, dPatientprevdrBox.Text);
             if(m_patientDatabase.findPatient(p.m_hcNumber)!= null)
             {
                 m_patientDatabase.RemovePatient(p.m_hcNumber);
                 m_patientDatabase.AddPatient(p);
             }
-
+            */
 
             //Now hide the yes/cancel buttons
             editInfoYes.Visibility = Visibility.Hidden;
@@ -623,6 +635,7 @@ namespace CPSC481Project
             dPatientnameBox.Visibility = Visibility.Hidden;
             dPatientlnameBox.Visibility = Visibility.Hidden;
             dPatientHCBox.Visibility = Visibility.Hidden;
+            
             dPatientaddrBox.Visibility = Visibility.Hidden;
             dPatientpnBox.Visibility = Visibility.Hidden;
             dPatientemailBox.Visibility = Visibility.Hidden;
@@ -993,6 +1006,28 @@ namespace CPSC481Project
 
             viewPatient.Visibility = Visibility.Hidden;
             PopulateDefaultInfo();
+
+            //This is for if its in EDIT MODE AND WE CLICK THE X
+            //If cancel, just make text boxes no longer visible
+            dPatientnameBox.Visibility = Visibility.Hidden;
+            dPatientlnameBox.Visibility = Visibility.Hidden;
+            dPatientHCBox.Visibility = Visibility.Hidden;
+
+            dPatientaddrBox.Visibility = Visibility.Hidden;
+            dPatientpnBox.Visibility = Visibility.Hidden;
+            dPatientemailBox.Visibility = Visibility.Hidden;
+            dPatientprevdrBox.Visibility = Visibility.Hidden;
+            //Then make text fields visible
+            dPatientname.Visibility = Visibility.Visible;
+            dPatientlname.Visibility = Visibility.Visible;
+            dPatientHC.Visibility = Visibility.Visible;
+            dPatientaddr.Visibility = Visibility.Visible;
+            dPatientpn.Visibility = Visibility.Visible;
+            dPatientemail.Visibility = Visibility.Visible;
+            dPatientprevdr.Visibility = Visibility.Visible;
+            //Now hide the yes/cancel buttons
+            editInfoYes.Visibility = Visibility.Hidden;
+            editInfoCancel.Visibility = Visibility.Hidden;
         }
         //Filter Checked
         private void payneChecked(object sender, RoutedEventArgs e)
