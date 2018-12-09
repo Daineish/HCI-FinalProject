@@ -573,7 +573,12 @@ namespace CPSC481Project
         }
         private void ToCalendar_MouseLeftButtonUp(object sender, RoutedEventArgs e)
         {
-            if(filterMode == false || filterDoctor.Visibility == Visibility.Hidden)
+            ToMonthView();
+        }
+
+        public void ToMonthView()
+        {
+            if (filterMode == false || filterDoctor.Visibility == Visibility.Hidden)
             {
                 filterMode = true;
                 PatientListScrollViewer.Height = 708.5 - 180.5;

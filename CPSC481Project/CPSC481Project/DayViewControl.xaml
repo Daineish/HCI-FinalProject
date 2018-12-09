@@ -25,6 +25,8 @@
         <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Width="Auto">
             <Image x:Name="ToDashboard" Source="/images/dashboard.png" Height="40" RenderTransformOrigin="0.5,0.5" Margin="10,15,0,18"
                    MouseLeftButtonUp="ToDashboard_MouseLeftButtonUp" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Cursor="Hand"/>
+            <Image x:Name="ToMonthView" Source="/images/calMonView.png" Height="40" RenderTransformOrigin="0.5,0.5" Margin="0,13,6,18"
+                   MouseLeftButtonUp="ToMonth_MouseLeftButtonUp" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Cursor="Hand"/>
         </StackPanel>
         <Rectangle Grid.Column="4" Grid.Row="1" Height="auto" Width="auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
         <Rectangle Grid.Column="3" Grid.Row="1" Fill="#FF5AAA7E" Height="auto" Margin="0,0,0,0" Stroke="Black" Width="auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
