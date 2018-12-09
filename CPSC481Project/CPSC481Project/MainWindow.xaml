@@ -114,7 +114,7 @@
 
         </Grid>
         <Grid  Grid.Column="0" x:Name="viewPatient" Margin="0,157,0,0" Visibility="Hidden">
-            <Rectangle Fill="#FFF4F5F5" HorizontalAlignment="Left" Height="712" Stroke="Black" VerticalAlignment="Top" Width="345"/>
+            <Rectangle Fill="#FFF4F5F5" HorizontalAlignment="Left" Height="712" Stroke="Black" VerticalAlignment="Top" Width="345" Visibility="Hidden"/>
             <TextBlock x:Name="apnameLbl1" HorizontalAlignment="Left" Height="31" Margin="16,62,0,0" TextWrapping="Wrap" Text="First Name:" VerticalAlignment="Top" Width="102.5" FontSize="18"/>
             <TextBlock x:Name="apnameLbl_Copy7" HorizontalAlignment="Left" Height="31" Margin="16,98,0,0" TextWrapping="Wrap" Text="Last Name:" VerticalAlignment="Top" Width="102.5" FontSize="18"/>
             <TextBlock x:Name="apnameLbl_Copy8" HorizontalAlignment="Left" Height="31" Margin="16,134,0,0" TextWrapping="Wrap" Text="Health Care #:" VerticalAlignment="Top" Width="123.5" FontSize="18"/>
@@ -122,8 +122,8 @@
             <TextBlock x:Name="apnameLbl_Copy10" HorizontalAlignment="Left" Height="31" Margin="16,206,0,0" TextWrapping="Wrap" Text="Phone:" VerticalAlignment="Top" Width="86.5" FontSize="18"/>
             <TextBlock x:Name="apnameLbl_Copy11" HorizontalAlignment="Left" Height="31" Margin="16,242,0,0" TextWrapping="Wrap" Text="Email:" VerticalAlignment="Top" Width="70.5" FontSize="18"/>
             <TextBlock x:Name="apnameLbl_Copy12" HorizontalAlignment="Left" Height="31" Margin="16,10,0,0" TextWrapping="Wrap" Text="Patient Information:" VerticalAlignment="Top" Width="255.5" FontSize="18"/>
-            <TextBlock x:Name="apnameLbl_Copy13" HorizontalAlignment="Left" Height="31" Margin="16,278,0,0" TextWrapping="Wrap" Text="Additional Notes:" VerticalAlignment="Top" Width="149.5" FontSize="18"/>
-            <TextBox x:Name="apaddField1" HorizontalAlignment="Left" Height="226" Margin="10,314,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="325" FontSize="18"/>
+            <TextBlock x:Name="apnameLbl_Copy13" HorizontalAlignment="Left" Height="31" Margin="16,318,0,0" TextWrapping="Wrap" Text="Additional Notes:" VerticalAlignment="Top" Width="149.5" FontSize="18"/>
+            <TextBox x:Name="apaddField1" HorizontalAlignment="Left" Height="160" Margin="16,354,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="314" FontSize="18"/>
             <TextBlock x:Name="warning1" HorizontalAlignment="Left" Height="36" Margin="176.5,683.5,0,0" TextWrapping="Wrap" Text="Are you sure?" VerticalAlignment="Top" Width="205.5" FontSize="24" Foreground="Red" Visibility="Hidden"/>
             <TextBlock x:Name="dPatientname" HorizontalAlignment="Left" Height="31" Margin="135,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="18" FontWeight="Bold"/>
             <TextBlock x:Name="dPatientlname" HorizontalAlignment="Left" Height="31" Margin="135,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="18" FontWeight="Bold"/>
@@ -131,16 +131,19 @@
             <TextBlock x:Name="dPatientaddr" HorizontalAlignment="Left" Height="31" Margin="135,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="18" FontWeight="Bold"/>
             <TextBlock x:Name="dPatientpn" HorizontalAlignment="Left" Height="31" Margin="135,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="18" FontWeight="Bold"/>
             <TextBlock x:Name="dPatientemail" HorizontalAlignment="Left" Height="31" Margin="135,242,0,0" TextWrapping="WrapWithOverflow" VerticalAlignment="Top" Width="200" FontSize="18" FontWeight="Bold"/>
+            <TextBlock x:Name="dPatientprevdr" HorizontalAlignment="Left" Height="31" Margin="155.167,273,0,0" TextWrapping="WrapWithOverflow" VerticalAlignment="Top" Width="174.833" FontSize="18" FontWeight="Bold" Visibility="Hidden"/>
             <TextBox x:Name="dPatientnameBox" HorizontalAlignment="Left" Height="31" Margin="135,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="18" Visibility="Hidden"/>
             <TextBox x:Name="dPatientlnameBox" HorizontalAlignment="Left" Height="31" Margin="135,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="18" Visibility="Hidden"/>
             <TextBox x:Name="dPatientHCBox" HorizontalAlignment="Left" Height="31" Margin="135,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="18" Visibility="Hidden"/>
             <TextBox x:Name="dPatientaddrBox" HorizontalAlignment="Left" Height="31" Margin="135,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="18" Visibility="Hidden"/>
             <TextBox x:Name="dPatientpnBox" HorizontalAlignment="Left" Height="31" Margin="135,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="18" Visibility="Hidden"/>
             <TextBox x:Name="dPatientemailBox" HorizontalAlignment="Left" Height="31" Margin="135,242,0,0" TextWrapping="WrapWithOverflow" VerticalAlignment="Top" Width="200" FontSize="18" Visibility="Hidden"/>
-            <Button x:Name="editInfo" Content="Edit" HorizontalAlignment="Left" Height="46" Margin="213,545,0,0" VerticalAlignment="Top" Width="122
-                    " Cursor="Hand" Click="EditInfo_Click"/>
-            <Button x:Name="editInfoYes" Content="Confirm" HorizontalAlignment="Left" Height="46" Margin="213,545,0,0" VerticalAlignment="Top" Width="122" Cursor="Hand" Click="EditInfoYes_Click" Visibility="Hidden"/>
-            <Button x:Name="editInfoCancel" Content="Cancel" HorizontalAlignment="Left" Height="46" Margin="86,545,0,0" VerticalAlignment="Top" Width="122" Cursor="Hand" Click="EditInfoCancel_Click" Visibility="Hidden"/>
+            <TextBox x:Name="dPatientprevdrBox" HorizontalAlignment="Left" Height="31" Margin="155.167,278,0,0" TextWrapping="WrapWithOverflow" VerticalAlignment="Top" Width="179.833" FontSize="18" Visibility="Hidden"/>
+            <Button x:Name="editInfo" Content="Edit" HorizontalAlignment="Left" Height="46" Margin="208,523.03,0,0" VerticalAlignment="Top" Width="122
+                    " Cursor="Hand" Click="EditInfo_Click" RenderTransformOrigin="0.533,-0.315"/>
+            <Button x:Name="editInfoYes" Content="Confirm" HorizontalAlignment="Left" Height="46" Margin="208,523.03,0,0" VerticalAlignment="Top" Width="122" Cursor="Hand" Click="EditInfoYes_Click" Visibility="Hidden"/>
+            <Button x:Name="editInfoCancel" Content="Cancel" HorizontalAlignment="Left" Height="46" Margin="81,523.03,0,0" VerticalAlignment="Top" Width="122" Cursor="Hand" Click="EditInfoCancel_Click" Visibility="Hidden"/>
+            <TextBlock HorizontalAlignment="Left" Height="40" Margin="16,278,0,0" TextWrapping="Wrap" Text="Previous Doctor:" VerticalAlignment="Top" Width="149.5" FontSize="18"/>
 
         </Grid>
         <Grid x:Name="filterDoctor" Margin="0,150.438,0,0" Visibility="Hidden">

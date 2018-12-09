@@ -527,6 +527,7 @@ namespace CPSC481Project
             dPatientaddr.Visibility = Visibility.Hidden;
             dPatientpn.Visibility = Visibility.Hidden;
             dPatientemail.Visibility = Visibility.Hidden;
+            dPatientprevdr.Visibility = Visibility.Hidden;
 
             //Keep text the same, let users change if they want
             dPatientnameBox.Text = dPatientname.Text;
@@ -535,7 +536,7 @@ namespace CPSC481Project
             dPatientaddrBox.Text = dPatientaddr.Text;
             dPatientpnBox.Text = dPatientpn.Text;
             dPatientemailBox.Text = dPatientemail.Text;
-
+            dPatientprevdrBox.Text = dPatientprevdr.Text;
             //Then show the text boxes
             dPatientnameBox.Visibility = Visibility.Visible;
             dPatientlnameBox.Visibility = Visibility.Visible;
@@ -543,7 +544,7 @@ namespace CPSC481Project
             dPatientaddrBox.Visibility = Visibility.Visible;
             dPatientpnBox.Visibility = Visibility.Visible;
             dPatientemailBox.Visibility = Visibility.Visible;
-
+            dPatientprevdrBox.Visibility = Visibility.Visible;
             //Show the yes and cancel button
             editInfoYes.Visibility = Visibility.Visible;
             editInfoCancel.Visibility = Visibility.Visible;
@@ -558,7 +559,7 @@ namespace CPSC481Project
             dPatientaddr.Text = dPatientaddrBox.Text;
             dPatientpn.Text = dPatientpnBox.Text;
             dPatientemail.Text = dPatientemailBox.Text;
-
+            dPatientprevdr.Text = dPatientprevdrBox.Text;
             //Now hide the text boxes and make text fields visible
             dPatientnameBox.Visibility = Visibility.Hidden;
             dPatientlnameBox.Visibility = Visibility.Hidden;
@@ -566,6 +567,7 @@ namespace CPSC481Project
             dPatientaddrBox.Visibility = Visibility.Hidden;
             dPatientpnBox.Visibility = Visibility.Hidden;
             dPatientemailBox.Visibility = Visibility.Hidden;
+            dPatientprevdrBox.Visibility = Visibility.Hidden;
 
             dPatientname.Visibility = Visibility.Visible;
             dPatientlname.Visibility = Visibility.Visible;
@@ -573,7 +575,7 @@ namespace CPSC481Project
             dPatientaddr.Visibility = Visibility.Visible;
             dPatientpn.Visibility = Visibility.Visible;
             dPatientemail.Visibility = Visibility.Visible;
-            
+            dPatientprevdr.Visibility = Visibility.Visible;
             //Replace and edit information.
             Patient p = new Patient(dPatientlnameBox.Text, dPatientnameBox.Text, dPatientHCBox.Text, dPatientaddrBox.Text, dPatientemailBox.Text, dPatientpnBox.Text);
             if(m_patientDatabase.findPatient(p.m_hcNumber)!= null)
