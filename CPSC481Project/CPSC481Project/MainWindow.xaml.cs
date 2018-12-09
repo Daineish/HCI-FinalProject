@@ -410,13 +410,9 @@ namespace CPSC481Project
 
         private void unSelectPatientClicked(object sender, RoutedEventArgs e)
         {
-            Button unselectPatient = (Button)sender;
-
-            // Remove all boxes, then add back the selected patient box.
             PatientListStackPanel.Children.Clear();
-            m_currentPatient = (Patient)unselectPatient.Tag;
             PatientListStackPanel.Children.Add(CreateGrid(m_currentPatient, true, false));
-
+            m_currentPatient = null;
             selectedMode = false;
         }
 
@@ -878,6 +874,7 @@ namespace CPSC481Project
             PopulateDefaultInfo();
             recentLabel.Content = "Recent Patients: ";
             RemoveSearchButton.Visibility = Visibility.Hidden;
+            m_currentPatient = null;
 
             //If this is remove for the viewPatient panel
             if (viewPatient.Visibility == Visibility.Visible)
