@@ -16,8 +16,12 @@
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="Black"/>
-                <GradientStop Color="#FFD0D4D4" Offset="1"/>
-                <GradientStop Color="#FF1CECEC"/>
+                <GradientStop Color="#FF81CCDF" Offset="1"/>
+                <GradientStop Color="#FF007FC4"/>
+                <GradientStop Color="#FF007FC4" Offset="0.201"/>
+                <GradientStop Color="White" Offset="0.205"/>
+                <GradientStop Color="#FFFDFFFF" Offset="0.669"/>
+                <GradientStop Color="#FF81CCDF" Offset="0.674"/>
             </LinearGradientBrush>
         </Grid.Background>
 
@@ -59,8 +63,8 @@
                 <Image x:Name="ToDayView" Source="/images/calDayView.png" Height="61" RenderTransformOrigin="0.5,0.5" Margin="0,32,6,18"
                    MouseLeftButtonUp="ToDayView_MouseLeftButtonUp" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75" Cursor="Hand" ToolTip="Go to daily view"/>
             </StackPanel>
-            <Label x:Name="DashDate" Content="December 10th, 2018&#xA; " HorizontalAlignment="Center" Height="63" VerticalAlignment="Top" Width="687.833" FontSize="48" Grid.Row="0" Grid.ColumnSpan="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="198,0,201.167,0"/>
-            <Label x:Name="DashTime" Content="" HorizontalAlignment="Center" Height="74" VerticalAlignment="Top" Width="453.001" FontSize="48" Margin="325.666,68,308.333,0" Grid.Row="0" Grid.ColumnSpan="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.RowSpan="2"/>
+            <Label x:Name="DashDate" Content="December 10th, 2018&#xA; " HorizontalAlignment="Center" Height="63" VerticalAlignment="Top" Width="687.833" FontSize="48" Grid.Row="0" Grid.ColumnSpan="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="198,0,201.167,0" FontWeight="Bold" Foreground="White"/>
+            <Label x:Name="DashTime" Content="" HorizontalAlignment="Center" Height="74" VerticalAlignment="Top" Width="453.001" FontSize="48" Margin="325.666,68,308.333,0" Grid.Row="0" Grid.ColumnSpan="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.RowSpan="2" Foreground="White" FontWeight="Bold"/>
             <local:DrWalterTileControl x:Name="DoctorWalterTile" Margin="0,0,0,0" Grid.Row="1" Grid.Column="0"/>
             <local:DrLeeTileControl x:Name="DoctorLeeTile" Margin="0,0,0,0" Grid.Column="1" Grid.Row="1"/>
             <local:DrPayneTileControl x:Name="DoctorPayneTile" Margin="0,0,0,0" Grid.Column="2" Grid.Row="1"/>
@@ -77,14 +81,14 @@
                 </ListBox.ItemsPanel>
 
             </ListBox>
-            <Label Grid.Column="0" Content="Walk-In Queue" HorizontalAlignment="Left" Height="60" Margin="58,0,0,0" VerticalAlignment="Top" Width="299.5" FontSize="36" Grid.Row="2"/>
-            <Image x:Name="addWalkInButton" Source="/Images/addButton.png" MouseLeftButtonUp="WalkInClicked" HorizontalAlignment="Right" VerticalAlignment="Top" Width="45.844" Margin="0,11.5,3.906,0" Height="42.901" Grid.Row="2" Cursor="Hand" ToolTip="Add walk-in appointment"/>
+            <Label Grid.Column="0" Content="Walk-In Queue" HorizontalAlignment="Left" Height="60" Margin="58,0,0,0" VerticalAlignment="Top" Width="299.5" FontSize="36" Grid.Row="2" Foreground="White" FontWeight="Bold"/>
+            <Image x:Name="addWalkInButton" Source="/Images/addButton.png" MouseLeftButtonUp="WalkInClicked" HorizontalAlignment="Right" VerticalAlignment="Top" Width="45.844" Margin="0,11.5,358.74,0" Height="42.901" Grid.Row="2" Cursor="Hand" ToolTip="Add walk-in appointment" Grid.ColumnSpan="2"/>
         </Grid>
         <ScrollViewer Grid.Column="0" x:Name="PatientListScrollViewer" HorizontalAlignment="Stretch" Height="702" Margin="0,157,0,0" VerticalAlignment="Top" Width="auto" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto">
             <StackPanel x:Name="PatientListStackPanel" Height="Auto" Width="Auto" HorizontalAlignment="Left" VerticalAlignment="Top">
             </StackPanel>
         </ScrollViewer>
-        <Grid  Grid.Column="0" x:Name="addPatient" Margin="0,157,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="345" Height="712">
+        <Grid  Grid.Column="0" x:Name="addPatient" Margin="0,157,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="345" Height="712" Visibility="Hidden">
             <Rectangle Fill="#FFF4F5F5" HorizontalAlignment="Left" Height="712" VerticalAlignment="Top" Width="345"/>
             <TextBlock x:Name="apnameLbl" HorizontalAlignment="Left" Height="31" Margin="16,62,0,0" TextWrapping="Wrap" Text="First Name:" VerticalAlignment="Top" Width="102.5" FontSize="18"/>
             <TextBlock x:Name="apnameLbl_Copy" HorizontalAlignment="Left" Height="31" Margin="16,98,0,0" TextWrapping="Wrap" Text="Last Name:" VerticalAlignment="Top" Width="102.5" FontSize="18"/>
