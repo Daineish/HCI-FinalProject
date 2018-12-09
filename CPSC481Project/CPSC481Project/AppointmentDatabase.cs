@@ -90,55 +90,55 @@ namespace CPSC481Project
          * 
          * If num > NumAppointments() returns m_appointments
          */
-        public List<Appointment> NextAppointments(int num)
-        {
-            UpdateAppointments();
-            // TODO: This hasn't been tested at all so odds are it doesn't work.
-            if (num > NumAppointments())
-            {
-                return m_appointments;
-            }
+        //public List<Appointment> NextAppointments(int num)
+        //{
+        //    UpdateAppointments();
+        //    // TODO: This hasn't been tested at all so odds are it doesn't work.
+        //    if (num > NumAppointments())
+        //    {
+        //        return m_appointments;
+        //    }
 
-            List<Appointment> rv = new List<Appointment>();
-            List<Appointment> remaining = new List<Appointment>();
-            foreach(Appointment a in m_appointments)
-            {
-                remaining.Add(new Appointment(a.m_patient, a.m_doctor, a.StartTime.Value, a.EndTime.Value, a.m_information));
-            }
-            for(int i = 0; i < num; i++)
-            {
-                Appointment soonest = remaining.ElementAt(0);
-                foreach(Appointment a in remaining)
-                {
-                    if (DateTime.Compare(a.m_startTime, soonest.m_startTime) < 0)
-                        soonest = a;
-                }
-                rv.Add(soonest);
-                remaining.Remove(soonest);
-            }
+        //    List<Appointment> rv = new List<Appointment>();
+        //    List<Appointment> remaining = new List<Appointment>();
+        //    foreach(Appointment a in m_appointments)
+        //    {
+        //        remaining.Add(new Appointment(a.m_patient, a.m_doctor, a.StartTime.Value, a.EndTime.Value, a.m_information));
+        //    }
+        //    for(int i = 0; i < num; i++)
+        //    {
+        //        Appointment soonest = remaining.ElementAt(0);
+        //        foreach(Appointment a in remaining)
+        //        {
+        //            if (DateTime.Compare(a.m_startTime, soonest.m_startTime) < 0)
+        //                soonest = a;
+        //        }
+        //        rv.Add(soonest);
+        //        remaining.Remove(soonest);
+        //    }
 
-            return rv;
-        }
+        //    return rv;
+        //}
 
         /**
          * Returns the appointment in m_appointments that has the soonest startTime.
          * 
          * If m_appointments is empty, returns null.
          */
-        public Appointment NextAppointment()
-        {
-            UpdateAppointments();
-            if (m_appointments.Count() == 0)
-                return null;
+        //public Appointment NextAppointment()
+        //{
+        //    UpdateAppointments();
+        //    if (m_appointments.Count() == 0)
+        //        return null;
 
-            Appointment rv = m_appointments.ElementAt(0);
-            foreach(Appointment a in m_appointments)
-            {
-                if (DateTime.Compare(a.m_startTime, rv.m_startTime) < 0)
-                    rv = a;
-            }
-            return rv;
-        }
+        //    Appointment rv = m_appointments.ElementAt(0);
+        //    foreach(Appointment a in m_appointments)
+        //    {
+        //        if (DateTime.Compare(a.m_startTime, rv.m_startTime) < 0)
+        //            rv = a;
+        //    }
+        //    return rv;
+        //}
 
         /**
          * Returns the appointment in m_appointments that has the soonest startTime where
@@ -146,35 +146,35 @@ namespace CPSC481Project
          * 
          * If no appointment in m_appointments has doc, returns null.
          */
-        public Appointment NextAppointment(String doc)
-        {
-            UpdateAppointments();
-            // TODO: Hasn't been tested.
-            // TODO: Perhaps we should make a doctor class?
-            Appointment rv = null;
-            foreach (Appointment a in m_appointments)
-            {
-                if (a.m_doctor == doc)
-                {
-                    rv = a;
-                    break;
-                }
-            }
+        //public Appointment NextAppointment(String doc)
+        //{
+        //    UpdateAppointments();
+        //    // TODO: Hasn't been tested.
+        //    // TODO: Perhaps we should make a doctor class?
+        //    Appointment rv = null;
+        //    foreach (Appointment a in m_appointments)
+        //    {
+        //        if (a.m_doctor == doc)
+        //        {
+        //            rv = a;
+        //            break;
+        //        }
+        //    }
 
-            if(rv != null)
-            {
-                foreach (Appointment a in m_appointments)
-                {
-                    if (a.m_doctor == doc)
-                    {
-                        if (DateTime.Compare(a.m_startTime, rv.m_startTime) < 0)
-                            rv = a;
-                    }
-                }
-            }
+        //    if(rv != null)
+        //    {
+        //        foreach (Appointment a in m_appointments)
+        //        {
+        //            if (a.m_doctor == doc)
+        //            {
+        //                if (DateTime.Compare(a.m_startTime, rv.m_startTime) < 0)
+        //                    rv = a;
+        //            }
+        //        }
+        //    }
 
-            return rv;
-        }
+        //    return rv;
+        //}
 
         /**
          * Returns num appointments in m_appointments that have the soonest startTime where the
@@ -203,8 +203,7 @@ namespace CPSC481Project
                     {
                         soonest = a;
                         soonestTime = soonest.m_startTime;
-                    }
-                        
+                    } 
                 }
                 if(soonest != null)
                 {
