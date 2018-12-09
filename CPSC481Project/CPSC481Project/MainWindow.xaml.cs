@@ -666,6 +666,10 @@ namespace CPSC481Project
             Grid.SetColumn(m_monthlyViewControl, 1);
             Grid.SetRowSpan(m_monthlyViewControl, 3);
             m_monthlyViewControl.SetAppointments();
+
+            leecBox.IsChecked = true;
+            waltercBox.IsChecked = true;
+            paynecBox.IsChecked = true;
         }
 
         public void ToVacayCalendar(string drName)
