@@ -21,11 +21,11 @@
             </LinearGradientBrush>
         </Grid.Background>
 
-        <Rectangle x:Name="patientBar" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Stretch" Width="345" Fill="#FFF4F4F5"/>
+        <Rectangle x:Name="patientBar" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Stretch" Width="345" Fill="#FFF1F5F8"/>
 
-        <Label Grid.Column="0" x:Name="patientLabel" Content="Patient Search" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="166" Margin="10,10,0,0" FontSize="24"/>
-        <TextBox Grid.Column="0" x:Name="searchField" HorizontalAlignment="Left" Height="34" TextWrapping="Wrap" VerticalAlignment="Top" Width="236" Margin="14,73,0,0" FontSize="18" MouseDoubleClick="searchClicked" Opacity="0.5" TextChanged="searchField_TextChanged"/>
-        <TextBlock Grid.Column="0" IsHitTestVisible="False" Text="Search (Healthcare #, Name)" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="24,78.03,0,0" FontSize ="18" Foreground="DarkGray" Height="24" Width="226">
+        <Label Grid.Column="0" x:Name="patientLabel" Content="Patient Search" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="181" Margin="14,10,0,0" FontSize="24" FontWeight="Bold"/>
+        <TextBox Grid.Column="0" x:Name="searchField" HorizontalAlignment="Left" Height="34" TextWrapping="Wrap" VerticalAlignment="Top" Width="275.57" Margin="14,73,0,0" FontSize="18" MouseDoubleClick="searchClicked" Opacity="0.5" TextChanged="searchField_TextChanged"/>
+        <TextBlock Grid.Column="0" IsHitTestVisible="False" Text="Search (Healthcare #, Name)" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="24,78.03,0,0" FontSize ="18" Foreground="DarkGray" Height="24" Width="255">
             <TextBlock.Style>
                 <Style TargetType="{x:Type TextBlock}">
                     <Setter Property="Visibility" Value="Collapsed"/>
@@ -37,10 +37,10 @@
                 </Style>
             </TextBlock.Style>
         </TextBlock>
-        <Image x:Name="searchBtn" Source="/Images/searchButton.png" MouseLeftButtonUp="SearchBtn_Click" HorizontalAlignment="Left" Margin="253.063,69.665,0,0" VerticalAlignment="Top" Width="40.43" RenderTransformOrigin="0.68,1.65" Height="38.608" Cursor="Hand" ToolTip="Search patient"/>
-        <Rectangle Grid.Column="0" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="44" Margin="0,113,0,0" Stroke="Black" VerticalAlignment="Top" Width="354"/>
-        <Label Grid.Column="0" x:Name="recentLabel" Content="Recent Patients:" HorizontalAlignment="Left" Margin="10,113,0,0" VerticalAlignment="Top" Height="44" Width="178" FontSize="24"/>
-        <Image x:Name="addPatientButton" Source="/Images/addButton.png" MouseLeftButtonUp="addContact" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40.43" Margin="269.07,10,0,0" Height="40.43" RenderTransformOrigin="-1.879,0.207" Cursor="Hand" ToolTip="Add patient"/>
+        <Image x:Name="searchBtn" Source="/Images/searchButton.png" MouseLeftButtonUp="SearchBtn_Click" HorizontalAlignment="Left" Margin="295.57,73.03,0,0" VerticalAlignment="Top" Width="40.43" RenderTransformOrigin="0.68,1.65" Height="33.97" Cursor="Hand" ToolTip="Search patient"/>
+        <Rectangle x:Name="recentRec" Grid.Column="0" Fill="#FF94D0CE" HorizontalAlignment="Left" Height="44" Margin="0,113,0,0" VerticalAlignment="Top" Width="345"/>
+        <Label Grid.Column="0" x:Name="recentLabel" Content="Recent Patients:" HorizontalAlignment="Left" Margin="10,113,0,0" VerticalAlignment="Top" Height="44" Width="196" FontSize="24" FontWeight="Bold"/>
+        <Image x:Name="addPatientButton" Source="/Images/addButton.png" MouseLeftButtonUp="addContact" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40.43" Margin="294.57,10,0,0" Height="40.43" RenderTransformOrigin="-1.879,0.207" Cursor="Hand" ToolTip="Add patient"/>
         <Button Grid.Column="0" x:Name="RemoveSearchButton" Content="X" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,120,10,0" Height="30" Width="30" Click="OnRemoveSearchButton" FontSize="14" FontWeight="Bold" Cursor="Hand" Visibility="Hidden" />
         <Grid Grid.Column="1" x:Name="dashboard" Margin="0,0,0,0" HorizontalAlignment="Right" Width="1087">
             <Grid.RowDefinitions>
@@ -84,15 +84,15 @@
             <StackPanel x:Name="PatientListStackPanel" Height="Auto" Width="Auto" HorizontalAlignment="Left" VerticalAlignment="Top">
             </StackPanel>
         </ScrollViewer>
-        <Grid  Grid.Column="0" x:Name="addPatient" Margin="0,157,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="345" Height="712" Visibility="Hidden">
-            <Rectangle Fill="#FFF4F5F5" HorizontalAlignment="Left" Height="718.667" Stroke="Black" VerticalAlignment="Top" Width="345" Margin="0,-6.667,0,0"/>
+        <Grid  Grid.Column="0" x:Name="addPatient" Margin="0,157,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="345" Height="712">
+            <Rectangle Fill="#FFF4F5F5" HorizontalAlignment="Left" Height="712" VerticalAlignment="Top" Width="345"/>
             <TextBlock x:Name="apnameLbl" HorizontalAlignment="Left" Height="31" Margin="16,62,0,0" TextWrapping="Wrap" Text="First Name:" VerticalAlignment="Top" Width="102.5" FontSize="18"/>
             <TextBlock x:Name="apnameLbl_Copy" HorizontalAlignment="Left" Height="31" Margin="16,98,0,0" TextWrapping="Wrap" Text="Last Name:" VerticalAlignment="Top" Width="102.5" FontSize="18"/>
             <TextBlock x:Name="apnameLbl_Copy1" HorizontalAlignment="Left" Height="31" Margin="16,134,0,0" TextWrapping="Wrap" Text="Health Care #:" VerticalAlignment="Top" Width="123.5" FontSize="18"/>
             <TextBlock x:Name="apnameLbl_Copy2" HorizontalAlignment="Left" Height="31" Margin="16,170,0,0" TextWrapping="Wrap" Text="Address: " VerticalAlignment="Top" Width="72.5" FontSize="18"/>
             <TextBlock x:Name="apnameLbl_Copy3" HorizontalAlignment="Left" Height="31" Margin="16,206,0,0" TextWrapping="Wrap" Text="Phone:" VerticalAlignment="Top" Width="86.5" FontSize="18"/>
             <TextBlock x:Name="apnameLbl_Copy4" HorizontalAlignment="Left" Height="31" Margin="18,242,0,0" TextWrapping="Wrap" Text="Email:" VerticalAlignment="Top" Width="70.5" FontSize="18"/>
-            <TextBlock x:Name="apnameLbl_Copy5" HorizontalAlignment="Left" Height="31" Margin="18,10,0,0" TextWrapping="Wrap" Text="Patient Information:" VerticalAlignment="Top" Width="255.5" FontSize="18"/>
+            <TextBlock x:Name="apnameLbl_Copy5" HorizontalAlignment="Left" Height="31" Margin="15,12,0,0" TextWrapping="Wrap" Text="Patient Information:" VerticalAlignment="Top" Width="255.5" FontSize="20" FontWeight="Bold"/>
             <TextBlock x:Name="apnameLbl_Copy6" HorizontalAlignment="Left" Height="31" Margin="18,278,0,0" TextWrapping="Wrap" Text="Additional Notes:" VerticalAlignment="Top" Width="149.5" FontSize="18"/>
             <TextBox x:Name="apnameField" HorizontalAlignment="Left" Height="31" Margin="146.833,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" FontSize="18" GotFocus="ApnameField_GotFocus"/>
             <TextBox x:Name="aplnameField" HorizontalAlignment="Left" Height="31" Margin="146.833,98,-52.833,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" FontSize="18" GotFocus="AplnameField_GotFocus"/>
@@ -101,10 +101,10 @@
             <TextBox x:Name="apphoneField" HorizontalAlignment="Left" Height="31" Margin="146.833,206,-52.833,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" FontSize="18" GotFocus="ApphoneField_GotFocus"/>
             <TextBox x:Name="apemailField" HorizontalAlignment="Left" Height="31" Margin="146.833,242,-52.833,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" FontSize="18" GotFocus="ApemailField_GotFocus"/>
             <TextBox x:Name="apaddField" Height="117.667" Margin="18,314,19.667,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18"/>
-            <Button x:Name="confirmBtn" Content="Confirm" HorizontalAlignment="Left" Height="46" Margin="203.333,454.334,0,0" VerticalAlignment="Top" Width="122" Click="patientaddConfirm" Cursor="Hand"/>
-            <Button x:Name="cancelBtn" Content="Cancel" HorizontalAlignment="Left" Height="46" Margin="61,454.334,0,0" VerticalAlignment="Top" Width="122" Click="cancelClicked" Cursor="Hand"/>
-            <Button x:Name="Yes" Content="Yes" HorizontalAlignment="Left" Height="46" Margin="184.833,563,0,0" VerticalAlignment="Top" Width="122" Click="patientConfirmed" Visibility="Hidden" Cursor="Hand"/>
-            <TextBlock x:Name="warning" Height="103.666" Margin="16,454.334,21.667,0" TextWrapping="Wrap" Text="Are you sure?" FontSize="24" Foreground="Red" VerticalAlignment="Top" Visibility="Hidden"/>
+            <Button x:Name="confirmBtn" Content="Confirm" HorizontalAlignment="Left" Height="46" Margin="203.333,454.334,0,0" VerticalAlignment="Top" Width="122" Click="patientaddConfirm" Cursor="Hand" BorderBrush="#FF5AA139" Background="#FF5AA139" FontSize="20" FontWeight="Bold"/>
+            <Button x:Name="cancelBtn" Content="Cancel" HorizontalAlignment="Left" Height="46" Margin="61,454.334,0,0" VerticalAlignment="Top" Width="122" Click="cancelClicked" Cursor="Hand" Background="#FFF34F4F" FontWeight="Bold" FontSize="20"/>
+            <Button x:Name="Yes" Content="Yes" HorizontalAlignment="Left" Height="46" Margin="203.333,454.334,0,0" VerticalAlignment="Top" Width="122" Click="patientConfirmed" Cursor="Hand" BorderBrush="#FF5AA139" Background="#F3B045" FontSize="20" FontWeight="Bold" Visibility="Hidden"/>
+            <TextBlock x:Name="warning" Height="103.666" Margin="203.333,500.334,0,0" TextWrapping="Wrap" Text="Are you sure?" FontSize="20" Foreground="Red" VerticalAlignment="Top" Visibility="Hidden"/>
 
         </Grid>
         <Grid  Grid.Column="0" x:Name="viewPatient" Margin="0,157,0,0" Visibility="Hidden">
