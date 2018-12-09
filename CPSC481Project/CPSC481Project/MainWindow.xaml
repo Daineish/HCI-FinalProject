@@ -84,7 +84,7 @@
             <StackPanel x:Name="PatientListStackPanel" Height="Auto" Width="Auto" HorizontalAlignment="Left" VerticalAlignment="Top">
             </StackPanel>
         </ScrollViewer>
-        <Grid  Grid.Column="0" x:Name="addPatient" Margin="0,157,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="345" Height="712">
+        <Grid  Grid.Column="0" x:Name="addPatient" Margin="0,157,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="345" Height="712" Visibility="Hidden">
             <Rectangle Fill="#FFF4F5F5" HorizontalAlignment="Left" Height="712" VerticalAlignment="Top" Width="345"/>
             <TextBlock x:Name="apnameLbl" HorizontalAlignment="Left" Height="31" Margin="16,62,0,0" TextWrapping="Wrap" Text="First Name:" VerticalAlignment="Top" Width="102.5" FontSize="18"/>
             <TextBlock x:Name="apnameLbl_Copy" HorizontalAlignment="Left" Height="31" Margin="16,98,0,0" TextWrapping="Wrap" Text="Last Name:" VerticalAlignment="Top" Width="102.5" FontSize="18"/>
