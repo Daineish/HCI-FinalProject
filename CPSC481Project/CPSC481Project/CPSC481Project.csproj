@@ -109,6 +109,12 @@
     <Compile Include="EditAppointment.Designer.cs">
       <DependentUpon>EditAppointment.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditVacation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditVacation.Designer.cs">
+      <DependentUpon>EditVacation.cs</DependentUpon>
+    </Compile>
     <Compile Include="MonthUserControls\DayBoxAppointmentControl.xaml.cs">
       <DependentUpon>DayBoxAppointmentControl.xaml</DependentUpon>
     </Compile>
@@ -212,6 +218,9 @@
     </Compile>
     <EmbeddedResource Include="EditAppointment.resx">
       <DependentUpon>EditAppointment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditVacation.resx">
+      <DependentUpon>EditVacation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

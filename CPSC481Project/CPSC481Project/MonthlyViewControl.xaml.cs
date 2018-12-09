@@ -60,7 +60,7 @@ namespace CPSC481Project
                     DateTime dt = v.m_startDate;
                     while(DateTime.Compare(dt, v.m_endDate) < 0)
                     {
-                        _myAppointmentsList.Add(new Vacation(v.m_doctor, dt, dt));
+                        _myAppointmentsList.Add(new Vacation(v.m_doctor, v.m_startDate, v.m_endDate, dt));
                         dt = dt.AddDays(1);
                     }
                 }
@@ -83,9 +83,67 @@ namespace CPSC481Project
             w.MonthViewToDayView(e.StartDate.GetValueOrDefault());
         }
 
-        private void AppointmentDblClicked(int Appointment_Id)
+        private void AppointmentDblClicked(String doc, DateTime start, DateTime end)
         {
-            MessageBox.Show("You double-clicked on appointment with ID = " + Appointment_Id, "Calendar Event", MessageBoxButton.OK);
+            //EditVacation form = new EditVacation();
+            //form.SetInfo(doc, start, end);
+            //form.ShowDialog();
+            //if (form.m_delete)
+            //{
+            //    List<Vacation> v1 = null;
+            //    DateTime cur = start;
+            //    foreach(Vacation v in _myAppointmentsList)
+            //    {
+            //        if(v.m_doctor == doc && v.m_startDate == start && v.m_endDate == end)
+            //        {
+            //            v1 = v;
+            //            break;
+            //        }
+            //    }
+            //    if (v1 == null)
+            //    {
+            //        // messagebox error
+            //        MessageBox.Show("Error: Could not delete appointment.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            //    }
+            //    else
+            //    {
+            //        _myAppointmentsList.Remove(v1); // and remove from database in MainWindow...?
+            //        // success msg?
+            //        // update view
+            //        MessageBox.Show("Appointment deleted.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+            //        SetAppointments();
+            //    }
+            //}
+            //else if (form.m_changed)
+            //{
+            //    // edit appointment
+            //    Vacation v1 = null;
+            //    foreach (Vacation v in _myAppointmentsList)
+            //    {
+            //        if (v.m_doctor == doc && v.m_startDate == start && v.m_endDate == end)
+            //        {
+            //            v1 = v;
+            //            break;
+            //        }
+            //    }
+            //    if (v1 == null)
+            //    {
+            //        MessageBox.Show("Error: Could not edit appointment.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            //        // messagebox error
+            //    }
+            //    else
+            //    {
+                    
+            //        v1.m_startDate = form.m_startDate;
+            //        v1.m_endDate = form.m_startDate;
+            //        v1.m_doctor = form.m_doctor;
+            //        // edit database in MainWindow...
+            //        // success msg?
+            //        // update view
+            //        MessageBox.Show("Appointment changed.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+            //        SetAppointments();
+            //    }
+            //}
         }
 
         private void DisplayMonthChanged(MonthChangedEventArgs e)
@@ -102,9 +160,9 @@ namespace CPSC481Project
             Predicate<Vacation> aptFind = delegate(Vacation apt)
             {
                 //int temp = aptCal.DisplayStartDate.Month;
-                return apt.m_startDate != null
-                && (int)apt.m_startDate.Month == this.aptCalendar.DisplayStartDate.Month 
-                && (int)apt.m_startDate.Year == this.aptCalendar.DisplayStartDate.Year
+                return apt.m_curDate != null
+                && (int)apt.m_curDate.Month == this.aptCalendar.DisplayStartDate.Month 
+                && (int)apt.m_curDate.Year == this.aptCalendar.DisplayStartDate.Year
                 && DoctorChecked(apt.m_doctor);
             } ;
             List<Vacation> aptInDay = _myAppointmentsList.FindAll(aptFind);

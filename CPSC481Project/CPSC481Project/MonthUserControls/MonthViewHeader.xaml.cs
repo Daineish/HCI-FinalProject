@@ -41,7 +41,7 @@ namespace CPSC481Project
 
         public event AppointmentDblClickedEventHandler AppointmentDblClicked;
 
-        public delegate void AppointmentDblClickedEventHandler(int Appointment_Id);
+        public delegate void AppointmentDblClickedEventHandler(String doc, DateTime st, DateTime end);
 
         
 
@@ -123,15 +123,15 @@ namespace CPSC481Project
 
                 if (_monthAppointments != null)
                 {
-                    // -- Compiler warning about unpredictable results if using i (the iterator) in lambda, the 
-                    // "hint" suggests declaring another var and set equal to iterator var
                     int iday = i;
-                    Predicate<Vacation> aptFind = delegate(Vacation apt) { return (int)apt.m_startDate.Day == iday; };
+                    Predicate<Vacation> aptFind = delegate(Vacation apt) { return (int)apt.m_curDate.Day == iday; };
                     List<Vacation> aptInDay = _monthAppointments.FindAll(aptFind);
                     foreach (Vacation a in aptInDay)
                     {
                         DayBoxAppointmentControl apt = new DayBoxAppointmentControl();
                         apt.SetDoctor(a.m_doctor);
+                        apt.m_startDate = a.m_startDate;
+                        apt.m_endDate = a.m_endDate;
                         apt.DisplayText.Text = a.m_doctor;
                         apt.MouseDoubleClick += Appointment_DoubleClick;
                         dayBox.DayAppointmentsStack.Children.Add(apt);
@@ -202,11 +202,13 @@ namespace CPSC481Project
 
         private void Appointment_DoubleClick(object sender, MouseButtonEventArgs e)
         {
+            Console.WriteLine("TYPE: " + sender.GetType());
+            DayBoxAppointmentControl dbac = (DayBoxAppointmentControl)sender;
             if (e.Source.GetType() == typeof(DayBoxAppointmentControl))
             {
                 if ((DayBoxAppointmentControl)e.Source != null)
-                {// TODO
-                    AppointmentDblClicked?.Invoke(4);//System.Convert.ToInt32((DayBoxAppointmentControl)e.Source)); //Tag
+                {
+                    AppointmentDblClicked?.Invoke(dbac.m_doctor, dbac.m_startDate, dbac.m_endDate);
                 }
                 e.Handled = true;
             }

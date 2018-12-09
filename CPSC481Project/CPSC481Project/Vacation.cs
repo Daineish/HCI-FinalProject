@@ -11,10 +11,19 @@ namespace CPSC481Project
         public String m_doctor { get; set; }
         public DateTime m_startDate { get; set; }
         public DateTime m_endDate { get; set; }
+        public DateTime m_curDate { get; set; }
 
         public Vacation()
         {
             // error
+        }
+
+        public Vacation(String doc, DateTime start, DateTime end, DateTime cur)
+        {
+            m_doctor = doc;
+            m_startDate = start;
+            m_endDate = end;
+            m_curDate = cur;
         }
 
         public Vacation(String doc, DateTime start, DateTime end)
@@ -22,6 +31,7 @@ namespace CPSC481Project
             m_doctor = doc;
             m_startDate = start;
             m_endDate = end;
+            m_curDate = DateTime.Today;
         }
 
         public void PrintVacation()

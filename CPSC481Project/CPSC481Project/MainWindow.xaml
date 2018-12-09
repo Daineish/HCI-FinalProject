@@ -59,8 +59,8 @@
                 <Image x:Name="ToDayView" Source="/images/calDayView.png" Height="61" RenderTransformOrigin="0.5,0.5" Margin="0,32,6,18"
                    MouseLeftButtonUp="ToDayView_MouseLeftButtonUp" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75" Cursor="Hand" ToolTip="Go to daily view"/>
             </StackPanel>
-            <Label x:Name="DashDate" Content="December 10th, 2018&#xA; " HorizontalAlignment="Center" Height="63" VerticalAlignment="Top" Width="1087" FontSize="48" Grid.Row="0" Grid.ColumnSpan="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-            <Label x:Name="DashTime" Content="" HorizontalAlignment="Center" Height="74" VerticalAlignment="Top" Width="1087" FontSize="48" Margin="0,63,0,0" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label x:Name="DashDate" Content="December 10th, 2018&#xA; " HorizontalAlignment="Center" Height="63" VerticalAlignment="Top" Width="687.833" FontSize="48" Grid.Row="0" Grid.ColumnSpan="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="198,0,201.167,0"/>
+            <Label x:Name="DashTime" Content="" HorizontalAlignment="Center" Height="74" VerticalAlignment="Top" Width="453.001" FontSize="48" Margin="325.666,68,308.333,0" Grid.Row="0" Grid.ColumnSpan="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.RowSpan="2"/>
             <local:DrWalterTileControl x:Name="DoctorWalterTile" Margin="0,0,0,0" Grid.Row="1" Grid.Column="0"/>
             <local:DrLeeTileControl x:Name="DoctorLeeTile" Margin="0,0,0,0" Grid.Column="1" Grid.Row="1"/>
             <local:DrPayneTileControl x:Name="DoctorPayneTile" Margin="0,0,0,0" Grid.Column="2" Grid.Row="1"/>

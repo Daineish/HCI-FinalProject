@@ -20,13 +20,18 @@ namespace CPSC481Project
     /// </summary>
     public partial class DayBoxAppointmentControl : UserControl
     {
+        public String m_doctor { get; set; }
+        public DateTime m_startDate { get; set; }
+        public DateTime m_endDate { get; set; }
         public DayBoxAppointmentControl()
         {
+            m_doctor = "";
             InitializeComponent();
         }
 
         public void SetDoctor(String str)
         {
+            m_doctor = str;
             if(str == "Dr. Payne")
             {
                 BorderElement.BorderBrush = new SolidColorBrush(Color.FromRgb(90, 170, 126));
