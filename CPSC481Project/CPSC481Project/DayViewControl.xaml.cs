@@ -355,7 +355,7 @@ namespace CPSC481Project
             {
                 dvScrollView.ScrollToVerticalOffset(0);
             }
-            //ScrollView Position
+
 
             UpdateDayWithAppointments();
 
