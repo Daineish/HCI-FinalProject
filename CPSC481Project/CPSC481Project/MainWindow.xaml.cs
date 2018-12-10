@@ -590,6 +590,9 @@ namespace CPSC481Project
         {
             addWalkInButton_grey.Visibility = Visibility.Hidden;
             addWalkInButton.Visibility = Visibility.Visible;
+            addWalkInRec1.Visibility = Visibility.Visible;
+            addWalkInRec2.Visibility = Visibility.Visible;
+            addWalkInRecTxt.Visibility = Visibility.Visible;
             Button b = (Button)sender;
 
             // Remove all boxes, then add back the selected patient box.
@@ -604,6 +607,9 @@ namespace CPSC481Project
         {
             addWalkInButton_grey.Visibility = Visibility.Visible;
             addWalkInButton.Visibility = Visibility.Hidden;
+            addWalkInRec1.Visibility = Visibility.Hidden;
+            addWalkInRec2.Visibility = Visibility.Hidden;
+            addWalkInRecTxt.Visibility = Visibility.Hidden;
             PatientListStackPanel.Children.Clear();
             //Set patient to null so we don't create another grid of the patient
             PatientListStackPanel.Children.Add(CreateGrid(m_currentPatient, true, false));

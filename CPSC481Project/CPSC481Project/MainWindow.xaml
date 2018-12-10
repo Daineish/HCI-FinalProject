@@ -49,7 +49,7 @@
         <Rectangle x:Name="recentRec" Grid.Column="0" Fill="#FF94D0CE" HorizontalAlignment="Left" Height="44" Margin="0,113,0,0" VerticalAlignment="Top" Width="345"/>
         <Label Grid.Column="0" x:Name="recentLabel" Content="Recent Patients:" HorizontalAlignment="Left" Margin="14,113,0,0" VerticalAlignment="Top" Height="44" Width="196" FontSize="24" FontWeight="Bold"/>
         <Image x:Name="addPatientButton" Source="/Images/addButton.png" MouseLeftButtonUp="addContact" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40.43" Margin="294.57,10,0,0" Height="40.43" RenderTransformOrigin="-1.879,0.207" Cursor="Hand" ToolTip="Add patient"/>
-        <Button Grid.Column="0" x:Name="RemoveSearchButton" Content="X" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,120,10,0" Height="30" Width="30" Click="OnRemoveSearchButton" FontSize="14" FontWeight="Bold" Cursor="Hand" Visibility="Hidden" />
+        <Image Grid.Column="0" x:Name="RemoveSearchButton" HorizontalAlignment="Left" Height="30" Margin="305,120,0,0" VerticalAlignment="Top" Width="30" Source="Images/cancel.png" MouseLeftButtonDown="OnRemoveSearchButton" Cursor="Hand" ToolTip="Exit Search" Visibility="Hidden"/>
         <Grid Grid.Column="1" x:Name="dashboard" Margin="0,0,0,0" HorizontalAlignment="Right" Width="1087">
             <Grid.RowDefinitions>
                 <RowDefinition Height="6*"/>
@@ -88,6 +88,9 @@
             <Label Grid.Column="0" Content="Walk-In Queue" HorizontalAlignment="Left" Height="60" Margin="58,0,0,0" VerticalAlignment="Top" Width="299.5" FontSize="36" Grid.Row="2" Foreground="White" FontWeight="Bold"/>
             <Image x:Name="addWalkInButton_grey" Source="/Images/addButton_grey.png" HorizontalAlignment="Right" VerticalAlignment="Top" Width="45.844" Margin="0,11.5,358.74,0" Height="42.901" Grid.Row="2" ToolTip="Add walk-in appointment" Grid.ColumnSpan="2"/>
             <Image x:Name="addWalkInButton" Source="/Images/addButton.png" MouseLeftButtonUp="WalkInClicked" HorizontalAlignment="Right" VerticalAlignment="Top" Width="45.844" Margin="0,11.5,358.74,0" Height="42.901" Grid.Row="2" Cursor="Hand" ToolTip="Add walk-in appointment" Grid.ColumnSpan="2" Visibility="Hidden"/>
+            <Rectangle x:Name="addWalkInRec2" MouseLeftButtonUp="WalkInClicked" Cursor="Hand" ToolTip="Add walk-in appointment" Grid.Column="1" HorizontalAlignment="Left" Height="36.567" Margin="7.336,14.5,0,0" RadiusY="17.239" Grid.Row="2" RadiusX="17.239" Stroke="#FF5AA139" StrokeThickness="3" VerticalAlignment="Top" Width="73.501" Fill="#FF5AA139" Visibility="Hidden"/>
+            <TextBlock x:Name="addWalkInRecTxt" MouseLeftButtonUp="WalkInClicked" Cursor="Hand" ToolTip="Add walk-in appointment" Grid.Column="1" HorizontalAlignment="Left" Height="33.312" Margin="13.334,17.755,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="64" FontSize="11" FontWeight="Bold" Foreground="White" Visibility="Hidden"><Run Text="Add Patient"/><LineBreak/><Run Text="   to Queue"/></TextBlock>
+            <Rectangle x:Name="addWalkInRec1"  MouseLeftButtonUp="WalkInClicked" Cursor="Hand" ToolTip="Add walk-in appointment" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="51.5" Margin="318.166,7,0,0" Grid.Row="2" VerticalAlignment="Top" Width="132.334" StrokeThickness="3" Stroke="#FF5AA139" RadiusY="22.75" RadiusX="22.75" Visibility="Hidden"/>
 
         </Grid>
         <ScrollViewer Grid.Column="0" x:Name="PatientListScrollViewer" HorizontalAlignment="Stretch" Height="702" Margin="0,157,0,0" VerticalAlignment="Top" Width="auto" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto">
