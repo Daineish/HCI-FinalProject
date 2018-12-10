@@ -159,6 +159,17 @@ namespace CPSC481Project
             itemContainerStyle.Setters.Add(new EventSetter(ListBoxItem.PreviewMouseMoveEvent, new MouseEventHandler(walkinqueue_PreviewMouseMoveEvent)));
             
             walkinQueueList.ItemContainerStyle = itemContainerStyle;
+
+            //populate buttons
+            this.DoctorPayneTile.availTime1.MouseUp += new MouseButtonEventHandler(AvailableTimeClicked);
+            this.DoctorPayneTile.availTime2.MouseUp += new MouseButtonEventHandler(AvailableTimeClicked);
+
+            this.DoctorLeeTile.availTime1.MouseUp += new MouseButtonEventHandler(AvailableTimeClicked);
+            this.DoctorLeeTile.availTime2.MouseUp += new MouseButtonEventHandler(AvailableTimeClicked);
+
+            this.DoctorWalterTile.availTime1.MouseUp += new MouseButtonEventHandler(AvailableTimeClicked);
+            this.DoctorWalterTile.availTime2.MouseUp += new MouseButtonEventHandler(AvailableTimeClicked);
+
         }
 
         /**
@@ -179,7 +190,7 @@ namespace CPSC481Project
                 if (i == 0 && pat != null)
                 {
                     this.DoctorPayneTile.npfullName.Content = app.m_startTime.ToString("t") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
-                    this.DoctorPayneTile.npfullName.MouseDoubleClick += NextPatientClicked;
+                    this.DoctorPayneTile.npfullName.MouseUp += NextPatientClicked;
                     this.DoctorPayneTile.npfullName.Cursor = Cursors.Hand;
                     
                     m_payneNext1 = pat;
@@ -187,7 +198,7 @@ namespace CPSC481Project
                 if (i == 1 && pat != null)
                 {
                     this.DoctorPayneTile.npfullName2.Content = app.m_startTime.ToString("t") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
-                    this.DoctorPayneTile.npfullName2.MouseDoubleClick += NextPatientClicked;
+                    this.DoctorPayneTile.npfullName2.MouseUp += NextPatientClicked;
                     this.DoctorPayneTile.npfullName2.Cursor = Cursors.Hand;
                     m_payneNext2 = pat;
                 }
@@ -199,14 +210,14 @@ namespace CPSC481Project
                 if (i == 0 && pat != null)
                 {
                     this.DoctorLeeTile.npfullName.Content = app.m_startTime.ToString("t") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
-                    this.DoctorLeeTile.npfullName.MouseDoubleClick += NextPatientClicked;
+                    this.DoctorLeeTile.npfullName.MouseUp += NextPatientClicked;
                     this.DoctorLeeTile.npfullName.Cursor = Cursors.Hand;
                     m_leeNext1 = pat;
                 }
                 if (i == 1 && pat != null)
                 {
                     this.DoctorLeeTile.npfullName2.Content = app.m_startTime.ToString("t") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
-                    this.DoctorLeeTile.npfullName2.MouseDoubleClick += NextPatientClicked;
+                    this.DoctorLeeTile.npfullName2.MouseUp += NextPatientClicked;
                     this.DoctorLeeTile.npfullName2.Cursor = Cursors.Hand;
                     m_leeNext2 = pat;
                 }
@@ -218,14 +229,14 @@ namespace CPSC481Project
                 if (i == 0 && pat != null)
                 {
                     this.DoctorWalterTile.npfullName.Content = app.m_startTime.ToString("t") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
-                    this.DoctorWalterTile.npfullName.MouseDoubleClick += NextPatientClicked;
+                    this.DoctorWalterTile.npfullName.MouseUp += NextPatientClicked;
                     this.DoctorWalterTile.npfullName.Cursor = Cursors.Hand;
                     m_walterNext1 = pat;
                 }
                 if (i == 1 && pat != null)
                 {
                     this.DoctorWalterTile.npfullName2.Content = app.m_startTime.ToString("t") + ": " + pat.GetLastName() + ", " + pat.GetFirstName();
-                    this.DoctorWalterTile.npfullName2.MouseDoubleClick += NextPatientClicked;
+                    this.DoctorWalterTile.npfullName2.MouseUp += NextPatientClicked;
                     this.DoctorWalterTile.npfullName2.Cursor = Cursors.Hand;
                     m_walterNext2 = pat;
                 }
@@ -253,14 +264,8 @@ namespace CPSC481Project
             List<String> availableLee = m_appointmentDatabase.AvailableTimes("Dr. Lee");
             List<String> availableWalter = m_appointmentDatabase.AvailableTimes("Dr. Walter");
 
-            this.DoctorPayneTile.availTime1.MouseDoubleClick += AvailableTimeClicked;
-            this.DoctorPayneTile.availTime2.MouseDoubleClick += AvailableTimeClicked;
-
-            this.DoctorLeeTile.availTime1.MouseDoubleClick += AvailableTimeClicked;
-            this.DoctorLeeTile.availTime2.MouseDoubleClick += AvailableTimeClicked;
-
-            this.DoctorWalterTile.availTime1.MouseDoubleClick += AvailableTimeClicked;
-            this.DoctorWalterTile.availTime2.MouseDoubleClick += AvailableTimeClicked;
+            //this.DoctorPayneTile.availTime1.MouseUp.
+            
 
             for (int i = 0; i < 2 && i < availablePayne.Count(); i++)
             {
@@ -1297,8 +1302,23 @@ namespace CPSC481Project
                 selectedMode = true;
             }
         }
+        /*
+        public event EventHandler<MouseButtonEventHandler> _availableTimeHandler
+        {
+            add
+            {
+                if (_availableTimeHandler == null)
+                {
+                    _availableTimeHandler += value;
+                }
+            }
+            remove
+            {
+                _availableTimeHandler -= value;
+            }
+        }*/
 
-        private void AvailableTimeClicked(object sender, RoutedEventArgs e)
+        private void AvailableTimeClicked(object sender, MouseEventArgs e)
         {
             if (sender.GetType() != typeof(Label))
                 return;
@@ -1311,10 +1331,18 @@ namespace CPSC481Project
                         (l == this.DoctorWalterTile.availTime1) ? (String)this.DoctorWalterTile.availTime1.Content :
                         (l == this.DoctorWalterTile.availTime2) ? (String)this.DoctorWalterTile.availTime2.Content : null;
 
+            String d = (l == this.DoctorPayneTile.availTime1) ? "Dr. Payne" :
+                        (l == this.DoctorPayneTile.availTime2) ? "Dr. Payne" :
+                        (l == this.DoctorLeeTile.availTime1) ? "Dr. Lee" :
+                        (l == this.DoctorLeeTile.availTime2) ? "Dr. Lee" :
+                        (l == this.DoctorWalterTile.availTime1) ? "Dr. Walter" :
+                        (l == this.DoctorWalterTile.availTime2) ? "Dr. Walter" : null;
+
             if (s != null)
             {
                 try
                 {
+                    Console.WriteLine(d);
                     DateTime dt = DateTime.Parse(s);
 
                     m_dayViewControl = new DayViewControl(dt, m_appointmentDatabase);
@@ -1323,6 +1351,11 @@ namespace CPSC481Project
                     Grid.SetColumn(m_dayViewControl, 1);
                     Grid.SetRowSpan(m_dayViewControl, 3);
                     m_dayViewControl.Visibility = Visibility.Visible;
+
+                    if (selectedMode)
+                    {
+                        NewAppointmentClicked(dt, d);
+                    }
                 }
                 catch (Exception ex) { /* probably because available time can't be parsed, just do nothing*/ }
             }
