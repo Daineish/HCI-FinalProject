@@ -386,6 +386,7 @@ namespace CPSC481Project
             // first clear StackPanel contents
             PatientListStackPanel.Children.Clear();
             recentLabel.Content = "Patient Search";
+            recentRec.Fill = (SolidColorBrush)Application.Current.Resources["PatientSearch"];
             m_recentPatientsShowing = false;
 
             // Add a button to remove search results
@@ -447,6 +448,7 @@ namespace CPSC481Project
         private void searchField_TextChanged(object sender, TextChangedEventArgs e)
         {
             // first clear StackPanel contents
+            recentRec.Fill = (SolidColorBrush)Application.Current.Resources["PatientSearch"];
             PatientListStackPanel.Children.Clear();
             recentLabel.Content = "Patient Search";
             m_recentPatientsShowing = false;
@@ -474,6 +476,10 @@ namespace CPSC481Project
                 {
                     PatientListStackPanel.Children.Add(CreateGrid(pat, true, false));
                 }
+            }
+            if (searchField.Text == "")
+            {
+                OnRemoveSearchButton(sender, e);
             }
         }
 
@@ -1199,6 +1205,7 @@ namespace CPSC481Project
 
         private void OnRemoveSearchButton(object sender, RoutedEventArgs e)
         {
+            
             PatientListStackPanel.Children.Clear();
             PopulateDefaultInfo();
             recentLabel.Content = "Recent Patients: ";
@@ -1231,6 +1238,9 @@ namespace CPSC481Project
             //Now hide the yes/cancel buttons
             editInfoYes.Visibility = Visibility.Hidden;
             editInfoCancel.Visibility = Visibility.Hidden;
+
+            recentRec.Fill = (SolidColorBrush)Application.Current.Resources["RecentPatient"];
+            searchField.Clear();
         }
         //Filter Checked
         private void payneChecked(object sender, RoutedEventArgs e)

@@ -10,5 +10,6 @@
         <SolidColorBrush x:Key="AddPatient" Color="#F3B045"/>
         <SolidColorBrush x:Key="RecentPatient" Color="#94D0CE"/>
         <SolidColorBrush x:Key="PatientTile" Color="#F2F5D8"/>
+        <SolidColorBrush x:Key="PatientSearch" Color="#A77D93"/>
     </Application.Resources>
 </Application>
