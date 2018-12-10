@@ -251,6 +251,7 @@ namespace CPSC481Project
                 Patient recent4 = m_patientDatabase.findPatient("99999");
                 Patient recent5 = m_patientDatabase.findPatient("83409");
 
+                PatientListStackPanel.Children.Clear();
                 PatientListStackPanel.Children.Add(CreateGrid(recent1, true));
                 PatientListStackPanel.Children.Add(CreateGrid(recent2, true));
                 PatientListStackPanel.Children.Add(CreateGrid(recent3, true));
