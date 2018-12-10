@@ -247,8 +247,8 @@ namespace CPSC481Project
 
             if(apts.Count() == 0 )
             {
-                rv.Add("No appointments scheduled.");
-                rv.Add("No appointments scheduled.");
+                rv.Add("Unavailable");
+                rv.Add("Unavailable");
 
             }
             else

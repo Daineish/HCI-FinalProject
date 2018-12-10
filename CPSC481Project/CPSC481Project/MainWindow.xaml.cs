@@ -268,7 +268,7 @@ namespace CPSC481Project
                 if (i == 0 && str != null)
                 {
                     this.DoctorPayneTile.availTime1.Content = str;
-                    if (str.Equals("No appointments scheduled."))
+                    if (str.Equals("Unavailable"))
                         {
                         
                         }
@@ -278,7 +278,7 @@ namespace CPSC481Project
                 else if (i == 1 && str != null)
                 {
                     this.DoctorPayneTile.availTime2.Content = str;
-                    if (str.Equals("No appointments scheduled."))
+                    if (str.Equals("Unavailable"))
                     {
 
                     }
@@ -292,7 +292,7 @@ namespace CPSC481Project
                 if (i == 0 && str != null)
                 {
                     this.DoctorLeeTile.availTime1.Content = str;
-                    if (str.Equals("No appointments scheduled."))
+                    if (str.Equals("Unavailable"))
                     {
 
                     }
@@ -302,7 +302,7 @@ namespace CPSC481Project
                 else if (i == 1 && str != null)
                 {
                     this.DoctorLeeTile.availTime2.Content = str;
-                    if (str.Equals("No appointments scheduled."))
+                    if (str.Equals("Unavailable"))
                     {
 
                     }
@@ -316,7 +316,7 @@ namespace CPSC481Project
                 if (i == 0 && str != null)
                 {
                     this.DoctorWalterTile.availTime1.Content = str;
-                    if (str.Equals("No appointments scheduled."))
+                    if (str.Equals("Unavailable"))
                     {
 
                     }
@@ -326,7 +326,7 @@ namespace CPSC481Project
                 else if (i == 1 && str != null)
                 {
                     this.DoctorWalterTile.availTime2.Content = str;
-                    if (str.Equals("No appointments scheduled."))
+                    if (str.Equals("Unavailable"))
                     {
 
                     }
