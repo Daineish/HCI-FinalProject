@@ -484,33 +484,33 @@ namespace CPSC481Project
             if (p != null)
             {
                 nameL.Content = "Name:"; nameL.Height = 40; nameL.Margin = new Thickness(16, 5, 0, 0); nameL.Width = 101; nameL.FontSize = 18; nameL.HorizontalAlignment = HorizontalAlignment.Left; nameL.VerticalAlignment = VerticalAlignment.Top;
-                hcL.Content = "HC#:"; hcL.Height = 40; hcL.Margin = new Thickness(16, 45, 0, 0); hcL.Width = 101; hcL.FontSize = 18; hcL.HorizontalAlignment = HorizontalAlignment.Left; hcL.VerticalAlignment = VerticalAlignment.Top;
-                addyL.Content = "Address:"; addyL.Height = 40; addyL.Margin = new Thickness(16, 85  , 0, 0); addyL.Width = 101; addyL.FontSize = 18; addyL.HorizontalAlignment = HorizontalAlignment.Left; addyL.VerticalAlignment = VerticalAlignment.Top;
-                emailL.Content = "Email:"; emailL.Height = 40; emailL.Margin = new Thickness(16, 125 , 0, 0); emailL.Width = 101; emailL.FontSize = 18; emailL.HorizontalAlignment = HorizontalAlignment.Left; emailL.VerticalAlignment = VerticalAlignment.Top;
-                phoneL.Content = "Phone:"; phoneL.Height = 40; phoneL.Margin = new Thickness(16, 165 , 0, 0); phoneL.Width = 101; phoneL.FontSize = 18; phoneL.HorizontalAlignment = HorizontalAlignment.Left; phoneL.VerticalAlignment = VerticalAlignment.Top;
-                prevdrL.Content = "Prev Dr:"; prevdrL.Height = 40; prevdrL.Margin = new Thickness(16, 205 , 0, 0); prevdrL.Width = 140; prevdrL.FontSize = 18; prevdrL.HorizontalAlignment = HorizontalAlignment.Left; prevdrL.VerticalAlignment = VerticalAlignment.Top;
+                hcL.Content = "HC#:"; hcL.Height = 30; hcL.Margin = new Thickness(16, 35, 0, 0); hcL.Width = 101; hcL.FontSize = 16; hcL.HorizontalAlignment = HorizontalAlignment.Left; hcL.VerticalAlignment = VerticalAlignment.Top;
+                //addyL.Content = "Address:"; addyL.Height = 40; addyL.Margin = new Thickness(16, 85  , 0, 0); addyL.Width = 101; addyL.FontSize = 18; addyL.HorizontalAlignment = HorizontalAlignment.Left; addyL.VerticalAlignment = VerticalAlignment.Top;
+                //emailL.Content = "Email:"; emailL.Height = 40; emailL.Margin = new Thickness(16, 125 , 0, 0); emailL.Width = 101; emailL.FontSize = 18; emailL.HorizontalAlignment = HorizontalAlignment.Left; emailL.VerticalAlignment = VerticalAlignment.Top;
+                //phoneL.Content = "Phone:"; phoneL.Height = 40; phoneL.Margin = new Thickness(16, 165 , 0, 0); phoneL.Width = 101; phoneL.FontSize = 18; phoneL.HorizontalAlignment = HorizontalAlignment.Left; phoneL.VerticalAlignment = VerticalAlignment.Top;
+                //prevdrL.Content = "Prev Dr:"; prevdrL.Height = 40; prevdrL.Margin = new Thickness(16, 205 , 0, 0); prevdrL.Width = 140; prevdrL.FontSize = 18; prevdrL.HorizontalAlignment = HorizontalAlignment.Left; prevdrL.VerticalAlignment = VerticalAlignment.Top;
 
 
                 TextBlock nameC = new TextBlock();
                 TextBlock hcC = new TextBlock();
-                TextBlock addyC = new TextBlock();
-                TextBlock emailC = new TextBlock();
-                TextBlock phoneC = new TextBlock();
+                //TextBlock addyC = new TextBlock();
+                //TextBlock emailC = new TextBlock();
+                //TextBlock phoneC = new TextBlock();
 
                 TextBlock prevdrC = new TextBlock();
                 nameC.Text = p.GetLastName() + ", " + p.GetFirstName(); nameC.Height = 40; nameC.Margin = new Thickness(100, 10, 0, 0); nameC.Width = 220; nameC.FontSize = 18; nameC.FontWeight = FontWeights.Bold; nameC.HorizontalAlignment = HorizontalAlignment.Left; nameC.VerticalAlignment = VerticalAlignment.Top; nameC.TextTrimming = TextTrimming.CharacterEllipsis;
-                hcC.Text = p.GetHCNumber(); hcC.Height = 40; hcC.Margin = new Thickness(100, 50, 0, 0); hcC.Width = 220; hcC.FontSize = 18; hcC.FontWeight = FontWeights.Bold; hcC.HorizontalAlignment = HorizontalAlignment.Left; hcC.VerticalAlignment = VerticalAlignment.Top; hcC.TextTrimming = TextTrimming.CharacterEllipsis;
-                addyC.Text = p.GetAddress(); addyC.Height = 40; addyC.Margin = new Thickness(100, 90, 0, 0); addyC.Width = 220; addyC.FontSize = 18; addyC.FontWeight = FontWeights.Bold; addyC.HorizontalAlignment = HorizontalAlignment.Left; addyC.VerticalAlignment = VerticalAlignment.Top; addyC.TextTrimming = TextTrimming.CharacterEllipsis;
-                emailC.Text = p.GetEmail(); emailC.Height = 40; emailC.Margin = new Thickness(100, 130, 0, 0); emailC.Width = 220; emailC.FontSize = 18; emailC.FontWeight = FontWeights.Bold; emailC.HorizontalAlignment = HorizontalAlignment.Left; emailC.VerticalAlignment = VerticalAlignment.Top; emailC.TextTrimming = TextTrimming.CharacterEllipsis;
-                phoneC.Text = p.GetPhone(); phoneC.Height = 40; phoneC.Margin = new Thickness(100, 170, 0, 0); phoneC.Width = 220; phoneC.FontSize = 18; phoneC.FontWeight = FontWeights.Bold; phoneC.HorizontalAlignment = HorizontalAlignment.Left; phoneC.VerticalAlignment = VerticalAlignment.Top; phoneC.TextTrimming = TextTrimming.CharacterEllipsis;
-                prevdrC.Text = p.GetPrev(); prevdrC.Height = 40; prevdrC.Margin = new Thickness(100, 210, 0, 0); prevdrC.Width = 220; prevdrC.FontSize = 18; prevdrC.FontWeight = FontWeights.Bold; prevdrC.HorizontalAlignment = HorizontalAlignment.Left; prevdrC.VerticalAlignment = VerticalAlignment.Top; prevdrC.TextTrimming = TextTrimming.CharacterEllipsis;
+                hcC.Text = p.GetHCNumber(); hcC.Height = 30; hcC.Margin = new Thickness(100, 40, 0, 0); hcC.Width = 220; hcC.FontSize = 16; hcC.FontWeight = FontWeights.Bold; hcC.HorizontalAlignment = HorizontalAlignment.Left; hcC.VerticalAlignment = VerticalAlignment.Top; hcC.TextTrimming = TextTrimming.CharacterEllipsis;
+                //addyC.Text = p.GetAddress(); addyC.Height = 40; addyC.Margin = new Thickness(100, 90, 0, 0); addyC.Width = 220; addyC.FontSize = 18; addyC.FontWeight = FontWeights.Bold; addyC.HorizontalAlignment = HorizontalAlignment.Left; addyC.VerticalAlignment = VerticalAlignment.Top; addyC.TextTrimming = TextTrimming.CharacterEllipsis;
+                //emailC.Text = p.GetEmail(); emailC.Height = 40; emailC.Margin = new Thickness(100, 130, 0, 0); emailC.Width = 220; emailC.FontSize = 18; emailC.FontWeight = FontWeights.Bold; emailC.HorizontalAlignment = HorizontalAlignment.Left; emailC.VerticalAlignment = VerticalAlignment.Top; emailC.TextTrimming = TextTrimming.CharacterEllipsis;
+                //phoneC.Text = p.GetPhone(); phoneC.Height = 40; phoneC.Margin = new Thickness(100, 170, 0, 0); phoneC.Width = 220; phoneC.FontSize = 18; phoneC.FontWeight = FontWeights.Bold; phoneC.HorizontalAlignment = HorizontalAlignment.Left; phoneC.VerticalAlignment = VerticalAlignment.Top; phoneC.TextTrimming = TextTrimming.CharacterEllipsis;
+                //prevdrC.Text = p.GetPrev(); prevdrC.Height = 40; prevdrC.Margin = new Thickness(100, 210, 0, 0); prevdrC.Width = 220; prevdrC.FontSize = 18; prevdrC.FontWeight = FontWeights.Bold; prevdrC.HorizontalAlignment = HorizontalAlignment.Left; prevdrC.VerticalAlignment = VerticalAlignment.Top; prevdrC.TextTrimming = TextTrimming.CharacterEllipsis;
 
                 Rectangle r = new Rectangle();
                 r.Stroke = System.Windows.Media.Brushes.LightGray;
                 r.HorizontalAlignment = HorizontalAlignment.Left;
                 r.VerticalAlignment = VerticalAlignment.Top;
                 r.Width = 320;
-                r.Height = 285;
+                r.Height = 120;
                 Thickness p_margin = new Thickness();
                 p_margin.Left = 2;
                 p_margin.Right = 45;
@@ -554,8 +554,8 @@ namespace CPSC481Project
                 g.Children.Add(view);
 
                 g.Children.Add(r);
-                g.Children.Add(nameL); g.Children.Add(hcL); g.Children.Add(addyL); g.Children.Add(emailL); g.Children.Add(phoneL); g.Children.Add(prevdrL) ;
-                g.Children.Add(nameC); g.Children.Add(hcC); g.Children.Add(addyC); g.Children.Add(emailC); g.Children.Add(phoneC); g.Children.Add(prevdrC);
+                g.Children.Add(nameL); g.Children.Add(hcL);//g.Children.Add(addyL); g.Children.Add(emailL); g.Children.Add(phoneL); g.Children.Add(prevdrL) ;
+                g.Children.Add(nameC); g.Children.Add(hcC);
 
                 //Now add an unselect button
                 if (!withButton && highlighted)
