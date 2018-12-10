@@ -130,7 +130,7 @@ namespace CPSC481Project
             walkinQueueList.ItemsSource = _walkinList;
             Style itemContainerStyle = new Style(typeof(ListBoxItem));
             itemContainerStyle.Setters.Add(new Setter(ListBoxItem.AllowDropProperty, true));
-            itemContainerStyle.Setters.Add(new EventSetter(ListBoxItem.PreviewMouseLeftButtonDownEvent, new MouseButtonEventHandler(walkinqueue_PreviewMouseMoveEvent)));
+            itemContainerStyle.Setters.Add(new EventSetter(ListBoxItem.PreviewMouseDownEvent, new MouseButtonEventHandler(walkinqueue_PreviewMouseMoveEvent)));
             itemContainerStyle.Setters.Add(new EventSetter(ListBoxItem.DropEvent, new DragEventHandler(walkinqueue_Drop)));
             walkinQueueList.ItemContainerStyle = itemContainerStyle;
         }
