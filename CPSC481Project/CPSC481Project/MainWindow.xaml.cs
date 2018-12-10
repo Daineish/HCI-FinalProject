@@ -350,21 +350,11 @@ namespace CPSC481Project
         private void tmr_Elapsed(object sender, ElapsedEventArgs e)
         {
             int hour = DateTime.Now.Hour;
-            String apm = "AM";
-            if (hour > 12)
-            {
-                hour = hour - 12;
-                apm = "PM";
-            }
-
             try
             {
                 this.Dispatcher.Invoke(() =>
                 {
-                    int min = DateTime.Now.Minute;
-                    String str = "";
-                    if (min < 10) str = "0";
-                    this.DashTime.Content = hour + ":" + str + DateTime.Now.Minute + " " + apm;
+                    this.DashTime.Content = DateTime.Now.ToString("t");
                     this.DashDate.Content = month.ElementAt(DateTime.Now.Month - 1) + " " + DateTime.Now.Day + ", " + DateTime.Now.Year;
                 });
             }
