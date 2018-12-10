@@ -1002,11 +1002,26 @@ namespace CPSC481Project
             }
             else
             {
-                queuePosition++;
-                WalkinTile t = new WalkinTile(m_currentPatient.m_firstName + " " + m_currentPatient.m_lastName, m_currentPatient.m_hcNumber, queuePosition, _walkinList, walkinQueueList);
-                _walkinList.Add(t);
-                walkinQueueList.ItemsSource = _walkinList;
-                //walkinQueueList.Items.Add(t);
+                string temp_hc = m_currentPatient.GetHCNumber();
+                bool in_walkinlist = false;
+                foreach (WalkinTile t2 in _walkinList)
+                {
+                    string temp_hc2 = t2.HCLabel.ToString();
+                    string[] temp_hc3 = temp_hc2.Split(' ');
+                    Console.WriteLine(temp_hc + " " + temp_hc3[1]);
+                    if (temp_hc == temp_hc3[1]) in_walkinlist = true;
+                }
+                if(in_walkinlist)
+                {
+                    MessageBox.Show("Selected patient is already in queue. ", "Duplicate Queue Entry", MessageBoxButton.OK, MessageBoxImage.Error);
+                } else
+                {
+                    queuePosition++;
+                    WalkinTile t = new WalkinTile(m_currentPatient.m_firstName + " " + m_currentPatient.m_lastName, m_currentPatient.m_hcNumber, queuePosition, _walkinList, walkinQueueList);
+                    _walkinList.Add(t);
+                    walkinQueueList.ItemsSource = _walkinList;
+                    //walkinQueueList.Items.Add(t);
+                }
             }
         }
 
