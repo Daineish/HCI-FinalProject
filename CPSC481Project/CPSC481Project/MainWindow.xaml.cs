@@ -27,6 +27,8 @@ namespace CPSC481Project
     {
         payne, lee, walter
     };
+
+    
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -61,6 +63,8 @@ namespace CPSC481Project
         //for walkinqueue
         private int queuePosition = 0;
         public ObservableCollection<WalkinTile> _walkinList = new ObservableCollection<WalkinTile>();
+        public Point _startPoint { get; set; }
+        public bool dragAction = false;
 
         public MainWindow()
         {
@@ -130,8 +134,9 @@ namespace CPSC481Project
             walkinQueueList.ItemsSource = _walkinList;
             Style itemContainerStyle = new Style(typeof(ListBoxItem));
             itemContainerStyle.Setters.Add(new Setter(ListBoxItem.AllowDropProperty, true));
-            itemContainerStyle.Setters.Add(new EventSetter(ListBoxItem.PreviewMouseDownEvent, new MouseButtonEventHandler(walkinqueue_PreviewMouseMoveEvent)));
+            itemContainerStyle.Setters.Add(new EventSetter(ListBoxItem.PreviewMouseLeftButtonDownEvent, new MouseButtonEventHandler(walkinqueue_PreviewMouseLeftButtonDownEvent)));
             itemContainerStyle.Setters.Add(new EventSetter(ListBoxItem.DropEvent, new DragEventHandler(walkinqueue_Drop)));
+            itemContainerStyle.Setters.Add(new EventSetter(ListBoxItem.PreviewMouseMoveEvent, new MouseEventHandler(walkinqueue_PreviewMouseMoveEvent)));
             walkinQueueList.ItemContainerStyle = itemContainerStyle;
         }
 
@@ -1032,14 +1037,35 @@ namespace CPSC481Project
             }
         }
 
-        private void walkinqueue_PreviewMouseMoveEvent(object sender, MouseButtonEventArgs e)
+        private void walkinqueue_PreviewMouseLeftButtonDownEvent(object sender, MouseButtonEventArgs e)
         {
-            if (sender is ListBoxItem && e.LeftButton == MouseButtonState.Pressed)
+            _startPoint = e.GetPosition(null);
+        }
+
+        private void walkinqueue_PreviewMouseMoveEvent(object sender, MouseEventArgs e)
+        {
+            if (Mouse.LeftButton == MouseButtonState.Pressed && !dragAction)
             {
+                Point position = e.GetPosition(null);
+                if (Math.Abs(position.X - _startPoint.X) > SystemParameters.MinimumHorizontalDragDistance ||
+                    Math.Abs(position.Y - _startPoint.Y) > SystemParameters.MinimumVerticalDragDistance)
+                {
+                    dragAction = true;
+                    this.walkinqueue_StartDrag(sender, e);
+                }
+            }
+
+        }
+
+        private void walkinqueue_StartDrag(object sender, MouseEventArgs e)
+        {
+            //if (sender is ListBoxItem && e.LeftButton == MouseButtonState.Pressed)
+            //{
                 ListBoxItem draggedItem = sender as ListBoxItem;
                 DragDrop.DoDragDrop(draggedItem, draggedItem.DataContext, DragDropEffects.Move);
                 draggedItem.IsSelected = true;
-            }
+                dragAction = false;
+            //}
         }
 
         void walkinqueue_Drop(object sender, DragEventArgs e)
@@ -1064,6 +1090,7 @@ namespace CPSC481Project
                     _walkinList.RemoveAt(remIdx);
                 }
             }
+
         }
 
         public void walkin_delete(WalkinTile a)
