@@ -86,7 +86,9 @@
 
             </ListBox>
             <Label Grid.Column="0" Content="Walk-In Queue" HorizontalAlignment="Left" Height="60" Margin="58,0,0,0" VerticalAlignment="Top" Width="299.5" FontSize="36" Grid.Row="2" Foreground="White" FontWeight="Bold"/>
-            <Image x:Name="addWalkInButton" Source="/Images/addButton.png" MouseLeftButtonUp="WalkInClicked" HorizontalAlignment="Right" VerticalAlignment="Top" Width="45.844" Margin="0,11.5,358.74,0" Height="42.901" Grid.Row="2" Cursor="Hand" ToolTip="Add walk-in appointment" Grid.ColumnSpan="2"/>
+            <Image x:Name="addWalkInButton_grey" Source="/Images/addButton_grey.png" HorizontalAlignment="Right" VerticalAlignment="Top" Width="45.844" Margin="0,11.5,358.74,0" Height="42.901" Grid.Row="2" ToolTip="Add walk-in appointment" Grid.ColumnSpan="2"/>
+            <Image x:Name="addWalkInButton" Source="/Images/addButton.png" MouseLeftButtonUp="WalkInClicked" HorizontalAlignment="Right" VerticalAlignment="Top" Width="45.844" Margin="0,11.5,358.74,0" Height="42.901" Grid.Row="2" Cursor="Hand" ToolTip="Add walk-in appointment" Grid.ColumnSpan="2" Visibility="Hidden"/>
+            
         </Grid>
         <ScrollViewer Grid.Column="0" x:Name="PatientListScrollViewer" HorizontalAlignment="Stretch" Height="702" Margin="0,157,0,0" VerticalAlignment="Top" Width="auto" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto">
             <StackPanel x:Name="PatientListStackPanel" Height="Auto" Width="Auto" HorizontalAlignment="Left" VerticalAlignment="Top">
