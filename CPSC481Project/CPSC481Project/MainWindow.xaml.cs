@@ -144,9 +144,9 @@ namespace CPSC481Project
             PopulateDefaultInfo();
 
             //for walkinqueuelist
-            _walkinList.Add(new WalkinTile("John Doe", "12333", 1, _walkinList, walkinQueueList));
-            _walkinList.Add(new WalkinTile("John Deer", "33455", 2, _walkinList, walkinQueueList));
-            _walkinList.Add(new WalkinTile("Jane Deer", "33465", 3, _walkinList, walkinQueueList));
+            //_walkinList.Add(new WalkinTile("John Doe", "12333", 1, _walkinList, walkinQueueList));
+            //_walkinList.Add(new WalkinTile("John Deer", "33455", 2, _walkinList, walkinQueueList));
+            //_walkinList.Add(new WalkinTile("Jane Deer", "33465", 3, _walkinList, walkinQueueList));
 
             //walkinQueueList.DisplayMemberPath = "Name";//*
             walkinQueueList.ItemsSource = _walkinList;
