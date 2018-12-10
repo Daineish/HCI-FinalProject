@@ -132,7 +132,7 @@ namespace CPSC481Project
                         apt.SetDoctor(a.m_doctor);
                         apt.m_startDate = a.m_startDate;
                         apt.m_endDate = a.m_endDate;
-                        apt.DisplayText.Text = a.m_doctor;
+                        apt.DisplayText.Text =  a.m_doctor +  " vacation until: " +a.m_endDate;
                         apt.Foreground = new SolidColorBrush(Color.FromRgb(255, 255, 255));
                         apt.MouseDoubleClick += Appointment_DoubleClick;
                         dayBox.DayAppointmentsStack.Children.Add(apt);
