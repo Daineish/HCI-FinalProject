@@ -620,7 +620,8 @@ namespace CPSC481Project
             addWalkInRecTxt.Visibility = Visibility.Hidden;
             PatientListStackPanel.Children.Clear();
             //Set patient to null so we don't create another grid of the patient
-            PatientListStackPanel.Children.Add(CreateGrid(m_currentPatient, true, false));
+            if(!m_recentPatientsShowing)
+                PatientListStackPanel.Children.Add(CreateGrid(m_currentPatient, true, false));
             m_currentPatient = null;
             selectedMode = false;
 
