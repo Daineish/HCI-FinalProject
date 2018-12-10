@@ -102,7 +102,7 @@ namespace CPSC481Project
             {
                 DateTime today = DateTime.Today;
                 TimeSpan ts = new TimeSpan(15, 0, 0);
-                today = today.AddDays(1).Date + ts;
+                today = today.Date + ts;
                 m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("00001"), "Dr. Walter", today, today.AddMinutes(10), "Appointment #1"));
                 m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("12345"), "Dr. Payne", today.AddMinutes(30), today.AddMinutes(40), "Appointment #2"));
                 int offset = 8;
