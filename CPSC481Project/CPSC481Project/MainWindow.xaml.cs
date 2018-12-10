@@ -95,7 +95,13 @@ namespace CPSC481Project
                 today = today.Date + ts;
                 m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("00001"), "Dr. Walter", today, today.AddMinutes(10), "Appointment #1"));
                 m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("12345"), "Dr. Payne", today.AddMinutes(30), today.AddMinutes(40), "Appointment #2"));
-                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("00002"), "Dr. Lee", today.AddDays(1), today.AddDays(1).AddMinutes(10), "Appointment #3"));
+                int offset = 8;
+
+                if (DateTime.Now.TimeOfDay.Hours - offset < 9)
+                {
+                    m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("00002"), "Dr. Lee", today.AddDays(1), today.AddDays(1).AddMinutes(10), "Appointment #3"));
+                }
+
                 m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("44444"), "Dr. Walter", today.AddHours(1), today.AddHours(4).AddMinutes(10), "Appointment #4"));
                 m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("00001"), "Dr. Walter", today.AddMinutes(-20), today.AddMinutes(-10), "Appointment #5"));
             }
@@ -522,6 +528,7 @@ namespace CPSC481Project
                 else if (highlighted)
                 {
                     r.Fill = new SolidColorBrush(Color.FromRgb(249, 209, 26));
+
                 }
 
                 //Add button to view patient information
@@ -547,7 +554,8 @@ namespace CPSC481Project
                     unselectPatient.Content = "Unselect";
                     unselectPatient.Width = 100;
                     unselectPatient.Height = 30;
-                    unselectPatient.Margin = new Thickness(-50, 200, 0, 0);
+                    unselectPatient.VerticalAlignment = VerticalAlignment.Bottom;
+                    unselectPatient.Margin = new Thickness(-50, 0, 0, 15);
                     unselectPatient.Tag = p;
                     unselectPatient.Cursor = Cursors.Hand;
                     unselectPatient.Click += unSelectPatientClicked;

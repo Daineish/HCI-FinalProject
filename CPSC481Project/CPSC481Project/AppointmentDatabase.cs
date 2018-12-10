@@ -242,10 +242,12 @@ namespace CPSC481Project
 
             List<String> rv = new List<String>();
             // If doc has no scheduled appointments, they're always available.
-            if(apts.Count() == 0)
+
+            if(apts.Count() == 0 )
             {
                 rv.Add("No appointments scheduled.");
                 rv.Add("No appointments scheduled.");
+
             }
             else
             {

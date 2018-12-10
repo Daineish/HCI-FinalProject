@@ -223,7 +223,16 @@ namespace CPSC481Project
             StackPanel sp = (StackPanel)g.Parent;
             DateTime dt = DateTime.Parse((String)currentDate.Content + " " + (String)tb.Tag);
             String doc = (String)sp.Tag;
-            form.SetInfo(tb.Text, "patient number", (String)sp.Tag, dt);
+            foreach(Appointment a in m_appointmentDatabase.m_appointments)
+            {
+                if (a.m_patient.m_firstName + " " + a.m_patient.m_lastName == tb.Text)
+                {
+                    form.SetInfo(tb.Text, a.m_patient.m_hcNumber, (String)sp.Tag, dt);
+                    break;
+                }
+            }
+
+            //form.SetInfo(tb.Text, "patient number", (String)sp.Tag, dt);
             form.ShowDialog();
             if(form.m_delete)
             {
