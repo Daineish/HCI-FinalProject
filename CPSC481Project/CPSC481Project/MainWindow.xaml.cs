@@ -884,6 +884,8 @@ namespace CPSC481Project
             clearAddtext();
             recentLabel.Content = "Add Patient:";
             recentRec.Fill = (SolidColorBrush) Application.Current.Resources["AddPatient"];
+            viewPatient.Visibility = Visibility.Hidden;
+            RemoveSearchButton.Visibility = Visibility.Hidden;
             PatientListScrollViewer.Visibility = Visibility.Hidden;
             this.addPatient.Visibility = Visibility.Visible;
         }
@@ -939,6 +941,7 @@ namespace CPSC481Project
         {
             addPatient.Visibility = Visibility.Hidden;
             PatientListScrollViewer.Visibility = Visibility.Visible;
+            PopulateDefaultInfo();
             warning.Visibility = Visibility.Hidden;
             //Cleartext
             clearAddtext();

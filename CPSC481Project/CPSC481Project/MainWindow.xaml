@@ -202,7 +202,7 @@
             <TextBlock x:Name="apnameLbl_Copy11" HorizontalAlignment="Left" Height="31" Margin="16,242,0,0" TextWrapping="Wrap" Text="Email:" VerticalAlignment="Top" Width="70.5" FontSize="18"/>
             <TextBlock x:Name="apnameLbl_Copy12" HorizontalAlignment="Left" Height="31" Margin="16,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="255.5" FontSize="18"><Run FontWeight="Bold" Text="Patient Information:"/></TextBlock>
             <TextBlock x:Name="apnameLbl_Copy13" HorizontalAlignment="Left" Height="31" Margin="16,318,0,0" TextWrapping="Wrap" Text="Additional Notes:" VerticalAlignment="Top" Width="149.5" FontSize="18"/>
-            <TextBox x:Name="apaddField1" HorizontalAlignment="Left" Height="101.5" Margin="16,354,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="314" FontSize="18"/>
+            <TextBox x:Name="apaddField1" HorizontalAlignment="Left" Height="101.5" Margin="16,354,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="314" FontSize="18" IsEnabled="False"/>
             <TextBlock x:Name="warning1" HorizontalAlignment="Left" Height="36" Margin="176.5,683.5,0,0" TextWrapping="Wrap" Text="Are you sure?" VerticalAlignment="Top" Width="205.5" FontSize="24" Foreground="Red" Visibility="Hidden"/>
             <TextBlock x:Name="dPatientname" HorizontalAlignment="Left" Height="31" Margin="135,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="18" FontWeight="Bold"/>
             <TextBlock x:Name="dPatientlname" HorizontalAlignment="Left" Height="31" Margin="135,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="18" FontWeight="Bold"/>
