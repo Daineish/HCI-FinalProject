@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CPSC481Project"
-             mc:Ignorable="d" d:DesignWidth="1120" Height="869" Width="1087">
+             mc:Ignorable="d" d:DesignWidth="1120" Height="auto" Width="1087">
     <Grid x:Name="DayViewMainGrid" Margin="0,0,0,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="70"/>
