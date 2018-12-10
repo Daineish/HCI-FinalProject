@@ -27,10 +27,12 @@ namespace CPSC481Project
             if(!File.Exists(m_appointmentFile))
             {
                 // idk if this is necessary because idk how files work in C#.
+
                 File.Create(m_appointmentFile).Close();
                 
             }
 
+            File.WriteAllText(m_appointmentFile, String.Empty);
             StreamReader appointmentsFile = File.OpenText(m_appointmentFile);
             //m_appointments = new Dictionary<uint, Appointment>();
 

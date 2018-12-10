@@ -76,6 +76,7 @@ namespace CPSC481Project
 
             EditVacation form = new EditVacation();
             form.SetInfo(doc, start, end);
+            form.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             form.ShowDialog();
             if (form.m_delete)
             {
@@ -210,6 +211,7 @@ namespace CPSC481Project
 
             AddVacation form = new AddVacation();
             form.SetInfo(doc);
+            form.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             form.ShowDialog();
 
             if (form.m_add)

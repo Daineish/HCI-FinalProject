@@ -92,6 +92,8 @@ namespace CPSC481Project
                 m_patientDatabase.AddPatient(new Patient("Smith", "Mark", "00002", "2500 University Ave", "president@ucalgary.ca", "(403) 999-9999", "Dr. Walter"));
                 m_patientDatabase.AddPatient(new Patient("Adultman", "Vincent", "99999", "412 Adult St.", "adultman_v@bigcompany.com", "(555) 555-5555", "Dr. Payne"));
                 m_patientDatabase.AddPatient(new Patient("Griffin", "Peter", "83409", "31 Spooner St.", "pgriffin@drunkenclam.com", "(123) 456-7890", "Dr. Payne"));
+                m_patientDatabase.AddPatient(new Patient("Griffin", "Lois", "83410", "31 Spooner St.", "lgriffin@familylady.com", "(123) 456-7891", "Dr. Payne"));
+                m_patientDatabase.AddPatient(new Patient("Doe", "Jane", "00003", "74 Main St.", "jane.doe@email.com", "(759) 145-8956", "Dr. Walter"));
             }
 
             if (m_appointmentDatabase.NumAppointments() < 5)
@@ -109,7 +111,13 @@ namespace CPSC481Project
                 }
 
                 m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("44444"), "Dr. Walter", today.AddHours(1), today.AddHours(4).AddMinutes(10), "Appointment #4"));
-                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("00001"), "Dr. Walter", today.AddMinutes(-20), today.AddMinutes(-10), "Appointment #5"));
+                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("15432"), "Dr. Walter", today.AddMinutes(-20), today.AddMinutes(-10), "Appointment #5"));
+                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("99999"), "Dr. Lee", today.AddMinutes(10), today.AddMinutes(50), "Appointment #6"));
+                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("83409"), "Dr. Lee", today.AddHours(-4), today.AddMinutes(-40), "Appointment #7"));
+                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("11325"), "Dr. Payne", today.AddMinutes(50), today.AddMinutes(30), "Appointment #8"));
+                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("15795"), "Dr. Payne", today.AddMinutes(-60), today.AddMinutes(-10), "Appointment #9"));
+                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("83410"), "Dr. Payne", today.AddHours(-3), today.AddMinutes(-10), "Appointment #10"));
+                m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("00003"), "Dr. Walter", today.AddHours(-5), today.AddMinutes(-10), "Appointment #11"));
             }
 
             if(m_vacationDatabase.NumVacations() < 3)
@@ -943,7 +951,7 @@ namespace CPSC481Project
             //Now add the patient
 
 
-            Patient p = new Patient(newName, newLname, newHC, addr, email, newPhone);
+            Patient p = new Patient(newLname, newName, newHC, addr, email, newPhone);
             warning.Visibility = Visibility.Hidden;
             Yes.Visibility = Visibility.Hidden;
             addPatient.Visibility = Visibility.Hidden;
@@ -977,6 +985,7 @@ namespace CPSC481Project
             {
                 AddAppointment form = new AddAppointment();
                 form.SetInfo(m_currentPatient.m_firstName + " " + m_currentPatient.m_lastName, m_currentPatient.m_hcNumber, doc, datetime);
+                form.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
                 form.ShowDialog();
 
                 if (form.m_add)
