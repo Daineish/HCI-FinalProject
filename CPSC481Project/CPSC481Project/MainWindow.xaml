@@ -88,7 +88,7 @@
             <Label Grid.Column="0" Content="Walk-In Queue" HorizontalAlignment="Left" Height="60" Margin="58,0,0,0" VerticalAlignment="Top" Width="299.5" FontSize="36" Grid.Row="2" Foreground="White" FontWeight="Bold"/>
             <Image x:Name="addWalkInButton_grey" Source="/Images/addButton_grey.png" HorizontalAlignment="Right" VerticalAlignment="Top" Width="45.844" Margin="0,11.5,358.74,0" Height="42.901" Grid.Row="2" ToolTip="Add walk-in appointment" Grid.ColumnSpan="2"/>
             <Image x:Name="addWalkInButton" Source="/Images/addButton.png" MouseLeftButtonUp="WalkInClicked" HorizontalAlignment="Right" VerticalAlignment="Top" Width="45.844" Margin="0,11.5,358.74,0" Height="42.901" Grid.Row="2" Cursor="Hand" ToolTip="Add walk-in appointment" Grid.ColumnSpan="2" Visibility="Hidden"/>
-            
+
         </Grid>
         <ScrollViewer Grid.Column="0" x:Name="PatientListScrollViewer" HorizontalAlignment="Stretch" Height="702" Margin="0,157,0,0" VerticalAlignment="Top" Width="auto" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto">
             <StackPanel x:Name="PatientListStackPanel" Height="Auto" Width="Auto" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -223,15 +223,15 @@
 
         </Grid>
         <Grid x:Name="filterDoctor" Margin="0,150.438,0,0" Visibility="Hidden">
-            <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="180.5" Margin="0,538.062,0,0" VerticalAlignment="Top" Width="345"/>
-            <TextBlock x:Name="drFilterlbl" HorizontalAlignment="Left" Height="30" Margin="10,541.562,0,0" TextWrapping="Wrap" Text="Doctor Filter: " VerticalAlignment="Top" Width="162" FontWeight="Bold" FontSize="18"/>
-            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="180.5" Margin="0,538.062,0,0" VerticalAlignment="Top" Width="345"/>
-            <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="31" Margin="48.667,575.229,0,0" RadiusY="6.103" RadiusX="6.103" Stroke="Black" VerticalAlignment="Top" Width="223.875"/>
-            <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="31" Margin="49,621.895,0,0" RadiusY="6.103" RadiusX="6.103" Stroke="Black" VerticalAlignment="Top" Width="223.542"/>
-            <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="31" Margin="49,669.562,0,0" RadiusY="6.103" RadiusX="6.103" Stroke="Black" VerticalAlignment="Top" Width="223.875"/>
-            <CheckBox x:Name="paynecBox" Content="Dr. Payne" HorizontalAlignment="Left" Height="19" Margin="102.772,676.729,0,0" VerticalAlignment="Top" Width="115.29" FontSize="14" Checked="payneChecked" Unchecked="payneUnchecked" IsChecked="true" FontWeight="Bold" Foreground="White"/>
-            <CheckBox x:Name="leecBox" Content="Dr. Lee" HorizontalAlignment="Left" Height="19" Margin="102.772,628.562,0,0" VerticalAlignment="Top" Width="115.29" FontSize="14" RenderTransformOrigin="0.491,0.482" Checked="leeChecked" Unchecked="leeUnchecked" IsChecked="true" FontWeight="Bold" Foreground="White"/>
-            <CheckBox x:Name="waltercBox" Content="Dr. Walter" HorizontalAlignment="Left" Height="24" Margin="102.772,583.229,0,0" VerticalAlignment="Top" Width="115.29" FontSize="14" Checked="walterChecked" Unchecked="walterUnchecked" IsChecked="true" FontWeight="Bold" Foreground="White"/>
+            <Rectangle Fill="White" HorizontalAlignment="Left" Height="180.5" Margin="0,538.062,0,0" VerticalAlignment="Top" Width="345" Stroke="Black" StrokeThickness="0"/>
+            <Rectangle Fill="#FFFFD0D0" HorizontalAlignment="Left" Height="32.416" Margin="0,535.812,0,0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Top" Width="345"/>
+            <TextBlock x:Name="drFilterlbl" HorizontalAlignment="Left" Height="30" Margin="10,538.562,0,0" TextWrapping="Wrap" Text="Doctor Filter: " VerticalAlignment="Top" Width="162" FontWeight="Bold" FontSize="18"/>
+            <Rectangle Fill="#FF6767FF" HorizontalAlignment="Left" Height="31" Margin="48.667,584.229,0,0" RadiusY="6.103" RadiusX="6.103" Stroke="Black" VerticalAlignment="Top" Width="223.875" StrokeThickness="0"/>
+            <Rectangle Fill="#FFEA8E7A" HorizontalAlignment="Left" Height="31" Margin="49,621.895,0,0" RadiusY="6.103" RadiusX="6.103" Stroke="Black" VerticalAlignment="Top" Width="223.542" StrokeThickness="0"/>
+            <Rectangle Fill="#FF5AAA7E" HorizontalAlignment="Left" Height="31" Margin="49,659.562,0,0" RadiusY="6.103" RadiusX="6.103" Stroke="Black" VerticalAlignment="Top" Width="223.875" StrokeThickness="0"/>
+            <CheckBox x:Name="paynecBox" Content="Dr. Payne" HorizontalAlignment="Left" Height="31" Margin="68,659.562,0,0" VerticalAlignment="Top" Width="204.875" FontSize="14" Checked="payneChecked" Unchecked="payneUnchecked" IsChecked="true" FontWeight="Bold" Foreground="White" VerticalContentAlignment="Center" Cursor="Hand"/>
+            <CheckBox x:Name="leecBox" Content="Dr. Lee" HorizontalAlignment="Left" Height="31" Margin="68,621.895,0,0" VerticalAlignment="Top" Width="204.542" FontSize="14" RenderTransformOrigin="0.491,0.482" Checked="leeChecked" Unchecked="leeUnchecked" IsChecked="true" FontWeight="Bold" Foreground="White" VerticalContentAlignment="Center" Cursor="Hand"/>
+            <CheckBox x:Name="waltercBox" Content="Dr. Walter" HorizontalAlignment="Left" Height="31" Margin="68,584.229,0,0" VerticalAlignment="Top" Width="204.542" FontSize="14" Checked="walterChecked" Unchecked="walterUnchecked" IsChecked="true" FontWeight="Bold" Foreground="White" VerticalContentAlignment="Center" Cursor="Hand"/>
 
         </Grid>
         <Grid  Grid.Column="0" x:Name="addAppointment" Margin="0,157,0,0" Visibility="Hidden">
