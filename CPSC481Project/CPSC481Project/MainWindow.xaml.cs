@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -65,6 +66,7 @@ namespace CPSC481Project
         public ObservableCollection<WalkinTile> _walkinList = new ObservableCollection<WalkinTile>();
         public Point _startPoint { get; set; }
         public bool dragAction = false;
+        private Cursor _allOpsCursor = null;
 
         public MainWindow()
         {
@@ -136,7 +138,10 @@ namespace CPSC481Project
             itemContainerStyle.Setters.Add(new Setter(ListBoxItem.AllowDropProperty, true));
             itemContainerStyle.Setters.Add(new EventSetter(ListBoxItem.PreviewMouseLeftButtonDownEvent, new MouseButtonEventHandler(walkinqueue_PreviewMouseLeftButtonDownEvent)));
             itemContainerStyle.Setters.Add(new EventSetter(ListBoxItem.DropEvent, new DragEventHandler(walkinqueue_Drop)));
+            itemContainerStyle.Setters.Add(new EventSetter(ListBoxItem.MouseEnterEvent, new MouseEventHandler(walkinqueue_MouseEnterEvent)));
+            itemContainerStyle.Setters.Add(new EventSetter(ListBoxItem.MouseLeaveEvent, new MouseEventHandler(walkinqueue_MouseLeaveEvent)));
             itemContainerStyle.Setters.Add(new EventSetter(ListBoxItem.PreviewMouseMoveEvent, new MouseEventHandler(walkinqueue_PreviewMouseMoveEvent)));
+            
             walkinQueueList.ItemContainerStyle = itemContainerStyle;
         }
 
@@ -1057,15 +1062,27 @@ namespace CPSC481Project
 
         }
 
+        //can i just say this stackoverflow guy saved us?
+        //https://stackoverflow.com/questions/50219002/trigger-wpf-checkbox-on-list-item-from-listbox-that-has-drag-and-drop
         private void walkinqueue_StartDrag(object sender, MouseEventArgs e)
         {
             //if (sender is ListBoxItem && e.LeftButton == MouseButtonState.Pressed)
             //{
-                ListBoxItem draggedItem = sender as ListBoxItem;
-                DragDrop.DoDragDrop(draggedItem, draggedItem.DataContext, DragDropEffects.Move);
-                draggedItem.IsSelected = true;
-                dragAction = false;
+            ListBoxItem draggedItem = sender as ListBoxItem;
+            DragDrop.DoDragDrop(draggedItem, draggedItem.DataContext, DragDropEffects.Move);
+            draggedItem.IsSelected = true;
+            dragAction = false;
             //}
+        }
+
+        void walkinqueue_MouseEnterEvent(object sender, MouseEventArgs e)
+        {
+            this.Cursor = Cursors.SizeAll;
+        }
+
+        void walkinqueue_MouseLeaveEvent(object sender, MouseEventArgs e)
+        {
+            this.Cursor = Cursors.Arrow;
         }
 
         void walkinqueue_Drop(object sender, DragEventArgs e)
@@ -1282,4 +1299,6 @@ namespace CPSC481Project
             }
         }
     }
+
+
 }

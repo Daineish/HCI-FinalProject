@@ -115,6 +115,7 @@
     </Compile>
     <Compile Include="Appointment.cs" />
     <Compile Include="AppointmentDatabase.cs" />
+    <Compile Include="DragAdorner.cs" />
     <Compile Include="EditAppointment.cs">
       <SubType>Form</SubType>
     </Compile>
