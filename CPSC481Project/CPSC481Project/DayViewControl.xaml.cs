@@ -367,6 +367,9 @@ namespace CPSC481Project
         private void ToDashboard_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             this.Visibility = Visibility.Hidden;
+            Grid g = (Grid)this.Parent;
+            MainWindow mw = (MainWindow)g.Parent;
+            mw.PopulateDefaultInfo();
         }
 
         private void miniCalendar_MouseDoubleClick(object sender, MouseButtonEventArgs e)

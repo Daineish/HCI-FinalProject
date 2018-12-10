@@ -102,7 +102,7 @@ namespace CPSC481Project
             {
                 DateTime today = DateTime.Today;
                 TimeSpan ts = new TimeSpan(15, 0, 0);
-                today = today.Date + ts;
+                today = today.AddDays(1).Date + ts;
                 m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("00001"), "Dr. Walter", today, today.AddMinutes(10), "Appointment #1"));
                 m_appointmentDatabase.AddAppointment(new Appointment(m_patientDatabase.findPatient("12345"), "Dr. Payne", today.AddMinutes(30), today.AddMinutes(40), "Appointment #2"));
                 int offset = 8;
@@ -166,7 +166,7 @@ namespace CPSC481Project
          * 
          * TODO: This isn't great code and could be cleaned up.
          */
-        private void PopulateDefaultInfo()
+        public void PopulateDefaultInfo()
         {
             // Get next appointments for each doctor from database
             List<Appointment> appointmentPayne1 = m_appointmentDatabase.NextAppointments("Dr. Payne", 2);
