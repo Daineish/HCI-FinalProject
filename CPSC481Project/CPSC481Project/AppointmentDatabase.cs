@@ -199,6 +199,8 @@ namespace CPSC481Project
                 DateTime soonestTime = DateTime.MaxValue;
                 foreach (Appointment a in remaining)
                 {
+                    if (DateTime.Compare(a.m_startTime, DateTime.Today.AddDays(1)) >= 0)
+                        continue;
                     if (DateTime.Compare(a.m_startTime, soonestTime) < 0 && a.m_doctor == doc)
                     {
                         soonest = a;
